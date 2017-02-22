@@ -778,7 +778,7 @@ margin: 20px auto;
 	width: 158px;
 	height:20px;
 }
-label.required:after { 
+span:after { 
 color: red; 
 content: " *"; 
 }

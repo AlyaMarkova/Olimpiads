@@ -416,7 +416,7 @@ body{
 #content{
     width: 720px;
     min-height: 100%;
-	background: red;
+	background: white;
 	margin: 5px 0 0 20px;
 	float: left;
 }

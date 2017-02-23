@@ -6,6 +6,7 @@ include ("bd.php");
 	<head>
 		<title>Hello, yopta</title>
 		<meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/modal_window.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />

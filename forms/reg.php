@@ -15,11 +15,11 @@ include ("js/Generation_pass.js");
 		</div>
 		<div>
 			<label class="lk_schoolboy">Имя</label>
-			<input required name="forename" type="text" >
+			<input required name="forename" type="text" > <span></span>
 		</div> 
 		<div>
 			<label class="lk_schoolboy">Отчество</label>
-			<input required name="patronymic" type="text" >
+			<input required name="patronymic" type="text" > <span></span>
 		</div> 
 	</div>
 	
@@ -41,8 +41,8 @@ include ("js/Generation_pass.js");
 			<label class="lk_schoolboy">Дата рождения</label>
 			<select required class="day_class" name="day1" id="day1"></select>
 			<select  required class="month_class" name="month1" id="month1"   ></select>
-			<select  required class="years_class" name="year1" id="year1"   ></select>
-		</div >
+			<select  required class="years_class" name="year1" id="year1"   ></select> <span></span>
+		</div > 
 		<div name="none">
 			<label class="lk_schoolboy">Школа</label>
 			<input required id="school"  name="school" type="text" >

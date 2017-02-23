@@ -11,7 +11,7 @@ include ("js/Generation_pass.js");
 	<div class="lk_schoolboy_blok">
 		<div>
 			<label class="lk_schoolboy">Фамилия</label>
-			<input required name="surname" type="text"> <span></span>
+			<input required name="surname" type="text"> <span><p title="А вот и я!"></p></span>
 		</div>
 		<div>
 			<label class="lk_schoolboy">Имя</label>
@@ -45,7 +45,7 @@ include ("js/Generation_pass.js");
 		</div > 
 		<div name="none">
 			<label class="lk_schoolboy">Школа</label>
-			<input required id="school"  name="school" type="text" >
+			<input required id="school"  name="school" type="text" > <span></span>
 		</div>
 		<div name="none">
 			<label  class="lk_schoolboy">Класс</label>		

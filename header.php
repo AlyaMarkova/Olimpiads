@@ -1,17 +1,18 @@
-
+﻿
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
- 
 	<div id="header">
 		
 			<div id="menu">
 				<ul class="main-menu">
 					<li id="p_menu1"><a href="http://olimp/index.php">Олимпиады</a></li>
 					<li id="p_menu2"><a href='http://olimp/reiting.php'>Рейтинг участников</a></li>
-					<li id="p_menu3" class="cursorik"><a>Архив</a>
-						<ul class="sub-menu">
+					<li id="p_menu3"><a href="http://olimp/arhiv.php">Итоги олимпиад</a>
+						<!--
+						class="cursorik"
+							<ul class="sub-menu">
 							<li id="p_menu4"><a href="http://olimp/arhiv.php">Итоги олимпиад</a></li>
-						</ul>
+						</ul>-->
 					</li>
 				</ul>
 			</div>

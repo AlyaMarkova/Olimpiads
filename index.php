@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 include ("bd.php");
 ?>
@@ -6,6 +6,7 @@ include ("bd.php");
 	<head>
 		<title>Олимпиады</title>
 		<meta charset="UTF-8">
+		<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/modal_window.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />

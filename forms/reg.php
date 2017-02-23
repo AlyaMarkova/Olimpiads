@@ -17,7 +17,7 @@ include ("js/Generation_pass.js");
 			<label class="lk_schoolboy">Имя</label>
 			<input required name="forename" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div> 
-		<div>
+		<div> 
 			<label class="lk_schoolboy">Отчество</label>
 			<input required name="patronymic" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div> 

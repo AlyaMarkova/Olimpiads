@@ -11,15 +11,15 @@ include ("js/Generation_pass.js");
 	<div class="lk_schoolboy_blok">
 		<div>
 			<label class="lk_schoolboy">Фамилия</label>
-			<input required name="surname" type="text"> <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input required name="surname" type="text"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 		<div>
 			<label class="lk_schoolboy">Имя</label>
-			<input required name="forename" type="text" > <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input required name="forename" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div> 
 		<div>
 			<label class="lk_schoolboy">Отчество</label>
-			<input required name="patronymic" type="text" > <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input required name="patronymic" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div> 
 	</div>
 	
@@ -41,11 +41,11 @@ include ("js/Generation_pass.js");
 			<label class="lk_schoolboy">Дата рождения</label>
 			<select required class="day_class" name="day1" id="day1"></select>
 			<select  required class="month_class" name="month1" id="month1"   ></select>
-			<select  required class="years_class" name="year1" id="year1"   ></select> <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<select  required class="years_class" name="year1" id="year1"   ></select> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div > 
 		<div name="none">
 			<label class="lk_schoolboy">Школа</label>
-			<input required id="school"  name="school" type="text" > <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input required id="school"  name="school" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 		<div name="none">
 			<label  class="lk_schoolboy">Класс</label>		
@@ -68,27 +68,27 @@ include ("js/Generation_pass.js");
 	<div class="lk_schoolboy_blok">	
 		<div>
 			<label class="lk_schoolboy">Логин</label>
-			<input required name="login" type="text" > <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input required name="login" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
 		<div>
 			<label class="lk_schoolboy">Пароль</label>
 			<input required id="password" name="password" type="text" >
-			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">
 		<div name="none">
 			<label  class="lk_schoolboy">Место жительства</label>
-			<input required id="location" name="location" type="text" > <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
+			<input required id="location" name="location" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>	
 		<div>
 			<label class="lk_schoolboy">Мобильный телефон</label>
 			<input name="mob_number" type="text" >
 		</div>
 		<div>
-			<label class="lk_schoolboy">Адрес эл. почты</label> <abbr title="Это поле обязательно для заполнения."><span></span></abbr> 
-			<input required name="email" type="text" >
+			<label class="lk_schoolboy">Адрес эл. почты</label> 
+			<input required name="email" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">

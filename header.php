@@ -7,7 +7,7 @@
 				<ul class="main-menu">
 					<li id="p_menu1"><a href="http://olimp/index.php">Олимпиады</a></li>
 					<li id="p_menu2"><a href='http://olimp/reiting.php'>Рейтинг участников</a></li>
-					<li id="p_menu3"><a href="http://olimp/arhiv.php">Архив</a>
+					<li id="p_menu3"><a href="http://olimp/arhiv.php">Итоги олимпиад</a>
 						<!--
 						class="cursorik"
 							<ul class="sub-menu">

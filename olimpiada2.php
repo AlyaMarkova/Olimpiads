@@ -4,7 +4,7 @@
 ?>
 <html>
 	<head>
-		<title>Олимпиады</title>
+		<title>Олимпиады ДВФУ</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>

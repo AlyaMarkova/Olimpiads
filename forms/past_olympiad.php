@@ -72,13 +72,12 @@ session_start();
 <table style="margin-top: 17px;" id="table_arhiv">
     <thead id="table_arhiv_thead">
     <tr >
-        <td class="table_arhiv_td2">Название
-        </td>
-        <td class="table_arhiv_na">
-            <input id="regexp1"/>
-        </td>
-        <td class="table_arhiv_td" >
-			
+		<td class="table_arhiv_td2">Дата</td>
+        <td class="table_arhiv_td2">Название <input id="regexp1"/> </td>
+        <!--<td class="table_arhiv_na">
+            
+        </td>-->
+        <td class="table_arhiv_td" >	
             <select  id="digits11">
                <option class = "option" value="">Предмет</option>
 			   <option class = "option" value="Математика">Математика</option>
@@ -86,10 +85,8 @@ session_start();
 			   <option class = "option" value="Информатика">Информатика</option>
 			   <option class = "option" value="Обществознание">Обществознание</option>
             </select>
-			
-        </td>
-        <td class="table_arhiv_td_shapka">
-        </td>
+		</td>
+        <td class="table_arhiv_td_shapka"> </td> <!-- это для добавления и редактирования итогов--> 
     </tr>
     </thead>
     <tbody id="target1">

@@ -76,9 +76,8 @@ background: linear-gradient(#4482ac, #2e678c);
 	padding-left: 5px;
 }
 .table_arhiv_td2{
-	width: 100px;
+	width: 150px;
 	padding-left: 10px;
-	
 }
 .table_arhiv_td3{
 	text-decoration: underline;
@@ -88,4 +87,7 @@ background: linear-gradient(#4482ac, #2e678c);
 	text-align: center;
 	background: #6AC0ED;
 }
-}
+/*.table_arhiv_date{
+	width: 150px;
+	padding-left: 10px;
+}*/

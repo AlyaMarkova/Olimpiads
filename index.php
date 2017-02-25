@@ -4,7 +4,7 @@ include ("bd.php");
 ?>
 <html>
 	<head>
-		<title>Олимпиады</title>
+		<title>Олимпиады ДВФУ</title>
 		<meta charset="UTF-8">
 		<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />

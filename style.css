@@ -500,7 +500,8 @@ body{
 margin: 0 auto; 
 } 
 
-#table_reiting{ 
+#table_reiting{
+   // text-align: center;	
 	border: 1px solid #0A3C57; 
 	border-collapse: collapse; 
 	color: #0A3C57; 
@@ -519,7 +520,7 @@ background: linear-gradient(#4482ac, #2e678c);
 } 
 .table_reiting_td{ 
 	border-right: 1px solid #0A3C57; 
-	padding: 0 5px 0 5px; 
+	padding: 0 5px 10px 5px; 
 	max-width: 200px;
 
 	
@@ -537,7 +538,7 @@ color: white;
 } 
 
 .table_reiting_td_shapka{ 
-font-size: 8px; 
+font-size: 13px;  
 text-align: center; 
 border-right: 1px solid #0A3C57;
 
@@ -551,13 +552,13 @@ border-right-color: #0A3C57;
 } 
 
 #regexp{ 
-height: 15px; 
-width: 100px; 
+height: 20px;
+width: 200px; 
 float: right; 
 background:#DEDFDF; 
 color:#0A3C57; 
 margin: 0,5px; 
-font-size: 12px;
+font-size: 14px;
 } 
 #digits1{ 
 background: none; 
@@ -778,6 +779,7 @@ margin: 20px auto;
 	width: 158px;
 	height:20px;
 }
+
 span:after { 
 color: red; 
 content: " *"; 

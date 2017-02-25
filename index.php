@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 session_start();
 include ("bd.php");
 ?>
 <html>
 	<head>
-		<title>Hello, yopta</title>
+		<title>Олимпиады</title>
 		<meta charset="UTF-8">
 		<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
@@ -12,7 +12,7 @@ include ("bd.php");
 		<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	</head>
-	<body>	
+	<body>
 		<?php include ("header.php");?>
 	<div id="main">
 		<div id="inside_main">

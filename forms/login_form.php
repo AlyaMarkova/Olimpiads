@@ -16,7 +16,7 @@
     <td class="td1"><input id ="stroka1" name="password" type="password" size="15"></td>
   </tr>
    <tr>
-    <td class="td1"> <a id = "white" href="pass.php">Забыли пароль? </a><a id = "white" href="registr_form.php">Регистрация</a></td>	
+    <td class="td1"> <a id = "white" href="pass.php">Забыли пароль? </a> <a id = "white" href="registr_form.php"> Регистрация</a></td>	
   </tr> 
    <tr>
     <td class="td1"> <input id ="knopka1" type="submit" name="submit" value="Войти"></td>

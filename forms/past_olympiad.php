@@ -72,13 +72,12 @@ session_start();
 <table style="margin-top: 17px;" id="table_arhiv">
     <thead id="table_arhiv_thead">
     <tr >
-        <td class="table_arhiv_td2">Название
-        </td>
-        <td class="table_arhiv_na">
-            <input id="regexp1"/>
-        </td>
-        <td class="table_arhiv_td" >
-			
+		<td class="table_arhiv_date">Дата</td>
+        <td class="table_arhiv_na">Название </td>
+		
+		<td class="table_arhiv_na_search"><input id="regexp1" placeholder="Поиск по названию"></td>
+		
+        <td class="table_arhiv_subj" >	
             <select  id="digits11">
                <option class = "option" value="">Предмет</option>
 			   <option class = "option" value="Математика">Математика</option>
@@ -86,10 +85,8 @@ session_start();
 			   <option class = "option" value="Информатика">Информатика</option>
 			   <option class = "option" value="Обществознание">Обществознание</option>
             </select>
-			
-        </td>
-        <td class="table_arhiv_td_shapka">
-        </td>
+		</td>
+        <td class="table_arhiv_td_shapka"> </td> <!-- это поле кнопки для добавления и редактирования итогов--> 
     </tr>
     </thead>
     <tbody id="target1">
@@ -98,7 +95,7 @@ session_start();
 ?>
 			<tr class="arh_str">
 		   <td class="table_arhiv_td1"> <?echo $row4[$i]["date1"] ?> </td>
-           <td class="table_arhiv_td3"><a id="best_href1" href="../arhiv_result.php?id=<?echo $row4[$i]["id"]?>"> <? echo $row4[$i]["name_olympiad"]?></a></td>
+           <td colspan="2" class="table_arhiv_td3"><a id="best_href1" href="../arhiv_result.php?id=<?echo $row4[$i]["id"]?>"> <? echo $row4[$i]["name_olympiad"]?></a></td>
 		   <td class="table_arhiv_td4"><?echo $row4[$i]["subject"] ?></td>
 		   <td class="table_arhiv_td1"><? if ($row4[$i]["rights"] >=2) { ?>
 			 <input class="redak_itog" title="Редактировать итоги олимпиады" type = "button" <? if ($idS == $row4[$i]["professor_users_id"] or $row4[$i]["rights"] == 3) { ?>

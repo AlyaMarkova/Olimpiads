@@ -3,7 +3,7 @@ session_start();
 ?>
 <html>
 	<head>
-		<title>Олимпиады</title>
+		<title>Регистрация пользователя - Олимпиады ДВФУ</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/modal_window.css" media="screen" />

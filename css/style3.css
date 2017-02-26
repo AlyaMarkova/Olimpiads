@@ -26,14 +26,14 @@
 	margin: 15px 0 0 15px;
 }
 #lk_schoolboy{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 16pt;
 	padding: 0 10px 0 40px;
 	border-radius: 0 4px 4px 0;
 }
 #lk_schoolboy1{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 16pt;
 	padding: 0 10px 0 81px;
@@ -55,7 +55,7 @@ color: #0A3C57;
 #table_arhiv_thead{
 	background: #0A3C57; 
 color : white; 
-background: linear-gradient(#4482ac, #2e678c);
+background: linear-gradient(#0066b3, #0066b3);
 }
 
 /*********

@@ -9,7 +9,7 @@
 }
 .dvoetochie{
 	font-weight:500;
-	color: #2e678c;
+	color: #0066b3;
 }
 #spam_email{
 	width:20px;
@@ -92,7 +92,7 @@ body{
 	 
 }
 #Olympiad_description_elements1{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 18pt;
 	padding: 0 10px 0 150px;
@@ -108,7 +108,7 @@ body{
 	 
 }
 #Olympiad_description_elements3{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 18pt;
 	padding: 0 10px 0 122px;
@@ -117,7 +117,7 @@ body{
 
 #Olympiad_description_elements4{
 	
-	 background: #27739A;
+	 background: #0066b3;
 	Color: white;
 	font-size: 18pt;
 	padding: 0 10px 0 19px;
@@ -126,7 +126,7 @@ body{
 
 #Olympiad_description_elements5{
 	
-	 background: #27739A;
+	 background: #0066b3;
 	Color: white;
 	font-size: 18pt;
 	padding: 0 10px 0 37px;
@@ -402,7 +402,7 @@ body{
 #footer{
     width: 1146.65px;
     height: 70px;
-	background: #236C92;
+	background: #0066b3;
 	margin:0 auto;
 }
 
@@ -425,7 +425,7 @@ body{
 }
 .main-menu a:hover {
 	color: white;
-    background: #236C92;
+    background: #0066b3;
 }
 .main-menu > li:hover .sub-menu {
     display: block;
@@ -475,7 +475,7 @@ margin: 0 auto;
 #table_reiting_thead{ 
 background: #0A3C57; 
 color : white; 
-background: linear-gradient(#4482ac, #2e678c); 
+background: linear-gradient(#0066b3, #0066b3); 
 
 
 } 
@@ -546,7 +546,7 @@ height: 21px;
 color: #0A3C57; 
 background: #0A3C57; 
 color : white; 
-background: linear-gradient(#4482ac, #2e678c); 
+background: linear-gradient(#0066b3, #0066b3); 
 
 } 
 
@@ -562,7 +562,7 @@ margin: 20px auto;
 	margin: auto;
 }
 #besttr{
-	background:#2E7EA9;
+	background:#0066b3;
 	color: white;
 }
 
@@ -575,7 +575,7 @@ margin: 20px auto;
 	background:#E4F3FC;
 }
 #best_a{
-	background:#2E7EA9;
+	background:#0066b3;
 }
 
 #best_a_a {
@@ -586,7 +586,7 @@ margin: 20px auto;
 }
 #time_line{
 	height: 35px;
-	background:#27739A;
+	background:#0066b3;
 	padding: 7px 0 0 15px;
 	Color: white;
 }
@@ -611,96 +611,96 @@ margin: 20px auto;
 	background: #0A3C57;
 }
 #reg_p1{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 178px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p2{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 216px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p3{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 176px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p4{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 218px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p5{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 130px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p6{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 195px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p7{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 203px;
 	border-radius: 0 4px 4px 0;
 }#reg_p8{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 200px;
 	border-radius: 0 4px 4px 0;
 }#reg_p9{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 192px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p10{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 104px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p11{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 84px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p12{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 120px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p13{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 80px;
 	border-radius: 0 4px 4px 0;
 }
 #reg_p14{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 14pt;
 	padding: 0 10px 0 196px;

@@ -53,7 +53,7 @@
   transition: 0.2s;
   position: relative;
   left: 210px;
-  font-size:10px;
+   font-size:13px;
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 130px;
 }
@@ -104,9 +104,9 @@
   border-color: #F28E91;
   background: linear-gradient(#F28E91, #CF918F ) ;
   transition: 0.2s;
-  font-size:9px;
+ font-size:12px;
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
-  width: 50px; 
+  width: 57px; 
   margin-left:15px;
 }
 .knopka_cansel:hover { background: linear-gradient(#9C1A0F, #79130F); } /* при наведении курсора мышки */
@@ -243,7 +243,7 @@ background-image: url(../images/redak_olimp.jpg);
 
 #lk_fio_div {
 	text-align: left;
-	margin-left: 10%;
+	margin: 10px 0 0 10%;
 }
 
 .request_zayvka{ /*кнопка заявки*/ 
@@ -411,13 +411,13 @@ input[type="label"]:pointerEvents {
 #select_subject{                   /* фон select списка предметов */
 	background-image: url(../images/predm_list.jpg);  
 	background-position:center center; 
-	height: 25px;	
+	height: 30px;	
 	padding-bottom: 6px; 
-	width: 120px;
+	width: 130px;
 	background-repeat: no-repeat; 
 	-webkit-appearance: none;
 	text-align-last: center;
-	font-size: 10x;
+	font-size: 14px;
 	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border-radius: 2px 2px 2px 2px;
 	border-color: #0066b3;
@@ -432,7 +432,7 @@ input[type="label"]:pointerEvents {
 	resize: none;
 	position: absolute;
 	margin-left: 5px;
-	margin-top: 9px;
+	margin-top: 6px;
 }
 #password{ /* размер в пароле*/
 	
@@ -489,13 +489,13 @@ input[type="button"]:disabled {
 	background-image: url(../images/date_date.jpg);
 	background-position:center center;
 	width: 35px; 
-	height: 25px;
+	height: 30px;
 	
 	-webkit-appearance: none; 
 	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
-	font-size: 11px;
+	font-size: 14px;
 	padding-bottom: 6px;
 	
 	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
@@ -508,13 +508,13 @@ input[type="button"]:disabled {
 	background-image: url(../images/date_month.jpg);
 	background-position:center center;
 	width: 75px; 
-	height: 25px;
+	height: 30px;
 	
 	-webkit-appearance: none; 
 	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
-	font-size: 11px;
+	font-size: 14px;
 	padding-bottom: 6px;
 	
 	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
@@ -527,13 +527,13 @@ input[type="button"]:disabled {
 	background-image: url(../images/date_year.jpg);
 	background-position:center center;
 	width: 45px; 
-	height: 25px;
+	height: 30px;
 	
 	-webkit-appearance: none; 
 	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
-	font-size: 11px;
+	font-size: 14px;
 	padding-bottom: 6px;
 	
 	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;

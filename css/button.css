@@ -32,7 +32,7 @@
 
 .time_number{
 	border: none;
-	border-bottom: 2px solid #2e678c;
+	border-bottom: 2px solid #0066b3;
 	
 }
 
@@ -67,7 +67,7 @@
 }
 #label_pass{ /*текст в восстановлении пароля*/
 	display: inline-block;
-	color:#2e678c;
+	color:#0066b3;
 	font-size:16px;
     font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	padding: 10px 20px 10px 20px;
@@ -121,7 +121,7 @@
 	-webkit-appearance: none; 
 	background-repeat: no-repeat; 
 	padding-bottom: 5px;
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
 .classik{     /*select класса*/
@@ -131,7 +131,7 @@
 	height: 25px;
 	
 	-webkit-appearance: none; 
-	border-color: #4482ac;
+	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
 	font-size: 12px;
@@ -149,7 +149,7 @@
 	height: 23px;
 	
 	-webkit-appearance: none; 
-	border-color: #4482ac;
+	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
 	font-size: 11px;
@@ -174,7 +174,7 @@ background-image: url(../images/redak_olimp.jpg);
 	background-repeat: no-repeat; 
 	
 	
-	border: 1px solid #2e678c; 
+	border: 1px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px;	
 }
 
@@ -185,13 +185,13 @@ background-image: url(../images/redak_olimp.jpg);
 .div_date{                 /* для выравнивания этапов и цвета текста */
 	  margin-left: 210px;
 	padding-top: 9px;
-	color: linear-gradient(#4482ac, #2e678c);
+	color: linear-gradient(#0066b3, #0066b3);
 }
 #subject_string{
 	display: none;
 }
 .predmet_olimp{                 /* кнопочки предметов */
-	background: linear-gradient(#4482ac, #2e678c);
+	background: linear-gradient(#0066b3, #0066b3);
 	
 }
 
@@ -203,7 +203,7 @@ background-image: url(../images/redak_olimp.jpg);
 
 #lk_schoolboy{ /**/
 	display: inline-block;
-	background: linear-gradient(#4482ac, #2e678c);
+	background: linear-gradient(#0066b3, #0066b3);
     color: white; 
     padding: 0 7px 0 0; 
 	line-height: 30px;
@@ -215,7 +215,7 @@ background-image: url(../images/redak_olimp.jpg);
 }
 .lk_schoolboy{   /*блоки вокруг текста*/
 	display: inline-block;
-	background: linear-gradient(#4482ac, #2e678c);
+	background: linear-gradient(#0066b3, #0066b3);
     color: white; 
     padding: 0 7px 0 0; 
 	line-height: 30px;
@@ -230,24 +230,21 @@ background-image: url(../images/redak_olimp.jpg);
 }
 
 .lk_scoolboy{ /*отступы и цвет общего текста*/
-	color: linear-gradient(#4482ac, #2e678c);
+	color: linear-gradient(#0066b3, #0066b3);
 	 margin-left: 7px; 
 }
 
 #lk_fio {
 	display: inline-block;	
-	color: linear-gradient(#4482ac, #2e678c);
+	color: linear-gradient(#0066b3, #0066b3);
 	font-size: 25px;
 	text-align: center;
 }
 
-#lk_fio_div {	
-	
+#lk_fio_div {
 	text-align: left;
 	margin: 10px 0 0 10%;
 }
-
-
 
 .request_zayvka{ /*кнопка заявки*/ 
 	background-image: url(../images/zayvka.jpg); 
@@ -261,7 +258,7 @@ background-image: url(../images/redak_olimp.jpg);
 	position: absolute; 
 	top:2px; 
 	right:56px; 
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 } 
 .no_request_zayvka{ /*кнопка отмены заявки*/ 
@@ -276,7 +273,7 @@ background-image: url(../images/redak_olimp.jpg);
 	position: absolute; 
 	top:2px; 
 	right:56px; 
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
 .organizator{ /*кнопка организатор*/ 
@@ -291,7 +288,7 @@ background-image: url(../images/redak_olimp.jpg);
 	position: absolute; 
 	top:2px; 
 	right:56px; 
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
 .delite_olimp{ /*кнопка удалить олимпиаду*/ 
@@ -306,7 +303,7 @@ background-image: url(../images/redak_olimp.jpg);
 	position: absolute; 
 	top:2px; 
 	right:56px; 
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
 .redak_olimp{ /*кнопка редактирование олимпиады*/ 
@@ -321,7 +318,7 @@ background-image: url(../images/redak_olimp.jpg);
 	position: absolute; 
 	top:2px; 
 	right:56px; 
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
 input[type="button"]{
@@ -423,7 +420,7 @@ input[type="label"]:pointerEvents {
 	font-size: 14px;
 	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border-radius: 2px 2px 2px 2px;
-	border-color: #4482ac;
+	border-color: #0066b3;
 	vertical-align: 3px; 
 	background-size: 140% auto;
 }
@@ -484,7 +481,7 @@ input[type="button"]:disabled {
 	position: absolute; 
 	top:2px; 
 	right:56px; 
-	border: 0.5px solid #2e678c; 
+	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
 
@@ -495,7 +492,7 @@ input[type="button"]:disabled {
 	height: 30px;
 	
 	-webkit-appearance: none; 
-	border-color: #4482ac;
+	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
 	font-size: 14px;
@@ -514,7 +511,7 @@ input[type="button"]:disabled {
 	height: 30px;
 	
 	-webkit-appearance: none; 
-	border-color: #4482ac;
+	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
 	font-size: 14px;
@@ -533,7 +530,7 @@ input[type="button"]:disabled {
 	height: 30px;
 	
 	-webkit-appearance: none; 
-	border-color: #4482ac;
+	border-color: #0066b3;
 	background-repeat: no-repeat;
 	text-align-last: center;
 	font-size: 14px;

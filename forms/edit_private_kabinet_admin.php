@@ -78,7 +78,7 @@ session_start();
 		</div>
 		<div id="admin5">
 			<label id="lk_schoolboy">Адрес эл. почты</label>
-			<input id="email" required name="email" type="text" >
+			<input id="email" required name="email" type="email" >
 		</div>
 		</div>
 		<div id="professor4">

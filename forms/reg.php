@@ -25,7 +25,7 @@ include ("js/Generation_pass.js");
 	
 	<div>			
 			<label class="lk_schoolboy">Статус</label>		
-			<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status"  size="1">
+			<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status" size="1">
 			   <option value="1">Участник
 			   <option value="2">Организатор			
 			</SELECT>
@@ -68,7 +68,7 @@ include ("js/Generation_pass.js");
 	<div class="lk_schoolboy_blok">	
 		<div>
 			<label class="lk_schoolboy">Логин</label>
-			<input required name="login" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="login" type="text"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- Собственно у этого поля проверяет наличие в базе данных-->
 		</div>
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
 		<div>
@@ -88,7 +88,7 @@ include ("js/Generation_pass.js");
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 
-			<input required name="email" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="email" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- А еще у этого поля проверяем наличие в базе данных-->
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">
@@ -134,7 +134,7 @@ function organ(){
 		}
 	}
 	
-}
+}  
 function location_cancel(){		
 		document.location.href="../index.php";
 }
@@ -212,6 +212,7 @@ window.onload = function () {
         year1.detachEvent('onchange', check_date);
         month1.detachEvent('onchange', check_date);
     }
+	organ();
 	//document.getElementById('day1').value = "5";
 }
 

@@ -82,7 +82,7 @@ session_start();
 		</div>	
 		<div id="admin4">
 			<label id="lk_schoolboy">Мобильный телефон</label>
-			<input id="mob_number" name="mob_number" type="text" >
+			<input id="mob_number" name="mob_number" type="text" pattern="[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер телефона (не более 11 цифр).')" oninput="setCustomValidity(' ')">
 		</div>
 		<div id="admin5">
 			<label id="lk_schoolboy">Адрес эл. почты</label>
@@ -256,8 +256,12 @@ window.onload = function () {
 	function location_cancel(){		
 		document.location.href="../lk.php";
 	}
-			
 	
+document.getElementById('mob_number').onkeypress=function(event){
+ event= event || window.event;
+ if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+  return false;
+}
 </script>
 
 

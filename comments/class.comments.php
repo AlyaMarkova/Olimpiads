@@ -169,11 +169,11 @@ function replyComments() {
 function itemComments($username,$date,$text,$img,$id,$autor=false, $userid='') {
 	
 	$possport=md5($this->key.'admin');
-	//if($this->login) 
+	if($this->login) 
 	if($_SESSION['login']!=""){
 		$reply='<a href="javascript://" rel="'.$id.'" class="replyComment" title="Ответить на комментарий: '.$username.'">Ответить</a>';
 	}
-	//if($autor or $this->admin)$edit=' <a href="javascript://" rel="'.$id.'" class="editComment" title="Редактировать комметарий">Редактировать</a>';
+	if($autor or $this->admin)$edit=' <a href="javascript://" rel="'.$id.'" class="editComment" title="Редактировать комметарий">Редактировать</a>';
 	
 	if($autor or $this->admin) $del=' | <a href="id='.$id.'&passport='.$possport.'&noajax=1&eventComments=del" onclick="return false" rel="'.$id.'" passport="'.$possport.'" class="delComment" title="Удалить комментарий">Удалить</a>';
 	

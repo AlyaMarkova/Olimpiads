@@ -3,9 +3,7 @@ include ("js/Generation_pass.js");
 ?>
 
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
-<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
-
-	
+<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />	
 	<form action="../bd/save_user.php" method="post">
 	<!--**** save_user.php - это адрес обработчика. То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей отправятся на страничку save_user.php методом "post" ***** -->
 	<div class="lk_schoolboy_blok">
@@ -73,8 +71,19 @@ include ("js/Generation_pass.js");
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
 		<div>
 			<label class="lk_schoolboy">Пароль</label>
-			<input required id="password" name="password" type="text" >
-			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required id="password" name="password" type="password" >
+			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> 		
+			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 	
+			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+
+<script language="Javascript">
+function ShowHidePassword(id){
+element = $('#'+id)
+element.replaceWith(element.clone().attr('type',(element.attr('type') == 'password') ? 'text' : 'password'))
+}
+</script>
+
+
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">
@@ -110,6 +119,11 @@ include ("js/Generation_pass.js");
 	</form>
 
 <script>
+
+function seeit(){
+
+}
+
 function organ(){
 	if(document.getElementById('select_status').value==2){
 		document.getElementById('school').required=false;

@@ -51,7 +51,7 @@ if (!empty($myrow['id'])) {
 alert("Извините, введённый вами логин уже зарегистрирован. Введите другой логин");
 </script>
 <?
-exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");
+exit("<html><head><meta /*http-equiv='Refresh' content='0; URL=../registr_form.php'*/></head></html>");
 //exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
 }
 

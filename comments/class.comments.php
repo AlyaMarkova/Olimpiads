@@ -143,7 +143,7 @@ function replyComments() {
 		<input name="nameCommentCap" id="RnameCommentCap" value="" type="text">
 		
 		<td></td>
-		<td><input type="checkbox" id="anon" name="anon" value="ON"> Анонимно</td>
+		<!--<td><input type="checkbox" id="anon" name="anon" value="ON"> Анонимно</td> -->
 		<input name="replyComment" id="RreplyComment" value="'.$replyid.'" type="hidden">
 		<input name="loginComment" id="RloginComment" value="'.intval($this->login).'" type="hidden">
 		<input name="posturlComment" id="RposturlComment" value="'.$url.'" type="hidden">
@@ -412,7 +412,7 @@ function formComment($replyid=0)
 		<table id="tableComment">		
 		'.$name.'
 		<td></td>
-		<td><input type="checkbox" name="anon" id="anon" value = "ON">Анонимно</td>
+		<!--<td><input type="checkbox" name="anon" id="anon" value = "ON">Анонимно</td>-->
 		<tr>		
 		<td class="section-one">Текст комментария</td><td><textarea name="textComment" id="textComment" class="textareaComment tinymce"></textarea></td></tr>
 		

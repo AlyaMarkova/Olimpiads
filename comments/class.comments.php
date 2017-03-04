@@ -143,7 +143,7 @@ function replyComments() {
 		<input name="nameCommentCap" id="RnameCommentCap" value="" type="text">
 		
 		<td></td>
-		<td><input type="checkbox" id="anon" name="anon" value="ON"> Анонимно</td>
+		<--!<td><input type="checkbox" id="anon" name="anon" value="ON"> Анонимно</td> -->
 		<input name="replyComment" id="RreplyComment" value="'.$replyid.'" type="hidden">
 		<input name="loginComment" id="RloginComment" value="'.intval($this->login).'" type="hidden">
 		<input name="posturlComment" id="RposturlComment" value="'.$url.'" type="hidden">

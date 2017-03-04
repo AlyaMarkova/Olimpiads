@@ -88,11 +88,8 @@ include ("js/Generation_pass.js");
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 
-<<<<<<< HEAD
-			<input required name="email" type="email" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
-=======
-			<input required name="email" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- А еще у этого поля проверяем наличие в базе данных-->
->>>>>>> origin/master
+			<input required name="email" type="email" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- А еще у этого поля проверяем наличие в базе данных-->
+
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">

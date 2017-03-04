@@ -412,7 +412,7 @@ function formComment($replyid=0)
 		<table id="tableComment">		
 		'.$name.'
 		<td></td>
-		<td><input type="checkbox" name="anon" id="anon" value = "ON">Анонимно</td>
+		<!--<td><input type="checkbox" name="anon" id="anon" value = "ON">Анонимно</td>-->
 		<tr>		
 		<td class="section-one">Текст комментария</td><td><textarea name="textComment" id="textComment" class="textareaComment tinymce"></textarea></td></tr>
 		

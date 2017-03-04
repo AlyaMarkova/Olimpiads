@@ -424,6 +424,62 @@ function formComment($replyid=0)
 	}
 	}
 
+	
+	function editComment($replyid=0)
+	{
+	global $user;
+	if($_SESSION['login']!=""){
+	if($this->login)
+		{
+		$pass_checked=md5($this->user['password'].$this->key);
+		}
+		else 
+		{
+		$name='
+		<tr><td class="section-one">Имя</td><td>
+		<input name="nameComment" id="nameComment" value="" type="text" class="inputComment">
+		<input name="nameCommentCap" id="nameCommentCap" value="" type="text" class="nameCommentCap">
+		</td></tr>
+		<tr><td class="section-one">Эл. почта</td><td><input name="emailComment" id="emailComment" value="" type="text" class="inputComment"></td></tr>';
+		}
+
+	$url=$this->getUrl();
+	//$urlOpen=$this->getUrl(false, 'open');
+
+	/*if($this->capcha)
+		{
+		$capcha ='
+		<tr><td class="section-one">Введите код с картинки:<br/><img src="'.$this->paths['capcha'].'" alt="картинка" width="120" height="50"/></td><td>
+		<input type="text" name="capcha" id="capcha" value="" class="inputComment"/></td></tr>';
+		}*/
+	
+	$form = '<h3 id="newComment">Оставить свой комментарий </h3>
+	<form action="" method="post" id="formComment">
+		<input name="addComment" id="addComment" value="1" type="hidden">
+		<input name="loginComment" id="loginComment" value="'.intval($this->login).'" type="hidden">
+		<input name="posturlComment" id="posturlComment" value="'.$url.'" type="hidden">
+		<input name="posturlOpenComment" id="posturlOpenComment" value="'.$urlOpen.'" type="hidden">
+		<input name="personaComment" id="personaComment" value="'.@$this->user['userID'].'" type="hidden">
+		<input name="checkedComment" id="checkedComment" value="'.@$pass_checked.'" type="hidden">
+		<input name="eventComments" id="eventComment" value="save" type="hidden">
+		<input name="noAjax" value="1" type="hidden">
+		<table id="tableComment">		
+		'.$name.'
+		<td></td>
+		<!--<td><input type="checkbox" name="anon" id="anon" value = "ON">Анонимно</td>-->
+		<tr>		
+		<td class="section-one">Текст комментария</td><td><textarea name="textComment" id="textComment" class="textareaComment tinymce"></textarea></td></tr>
+		
+		</table>
+		<input value="Комментировать" name="submit" type="submit" class="submitComment"/>
+	</form>';
+
+	return $form;
+	}
+	}
+	
+	
+	
 function pageComment() {
 	//return $out;
 	}

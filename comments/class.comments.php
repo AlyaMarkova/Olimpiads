@@ -168,7 +168,7 @@ function replyComments() {
 function itemComments($username,$date,$text,$img,$id,$autor=false, $userid='') {
 	
 	$possport=md5($this->key.'admin');
-//	if($this->login) 
+	if($this->login) 
 	if($_SESSION['login']!=""){
 		$reply='<a href="javascript://" rel="'.$id.'" class="replyComment" title="Ответить на комментарий: '.$username.'">Ответить</a>';
 	}

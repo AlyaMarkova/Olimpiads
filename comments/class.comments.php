@@ -150,6 +150,7 @@ function replyComments() {
 		<input name="personaComment" id="RpersonaComment" value="'.$this->user['userID'].'" type="hidden">
 		<input name="checkedComment" id="RcheckedComment" value="'.$pass_checked.'" type="hidden">
 		<input name="posturlOpenComment" id="RposturlOpenComment" value="'.$urlOpen.'" type="hidden">
+	
 		<input name="eventComments" id="ReventComment" value="save" type="hidden">
 		<input name="noAjax" value="1" type="hidden">
 		
@@ -168,11 +169,12 @@ function replyComments() {
 function itemComments($username,$date,$text,$img,$id,$autor=false, $userid='') {
 	
 	$possport=md5($this->key.'admin');
-	if($this->login) 
+	//if($this->login) 
 	if($_SESSION['login']!=""){
 		$reply='<a href="javascript://" rel="'.$id.'" class="replyComment" title="Ответить на комментарий: '.$username.'">Ответить</a>';
 	}
-	if($autor or $this->admin)$edit=' | <a href="javascript://" rel="'.$id.'" class="editComment" title="Редактировать комметарий">Редактировать</a>';
+	if($autor or $this->admin)$edit=' <a href="javascript://" rel="'.$id.'" class="editComment" title="Редактировать комметарий">Редактировать</a>';
+	
 	if($this->admin) $del=' | <a href="?id='.$id.'&passport='.$possport.'&noajax=1&eventComments=del" onclick="return false" rel="'.$id.'" passport="'.$possport.'" class="delComment" title="Удалить комментарий">Удалить</a>';
 	
 	if($userid>0)$uslink="/com/profile/default/$userid/";else $uslink='#itemComment-'.$id;

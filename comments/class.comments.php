@@ -172,7 +172,7 @@ function itemComments($username,$date,$text,$img,$id,$autor=false, $userid='') {
 	if($_SESSION['login']!=""){
 		$reply='<a href="javascript://" rel="'.$id.'" class="replyComment" title="Ответить на комментарий: '.$username.'">Ответить</a>';
 	}
-//	if($autor or $this->admin)$edit=' | <a href="javascript://" rel="'.$id.'" class="editComment" title="Редактировать комметарий">Редактировать</a>';
+	if($autor or $this->admin)$edit=' | <a href="javascript://" rel="'.$id.'" class="editComment" title="Редактировать комметарий">Редактировать</a>';
 	if($this->admin) $del=' | <a href="?id='.$id.'&passport='.$possport.'&noajax=1&eventComments=del" onclick="return false" rel="'.$id.'" passport="'.$possport.'" class="delComment" title="Удалить комментарий">Удалить</a>';
 	
 	if($userid>0)$uslink="/com/profile/default/$userid/";else $uslink='#itemComment-'.$id;

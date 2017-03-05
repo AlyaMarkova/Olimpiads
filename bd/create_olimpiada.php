@@ -43,7 +43,7 @@ if ($date_application >= $date_first_round) {
 	alert("Срок подачи заявки указан неверно!");
 	</script>
 	<?
-} else { //иначе идём дальше
+} else { //иначе идём дальше*/
 	for($i=1;$i<12;$i++){ //ваще не вкуриваю, для чего этот цикл
 		if($i==11&&$_POST['class_olimp'.$i]=="ON"){
 			if($flag==true&&$class_string!=""){
@@ -117,8 +117,7 @@ if ($send_olimp) {
 	} else {
 		?>
 		<script>
-	alert("Проверка");
-		//javascript:history.back() 
+		javascript:history.back() 
 		</script>
 		<?
 	}

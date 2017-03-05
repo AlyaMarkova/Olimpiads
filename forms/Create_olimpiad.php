@@ -13,7 +13,7 @@ include ("js/select_subject.js");
 		</p>
 		<div>
 			<div id="div_p_date_olimp">
-				<label id="lk_schoolboy" >Дата проведения</label>						
+				<label id="lk_schoolboy">Дата проведения</label>						
 			</div>
 		</div>
 		
@@ -73,12 +73,12 @@ include ("js/select_subject.js");
 			<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
 			<input type="button"  class="knopka_cansel" onclick="location_cancel()" name="submit_cancel" value="Отмена">
 		</div>
-		
+	</form>
 	
-	
-</body>
-</html>
+<!--</body>
+</html>-->
 <script>
+	
 	
 	function location_cancel(){		
 		document.location.href="../index.php";
@@ -234,6 +234,5 @@ include ("js/select_subject.js");
 		}
 	}
 	
-
 	
 </script>

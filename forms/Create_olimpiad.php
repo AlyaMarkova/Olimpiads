@@ -1,11 +1,26 @@
 ﻿<?php
-/*session_start();
-include ("js/select_subject.js");*/
 include ("js/select_subject.js");
-?>
-
-<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
-	<form id="form" action="bd/create_olimpiada.php" method="post">
+?><!--action="bd/create_olimpiada.php"--> 
+<script>
+	function validate_form (form)
+	{
+		return twodates;
+	}
+	function twodates()
+	{
+		var date0= new Date(document.getElementById("year0").value, document.getElementById("month0").value-1, document.getElementById("day0").value);
+		var date1= new Date(document.getElementById("year1").value, document.getElementById("month1").value-1, document.getElementById("day1").value);
+        if ( date0<date1 )
+        {
+                return true;
+        }
+		else{
+				alert("Даты этапов проведения олимпиад указаны неверно!");
+                return false;
+		}
+	}
+</script>
+	<form id="form" action="bd/create_olimpiada.php" onsubmit="return validate_form (this );">
 	<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 		<p>
 			<label  id="lk_schoolboy" >Название олимпиады</label>
@@ -13,7 +28,7 @@ include ("js/select_subject.js");
 		</p>
 		<div>
 			<div id="div_p_date_olimp">
-				<label id="lk_schoolboy">Дата проведения</label>						
+				<label id="lk_schoolboy" >Дата проведения</label>						
 			</div>
 		</div>
 		
@@ -73,13 +88,12 @@ include ("js/select_subject.js");
 			<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
 			<input type="button"  class="knopka_cansel" onclick="location_cancel()" name="submit_cancel" value="Отмена">
 		</div>
-	</form>
+		
 	
-<!--</body>
-</html>-->
+	
+</body>
+</html>
 <script>
-	
-	
 	function location_cancel(){		
 		document.location.href="../index.php";
 	}
@@ -128,7 +142,7 @@ include ("js/select_subject.js");
     var year1 = document.getElementById('year1');
     var month1 = document.getElementById("month1");
  
-    function check_date() {
+    /*function check_date() {
         var a = year1.value | 0,
             c = month1.value | 0;
 			
@@ -137,9 +151,6 @@ include ("js/select_subject.js");
 		
         set_select("day", md, 1, a);
     };
-	
-
-	
 	
   /*  if (document.addEventListener) {
         year.addEventListener('change', check_date, false);
@@ -172,11 +183,8 @@ include ("js/select_subject.js");
 	function check_date(id) {
         var a = year1.value | 0,
             c = month1.value | 0;
-	
-			
         md = (new Date(a, c, 0, 0, 0, 0, 0)).getDate();
         a = document.getElementById("day"+id).selectedIndex;
-		
         set_select("day"+id, md, 1, document.getElementById('day'+id).value);
     };	 
 	function set_select(a, c, d, e) {
@@ -234,5 +242,6 @@ include ("js/select_subject.js");
 		}
 	}
 	
+
 	
 </script>

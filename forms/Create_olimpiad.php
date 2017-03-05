@@ -4,7 +4,22 @@ include ("js/select_subject.js");
 <script>
 	function validate_form (form)
 	{
-		return twodates;
+		return twodates()&& manydates();
+	}
+	function manydates()
+	{
+		value_of_return=true
+		var date0=new Date(document.getElementById("year1").value, document.getElementById("month1").value-1, document.getElementById("day1").value);
+		var date1=new Date();
+		for (var i = 1; i < form.number_date.value-1; i++) {
+			date1=new Date(document.getElementById("year"+i+1).value, document.getElementById("month"+i).value+i+1, document.getElementById("day"+i+1).value);
+			if ( date0>date1 )
+					value_of_return=false;
+			date0=date1;
+		}
+		if (!value_of_return)
+				alert("Даты этапов проведения олимпиад указаны неверно!");
+		return value_of_return
 	}
 	function twodates()
 	{
@@ -15,7 +30,7 @@ include ("js/select_subject.js");
                 return true;
         }
 		else{
-				alert("Даты этапов проведения олимпиад указаны неверно!");
+				alert("Срок подачи заявки указан неверно!");
                 return false;
 		}
 	}

@@ -38,8 +38,8 @@ include ("js/Generation_pass.js");
 		<div name="none">
 			<label class="lk_schoolboy">Дата рождения</label>
 			<select required class="day_class" name="day1" id="day1"></select>
-			<select  required class="month_class" name="month1" id="month1"   ></select>
-			<select  required class="years_class" name="year1" id="year1"   ></select> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<select required class="month_class" name="month1" id="month1"></select>
+			<select required class="years_class" name="year1" id="year1"></select> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div > 
 		<div name="none">
 			<label class="lk_schoolboy">Школа</label>
@@ -88,12 +88,12 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 	</div>	
 	<div class="lk_schoolboy_blok">
 		<div name="none">
-			<label  class="lk_schoolboy">Место жительства</label>
+			<label class="lk_schoolboy">Место жительства</label>
 			<input required id="location" name="location" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>	
 		<div>
 			<label class="lk_schoolboy">Мобильный телефон</label>
-			<input name="mob_number" type="text" >
+			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер телефона (не более 11 цифр).')" oninput="setCustomValidity(' ')">
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 
@@ -192,7 +192,7 @@ window.onload = function () {
     }
 	set_select("day1", md, 1, "дд");
     set_select("month1", 12, 1, "мм");
-    set_select("year1", 20, day.getFullYear()-19, "гг");/*
+    set_select("year1", 13, day.getFullYear()-19, "гг");/*
 	set_select("day1", md, 1, day.getDate() - 1);
 
     set_select("month1", 12, 1, day.getMonth());
@@ -229,6 +229,12 @@ window.onload = function () {
     }
 	organ();
 	//document.getElementById('day1').value = "5";
+}
+
+document.getElementById('mobile').onkeypress=function(event){
+ event= event || window.event;
+ if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+  return false;
 }
 
 </script>

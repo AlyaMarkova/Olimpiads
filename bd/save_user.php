@@ -88,11 +88,11 @@ else
 			//exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");	
 			}
 		else{
-			
+				
 			//mysql_query ("INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email, gender, home_adress) VALUES('$id_select','$surname','$school','$class','$DOB','$mob_number','$email','$sex','$location')");
 			mysql_query ("INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email,gender, home_adress,delivery) VALUES('$id_select_user','$fio','$school','$select_class','$DOB','$mob_number','$email','$sex','$location','$spam_email')");
-			}
 		}
+	}
 	else
 	{
 		$id_select = mysql_query("SELECT id FROM users WHERE login='$login'");

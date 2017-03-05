@@ -68,7 +68,7 @@ session_start();
 	
 
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
-		<div title="Если не хотите менять пароль, оставте поле пустым!" class="tooltip">
+		<div title="Если не хотите менять пароль, оставьте поле пустым!" class="tooltip">
 			<label id="lk_schoolboy" title="213">Новый пароль</label>
 			<input id="password" name="password" type="text" >
 			<input type="button" class="knopka_generation" onclick="generatePass('password')">		
@@ -136,7 +136,7 @@ window.onload = function () {
     }
 	set_select("day1", md, 1, "дд");
     set_select("month1", 12, 1, "мм");
-    set_select("year1", 20, day.getFullYear()-19, "гг");/*
+    set_select("year1", 13, day.getFullYear()-19, "гг");/*
 	set_select("day1", md, 1, day.getDate() - 1);
 
     set_select("month1", 12, 1, day.getMonth());

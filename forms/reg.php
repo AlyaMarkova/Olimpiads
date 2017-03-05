@@ -192,7 +192,7 @@ window.onload = function () {
     }
 	set_select("day1", md, 1, "дд");
     set_select("month1", 12, 1, "мм");
-    set_select("year1", 20, day.getFullYear()-19, "гг");/*
+    set_select("year1", 13, day.getFullYear()-19, "гг");/*
 	set_select("day1", md, 1, day.getDate() - 1);
 
     set_select("month1", 12, 1, day.getMonth());

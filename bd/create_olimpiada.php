@@ -22,6 +22,26 @@ $subject=$_POST['subject_string'];
 $class_string="";
 $flag=true;
 $flag2=false;
+
+$send_olimp = true;
+
+if($number_date==0){
+	$number_date=1;
+}
+
+$i=1;
+$date_first_round = $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT);
+$date_entry = $_POST["year0"]."-".str_pad($_POST["month0"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day0"], 2, '0', STR_PAD_LEFT);
+if ($date_entry >= $date_first_round) {
+	?>
+	<script>
+	alert("Срок подачи заявки указан неверно!");
+	javascript:history.back() 
+	</script>
+	<?
+	$send_olimp = false;
+} else {
+
 for($i=1;$i<12;$i++){
 	if($i==11&&$_POST['class_olimp'.$i]=="ON"){
 		if($flag==true&&$class_string!=""){
@@ -69,9 +89,7 @@ mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms
 
 if (isset($_POST['number_date'])) { $number_date = $_POST['number_date']; if ($number_date == '') { unset($number_date);} }
 $id=mysql_insert_id();
-if($number_date==0){
-	$number_date=1;
-}
+
 for($i=1; $i<=$number_date; $i++){	
 
 	$day = str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT);
@@ -84,6 +102,20 @@ for($i=1; $i<=$number_date; $i++){
 	$time2 = $_POST["2tm".$i];
 	$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 	
+	if ($i != 1) {
+		$prev = $_POST["year".($i-1)]."-".str_pad($_POST["month".($i-1)], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".($i-1)], 2, '0', STR_PAD_LEFT);
+		$curr = $year."-".$month."-".$day;
+		if ($curr <= $prev) {
+			?>
+			<script>
+			alert("Даты этапов проведения олимпиад указаны неверно!");
+			</script>
+			<?
+			$send_olimp = false;
+			break;
+		}
+	}
+
 	$date_time = $year."-".$month."-".$day." ".$time3;
 	//mysql_query ("INSERT INTO olympics (name_olympiad, date, location,terms,description) VALUES('$name_olimp','$dt1','$location_olimp','$date_application','$description_olimp')",$db);
 	
@@ -96,9 +128,16 @@ for($i=1; $i<=$number_date; $i++){
 	//echo $date_time;
 	
 }
- 
+
 //mysql_query ("INSERT INTO olympics (name_olympiad, location,terms,description) VALUES('$name_olimp','$location_olimp','$date_application','$description_olimp')");
-
-	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
-
+	if ($send_olimp) {
+		exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
+	} else {
+		?>
+		<script>
+		javascript:history.back() 
+		</script>
+		<?
+	}
+}
 ?>

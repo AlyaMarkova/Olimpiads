@@ -1,12 +1,13 @@
 ﻿<?php
 session_start();
 include ("js/select_subject.js");
+include ("js/select_subject.js");
 ?>
 	<form id="form" action="bd/create_olimpiada.php" method="post">
 	<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 		<p>
 			<label  id="lk_schoolboy" >Название олимпиады</label>
-			<input class="create_text"  name="name_olimp" required type="text" >
+			<input class="create_text"  name="name_olimp" required type="text">
 		</p>
 		<div>
 			<div id="div_p_date_olimp">

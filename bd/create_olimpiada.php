@@ -83,19 +83,6 @@ if($number_date==0){
 		$time2 = $_POST["2tm".$i];
 		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 		
-		/*if ($i != 1) { //если есть доп. этапы 
-			$prev = $_POST["year".($i-1)]."-".str_pad($_POST["month".($i-1)], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".($i-1)], 2, '0', STR_PAD_LEFT);
-			$curr = $year."-".$month."-".$day;
-			if ($curr <= $prev) { //проверяем дату текущего этапа с предыдущим
-				?>
-				<script>
-				alert("Даты этапов проведения олимпиад указаны неверно!");
-				</script>
-				<?
-				$send_olimp = false; //нельзя добавлять олимпиаду + прерываем цикл записи дат этапов
-				break;
-			}
-		}*/
 		$date_time .= $year."-".$month."-".$day." ".$time3."!";
 		
 	}

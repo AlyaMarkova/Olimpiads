@@ -1,8 +1,10 @@
 ﻿<?php
-session_start();
-include ("js/select_subject.js");
+/*session_start();
+include ("js/select_subject.js");*/
 include ("js/select_subject.js");
 ?>
+
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 	<form id="form" action="bd/create_olimpiada.php" method="post">
 	<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 		<p>

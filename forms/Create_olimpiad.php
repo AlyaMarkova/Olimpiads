@@ -1,16 +1,19 @@
 ﻿<?php
-session_start();
+/*session_start();
+include ("js/select_subject.js");*/
 include ("js/select_subject.js");
 ?>
+
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 	<form id="form" action="bd/create_olimpiada.php" method="post">
 	<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 		<p>
 			<label  id="lk_schoolboy" >Название олимпиады</label>
-			<input class="create_text"  name="name_olimp" required type="text" >
+			<input class="create_text"  name="name_olimp" required type="text">
 		</p>
 		<div>
 			<div id="div_p_date_olimp">
-				<label id="lk_schoolboy" >Дата проведения</label>						
+				<label id="lk_schoolboy">Дата проведения</label>						
 			</div>
 		</div>
 		
@@ -70,12 +73,12 @@ include ("js/select_subject.js");
 			<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
 			<input type="button"  class="knopka_cansel" onclick="location_cancel()" name="submit_cancel" value="Отмена">
 		</div>
-		
+	</form>
 	
-	
-</body>
-</html>
+<!--</body>
+</html>-->
 <script>
+	
 	
 	function location_cancel(){		
 		document.location.href="../index.php";
@@ -231,6 +234,5 @@ include ("js/select_subject.js");
 		}
 	}
 	
-
 	
 </script>

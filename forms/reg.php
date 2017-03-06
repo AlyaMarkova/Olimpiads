@@ -93,7 +93,7 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 		</div>	
 		<div>
 			<label class="lk_schoolboy">Мобильный телефон</label>
-			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер телефона (не более 11 цифр).')" oninput="setCustomValidity(' ')">
+			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" /> 
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 

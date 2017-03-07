@@ -71,8 +71,8 @@ session_start();
 		<div title="Если не хотите менять пароль, оставьте поле пустым!" class="tooltip">
 			<label id="lk_schoolboy" title="213">Новый пароль</label>
 			<input id="password" name="password" type="text" >
-			<input type="button" class="knopka_generation" onclick="generatePass('password')">		
 			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 	
+			<input type="button" class="knopka_generation" onclick="generatePass('password')">		
 			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 
 <script language="Javascript">

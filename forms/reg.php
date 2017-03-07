@@ -72,8 +72,8 @@ include ("js/Generation_pass.js");
 		<div>
 			<label class="lk_schoolboy">Пароль</label>
 			<input required id="password" name="password" type="password" >
+			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 
 			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> 		
-			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 	
 			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 
 <script language="Javascript">

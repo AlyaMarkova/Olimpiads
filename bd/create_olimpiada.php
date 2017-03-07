@@ -30,62 +30,58 @@ if($number_date==0){
 	$number_date=1;
 }
 
-	for($i=1;$i<12;$i++){ //ваще не вкуриваю, для чего этот цикл
-		if($i==11&&$_POST['class_olimp'.$i]=="ON"){
-			if($flag==true&&$class_string!=""){
-				$class_string=$class_string."-".($i);	
-				continue;
-			}
-			if($flag==true&&$class_string==""){
-				$class_string=$i;	
-				continue;
-			}
-		}	
-		if(($_POST['class_olimp'.$i]=="ON")&&($class_string=="")){	
-			$class_string=$i;		
+for($i=1;$i<12;$i++){ //ваще не вкуриваю, для чего этот цикл
+	if($i==11&&$_POST['class_olimp'.$i]=="ON"){
+		if($flag==true&&$class_string!=""){
+			$class_string=$class_string."-".($i);	
 			continue;
 		}
-		if(($_POST['class_olimp'.$i]=="ON")&&($class_string!="")&&($flag==false)){
-			$flag=true;
-			$flag2=false;
-			$class_string=$class_string.",".$i;
+		if($flag==true&&$class_string==""){
+			$class_string=$i;	
 			continue;
 		}
-		if(($_POST['class_olimp'.$i]!="ON")&&($class_string!="")&&($flag==true)){
-			if($flag2==true){
-				$class_string=$class_string."-".($i-1);		
-			}
-			$flag=false;
-			continue;
-		}
-		if($_POST['class_olimp'.$i]=="ON"){
-			$flag2=true;
-		}	
+	}	
+	if(($_POST['class_olimp'.$i]=="ON")&&($class_string=="")){	
+		$class_string=$i;		
+		continue;
 	}
-
-	//if (isset($_POST['select_subject'])) { $select_subject = $_POST['select_subject']; if ($select_subject == '') { unset($select_subject);} }
-	// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
-
-	if (isset($_POST['number_date'])) { $number_date = $_POST['number_date']; if ($number_date == '') { unset($number_date);} }
-	$id=mysql_insert_id();
-	$date_time = '';
-
-	$date_application = $_POST["year0"]."-".str_pad($_POST["month0"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day0"], 2, '0', STR_PAD_LEFT); //дата окончания приёма заявок
-	
-	//создаём строку с датами этапов
-	for($i=1; $i<=$number_date; $i++){	
-		$day = str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT);
-		$month = str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT);
-		$year = $_POST["year".$i];
-		
-		$time = $_POST["tm".$i];
-		$time1 = $_POST["1tm".$i];
-		$time2 = $_POST["2tm".$i];
-		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
-		
-		$date_time .= $year."-".$month."-".$day." ".$time3."!";	
+	if(($_POST['class_olimp'.$i]=="ON")&&($class_string!="")&&($flag==false)){
+		$flag=true;
+		$flag2=false;
+		$class_string=$class_string.",".$i;
+		continue;
 	}
+	if(($_POST['class_olimp'.$i]!="ON")&&($class_string!="")&&($flag==true)){
+		if($flag2==true){
+			$class_string=$class_string."-".($i-1);		
+		}
+		$flag=false;
+		continue;
+	}
+	if($_POST['class_olimp'.$i]=="ON"){
+		$flag2=true;
+	}	
+}
+
+//if (isset($_POST['select_subject'])) { $select_subject = $_POST['select_subject']; if ($select_subject == '') { unset($select_subject);} }
+// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
+
+if (isset($_POST['number_date'])) { $number_date = $_POST['number_date']; if ($number_date == '') { unset($number_date);} }
+$id=mysql_insert_id();
+$date_time = '';
+
+$date_application = $_POST["year0"]."-".str_pad($_POST["month0"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day0"], 2, '0', STR_PAD_LEFT); //дата окончания приёма заявок
+
+//создаём строку с датами этапов
+for($i=1; $i<=$number_date; $i++){	
+	$time = $_POST["tm".$i];
+	$time1 = $_POST["1tm".$i];
+	$time2 = $_POST["2tm".$i];
+	$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 	
+	$date_time .= $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";	
+}	
+
 mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
 exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
 

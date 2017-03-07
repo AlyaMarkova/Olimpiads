@@ -22,12 +22,12 @@ include ("js/Generation_pass.js");
 	</div>
 	
 	<div>			
-			<label class="lk_schoolboy">Статус</label>		
-			<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status" size="1">
-			   <option value="1">Участник
-			   <option value="2">Организатор			
-			</SELECT>
-		</div>
+		<label class="lk_schoolboy">Статус</label>		
+		<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status" size="1">
+		   <option value="1">Участник
+		   <option value="2">Организатор			
+		</SELECT>
+	</div>
 	
 	<div class="lk_schoolboy_blok">
 		<div name="none">

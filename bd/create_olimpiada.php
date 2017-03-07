@@ -83,8 +83,7 @@ if($number_date==0){
 		$time2 = $_POST["2tm".$i];
 		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 		
-		$date_time .= $year."-".$month."-".$day." ".$time3."!";
-		
+		$date_time .= $year."-".$month."-".$day." ".$time3."!";	
 	}
 	
 mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);

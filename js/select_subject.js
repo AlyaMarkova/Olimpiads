@@ -165,7 +165,7 @@ function create_date(i){
 		tm.name ="1tm"+i;
 		tm.className ="time_number";
 		tm.type = 'number'
-		tm.min = 0
+		tm.min = 00
 		tm.max = 23
 		tm.required=true;
 		
@@ -185,7 +185,7 @@ function create_date(i){
 		tm.required=true;
 		tm.className ="time_number";
 		tm.type = 'number'
-		tm.min = 0;
+		tm.min = 00;
 		
 		tm.max = 59
 		tm.value = 00

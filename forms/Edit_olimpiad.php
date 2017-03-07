@@ -2,21 +2,52 @@
 session_start();
 include ("js/select_subject.js");
 ?>
-	<form id="form" action="" method="post">
-		<p>
-			<label id="lk_schoolboy" >Название олимпиады</label>
-			<input id="name_olimp" class="create_text" name="name_olimp" required type="text" >
-		</p>
-		<div>
-		
-			<div id="div_p_date_olimp">
-				<label id="lk_schoolboy" >Дата проведения</label>
-		
-						
-			</div>
+
+<script>
+	function validate_form (form){
+		return twodates()&& manydates();
+	}
+	
+	function manydates(){
+		var value_of_return = true
+		var date0 = new Date();
+		var date1 = new Date();
+		for (var i = 2; i <= form.number_date.value; i++) {
+			date0=new Date(document.getElementById("year"+(i-1)).value, document.getElementById("month"+(i-1)).value-1, document.getElementById("day"+(i-1)).value);
+			date1=new Date(document.getElementById("year"+i).value, document.getElementById("month"+i).value-1, document.getElementById("day"+i).value);
+			if (date0 >= date1)
+				value_of_return = false;
+		}
+		if (!value_of_return)
+			alert("Даты этапов проведения олимпиад указаны неверно!");
+		return value_of_return
+	}
+	
+	function twodates(){
+		var date0 = new Date(document.getElementById("year0").value, document.getElementById("month0").value-1, document.getElementById("day0").value); //дата окончания срока подачи заявок
+		var date1 = new Date(document.getElementById("year1").value, document.getElementById("month1").value-1, document.getElementById("day1").value); //дата первого этапа
+        if (date0 < date1)
+            return true;
+		else {
+			alert("Срок подачи заявки указан неверно!");
+            return false;
+		}
+	}
+</script>
+
+<form id="form" action="" method="post" onsubmit="return validate_form(this);">
+	<p>
+		<label id="lk_schoolboy" >Название олимпиады</label>
+		<input id="name_olimp" class="create_text" name="name_olimp" required type="text" >
+	</p>
+	<div>
+		<div id="div_p_date_olimp">
+			<label id="lk_schoolboy" >Дата проведения</label>		
 		</div>
-	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
-		<div class="lk_schoolboy_blok">
+	</div>
+	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>
+	
+	<div class="lk_schoolboy_blok">
 		<div>
 			<label id="lk_schoolboy">Место проведения</label>
 			<input id="location_olimp" class="create_text" name="location_olimp" required type="text" >
@@ -27,13 +58,14 @@ include ("js/select_subject.js");
 		</div>
 		<div>
 			<label id="lk_schoolboy">Срок подачи заявки</label>
-				<label class="do" >до</label>
-				<select name="day0" class="day_class" required id="day0"></select>
-				<select name="month0" class="month_class" required id="month0" onchange="check(id)"  ></select>
-				<select name="year0"  class="years_class" required id="year0" onchange="check(id)"  ></select>
+			<label class="do" >до</label>
+			<select name="day0" class="day_class" required id="day0"></select>
+			<select name="month0" class="month_class" required id="month0" onchange="check(id)"  ></select>
+			<select name="year0"  class="years_class" required id="year0" onchange="check(id)"  ></select>
 		</div>
-		</div>
-		<div class="lk_schoolboy_blok">
+	</div>
+	
+	<div class="lk_schoolboy_blok"> 
 		<div>
 		<label id="lk_schoolboy">Класс</label>
 			<input type="checkbox" onclick="status_chek()" id="class_olimp1" name="class_olimp1" value="ON" > <label>1</label>
@@ -56,35 +88,29 @@ include ("js/select_subject.js");
 			   <option>Русский язык</option>
 			   <option>Информатика</option>
 			   <option>Обществознание</option>
-			   <!--<option value="1">Математика
-			   <option value="2">Русский язык
-			   <option value="3">Информатика
-			   <option value="4">Обществознание-->
 			</SELECT>
 		</div>
-		</div>
-		
-		<div>
-			<label id="lk_schoolboy">Описание</label>
-			<textarea style="" id="description_olimp" required name="description_olimp"></textarea>		
-		</div>
-		<div id="div_none">
-			<input id="number_date" style="display: none;" name="number_date" type="text" >
-			<input id="subject_string" style="display: none;" name="subject_string" type="text" >
-		</div>
-		
-		<div style="margin-top: 100px;" class="button_all">
-			<input type="submit" class="knopka_retain" name="submit_create" value="Сохранить изменения">
-			<input type="button" onclick="location_cancel()" class="knopka_cansel" name="submit_cancel" value="Отмена">
-		</div>
+	</div>
 	
+	<div>
+		<label id="lk_schoolboy">Описание</label>
+		<textarea style="" id="description_olimp" required name="description_olimp"></textarea>		
+	</div>
 	
+	<div id="div_none">
+		<input id="number_date" style="display: none;" name="number_date" type="text" >
+		<input id="subject_string" style="display: none;" name="subject_string" type="text" >
+	</div>
 	
-	
-	</form>
-		
+	<div style="margin-top: 100px;" class="button_all">
+		<input type="submit" class="knopka_retain" name="submit_create" value="Сохранить изменения">
+		<input type="button" onclick="location_cancel()" class="knopka_cansel" name="submit_cancel" value="Отмена">
+	</div>
+
+</form>
 </body>
 </html>
+
 <script>
 	function location_cancel(){		
 		document.location.href="../index.php";

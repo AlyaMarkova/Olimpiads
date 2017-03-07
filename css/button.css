@@ -7,12 +7,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #91CEF1;
-  background: #91CEF1 ;
+  border-color: #4EB058;
+  background: linear-gradient(#50C54C, #32AF0E) ;
   transition: 0.2s;
 }
-.knopka_retain:hover { background: #79bee5; } /* при наведении курсора мышки */
-.knopka_retain:active { background:#6ebae5; } /* при нажатии */
+.knopka_retain:hover { background: linear-gradient(#32AF0E, #3E900E ); } /* при наведении курсора мышки */
+.knopka_retain:active { background:linear-gradient(#3E900E, #32AF0E); } /* при нажатии */
 .knopka_retain:hover {cursor: pointer}
 
 #sex2:hover {cursor: pointer}
@@ -48,8 +48,8 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #91CEF1;
-  background: #91CEF1 ;
+  border-color: #4EB058;
+  background: linear-gradient(#50C54C, #4DAF56) ;
   transition: 0.2s;
   position: relative;
   left: 210px;
@@ -57,8 +57,8 @@
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 130px;
 }
-#knopka_retain1:hover { background: #79bee5; } /* при наведении курсора мышки */
-#knopka_retain1:active { background:#6ebae5; } /* при нажатии */
+#knopka_retain1:hover { background: linear-gradient(#32AF0E, #3E900E ); } /* при наведении курсора мышки */
+#knopka_retain1:active { background:linear-gradient(#3E900E, #32AF0E); } /* при нажатии */
 
 
 #knopka_retain{
@@ -84,12 +84,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #0066b3;
-  background: #0066b3 ;
+  border-color: #E31E24;
+  background: linear-gradient(#DC291B, #9C1A0F) ;
   transition: 0.2s;
 }
-.knopka_cansel:hover { background: #005ca3; } /* при наведении курсора мышки */
-.knopka_cansel:active { background:#00579b;  } /* при нажатии */
+.knopka_cansel:hover { background: linear-gradient(#9C1A0F, #79130F); } /* при наведении курсора мышки */
+.knopka_cansel:active { background:linear-gradient( #79130F, #9C1A0F);  } /* при нажатии */
 
 
 
@@ -101,16 +101,16 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #0066b3;
-  background: #0066b3 ;
+  border-color: #F28E91;
+  background: linear-gradient(#F28E91, #CF918F ) ;
   transition: 0.2s;
  font-size:12px;
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 57px; 
   margin-left:15px;
 }
-.knopka_cansel:hover { background: #005ca3; } /* при наведении курсора мышки */
-.knopka_cansel:active { background:#00579b;  } /* при нажатии */
+.knopka_cansel:hover { background: linear-gradient(#9C1A0F, #79130F); } /* при наведении курсора мышки */
+.knopka_cansel:active { background:linear-gradient( #79130F, #9C1A0F);  } /* при нажатии */
 
 .knopka_generation{ /*кнопка генерации пароля*/ 
 	background-image: url(../images/generation.jpg); 

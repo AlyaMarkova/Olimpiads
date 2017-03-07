@@ -87,17 +87,6 @@ for($i=1; $i<=$number_date; $i++){
 	$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 	
 	$date_time .= $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
-
-	//mysql_query ("INSERT INTO olympics (name_olympiad, date, location,terms,description) VALUES('$name_olimp','$dt1','$location_olimp','$date_application','$description_olimp')",$db);
-	
-	//mysql_query("INSERT INTO olympics  (date) VALUES ('$date_time') WHERE id='$id'",$db);
-	/*$result = mysql_query("SELECT    *    FROM    olympics WHERE id='$id'"); //извлекаем    идентификатор пользователя с данным логином
-    $myrow    = mysql_fetch_array($result);
-	
-    //$value   = $myrow['date'].$date_time."!";
-	mysql_query("UPDATE olympics SET date='$date_time' WHERE id='$id'",$db);*/
-	//echo $date_time;
-	
 }
 mysql_query("UPDATE olympics SET name_olympiad='$name_olimp',date='$date_time',location='$location_olimp',classes='$class_string',terms='$date_application',description='$description_olimp',subject='$subject',professor_users_id='$Org_olimp' WHERE id='$id_o'");
 exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");

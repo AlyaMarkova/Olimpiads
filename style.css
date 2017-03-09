@@ -782,4 +782,7 @@ span:after {
 color: red; 
 content: " *"; 
 }
-span
+spant:after { 
+color: green; 
+content: " *"; 
+}

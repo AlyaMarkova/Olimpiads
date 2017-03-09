@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <?php
 if (isset($_POST['name_olimp'])) { $name_olimp = $_POST['name_olimp']; if ($name_olimp == '') { unset($name_olimp);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
 if (isset($_POST['location_olimp'])) { $location_olimp = $_POST['location_olimp']; if ($location_olimp == '') { unset($location_olimp);} }
@@ -23,7 +24,7 @@ while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
 		На сайте olimpiada.ru изменилась информация об олимпиаде под названием: ".$row2['name_olympiad']."(".$name_olimp."). Эта информация может вас заинтересовать. 
 		С    уважением, Администрация    olimpiada.ru";
 	}
-	mail($row[0], $subject, $message, "Content-type:text/plane;    Charset=utf-8\r\n");
+	mail($row[0], $subject, $message, "Content-Type: text/html; charset=UTF-8");//отправляем сообщение
 }
 
 $subject=$_POST['subject_string'];

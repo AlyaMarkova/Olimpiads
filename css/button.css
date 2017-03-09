@@ -15,6 +15,23 @@
 .knopka_retain:active { background:#6ebae5; } /* при нажатии */
 .knopka_retain:hover {cursor: pointer}
 
+.knopka_no_retain{            /*кнопка сохранения*/
+	display: inline-block;
+  color: white;
+
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-radius: 3px;
+  border-color: #91CEF1;
+  background: #91CEF1 ;
+  transition: 0.2s;
+}
+.knopka_no_retain:hover { background: #79bee5; } /* при наведении курсора мышки */
+.knopka_no_retain:active { background:#6ebae5; } /* при нажатии */
+.knopka_no_retain:hover {cursor: pointer}
+
 #sex2:hover {cursor: pointer}
 #name_olympiad1{
 	display: inline-block;

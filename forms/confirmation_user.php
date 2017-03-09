@@ -30,11 +30,11 @@
 		</div>
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
-			
 		</div>
 		</div>
 		<div class="button_all">
-		<input type="submit" class="knopka_retain" name="submit_confirmation" value="Подтверждение">
+		<input type="submit" class="knopka_retain" name="submit_confirmation" value="Подтвердить">
+		<input type="button" class="knopka_no_retain" name="submit_no_confirmation" onClick="no_confirmation()" value="Не подтвердить">
 		<input type="button" class="knopka_cansel" onclick="location_cancel()" name="cansel" value="Отмена">
 		</div>
 	</form>
@@ -44,6 +44,9 @@
 </html>
 <script>
 	//var id=<?php echo $_SESSION['id'];?>;
+	function no_confirmation(){
+		
+	}
 	function location_cancel(){		
 		document.location.href="../confirmation_user.php";
 	}

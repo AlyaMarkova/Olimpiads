@@ -8,7 +8,7 @@
     <td id="stroka3"><?php echo $_SESSION['login']; ?></td>
   </tr>
    <tr>
-    <td class="td1"> <input title="Личный кабинет" class="tooltip" id ="knopka2" type="submit" value="" onClick='location.href="lk.php"'></td>	
+    <td class="td4"> <input title="Личный кабинет" class="tooltip" id ="knopka2" type="submit" value="" onClick='location.href="lk.php"'></td>	
   </tr> 
    <tr>
     <td id = "white2"> <a id = "white2" href='bd/exit.php'>Выйти из системы </a></td>

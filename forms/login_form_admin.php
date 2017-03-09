@@ -8,7 +8,7 @@
     <td id="stroka3"><?php echo $_SESSION['login']; ?></td>
   </tr>
    <tr>
-    <td class="td1"> <input title="Личный кабинет" class="tooltip" id ="knopka2" type="submit" value="" onClick='location.href="lk.php"'> <input title="Добавление олимпиады" class="tooltip" id ="knopka3" type="submit" value="" onClick='location.href="dobav.php"'>
+    <td class="td4"> <input title="Личный кабинет" class="tooltip" id ="knopka2" type="submit" value="" onClick='location.href="lk.php"'> <input title="Добавление олимпиады" class="tooltip" id ="knopka3" type="submit" value="" onClick='location.href="dobav.php"'>
 		<input title="Редактирование профилей" class="tooltip" id ="knopka4" type="submit" value="" onClick='location.href="redak.php"'> <input title="Подтверждение пользователей"   class="tooltip" id ="knopka5" type="submit" value=""  onClick='location.href="confirmation_user.php"'></td>	
 	
   </tr> 

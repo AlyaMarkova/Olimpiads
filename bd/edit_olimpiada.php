@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <?php
 if (isset($_POST['name_olimp'])) { $name_olimp = $_POST['name_olimp']; if ($name_olimp == '') { unset($name_olimp);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
 if (isset($_POST['location_olimp'])) { $location_olimp = $_POST['location_olimp']; if ($location_olimp == '') { unset($location_olimp);} }
@@ -8,11 +9,11 @@ if (isset($_POST['Org_olimp'])) { $Org_olimp = $_POST['Org_olimp']; if ($Org_oli
 $id_o=$_GET['id'];
 include ("../bd.php");
 $result2 = mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'");
-$row2 = mysql_fetch_array($result2);
-$result = mysql_query("SELECT email FROM schoolboy where delivery=1");
+$row2 = mysql_fetch_array($result2); 
+$result = mysql_query("SELECT email FROM schoolboy where delivery=1"); //адреса тех, кто подписан на рассылку
 
 while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
-$subject    = "Изменилась информация об олимпиаде";//тема сообщения
+	$subject = "Изменилась информация об олимпиаде";//тема сообщения
 	if($row2['name_olympiad']==$name_olimp){
 		$message    = "Здравствуйте!
 		На сайте olimpiada.ru изменилась информация об олимпиаде под названием: ".$name_olimp.". Эта информация может вас заинтересовать. 
@@ -23,7 +24,7 @@ $subject    = "Изменилась информация об олимпиаде
 		На сайте olimpiada.ru изменилась информация об олимпиаде под названием: ".$row2['name_olympiad']."(".$name_olimp."). Эта информация может вас заинтересовать. 
 		С    уважением, Администрация    olimpiada.ru";
 	}
-	mail($row[0], $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");
+	mail($row[0], $subject, $message, "Content-Type: text/html; charset=UTF-8");//отправляем сообщение
 }
 
 $subject=$_POST['subject_string'];

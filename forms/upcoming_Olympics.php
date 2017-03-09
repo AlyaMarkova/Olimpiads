@@ -1,7 +1,7 @@
 ﻿	
-	<div id="time_line"><a id="week" class="day_select" onclick="periud(id)">неделя</a>
-	<a id="month" class="day_select" onclick="periud(id)">за месяц</a>
-	<a id="all" class="day_select2" onclick="periud(id)">показать все</a> </div>
+	<div id="time_line"><a id="week" class="day_select" onclick="periud(id)">| за неделю |</a>
+	<a id="month" class="day_select" onclick="periud(id)">| за месяц |</a>
+	<a id="all" class="day_select2" onclick="periud(id)">| показать все |</a> </div>
 	
 	<!--<input id="date_vivod" name="date_vivod" type="radio" value="неделя"> неделя</input>
     <input id="date_vivod" name="date_vivod" type="radio" value="за месяц"> за месяц
@@ -129,7 +129,7 @@
       case 10: s="ноября"; break;
       case 11: s="декабря"; break;
     }
-	document.getElementById('week').innerHTML=week.getDate()+" - "+(week.getDate()+6)+" "+s;
+	//document.getElementById('week').innerHTML=week.getDate()+" - "+(week.getDate()+6)+" "+s;
 	var week2 = new Date(week);
 	week2.setDate(week2.getDate() + 6);
 	if(week2.getMonth()!=mon){
@@ -331,11 +331,11 @@
 		}
 		if(id=="all"){
 			for(var i=0;i<date_vidod.length;i++){
-				document.getElementById(date_vidod[i]).style.display="block";
+				document.getElementById(date_vidod[i]).style.display="block";			
+			}
 			document.getElementById('week').setAttribute("class", "day_select");
 			document.getElementById('month').setAttribute("class", "day_select");
-			document.getElementById('all').setAttribute("class", "day_select2");				
-			}
+			document.getElementById('all').setAttribute("class", "day_select2");	
 		}
 	
 	/*

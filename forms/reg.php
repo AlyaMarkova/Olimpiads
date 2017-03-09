@@ -232,10 +232,16 @@ window.onload = function () {
 }
 
 document.getElementById('mobile').onkeypress=function(event){
- event= event || window.event;
- if (event.charCode && (event.charCode < 48 || event.charCode > 57))
-  return false;
+	event = event || window.event;
+	if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+		return false;
 }
+
+/*document.getElementById('login').onkeypress=function(event){
+	event = event || window.event;
+	if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+		return false;
+}*/
 
 </script>
 

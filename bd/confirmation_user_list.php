@@ -35,7 +35,6 @@
 		
 	}
 	
-	
 	$jsonn=array(			
 
 		'array_name_user'=>$array_name_user,

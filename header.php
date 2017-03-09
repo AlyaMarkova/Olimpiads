@@ -1,7 +1,6 @@
-
+﻿
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
- 
 	<div id="header">
 		
 			<div id="menu">

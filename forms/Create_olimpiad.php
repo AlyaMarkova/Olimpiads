@@ -1,12 +1,45 @@
 ﻿<?php
-session_start();
 include ("js/select_subject.js");
 ?>
-	<form id="form" action="bd/create_olimpiada.php" method="post">
+
+<script>
+	function validate_form (form){
+		return twodates()&& manydates();
+	}
+	
+	function manydates(){
+		var value_of_return = true
+		var date0 = new Date();
+		var date1 = new Date();
+		for (var i = 2; i <= form.number_date.value; i++) {
+			date0=new Date(document.getElementById("year"+(i-1)).value, document.getElementById("month"+(i-1)).value-1, document.getElementById("day"+(i-1)).value);
+			date1=new Date(document.getElementById("year"+i).value, document.getElementById("month"+i).value-1, document.getElementById("day"+i).value);
+			if (date0 >= date1)
+				value_of_return = false;
+		}
+		if (!value_of_return)
+			alert("Даты этапов проведения олимпиад указаны неверно!");
+		return value_of_return
+	}
+	
+	function twodates(){
+		var date0 = new Date(document.getElementById("year0").value, document.getElementById("month0").value-1, document.getElementById("day0").value); //дата окончания срока подачи заявок
+		var date1 = new Date(document.getElementById("year1").value, document.getElementById("month1").value-1, document.getElementById("day1").value); //дата первого этапа
+        if (date0 < date1){
+            return true;
+        }
+		else {
+			alert("Срок подачи заявки указан неверно!");
+            return false;
+		}
+	}
+</script>
+
+	<form id="form" action="bd/create_olimpiada.php" method="post" onsubmit="return validate_form (this );">
 	<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 		<p>
-			<label  id="lk_schoolboy" >Название олимпиады</label>
-			<input class="create_text"  name="name_olimp" required type="text" >
+			<label id="lk_schoolboy" >Название олимпиады</label>
+			<input class="create_text"  name="name_olimp" required type="text">
 		</p>
 		<div>
 			<div id="div_p_date_olimp">
@@ -51,10 +84,6 @@ include ("js/select_subject.js");
 			   <option>Русский язык</option>
 			   <option>Информатика</option>
 			   <option>Обществознание</option>
-			   <!--<option value="1">Математика
-			   <option value="2">Русский язык
-			   <option value="3">Информатика
-			   <option value="4">Обществознание-->
 			</SELECT>
 		</p>
 		<div>
@@ -70,16 +99,14 @@ include ("js/select_subject.js");
 			<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
 			<input type="button"  class="knopka_cansel" onclick="location_cancel()" name="submit_cancel" value="Отмена">
 		</div>
-		
-	
-	
 </body>
 </html>
+
 <script>
-	
 	function location_cancel(){		
 		document.location.href="../index.php";
 	}
+	
 	form = document.getElementById('form'); 
 	form.subject_string.value = "";
 	form.number_date.value = "";
@@ -91,6 +118,7 @@ include ("js/select_subject.js");
         md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
         $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
 	create_date(number_date);
+	
     function set_select(a, c, d, e) {
         var el = document.getElementsByName(a)[0];
         for (var b = el.options.length = 0; b < c; b++) {
@@ -125,7 +153,7 @@ include ("js/select_subject.js");
     var year1 = document.getElementById('year1');
     var month1 = document.getElementById("month1");
  
-    function check_date() {
+    /*function check_date() {
         var a = year1.value | 0,
             c = month1.value | 0;
 			
@@ -134,9 +162,6 @@ include ("js/select_subject.js");
 		
         set_select("day", md, 1, a);
     };
-	
-
-	
 	
   /*  if (document.addEventListener) {
         year.addEventListener('change', check_date, false);
@@ -169,11 +194,8 @@ include ("js/select_subject.js");
 	function check_date(id) {
         var a = year1.value | 0,
             c = month1.value | 0;
-	
-			
         md = (new Date(a, c, 0, 0, 0, 0, 0)).getDate();
         a = document.getElementById("day"+id).selectedIndex;
-		
         set_select("day"+id, md, 1, document.getElementById('day'+id).value);
     };	 
 	function set_select(a, c, d, e) {

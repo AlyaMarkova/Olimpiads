@@ -4,7 +4,7 @@
 ?>
 <html>
 	<head>
-		<title>Олимпиады</title>
+		<title>Редактирование предстоящей олимпиады - Олимпиады ДВФУ</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />

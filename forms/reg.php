@@ -3,9 +3,7 @@ include ("js/Generation_pass.js");
 ?>
 
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
-<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
-
-	
+<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />	
 	<form action="../bd/save_user.php" method="post">
 	<!--**** save_user.php - это адрес обработчика. То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей отправятся на страничку save_user.php методом "post" ***** -->
 	<div class="lk_schoolboy_blok">
@@ -24,12 +22,12 @@ include ("js/Generation_pass.js");
 	</div>
 	
 	<div>			
-			<label class="lk_schoolboy">Статус</label>		
-			<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status"  size="1">
-			   <option value="1">Участник
-			   <option value="2">Организатор			
-			</SELECT>
-		</div>
+		<label class="lk_schoolboy">Статус</label>		
+		<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status" size="1">
+		   <option value="1">Участник
+		   <option value="2">Организатор			
+		</SELECT>
+	</div>
 	
 	<div class="lk_schoolboy_blok">
 		<div name="none">
@@ -40,8 +38,8 @@ include ("js/Generation_pass.js");
 		<div name="none">
 			<label class="lk_schoolboy">Дата рождения</label>
 			<select required class="day_class" name="day1" id="day1"></select>
-			<select  required class="month_class" name="month1" id="month1"   ></select>
-			<select  required class="years_class" name="year1" id="year1"   ></select> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<select required class="month_class" name="month1" id="month1"></select>
+			<select required class="years_class" name="year1" id="year1"></select> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div > 
 		<div name="none">
 			<label class="lk_schoolboy">Школа</label>
@@ -68,27 +66,39 @@ include ("js/Generation_pass.js");
 	<div class="lk_schoolboy_blok">	
 		<div>
 			<label class="lk_schoolboy">Логин</label>
-			<input required name="login" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="login" type="text"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- Собственно у этого поля проверяет наличие в базе данных-->
 		</div>
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
 		<div>
 			<label class="lk_schoolboy">Пароль</label>
-			<input required id="password" name="password" type="text" >
-			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required id="password" name="password" type="password" >
+			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 
+			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> 		
+			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+
+<script language="Javascript">
+function ShowHidePassword(id){
+element = $('#'+id)
+element.replaceWith(element.clone().attr('type',(element.attr('type') == 'password') ? 'text' : 'password'))
+}
+</script>
+
+
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">
 		<div name="none">
-			<label  class="lk_schoolboy">Место жительства</label>
+			<label class="lk_schoolboy">Место жительства</label>
 			<input required id="location" name="location" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>	
 		<div>
 			<label class="lk_schoolboy">Мобильный телефон</label>
-			<input name="mob_number" type="text" >
+			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" /> 
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 
-			<input required name="email" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="email" type="email" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- А еще у этого поля проверяем наличие в базе данных-->
+
 		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">
@@ -110,6 +120,11 @@ include ("js/Generation_pass.js");
 	</form>
 
 <script>
+
+function seeit(){
+
+}
+
 function organ(){
 	if(document.getElementById('select_status').value==2){
 		document.getElementById('school').required=false;
@@ -134,7 +149,7 @@ function organ(){
 		}
 	}
 	
-}
+}  
 function location_cancel(){		
 		document.location.href="../index.php";
 }
@@ -177,7 +192,7 @@ window.onload = function () {
     }
 	set_select("day1", md, 1, "дд");
     set_select("month1", 12, 1, "мм");
-    set_select("year1", 20, day.getFullYear()-19, "гг");/*
+    set_select("year1", 13, day.getFullYear()-19, "гг");/*
 	set_select("day1", md, 1, day.getDate() - 1);
 
     set_select("month1", 12, 1, day.getMonth());
@@ -212,7 +227,14 @@ window.onload = function () {
         year1.detachEvent('onchange', check_date);
         month1.detachEvent('onchange', check_date);
     }
+	organ();
 	//document.getElementById('day1').value = "5";
+}
+
+document.getElementById('mobile').onkeypress=function(event){
+ event= event || window.event;
+ if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+  return false;
 }
 
 </script>

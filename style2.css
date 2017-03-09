@@ -303,7 +303,7 @@ td{ color: white;
 #footer{
     width: 1146.65px;
     height: 70px;
-	background: #236C92;
+	background: #0066b3;
 	margin:0 auto;
 }
 
@@ -326,7 +326,7 @@ td{ color: white;
 }
 .main-menu a:hover {
 	color: white;
-    background: #236C92;
+    background: #0066b3;
 }
 .main-menu > li:hover .sub-menu {
     display: block;

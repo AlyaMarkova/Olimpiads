@@ -12,8 +12,7 @@
 	border-style: none; 
 	font-family: 'Palatino Linotype'; 
 	color: white;
-	margin-left: 20px;
-	
+	/*margin-left: 20px;*/
 }
 #organizator_info{
 	color: #0A3C57;
@@ -27,14 +26,14 @@
 	margin: 15px 0 0 15px;
 }
 #lk_schoolboy{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 16pt;
 	padding: 0 10px 0 40px;
 	border-radius: 0 4px 4px 0;
 }
 #lk_schoolboy1{
-	background: #27739A;
+	background: #0066b3;
 	Color: white;
 	font-size: 16pt;
 	padding: 0 10px 0 81px;
@@ -56,36 +55,55 @@ color: #0A3C57;
 #table_arhiv_thead{
 	background: #0A3C57; 
 color : white; 
-background: linear-gradient(#4482ac, #2e678c);
+background: linear-gradient(#0066b3, #0066b3);
+}
+
+/*********
+стили для столбцов таблицы итогов олимпиад */
+.table_arhiv_date{
+	width: 15%;
+	padding-left: 10px;
 }
 .table_arhiv_na{
-	width: 420px;
+	width: 10%;
 	height: 35px;
 }
-.table_arhiv_td_shapka{
-	width: 50px;
+.table_arhiv_na_search{
+	width: 40%;
 }
+.table_arhiv_subj{
+	width: 10%;
+	padding-left: 5px;
+}
+.table_arhiv_td_shapka{
+	width: 5%;
+}
+
+
+/*******
+стиль для строк в таблице итогов олимпиад */
 .arh_str{
 	height: 50px;
-	border-bottom: 10px solid white;
-	border-top: 10px solid white;
+	border-bottom: 5px solid white;
+	border-top: 5px solid white;
 }
+/***************/
+
 .table_arhiv_td1{
 	background: #6AC0ED;
 	height: 50px;
 	padding-left: 5px;
 }
 .table_arhiv_td2{
-	width: 100px;
-	padding-left: 10px;
-	
+	width: 150px;
+	padding-left: 5px;
 }
 .table_arhiv_td3{
 	text-decoration: underline;
 	background: #6AC0ED;
+	padding-right: 1%;
 }
 .table_arhiv_td4{
-	text-align: center;
+	text-align: left;
 	background: #6AC0ED;
-}
 }

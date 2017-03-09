@@ -424,6 +424,11 @@ function formComment($replyid=0)
 	}
 	}
 
+	
+	
+	
+	
+	
 function pageComment() {
 	//return $out;
 	}

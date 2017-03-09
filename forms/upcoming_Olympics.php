@@ -331,11 +331,11 @@
 		}
 		if(id=="all"){
 			for(var i=0;i<date_vidod.length;i++){
-				document.getElementById(date_vidod[i]).style.display="block";
+				document.getElementById(date_vidod[i]).style.display="block";			
+			}
 			document.getElementById('week').setAttribute("class", "day_select");
 			document.getElementById('month').setAttribute("class", "day_select");
-			document.getElementById('all').setAttribute("class", "day_select2");				
-			}
+			document.getElementById('all').setAttribute("class", "day_select2");	
 		}
 	
 	/*

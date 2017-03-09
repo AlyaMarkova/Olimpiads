@@ -1,5 +1,5 @@
 ﻿	
-	<div id="time_line"><a id="week" class="day_select" onclick="periud(id)">неделя</a>
+	<div id="time_line"><a id="week" class="day_select" onclick="periud(id)">за неделю</a>
 	<a id="month" class="day_select" onclick="periud(id)">за месяц</a>
 	<a id="all" class="day_select2" onclick="periud(id)">показать все</a> </div>
 	

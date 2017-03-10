@@ -4,7 +4,7 @@
 	$id=$data->id;
 	
 	$result3 = mysql_query("SELECT schoolboy_users_id FROM schoolboy_olympics WHERE olympics_id='$id'");
-	$n=mysql_num_rows($result3);
+	//$n=mysql_num_rows($result3);
 	
 	$result2 = mysql_query("SELECT name_olympiad FROM olympics WHERE  id='$id'");
 	$myrow2 = mysql_fetch_array($result2);	 

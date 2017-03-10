@@ -22,12 +22,12 @@ include ("js/Generation_pass.js");
 	</div>
 	
 	<div>			
-			<label class="lk_schoolboy">Статус</label>		
-			<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status" size="1">
-			   <option value="1">Участник
-			   <option value="2">Организатор			
-			</SELECT>
-		</div>
+		<label class="lk_schoolboy">Статус</label>		
+		<SELECT class="status_member" id="select_status" onchange = "organ()" name="select_status" size="1">
+		   <option value="1">Участник
+		   <option value="2">Организатор			
+		</SELECT>
+	</div>
 	
 	<div class="lk_schoolboy_blok">
 		<div name="none">
@@ -93,7 +93,7 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 		</div>	
 		<div>
 			<label class="lk_schoolboy">Мобильный телефон</label>
-			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер телефона (не более 11 цифр).')" oninput="setCustomValidity(' ')">
+			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" /> 
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 
@@ -232,10 +232,16 @@ window.onload = function () {
 }
 
 document.getElementById('mobile').onkeypress=function(event){
- event= event || window.event;
- if (event.charCode && (event.charCode < 48 || event.charCode > 57))
-  return false;
+	event = event || window.event;
+	if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+		return false;
 }
+
+/*document.getElementById('login').onkeypress=function(event){
+	event = event || window.event;
+	if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+		return false;
+}*/
 
 </script>
 

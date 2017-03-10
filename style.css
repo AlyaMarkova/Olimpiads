@@ -226,41 +226,14 @@ body{
     width: 188px;
 	border-collapse: collapse;
    }
-.td1{ 
-    color: white;
-    font-size: 11pt;
-    width: 188px;
-    height: 18px;
-    text-align: left;
-    vertical-align: middle;
-    padding: 0 10px;
-}
-.td2{ 
-    background: white;
-    font-size: 11pt;
-    text-align: left;
-    vertical-align: middle;
-    width: 73%;
-    float: right;
-    margin-right: -4;
-}
-.td3{ 
-    color: white;
-    font-size: 10pt;
-    width: 188px;
-    height: 18px;
-    text-align: left;
-    vertical-align: middle;
-    padding: 0 10px;
-}
-.td4{ 
-	color: white;
-	font-size: 10pt;
+.td1{ color: white;
+	font-size: 11pt;
 	width: 188px;
 	height: 18px;
     text-align: center;
 	vertical-align: middle;
 }
+
 #white {
     color: white;
 }
@@ -272,7 +245,7 @@ body{
 	padding-right: 7px;
 }
 
-#stroka1stroka1{
+#stroka1{
    height:16px;
    border: 1px solid #0A3C57;
 }
@@ -284,16 +257,19 @@ body{
 }
 #stroka3{
    font-size: 14pt;
-   color: #ffffff;
+   color: #0A3C57;
    text-align: center;
 }
 #knopka1{
    height:14px;
    width: 50px;
    font-size: 8pt;
-   color: #0A3C57;
-   background: #84C3E5;
-   border: 1px solid #0A3C57;
+   color: #000000;
+   background: #ffffff;
+   border: 1px solid #ffffff;
+   text-align:center;
+   line-height: 0;
+  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 }
 
 #knopka2{
@@ -809,3 +785,9 @@ span:after {
 color: red; 
 content: " *"; 
 }
+
+spant:after { 
+color: green; 
+content: " *"; 
+}
+

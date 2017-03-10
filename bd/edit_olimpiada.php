@@ -5,8 +5,8 @@ if (isset($_POST['date_application'])) { $date_application = $_POST['date_applic
 if (isset($_POST['description_olimp'])) { $description_olimp = $_POST['description_olimp']; if ($description_olimp == '') { unset($description_olimp);} }
 if (isset($_POST['Org_olimp'])) { $Org_olimp = $_POST['Org_olimp']; if ($Org_olimp == '') { unset($Org_olimp);} }
 
-$id_o=$_GET['id'];
 include ("../bd.php");
+$id_o=$_GET['id'];
 
 //$result2 = mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'"); 
 //$result = mysql_query("SELECT email FROM schoolboy where delivery=1"); //адреса тех, кто подписан на рассылку
@@ -22,7 +22,7 @@ while ($row = mysql_fetch_array($result)) {
 	
 	$name = explode("!", $row_sb['Fio_schoolboy']); //name[1] - это ИМЯ учащегося
 	
-	if ($myrow['gender'] == "Женский") 
+	if ($row_sb['gender'] == "Женский") 
 		$ending = "ая";
 	else 
 		$ending = "ый";	

@@ -12,7 +12,6 @@ else $row = mysql_fetch_array(mysql_query("SELECT email FROM professor WHERE use
 $email = $row['email'];
 $message = "Уважаемый ".$myrow['login']."!\nСообщаем, что Ваш профиль был удалён Администрацией сайта.\n\nС уважением,\nАдминистрация olimpiada.ru";
 mail($email, "Удаление профиля", $message, "Content-type:text/plane;    Charset=UTF-8\r\n");
-
 /***********************************************/
 
 //удаляем из бд
@@ -29,5 +28,4 @@ if($rights==2){
 	mysql_query("DELETE FROM professor WHERE  users_id='$id'");
 	mysql_query ("UPDATE  olympics SET professor_users_id = '$id2' WHERE professor_users_id='$id'");	
 }
-	
 ?>

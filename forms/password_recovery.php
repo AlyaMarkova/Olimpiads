@@ -18,7 +18,7 @@
 			<input type="text"    name="email"></input>
 		</div>
 		<div>
-			<label id="label_pass">На Ваш электронный адрес прийдёт сообщение с новым паролем</label>  
+			<label id="label_pass">На Ваш электронный адрес придёт сообщение с новым паролем</label>  
 		</div>
 		<div class="button_all">
 			<input type="submit" class="knopka_retain"   name="submit" value="Отправить">

@@ -11,9 +11,7 @@
 	$result2 = mysql_query("SELECT * FROM olympics WHERE id='$idd'");
 	$myrow2= mysql_fetch_array($result2);	
 	
-	while($row=mysql_fetch_array($res))
-		
-	{	
+	while($row=mysql_fetch_array($res)){	
 		$res1 = mysql_query("SELECT rating_mark, place FROM schoolboy_past_olympics WHERE olympics_id = $idd AND schoolboy_users_id = $row[Users_id]");
 		$row4=mysql_fetch_assoc($res1);
 		$row1 = explode("!", $row[Fio_schoolboy]);
@@ -27,9 +25,10 @@
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+
 <div class="cont">
 	<div id="name_olymp_rezult">
-	<label id="name_olymp_rezult"></label>
+		<label id="name_olymp_rezult"></label>
 	</div>
     <table id="table_reiting">
 		<thead id="table_reiting_thead">
@@ -179,16 +178,15 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 		}
 
 		function save_rezult(){
-			onclick_blur();
+			//onclick_blur(); //зачем? что это???
 			//alert(get_id);
-			var par2={				
+			var par2 = {				
 				"arr_id_user": arr_id_user,
 				"arr_place": arr_place,
 				"arr_rating": arr_rating,
 				"get_id": get_id,
-			}
-				
-		$.ajax({
+			}	
+			$.ajax({
 				type: "POST",
 				url: "../bd/edit_rezult.php",
 				data: 'jsonData=' + JSON.stringify(par2),  

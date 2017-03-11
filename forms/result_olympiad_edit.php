@@ -105,9 +105,9 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 <script>
 	var get_id=<?php echo $_GET['id'];?>;
 	//alert(get_id);
-	var arr_id_user = [];
-	var arr_place = [];
-	var arr_rating = [];
+	var arr_id_user = []; //массив ид участников?
+	var arr_place = []; //массив дипломов
+	var arr_rating = []; //массив баллов итоговых
 	var par2={
 				
 				"id": get_id,
@@ -162,43 +162,9 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 					}					
 				}
 			});	
-
-		function onclick_blur(){			
-			for(var i=0;i<arr_id_user.length;i++){
-				var val = document.getElementById('rating'+i).innerHTML;
-				arr_rating[i]=val;
 		
-				var val2 = document.getElementById('place'+i).value;
-				arr_place[i]=val2;	
-			}			
-		}
-		function cancel(){
-			document.location.href="../arhiv.php";
-			
-		}
-
-		function save_rezult(){
-			//onclick_blur(); //зачем? что это???
-			//alert(get_id);
-			var par2 = {				
-				"arr_id_user": arr_id_user,
-				"arr_place": arr_place,
-				"arr_rating": arr_rating,
-				"get_id": get_id,
-			}	
-			$.ajax({
-				type: "POST",
-				url: "../bd/edit_rezult.php",
-				data: 'jsonData=' + JSON.stringify(par2),  
-				success: function(html){
-					html=JSON.parse(html);										
-				}
-			});	
-			document.location.href="../arhiv.php";
-		}
+		
 	
-</script>
-<script>
 	function sort(el) {
    var col_sort = el.innerHTML;
    var tr = el.parentNode;
@@ -269,4 +235,43 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 		   5: document.getElementById("digits3"),
         }
     );
+	
+	
+	function onclick_blur(){	
+		for(var i = 0; i < arr_id_user.length; i++){ //для кажд участника
+			/*if (document.getElementById('rating'+i) != null){
+				var val = document.getElementById('rating'+i).innerHTML;
+			}*/
+			arr_rating[i]=val; //записываем рейтинг
+			var val = document.getElementById('rating'+i).innerHTML;
+			 
+			//alert(val);
+			var val2 = document.getElementById('place'+i).value;
+			arr_place[i]=val2;	//и диплом
+		}	
+	}
+	
+	function cancel(){
+		document.location.href="../arhiv.php";
+	}
+
+	function save_rezult(){
+		onclick_blur(); 
+		//alert(get_id);
+		var par2 = {				
+			"arr_id_user": arr_id_user,
+			"arr_place": arr_place,
+			"arr_rating": arr_rating,
+			"get_id": get_id,
+		}	
+		$.ajax({
+			type: "POST",
+			url: "../bd/edit_rezult.php",
+			data: 'jsonData=' + JSON.stringify(par2),  
+			success: function(html){
+				html=JSON.parse(html);										
+			}
+		});	
+		document.location.href="../arhiv.php";
+	}
 </script>

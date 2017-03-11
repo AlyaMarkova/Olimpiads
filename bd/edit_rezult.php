@@ -2,11 +2,11 @@
 	//session_start();
 	include ("../bd.php");
 	$data = json_decode($_POST['jsonData']);
-	$arr_id_user=$data->arr_id_user;
-	$arr_place=$data->arr_place;
-	$arr_rating=$data->arr_rating;
-	$get_id=$data->get_id;
-	$array_new_result = array(count($arr_id_user));
+	$arr_id_user = $data -> arr_id_user;
+	$arr_place = $data -> arr_place;
+	$arr_rating = $data -> arr_rating;
+	$get_id = $data -> get_id;
+	$array_new_result = array(count($arr_id_user)); //массив по числу участников, куда будут заноситься новые итоги олимпиады????
 	
 	for($i=0;$i<count($arr_id_user);$i++){
 		$result = mysql_query("SELECT * FROM schoolboy_past_olympics WHERE olympics_id='$get_id' AND schoolboy_users_id='$arr_id_user[$i]'");

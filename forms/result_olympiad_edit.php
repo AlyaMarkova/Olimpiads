@@ -135,10 +135,23 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 					}
 					for(var i=0;i<schoolboy_users_id.length;i++){
 						if(i%2 == 0){
-						document.getElementById('target').innerHTML=document.getElementById('target').innerHTML+'<tr style="background:#E4F3FC;">'+'<td class="table_reiting_td">'+(i+1)+'</td>'+'<td class="table_reiting_td"  onclick="onclick_user(id)" id='+html.schoolboy_users_id[i]+'>'+FIO_1(html.array_fio[i])+'</td>'+'<td class="table_reiting_td">'+html.array_school[i]+'</td>'+'<td class="table_reiting_td">'+html.array_classes[i]+'</td>'+'<td id="ol" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true"> <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+'<td class="table_reiting_td" contenteditable="true">'+ '<label style="color:#E4F3FC; font-size:1px;" id =q'+i+'></label>' +'<select style=" color: #0A3C57;  background: none; border-style: none; " id="place'+i+'"><option class = "option" value="0">-</option><option class = "option" value="1">I степень</option><option class = "option" value="2">II степень</option><option class = "option" value="3">III степень</option></select></td>'+'</tr>';	
+						document.getElementById('target').innerHTML=document.getElementById('target').innerHTML+'<tr style="background:#E4F3FC;">'+
+						'<td class="table_reiting_td">'+(i+1)+'</td>'+
+						'<td class="table_reiting_td"  onclick="onclick_user(id)" id='+html.schoolboy_users_id[i]+'>'+FIO_1(html.array_fio[i])+'</td>'+
+						'<td class="table_reiting_td">'+html.array_school[i]+'</td>'+
+						'<td class="table_reiting_td">'+html.array_classes[i]+'</td>'+
+						'<td id="ol" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true"> <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+
+						'<td class="table_reiting_td" contenteditable="true">'+ '<label style="color:#E4F3FC; font-size:1px;" id =q'+i+'></label>' +'<select style=" color: #0A3C57;  background: none; border-style: none; " id="place'+i+'"><option class = "option" value="0">-</option><option class = "option" value="1">I степень</option><option class = "option" value="2">II степень</option><option class = "option" value="3">III степень</option></select></td>'+
+						'</tr>';	
 						}
 						else{
-						document.getElementById('target').innerHTML=document.getElementById('target').innerHTML+'<tr style="background:#C3DCE9;">'+'<td class="table_reiting_td">'+(i+1)+'</td>'+'<td class="table_reiting_td"  onclick="onclick_user(id)" id='+html.schoolboy_users_id[i]+'>'+FIO_1(html.array_fio[i])+'</td>'+'<td class="table_reiting_td">'+html.array_school[i]+'</td>'+'<td class="table_reiting_td">'+html.array_classes[i]+'</td>'+'<td id="ol" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true">  <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+'<td class="table_reiting_td" contenteditable="true">'+ '<label style="color:#C3DCE9; font-size:1px;" id =q'+i+'></label>'+'<select style=" color: #0A3C57;  background: none; border-style: none; " id="place'+i+'"><option class = "option" value="0">-</option><option class = "option" value="1">I степень</option><option class = "option" value="2">II степень</option><option class = "option" value="3">III степень</option></select></td>'+'</tr>';
+						document.getElementById('target').innerHTML=document.getElementById('target').innerHTML+'<tr style="background:#C3DCE9;">'+
+						'<td class="table_reiting_td">'+(i+1)+'</td>'+
+						'<td class="table_reiting_td"  onclick="onclick_user(id)" id='+html.schoolboy_users_id[i]+'>'+FIO_1(html.array_fio[i])+'</td>'+
+						'<td class="table_reiting_td">'+html.array_school[i]+'</td>'+'<td class="table_reiting_td">'+html.array_classes[i]+'</td>'+
+						'<td id="ol" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true">  <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+
+						'<td class="table_reiting_td" contenteditable="true">'+ '<label style="color:#C3DCE9; font-size:1px;" id =q'+i+'></label>'+'<select style=" color: #0A3C57;  background: none; border-style: none; " id="place'+i+'"><option class = "option" value="0">-</option><option class = "option" value="1">I степень</option><option class = "option" value="2">II степень</option><option class = "option" value="3">III степень</option></select></td>'+
+						'</tr>';
 						}
 					}
 					for(var i=0;i<schoolboy_users_id.length;i++){
@@ -163,7 +176,52 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 				}
 			});	
 		
+<<<<<<< HEAD
+				var val2 = document.getElementById('place'+i).value;
+				arr_place[i]=val2;	
+			}			
+		}
+		function cancel(){
+			document.location.href="../arhiv.php";
+			
+		}
+
+		function save_rezult(){
 		
+			alert("xnjj [fkjdsn");
+			onclick_blur();
+			//alert(get_id);
+			
+			alert("0");
+			var par3={				
+				"arr_id_user": arr_id_user,
+				"arr_place": arr_place,
+				"arr_rating": arr_rating,
+				"get_id": get_id,
+			}
+			/*var par3={				
+				"arr_id_user": html.schoolboy_users_id[0],
+				"arr_place": document.getElementById('place0').value,
+				"arr_rating": document.getElementById('rating0').value,
+				"get_id": get_id
+			}*/			
+
+			alert("1");
+			$.ajax({
+				type: "POST",
+				url: "../bd/edit_rezult.php",
+				data: 'jsonData=' + JSON.stringify(par3),  
+				success: function(html){
+					html=JSON.parse(html);
+					alert(html.name);
+				}
+			});	
+			alert("2");
+			cancel();
+		}
+=======
+		
+>>>>>>> origin/master
 	
 	function sort(el) {
    var col_sort = el.innerHTML;

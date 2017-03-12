@@ -10,6 +10,12 @@
    <tr>
     <td class="td4"> <input  id ="knopka2" title="Личный кабинет" class="tooltip" type="submit" value="" onClick='location.href="lk.php"'>
 	<input title="Добавление олимпиады" class="tooltip" id ="knopka3" type="submit" value="" onClick='location.href="dobav.php"'></td>	
+		<script>
+			var non_confirmed = <?php echo $_SESSION['activation'];?>;
+			if (non_confirmed == -2) {
+				document.getElementById('knopka3').style.display = "none";
+			}
+		</script>
   </tr> 
    <tr>
     <td id = "white2"> <a id = "white2" href='bd/exit.php'>Выйти из системы </a></td>

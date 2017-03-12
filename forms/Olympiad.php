@@ -147,8 +147,12 @@
 	</div>
 </html>
 <script>
+	
+	var non_confirmed = <?php echo $_SESSION['activation'];?>;
+	
 	function tax_request_function(){
 		var get_id=<?php echo $_GET['id'];?>;
+		
 		var id_user=<?php if (empty($_SESSION['id'])){echo -1;}else{echo $_SESSION['id'];}?>;
 		var par2={	
 				'id_olymp':get_id,
@@ -276,7 +280,7 @@
 						 document.getElementById('tax_request2').A = "none";
 						 document.getElementById('tax_request').style.pointerEvents = "none";
 					}				
-					if(rights_user!=1){
+					if(rights_user!=1 || non_confirmed==-2){
 						document.getElementById('tax_request2').style.pointerEvents = "none";
 						
 						 document.getElementById('tax_request').style.pointerEvents = "none";

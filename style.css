@@ -404,6 +404,7 @@ body{
 	font-size: 15pt;
 }
 #right_cont{
+	margin-top: 28px;
     width: 377.633px;
 	height: 500px;
 	background: #91CEF1;
@@ -420,7 +421,7 @@ body{
     width: 720px;
     min-height: 100%;
 	background: white;
-	margin: 5px 0 0 20px;
+	margin: 8px 0 0 20px;
 	float: left;
 }
 

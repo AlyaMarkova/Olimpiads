@@ -1,7 +1,9 @@
 ﻿	
-<div id="time_line"><a id="week" class="day_select" onclick="periud(id)">| за неделю |</a>
-<a id="month" class="day_select" onclick="periud(id)">| за месяц |</a>
-<a id="all" class="day_select2" onclick="periud(id)">| показать все |</a> </div>
+<div id="time_line">
+	<a id="week" class="day_select" onclick="periud(id)">| за неделю |</a>
+	<a id="month" class="day_select" onclick="periud(id)">| за месяц |</a>
+	<a id="all" class="day_select2" onclick="periud(id)">| показать все |</a> 
+</div>
 
 <div id="-1">
 </div>
@@ -162,12 +164,10 @@
 								create_div_olimpics(i,html.array_id[i],html.array_name_olympiad[i],html.array_subject[i],html.array_classes[i],html.array_terms[i],html.array_date[i],html.id_org[i],html.status_display[i]);
 								
 								if($('#'+i)[0]){
-
-
-								
+								var non_confirmed = <?php echo $_SESSION['activation'];?>;
 								var rights_user=<?php if (empty($_SESSION['id'])){echo 0;}else{echo $_SESSION['rights'];}?>;
 								var prof_user=<?php if (!empty($_SESSION['id'])){echo $_SESSION['id'];}else{ echo -1;}?>;
-								if(rights_user==0){
+								if(rights_user==0 || non_confirmed == -2){
 									document.getElementById(i+'btn_edit').style.display="none";
 									document.getElementById(i+'btn_delete').style.display="none";
 									document.getElementById(html.array_id[i]+'btn_zayvka2').style.display="none";

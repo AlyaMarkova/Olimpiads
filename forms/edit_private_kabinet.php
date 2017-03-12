@@ -44,7 +44,7 @@ session_start();
 		</div>
 		<div id="professor2">
 			<label id="lk_schoolboy">Класс</label>		
-			<SELECT title="Вы не можете изменить класс" class="classik" id="select_class" disabled="disabled" name="select_class" size="1">
+			<SELECT class="classik" id="select_class" name="select_class" size="1">
 			   <option value="0">№
 			   <option value="1">1
 			   <option value="2">2
@@ -107,7 +107,7 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 	<div class="button_all">
 		<p>
 			<input class="knopka_retain" type="submit" name="save_lk" value="Сохранить">
-			<input class="knopka_cansel" type="button" name="cancel_lk" onclick="location_cancel()" value="Отмена">
+			<input class="knopka_cansel" type="button" id="cancel" name="cancel_lk" onclick="location_cancel()" value="Отмена">
 		</p>
 	</div>	
 	
@@ -149,6 +149,11 @@ window.onload = function () {
  
     var year1 = document.getElementById('year1');
     var month1 = document.getElementById("month1");
+ 
+	var non_confirmed = <?php echo $_SESSION['activation'];?>;
+	if (non_confirmed == -2) {
+		document.getElementById('cancel').style.display = "none";
+	}
  
     function check_date() {
         var a = year1.value | 0,

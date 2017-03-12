@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include ("../bd.php");
 	if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} }
 	if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
@@ -25,12 +26,12 @@
 	$id = $myrow['id'];
 	
 	if($myrow['rights']==1){	
-	if($spam_email=="ON"){
-		$spam_email=1;
-	}
-	else{
-		$spam_email=0;
-	}	
+		if($spam_email=="ON"){
+			$spam_email=1;
+		}
+		else{
+			$spam_email=0;
+		}	
 		mysql_query ("UPDATE  schoolboy SET Fio_schoolboy = '$fio', school = '$school', email = '$email', home_adress = '$location', phone='$mob_number', birthdate='$DOB', gender='$sex',delivery='$spam_email'    WHERE Users_id='$id'");	
 		if(empty($password)==false){
 			$password=md5($password);
@@ -51,6 +52,11 @@
 		}
 		
 	}*/
-	header('Location: ../lk.php');
+	if ($_SESSION['activation']==-2) {
+		mysql_query ("UPDATE users SET activation=0 WHERE id='$id'");
+		exit("<html><head><meta http-equiv='Refresh' content='0; URL=../bd/exit.php'></head></html>");
+	} else {
+		header('Location: ../lk.php');
+	}
 ?>
 

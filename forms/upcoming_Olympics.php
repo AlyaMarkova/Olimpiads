@@ -372,7 +372,7 @@
 					},3000);*/
 				} else {
 					var div_name=document.getElementById(get_id+'btn_zayvka2').name;
-					document.getElementById(div_name).style.background="#6AC0ED";
+					document.getElementById(div_name).style.background="#91CEF1";
 					document.getElementById(get_id+'btn_zayvka2').style.display="none";
 					document.getElementById(get_id+'btn_zayvka').style.display="block";
 				}					
@@ -427,7 +427,7 @@
 			var div_elem = document.createElement('div');
 			div_elem.id=i;
 			
-				div_elem.style.background = "#6AC0ED";
+				div_elem.style.background = "#91CEF1";
 				div_elem.style.height = "45px";
 				div_elem.style.margin = "5px 0 5px 0";	
 				div_elem.style.position = "relative";

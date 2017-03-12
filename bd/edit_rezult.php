@@ -22,8 +22,7 @@
 		mysql_query ("UPDATE  schoolboy SET rating = '$array_new_result[$i]' WHERE Users_id='$arr_id_user[$i]'");	
 	}	
 	$jsonn=array(				
-		'name'=>"name2",
-				
+		'name'=>$arr_rating[0],
 	);
 	echo json_encode($jsonn);
 ?>

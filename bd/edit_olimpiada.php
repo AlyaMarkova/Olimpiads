@@ -1,4 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <?php
 if (isset($_POST['name_olimp'])) { $name_olimp = $_POST['name_olimp']; if ($name_olimp == '') { unset($name_olimp);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
 if (isset($_POST['location_olimp'])) { $location_olimp = $_POST['location_olimp']; if ($location_olimp == '') { unset($location_olimp);} }
@@ -6,25 +5,34 @@ if (isset($_POST['date_application'])) { $date_application = $_POST['date_applic
 if (isset($_POST['description_olimp'])) { $description_olimp = $_POST['description_olimp']; if ($description_olimp == '') { unset($description_olimp);} }
 if (isset($_POST['Org_olimp'])) { $Org_olimp = $_POST['Org_olimp']; if ($Org_olimp == '') { unset($Org_olimp);} }
 
-$id_o=$_GET['id'];
 include ("../bd.php");
-$result2 = mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'");
-$row2 = mysql_fetch_array($result2); 
-$result = mysql_query("SELECT email FROM schoolboy where delivery=1"); //адреса тех, кто подписан на рассылку
+$id_o=$_GET['id'];
 
-while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
-	$subject = "Изменилась информация об олимпиаде";//тема сообщения
-	if($row2['name_olympiad']==$name_olimp){
-		$message    = "Здравствуйте!
-		На сайте olimpiada.ru изменилась информация об олимпиаде под названием: ".$name_olimp.". Эта информация может вас заинтересовать. 
-		С    уважением, Администрация    olimpiada.ru";
+//$result2 = mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'"); 
+//$result = mysql_query("SELECT email FROM schoolboy where delivery=1"); //адреса тех, кто подписан на рассылку
+//$result = mysql_query("SELECT email FROM schoolboy"); //просто все адреса
+
+$row_name = mysql_fetch_array(mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'")); //получаем имя редактируемой олимпиады 
+
+$result = mysql_query("SELECT schoolboy_users_id FROM schoolboy_olympics WHERE olympics_id='$id_o'"); //получаем ид участников этой олимпиады
+
+while ($row = mysql_fetch_array($result)) {
+	$id_sb = $row['schoolboy_users_id'];
+	$row_sb = mysql_fetch_array(mysql_query("SELECT email, Fio_schoolboy, gender FROM schoolboy WHERE Users_id='$id_sb'"));
+	
+	$name = explode("!", $row_sb['Fio_schoolboy']); //name[1] - это ИМЯ учащегося
+	
+	if ($row_sb['gender'] == "Женский") 
+		$ending = "ая";
+	else 
+		$ending = "ый";	
+	
+	if($row_name['name_olympiad']==$name_olimp){
+		$message = "Уважаем".$ending." ".$name[1]."!\nВ информации об олимпиаде под названием: ".$name_olimp.", в которой Вы участвуете, произошли изменения. Просим Вас ознакомиться с данной информацией.\n\nС уважением, Администрация olimpiada.ru";
+	} else {
+		$message = "Уважаем".$ending." ".$name[1]."!\nВ информации об олимпиаде под названием: ".$row_name['name_olympiad']." (".$name_olimp."), в которой Вы участвуете, произошли изменения. Просим Вас ознакомиться с данной информацией.\n\nС уважением, Администрация olimpiada.ru";
 	}
-	else {
-		$message    = "Здравствуйте!
-		На сайте olimpiada.ru изменилась информация об олимпиаде под названием: ".$row2['name_olympiad']."(".$name_olimp."). Эта информация может вас заинтересовать. 
-		С    уважением, Администрация    olimpiada.ru";
-	}
-	mail($row[0], $subject, $message, "Content-Type: text/html; charset=UTF-8");//отправляем сообщение
+	mail($row_sb['email'], "Изменилась информация об олимпиаде", $message, "Content-type:text/plane;    Charset=windows-1251\r\n");//отправляем сообщение
 }
 
 $subject=$_POST['subject_string'];

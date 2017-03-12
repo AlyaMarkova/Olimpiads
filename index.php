@@ -17,7 +17,7 @@ include ("bd.php");
 	<div id="main">
 		<div id="inside_main">
 			<div id="name">		
-				<p id="name_p">Олимпиады</p>
+				<p id="name_p">Список олимпиад</p>
 			</div>
 			
 			<div id="left_cont">

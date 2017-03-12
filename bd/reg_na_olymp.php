@@ -35,7 +35,7 @@ if($n == 0){ //если таких записей нет (т.е. заявка т
 		$date = explode("!", $myrow2['date']); //date[0] - дата и время первого этапа
 		
 		//содержание сообщения 
-		$message = "Уважаем".$ending." ".$name[1]."!\nВы записались на олимпиаду \"".$name_olimp."\", которая состоится ".date("d.m.Y", strtotime($date[0]))." в ".date("H:i", strtotime($date[0])).".\nУдачи!\n \nС уважением,\nАдминистрация olimpiada.ru";
+		$message = "Уважаем".$ending." ".$name[1]."!\nВы записались на \"".$name_olimp."\", которая состоится ".date("d.m.Y", strtotime($date[0]))." в ".date("H:i", strtotime($date[0])).".\nУдачи!\n \nС уважением,\nАдминистрация olimpiada.ru";
 		
 		//отправляем сообщение
 		mail($email, "Заявка на участие в олимпиаде", $message, "Content-type:text/plane;    Charset=UTF-8\r\n");

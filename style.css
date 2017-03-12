@@ -66,17 +66,18 @@
 	 cursor: pointer;
 }
 #tm1{
-	border-bottom
+	/*border-bottom
+	/*что это за *****  */
 	
 }
-
-body{
-	margin:0;
+body {
+     margin-top:-18px;
 }
 #header{
     width: 1146.65px;
     height: 150px;
 	
+	margin: 0 auto;
 	margin: 0 auto;
 	background-image: url(images/header.png);
 	position: relative;
@@ -404,6 +405,7 @@ body{
 	font-size: 15pt;
 }
 #right_cont{
+	margin-top: 28px;
     width: 377.633px;
 	height: 500px;
 	background: #91CEF1;
@@ -420,7 +422,7 @@ body{
     width: 720px;
     min-height: 100%;
 	background: white;
-	margin: 5px 0 0 20px;
+	/*margin: 8px 0 0 20px;*/
 	float: left;
 }
 
@@ -437,6 +439,7 @@ body{
 	background: white;
 	margin:0;
 	float: left;
+	padding: 28px 0;
 }
 
 #footer{
@@ -509,7 +512,6 @@ margin: 0 auto;
 	width: 650px;
 	max-width: 650px;
 	margin: auto;
-	margin-top: 20px;
 	
 } 
 #table_reiting_thead{ 
@@ -621,7 +623,7 @@ margin: 20px auto;
 }
 
 #bestt{
-	min-width: 290px;
+	min-width: 300px;
 	border-collapse: collapse;
 	border:1px solid #0A3C57;
 	color:#0A3C57;
@@ -651,7 +653,8 @@ margin: 20px auto;
 		border:1px solid #0A3C57;
 }
 #time_line{
-	height: 35px;
+	height: 35px;    
+	margin-top: -18px;
 	background:#0066b3;
 	padding: 7px 0 0 15px;
 	Color: white;

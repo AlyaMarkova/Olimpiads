@@ -33,6 +33,7 @@ function delete_button(id){
 }
 
 var number_date=0;
+var number_place=0;
 
 function delete_button2(id){
 	if(number_date>1){
@@ -218,21 +219,20 @@ function create_date(i){
 
 
 function create_place(i){
-	if(number_place==6){
+	if(number_place==6){ 
 		document.getElementById('knopka_retain1').disabled=true;
 	}
-	if(number_place<7){
+	if(number_place<7){ 
 		number_place=number_place+1;
 		i=number_place;	
 		document.getElementById('number_place').value=i;
 		
-		
-	
 	    var place = document.getElementById('place_olimp');		
 		var p1_elem = document.createElement('div'); 
 		p1_elem.id='p1_elem'+i; 
 		var label1 = document.createElement('label'); 
 		label1.class="lk_schoolboy"; 
+		
 	
 		
 		switch (i)
@@ -245,10 +245,12 @@ function create_place(i){
 		  case 6: s="6"; break;
 		  case 7: s="7"; break;
 		}
+		//alert("ggd");
 		//p1_elem.appendChild(label1);
 		label1.innerHTML = s+" этап ";
-		id_last_elem=label.id;
+		id_last_elem1=label.id;
 		p1_elem.appendChild(label);	
+		
 		//place.parentNode.appendChild(p1_elem);
 		//id_last_elem=label.id;
 		//label.id =i+" Этап ";		

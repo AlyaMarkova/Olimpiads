@@ -68,7 +68,7 @@ include ("js/select_subject.js");
 	</div>
 	
 	<div name="none">
-	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date3(number_date1)" value="Добавить место"></p>	
+	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_place(number_place)" value="Добавить место"></p>	
     </div>
 	
 	<!--<div>

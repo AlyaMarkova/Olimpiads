@@ -219,37 +219,48 @@ function create_date(i){
 
 
 function create_place(i){
+	
+	/*
+	
+	<div class="div_date">
+	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
+	</div>
+	
+	<div id="place_olimp">
+	<label  id="lk_schoolboy" >Место проведения</label>
+	</div>*/
 	if(number_place==6){ 
-		document.getElementById('knopka_retain1').disabled=true;
+		document.getElementById('knopka_retain0').disabled=true; //- так не блочится кнопка
 	}
-	if(number_place<7){ 
+	else if(number_place<7){ 
 		number_place=number_place+1;
 		i=number_place;	
 		document.getElementById('number_place').value=i;
 		
-	    var place = document.getElementById('place_olimp');		
+	    var place = document.getElementById('div_date');	
+
+		
 		var p1_elem = document.createElement('div'); 
+		p1_elem.class="div_date";
 		p1_elem.id='p1_elem'+i; 
-		var label1 = document.createElement('label'); 
-		label1.class="lk_schoolboy"; 
+		var inp1 =  document.createElement('input');
+		inp1.class="create_text";
+		inp1.name="location_olimp";
+		inp1.type="text";
+		var  abbra=document.createElement('abbr'); 
+		abbra.title="Это поле можно не заполнять";
+		var span1=document.createElement('spant'); 
 		
-	
+		abbra.appendChild(span1);	
+		inp1.appendChild(abbra);	
+		p1_elem.appendChild(inp1);	
 		
-		switch (i)
-		{		  
-		  case 1: s="1"; break;
-		  case 2: s="2"; break;
-		  case 3: s="3"; break;
-	      case 4: s="4"; break;
-          case 5: s="5"; break;
-		  case 6: s="6"; break;
-		  case 7: s="7"; break;
-		}
-		//alert("ggd");
-		//p1_elem.appendChild(label1);
 		label1.innerHTML = s+" этап ";
-		id_last_elem1=label.id;
-		p1_elem.appendChild(label);	
+		id_last_elem1=label1.id;
+		place.parentNode.appendChild(p1_elem);	
+		
+		
+		
 		
 		//place.parentNode.appendChild(p1_elem);
 		//id_last_elem=label.id;
@@ -258,7 +269,7 @@ function create_place(i){
 	
 	
 	}
-	if(number_place==1){
+	else if(number_place==1){
 		document.getElementById('btn1').style.opacity=0.5;
 	}
 }	

@@ -44,7 +44,7 @@ function delete_button2(id){
 		}
 		document.getElementById(id).remove();
 		number_date=number_date-1;
-		var idd = Number(id.substring(8));
+		var idd = Number(id.substring(6));
 		var id_staroe = idd;
 		for(var i = id_staroe; i<number_date+1; i++){
 			var id_novoe = i+1;

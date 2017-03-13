@@ -41,11 +41,6 @@ include ("js/select_subject.js");
 		<label id="lk_schoolboy" >Название олимпиады</label>
 		<input class="create_text"  name="name_olimp" required type="text">
 	</p>
-	<div>
-		<div id="div_p_date_olimp">
-			<label id="lk_schoolboy" >Дата проведения</label>						
-		</div>
-	</div>
 	
 	<div>			
 		<label class="lk_schoolboy">Тип олимпиады</label>		
@@ -55,6 +50,11 @@ include ("js/select_subject.js");
 		</SELECT>
 	</div>
 	
+	<div name="none">
+		<div id="div_p_date_olimp">
+			<label id="lk_schoolboy" >Дата проведения</label>						
+		</div>
+	</div>
 	
 	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
 	<div name="none">
@@ -263,6 +263,7 @@ window.onload = function () {
 	function change(){
 	if(document.getElementById('select_status').value==2){
 		document.getElementById('location_olimp').required=false;
+		
 		for (var i=0; i<document.getElementsByName('none').length; i++) {
 			document.getElementsByName('none')[i].style.display="none";
 		}

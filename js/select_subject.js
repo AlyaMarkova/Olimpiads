@@ -37,6 +37,7 @@ var number_date=0;
 function delete_button2(id){
 	if(number_date>1){
 		document.getElementById('knopka_retain1').disabled=false;
+		
 		document.getElementById('btn1').disabled=false;
 		document.getElementById('number_date').value=document.getElementById('number_date').value-1;
 		if (document.getElementById(id).type=='button'){
@@ -46,58 +47,66 @@ function delete_button2(id){
 		number_date=number_date-1;
 		var idd = Number(id.substring(6));
 		var id_staroe = idd;
-		for(var i = id_staroe; i<number_date+1; i++){
-			var id_novoe = i+1;
-			
-			switch (i)
-			{		  
-			  case 1: s="1"; break;
-			  case 2: s="2"; break;
-			  case 3: s="3"; break;
-			  case 4: s="4"; break;
-			  case 5: s="5"; break;
+			for(var i = id_staroe; i<number_date+1; i++){
+				var id_novoe = i+1;
+				
+					switch (i)
+					{		  
+					  case 1: s="1"; break;
+					  case 2: s="2"; break;
+					  case 3: s="3"; break;
+					  case 4: s="4"; break;
+					  case 5: s="5"; break;
+					  case 6: s="6"; break;
+					  case 7: s="7"; break;
+					}
+				
+				
+				document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
+				
+				document.getElementById(id_novoe+' Этап ').innerHTML = s+' этап ';
+				document.getElementById(id_novoe+' Этап ').id = i+' Этап ';
+				
+				document.getElementById('day'+id_novoe).name= 'day'+i;
+				document.getElementById('day'+id_novoe).id = 'day'+i;
+				
+				document.getElementById('month'+id_novoe).name = 'month'+i;
+				document.getElementById('month'+id_novoe).id = 'month'+i;
+				
+				document.getElementById('year'+id_novoe).name = 'year'+i;
+				document.getElementById('year'+id_novoe).id = 'year'+i;
+				
+				document.getElementById('1time'+id_novoe).name = '1tm'+i;
+				document.getElementById('1time'+id_novoe).id = '1time'+i;
+				
+				document.getElementById('2time'+id_novoe).name = '2tm'+i;
+				document.getElementById('2time'+id_novoe).id = '2time'+i;
+				
+				document.getElementById('btn'+id_novoe).id = 'btn'+i;
+							
 			}
-			
-			document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
-			
-			document.getElementById(id_novoe+' Этап ').innerHTML = s+' этап ';
-			document.getElementById(id_novoe+' Этап ').id = i+' Этап ';
-			
-			document.getElementById('day'+id_novoe).name= 'day'+i;
-			document.getElementById('day'+id_novoe).id = 'day'+i;
-			
-			document.getElementById('month'+id_novoe).name = 'month'+i;
-			document.getElementById('month'+id_novoe).id = 'month'+i;
-			
-			document.getElementById('year'+id_novoe).name = 'year'+i;
-			document.getElementById('year'+id_novoe).id = 'year'+i;
-			
-			document.getElementById('1time'+id_novoe).name = '1tm'+i;
-			document.getElementById('1time'+id_novoe).id = '1time'+i;
-			
-			document.getElementById('2time'+id_novoe).name = '2tm'+i;
-			document.getElementById('2time'+id_novoe).id = '2time'+i;
-			
-			document.getElementById('btn'+id_novoe).id = 'btn'+i;		
-		}
-		if(number_date==1){
-			document.getElementById('btn1').style.opacity=0.5;
-		}
+			if(number_date==1){
+				document.getElementById('btn1').style.opacity=0.5;
+			}
 	}
 	else{
 		document.getElementById('btn1').disabled=false;
 		document.getElementById('btn1').style.opacity=0.5;
-	}		
+	}	
+			
 }
 	
 function create_date(i){
-	if(number_date==4){
+	if(number_date==6){
 		document.getElementById('knopka_retain1').disabled=true;
 	}
-	if(number_date<5){
-		number_date=number_date+1;//увеличиваем счётчик этапов
-		i=number_date;	
-		document.getElementById('number_date').value=i; //и записываем его в инпут типа 'hidden' на форме
+	if(number_date<7){
+		
+	number_date=number_date+1;
+	i=number_date;	
+	document.getElementById('number_date').value=i;
+		
+		
 		
 		var next = document.getElementById('div_p_date_olimp');
 		var p_elem = document.createElement('div');
@@ -106,12 +115,15 @@ function create_date(i){
 		var label = document.createElement('label');		
 		label.id =i+" Этап ";		
 		
-		switch (i){		  
+		switch (i)
+		{		  
 		  case 1: s="1"; break;
 		  case 2: s="2"; break;
 		  case 3: s="3"; break;
-		  case 4: s="4"; break;
-		  case 5: s="5"; break;
+	      case 4: s="4"; break;
+          case 5: s="5"; break;
+		  case 6: s="6"; break;
+		  case 7: s="7"; break;
 		}
 		
 		label.innerHTML = s+" этап ";
@@ -196,6 +208,12 @@ function create_date(i){
 		set_select("month"+i, 12, 1, "мм");
 		set_select("year"+i, 11, day.getFullYear(), "гг");
 		document.getElementById('btn1').style.opacity=1;
+
+
+		
+			
+		
+		
 	}
 	if(number_date==1){
 		document.getElementById('btn1').style.opacity=0.5;

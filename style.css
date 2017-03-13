@@ -25,12 +25,13 @@
 }
 
 #ach1{
-	width: 330px;
-	margin: 0 auto;
-	background: white;
-	text-align: center;
-	font-size: 18px;
-	color:#0A3C57;
+    width: 285px;
+    margin: 15px auto;
+    padding: 10px;
+    background: white;
+    text-align: center;
+    font-size: 18px;
+    color: #0A3C57;
 }
 #place_in_the_ranking{
 	text-decoration: underline;
@@ -281,7 +282,7 @@ body {
 	background-image: url(images/lk.png); 
 	background-size: 105% auto;
 	background-position:center center;
-	border-radius: 50%;   
+	border-radius: 50%;  
 	border: 1px solid #0A3D58;
 	background-repeat: no-repeat;
  	
@@ -419,7 +420,7 @@ body {
 }
 
 #content{
-    width: 720px;
+    width: 739px;
     min-height: 100%;
 	background: white;
 	/*margin: 8px 0 0 20px;*/
@@ -655,6 +656,7 @@ margin: 20px auto;
 #time_line{
 	height: 35px;    
 	margin-top: -18px;
+    margin-bottom: 28px;
 	background:#0066b3;
 	padding: 7px 0 0 15px;
 	Color: white;
@@ -784,7 +786,7 @@ margin: 20px auto;
 	height:20px;
 }
 
-span:after { 
+spanz:after { 
 color: red; 
 content: " *"; 
 }

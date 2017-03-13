@@ -44,7 +44,7 @@ function delete_button2(id){
 		}
 		document.getElementById(id).remove();
 		number_date=number_date-1;
-		var idd = Number(id.substring(6));
+		var idd = Number(id.substring(8));
 		var id_staroe = idd;
 		for(var i = id_staroe; i<number_date+1; i++){
 			var id_novoe = i+1;
@@ -56,6 +56,8 @@ function delete_button2(id){
 			  case 3: s="3"; break;
 			  case 4: s="4"; break;
 			  case 5: s="5"; break;
+			  case 6: s="6"; break;
+			  case 7: s="7"; break;
 			}
 			
 			document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
@@ -91,10 +93,10 @@ function delete_button2(id){
 }
 	
 function create_date(i){
-	if(number_date==4){
+	if(number_date==6){
 		document.getElementById('knopka_retain1').disabled=true;
 	}
-	if(number_date<5){
+	if(number_date<7){
 		number_date=number_date+1;//увеличиваем счётчик этапов
 		i=number_date;	
 		document.getElementById('number_date').value=i; //и записываем его в инпут типа 'hidden' на форме
@@ -112,6 +114,8 @@ function create_date(i){
 		  case 3: s="3"; break;
 		  case 4: s="4"; break;
 		  case 5: s="5"; break;
+		  case 6: s="6"; break;
+		  case 7: s="7"; break;
 		}
 		
 		label.innerHTML = s+" этап ";

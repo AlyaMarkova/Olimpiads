@@ -257,7 +257,7 @@ margin:0px auto 10px auto;
 	border-radius: 0 4px 4px 0 ;
 	text-align: right;
 	width: 200px;
-margin:0px auto 10px auto;
+	margin:0px auto 10px auto;
 
 }
 .div_date{
@@ -277,8 +277,9 @@ margin:0px auto 10px auto;
 }
 
 #lk_fio_div {
-	text-align: left;
-	padding: 10px 0 0 15px;
+    text-align: left;
+    padding: 10px 0 0 15px;
+    margin-bottom: 28px;
     background: #0066b3;
     color: #ffffff;
 }

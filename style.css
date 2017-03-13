@@ -25,12 +25,13 @@
 }
 
 #ach1{
-	width: 330px;
-	margin: 0 auto;
-	background: white;
-	text-align: center;
-	font-size: 18px;
-	color:#0A3C57;
+    width: 285px;
+    margin: 15px auto;
+    padding: 10px;
+    background: white;
+    text-align: center;
+    font-size: 18px;
+    color: #0A3C57;
 }
 #place_in_the_ranking{
 	text-decoration: underline;
@@ -655,6 +656,7 @@ margin: 20px auto;
 #time_line{
 	height: 35px;    
 	margin-top: -18px;
+    margin-bottom: 28px;
 	background:#0066b3;
 	padding: 7px 0 0 15px;
 	Color: white;

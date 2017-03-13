@@ -63,6 +63,7 @@ include ("js/Generation_pass.js");
 			</SELECT> <abbr title="Это поле обязательно для заполнения."><spanz></spanz></abbr> 
 		</div>
 	</div>
+	
 	<div class="lk_schoolboy_blok">	
 		<div>
 			<label class="lk_schoolboy">Логин</label>
@@ -75,6 +76,7 @@ include ("js/Generation_pass.js");
 			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 
 			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> 		
 			<abbr title="Это поле обязательно для заполнения"><spanz></spanz></abbr> 
+		</div>
 
 <script language="Javascript">
 function ShowHidePassword(id){

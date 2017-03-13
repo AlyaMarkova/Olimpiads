@@ -194,6 +194,28 @@
 	background-size: 125% auto;
 	border-radius: 2px 2px 2px 2px;
 }
+
+.status_olimp{ /*select статус одноэтапная/многоэтапная */ 
+	background-image: url(../images/predm_list.jpg);
+	background-position:center center;
+	width: 150px; 
+	height: 30px;
+	
+	-webkit-appearance: none; 
+	border-color: #0066b3;
+	background-repeat: no-repeat;
+	text-align-last: center;
+	font-size: 14px;
+	padding-bottom: 6px;
+	
+	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	margin: 0px 1px 0px 1px;
+	vertical-align: 5px; 
+	background-size: 140% auto;
+	border-radius: 2px 2px 2px 2px;
+
+}
+
 .redak_itog{
 background-image: url(../images/redak_olimp.jpg); 
 	background-position:center center; 

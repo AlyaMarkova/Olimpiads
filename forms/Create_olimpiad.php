@@ -47,11 +47,20 @@ include ("js/select_subject.js");
 		</div>
 	</div>
 	
-	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
+	<div>			
+		<label class="lk_schoolboy">Тип олимпиады</label>		
+		<SELECT class="status_olimp" id="select_status" onchange = "change()" name="select_status" size="1">
+		   <option value="1">Одноэтапная
+		   <option value="2">Многоэтапная			
+		</SELECT>
+	</div>
 	
+	
+	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
+	<div name="none">
 	<label  id="lk_schoolboy" >Место проведения</label>
 	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr> 
-
+    </div>
 	<div id="org_block">
 		<label id="lk_schoolboy" >Организатор</label>
 		<input id="Org_olimp" name="Org_olimp" type="text" >
@@ -250,4 +259,21 @@ window.onload = function () {
 			document.getElementById('class_olimp1').required=false;
 		}
 	}
+	
+	function change(){
+	if(document.getElementById('select_status').value==2){
+		document.getElementById('location_olimp').required=false;
+		for (var i=0; i<document.getElementsByName('none').length; i++) {
+			document.getElementsByName('none')[i].style.display="none";
+		}
+	}
+	else{
+		document.getElementById('location_olimp').required=true;
+		
+		for (var i=0; i<document.getElementsByName('none').length; i++) {
+			document.getElementsByName('none')[i].style.display="block";
+		}
+	}
+	
+}  
 </script>

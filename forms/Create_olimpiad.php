@@ -56,19 +56,27 @@ include ("js/select_subject.js");
 		</div>
 	</div>
 	
-	<!-- <label  id="lk_schoolboy" >Место проведения</label>
-	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr> -->
+	<div name="none">
+	<div>
+	<p id="knopka_retain__""> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
+    </div>
+	</div>
+	
+	<div id="place_olimp">
+	<label  id="lk_schoolboy" >Место проведения</label>
+	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
+	</div>
 	
 	<div name="none">
-	<p id="knopka_retain__""> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
-
+	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date3(number_date1)" value="Добавить место"></p>	
+    </div>
 	
-	<div>
+	<!--<div>
 	<div id="place_olimp">
 	<label  id="lk_schoolboy" >Место проведения</label> 
     </div>
 	</div>
-		</div>
+		</div>-->
 	
 	<div id="org_block">
 		<label id="lk_schoolboy" >Организатор</label>

@@ -95,6 +95,7 @@ function delete_button2(id){
 	}	
 			
 }
+
 	
 function create_date(i){
 	if(number_date==6){
@@ -208,18 +209,59 @@ function create_date(i){
 		set_select("month"+i, 12, 1, "мм");
 		set_select("year"+i, 11, day.getFullYear(), "гг");
 		document.getElementById('btn1').style.opacity=1;
-
-
-		
-			
-		
-		
 	}
 	if(number_date==1){
 		document.getElementById('btn1').style.opacity=0.5;
 	}
 }	
 	
+
+
+function create_date3(i){
+	
+	if(number_date1==6){
+		document.getElementById('knopka_retain1').disabled=true;
+	}
+	
+	if(number_date1<7){
+		number_date1=number_date1+1;
+		i=number_date1;	
+		document.getElementById('number_date1').value=i;
+	
+	    var place = document.getElementById('place_olimp'); 
+		var p1_elem = document.createElement('div'); 
+		p1_elem.id='p1_elem'+i; 
+		var label1 = document.createElement('label'); 
+		label1.class="lk_schoolboy"; 
+	
+		
+		switch (i)
+		{		  
+		  case 1: s="1"; break;
+		  case 2: s="2"; break;
+		  case 3: s="3"; break;
+	      case 4: s="4"; break;
+          case 5: s="5"; break;
+		  case 6: s="6"; break;
+		  case 7: s="7"; break;
+		}
+		p1_elem.appendChild(label1);
+		
+		label1.innerHTML = s+" этап ";
+		
+		place.parentNode.appendChild(p1_elem);
+		
+		id_last_elem=label.id;
+		label.id =i+" Этап ";		
+	
+	
+	}
+	if(number_date==1){
+		document.getElementById('btn1').style.opacity=0.5;
+	}
+}	
+
+
 //а нужна ли эта функция?!!!!!!
 function create_date2(i){
 	number_date=number_date+1;

@@ -208,6 +208,12 @@ function create_date(i){
 		set_select("month"+i, 12, 1, "мм");
 		set_select("year"+i, 11, day.getFullYear(), "гг");
 		document.getElementById('btn1').style.opacity=1;
+
+
+		
+			
+		
+		
 	}
 	if(number_date==1){
 		document.getElementById('btn1').style.opacity=0.5;

@@ -164,7 +164,7 @@
 								create_div_olimpics(i,html.array_id[i],html.array_name_olympiad[i],html.array_subject[i],html.array_classes[i],html.array_terms[i],html.array_date[i],html.id_org[i],html.status_display[i]);
 								
 								if($('#'+i)[0]){
-								var non_confirmed = <?php echo $_SESSION['activation'];?>;
+								var non_confirmed = <?php if (empty($_SESSION['activation'])){echo -2;}else{echo $_SESSION['activation'];}?>;
 								var rights_user=<?php if (empty($_SESSION['id'])){echo 0;}else{echo $_SESSION['rights'];}?>;
 								var prof_user=<?php if (!empty($_SESSION['id'])){echo $_SESSION['id'];}else{ echo -1;}?>;
 								if(rights_user==0 || non_confirmed == -2){

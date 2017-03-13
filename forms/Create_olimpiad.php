@@ -125,6 +125,11 @@ include ("js/select_subject.js");
  		<input id="subject_string" name="subject_string" type="text" >
 	</div>
 	
+	<div id="div_none">
+		<input id="number_place" name="number_place" type="text" > <!-- количество этапов -->
+ 		<input id="subject_string" name="subject_string" type="text" >
+	</div>
+	
 	<div style="margin-top: 100px;" class="button_all">
 		<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
 		<input type="button"  class="knopka_cansel" onclick="location_cancel()" name="submit_cancel" value="Отмена">

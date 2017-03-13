@@ -1,113 +1,97 @@
 ﻿	
-	<div id="time_line"><a id="week" class="day_select" onclick="periud(id)">неделя</a>
-	<a id="month" class="day_select" onclick="periud(id)">за месяц</a>
-	<a id="all" class="day_select2" onclick="periud(id)">показать все</a> </div>
+<div id="time_line">
+	<a id="week" class="day_select" onclick="periud(id)">| за неделю |</a>
+	<a id="month" class="day_select" onclick="periud(id)">| за месяц |</a>
+	<a id="all" class="day_select2" onclick="periud(id)">| показать все |</a> 
+</div>
+
+<div id="-1">
+</div>
+
+<!-- для подачи заявки -->
+<div>
+	<!--<input type="button"  id="tax_request"  value="Подать">-->
+	<input type="button" style="display: none" id="tax_request2" value="" onclick="tax_request_function()">
 	
-	<!--<input id="date_vivod" name="date_vivod" type="radio" value="неделя"> неделя</input>
-    <input id="date_vivod" name="date_vivod" type="radio" value="за месяц"> за месяц
-    <input id="date_vivod" name="date_vivod" type="radio" value="показать всё" checked> показать всё
-	-->
-	
-	<div id="-1">
+	<!-- Кнопка активации -->
+	<label class="btn" style="display: none" id="tax_request" for="modal-1"></label>
+	<!-- Модальное окно -->
+	<div class="modal">
+		<input class="modal-open" id="modal-1" type="checkbox" hidden>
+		<div class="modal-wrap" aria-hidden="true" role="dialog">
+			<label class="modal-overlay" for="modal-1"></label>
+			<div class="modal-dialog">
+				<div class="modal-header">
+					<h2>Заявка на участие </h2>
+				</div>
+				<div class="modal-body">
+					<p id="name_olympiad_modal"></p>
+				</div>
+				<div class="modal-footer">
+					<label onclick="tax_request_function()" class="btn2 btn-primary" for="modal-1">Подтвердить</label>
+					<label class="btn2 btn-primary2" for="modal-1">Отклонить</label>
+				</div>
+			</div>
+		</div>
 	</div>
-			<div>
-				<!--<input type="button"  id="tax_request"  value="Подать">-->
-				<input type="button" style="display: none" id="tax_request2" value="" onclick="tax_request_function()">
-				
-				<!-- Кнопка активации -->
-				<label class="btn" style="display: none" id="tax_request" for="modal-1"></label>
-				<!-- Модальное окно -->
-				<div class="modal">
-				  <input class="modal-open" id="modal-1" type="checkbox" hidden>
-				  <div class="modal-wrap" aria-hidden="true" role="dialog">
-					<label class="modal-overlay" for="modal-1"></label>
-					<div class="modal-dialog">
-					  <div class="modal-header">
-						<h2>Заявка на участие </h2>
-						<!--<label class="btn-close" for="modal-1" aria-hidden="true">×</label>-->
-					  </div>
-					  <div class="modal-body">
-						<p id="name_olympiad_modal"></p>
-					  </div>
-					  <div class="modal-footer">
-					  
-						<label onclick="tax_request_function()" class="btn2 btn-primary" for="modal-1">Подтвердить</label>
-						<label class="btn2 btn-primary2" for="modal-1">Отклонить</label>
-					  </div>
-					</div>
-				  </div>
+</div>
+
+
+<!-- для отказа от участия -->
+<div>
+	<label class="btn2" id="tax_request1" style="display: none"  value="Отменить" for="modal-3"></label>
+	<!-- Кнопка активации -->
+
+	<!-- Модальное окно -->
+	<div class="modal">
+		<input class="modal-open" id="modal-3" type="checkbox" hidden>
+		<div class="modal-wrap" aria-hidden="true" role="dialog">
+			<label class="modal-overlay" for="modal-3"></label>
+			<div class="modal-dialog">
+				<div class="modal-header2">
+					<h2>Заявка на участие </h2>
 				</div>
-				
-				
-				
-			</div>
-			
-			
-			
-				<div>
-				<!--<input type="button"  id="tax_request"  value="Подать">-->
-				<!--<input type="button" id="tax_request2" value="Отменить заявку"  for="modal-1"">-->
-				<label class="btn2" id="tax_request1" style="display: none"  value="Отменить" for="modal-3"></label>
-				<!-- Кнопка активации -->
-			
-				<!-- Модальное окно -->
-				<div class="modal">
-				  <input class="modal-open" id="modal-3" type="checkbox" hidden>
-				  <div class="modal-wrap" aria-hidden="true" role="dialog">
-					<label class="modal-overlay" for="modal-3"></label>
-					<div class="modal-dialog">
-					  <div class="modal-header2">
-						<h2>Заявка на участие </h2>
-						<!--<label class="btn-close" for="modal-1" aria-hidden="true">×</label>-->
-					  </div>
-					  <div class="modal-body">
-						<p id="name_olympiad_modal2"></p>
-					  </div>
-					  <div class="modal-condition">
-						<p>Вы действительно хотите отменить заявку на участие?</p>
-					  </div>
-					  <div class="modal-footer">
-						<label onclick="tax_request_function()" id="yes" class="btn2 btn-primary" for="modal-3">Да</label>
-						<label class="btn2 btn-primary2" for="modal-3">Нет</label>
-					  </div>
-					</div>
-				  </div>
+				<div class="modal-body">
+					<p id="name_olympiad_modal2"></p>
 				</div>
-				
-				
-				
-			</div>
-			
-			
-			
-			<div>
-		<!-- Кнопка активации -->
-				<label class="btn" style="display: none"  id="tax_request3" for="modal-2"></label>
-				<!-- Модальное окно -->
-				<div class="modal">
-				  <input class="modal-open" id="modal-2" type="checkbox" hidden>
-				  <div class="modal-wrap" aria-hidden="true" role="dialog">
-					<label class="modal-overlay" for="modal-2"></label>
-					<div class="modal-dialog">
-					  <div class="modal-header2">
-						<h2>Заявка успешно принята!</h2>
-						<p style="display: none" id="name_olympiad_modal"></p>
-						<!--<label class="btn-close" for="modal-1" aria-hidden="true">×</label>-->
-					  </div>
-					  <div class="modal-body2">
-						<p>Вы были добавлены в предварительный список участников</p>
-					  </div>
-					  <div class="modal-footer">
-						
-						<label class="btn2 btn-primary" style="display: none" id="cancel_id" for="modal-2">Отклонить</label>
-					  </div>
-					</div>
-				  </div>
+				<div class="modal-condition">
+					<p>Вы действительно хотите отменить заявку на участие?</p>
 				</div>
-				
-				
-				
+				<div class="modal-footer">
+					<label onclick="tax_request_function()" id="yes" class="btn2 btn-primary" for="modal-3">Да</label>
+					<label class="btn2 btn-primary2" for="modal-3">Нет</label>
+				</div>
 			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div>
+	<!-- Кнопка активации -->
+	<label class="btn" style="display: none"  id="tax_request3" for="modal-2"></label>
+	
+	<!-- Модальное окно -->
+	<div class="modal">
+		<input class="modal-open" id="modal-2" type="checkbox" hidden>
+		<div class="modal-wrap" aria-hidden="true" role="dialog">
+			<label class="modal-overlay" for="modal-2"></label>
+			<div class="modal-dialog">
+				<div class="modal-header2">
+					<h2>Заявка успешно принята!</h2>
+					<p style="display: none" id="name_olympiad_modal"></p>
+				</div>
+				<div class="modal-body2">
+					<p>Вы были добавлены в предварительный список участников</p>
+				</div>
+				<div class="modal-footer">
+					<label class="btn2 btn-primary" style="display: none" id="cancel_id" for="modal-2">Отклонить</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 			
 			
 			
@@ -129,7 +113,7 @@
       case 10: s="ноября"; break;
       case 11: s="декабря"; break;
     }
-	document.getElementById('week').innerHTML=week.getDate()+" - "+(week.getDate()+6)+" "+s;
+	//document.getElementById('week').innerHTML=week.getDate()+" - "+(week.getDate()+6)+" "+s;
 	var week2 = new Date(week);
 	week2.setDate(week2.getDate() + 6);
 	if(week2.getMonth()!=mon){
@@ -180,12 +164,10 @@
 								create_div_olimpics(i,html.array_id[i],html.array_name_olympiad[i],html.array_subject[i],html.array_classes[i],html.array_terms[i],html.array_date[i],html.id_org[i],html.status_display[i]);
 								
 								if($('#'+i)[0]){
-
-
-								
+								var non_confirmed = <?php echo $_SESSION['activation'];?>;
 								var rights_user=<?php if (empty($_SESSION['id'])){echo 0;}else{echo $_SESSION['rights'];}?>;
 								var prof_user=<?php if (!empty($_SESSION['id'])){echo $_SESSION['id'];}else{ echo -1;}?>;
-								if(rights_user==0){
+								if(rights_user==0 || non_confirmed == -2){
 									document.getElementById(i+'btn_edit').style.display="none";
 									document.getElementById(i+'btn_delete').style.display="none";
 									document.getElementById(html.array_id[i]+'btn_zayvka2').style.display="none";
@@ -331,11 +313,11 @@
 		}
 		if(id=="all"){
 			for(var i=0;i<date_vidod.length;i++){
-				document.getElementById(date_vidod[i]).style.display="block";
+				document.getElementById(date_vidod[i]).style.display="block";			
+			}
 			document.getElementById('week').setAttribute("class", "day_select");
 			document.getElementById('month').setAttribute("class", "day_select");
-			document.getElementById('all').setAttribute("class", "day_select2");				
-			}
+			document.getElementById('all').setAttribute("class", "day_select2");	
 		}
 	
 	/*
@@ -365,13 +347,13 @@
 		get_id=id;
 	}
 	
-	
+	/********** Подтверждение / отказ от участия в олимпиаде ***************/
 	function tax_request_function(){
 		//var get_id=<?php echo $_GET['id'];?>;
-		var id_user=<?php if (empty($_SESSION['id'])){echo -1;}else{echo $_SESSION['id'];}?>;
+		var id_user = <?php if (empty($_SESSION['id'])){ echo -1; }else{ echo $_SESSION['id']; }?>;
 		var par2={	
-				'id_olymp':get_id,
-				'id_user':id_user,						
+			'id_olymp':get_id,
+			'id_user':id_user,						
 		}
 		$.ajax({
 			type: "POST",
@@ -379,29 +361,23 @@
 			data: 'jsonData=' + JSON.stringify(par2),  
 			success: function(html){
 				html=JSON.parse(html);
-				if(html.status==1){
+				if (html.status == 1){
 					document.getElementById(get_id+'btn_zayvka').style.display="none";
 					document.getElementById(get_id+'btn_zayvka2').style.display="block";
 					document.getElementById('tax_request3').click();
-					//document.getElementById('tax_request3').click();
 					var div_name=document.getElementById(get_id+'btn_zayvka2').name;
 					document.getElementById(div_name).style.background="#53c84b";
-					setTimeout(function(){						
+					/*setTimeout(function(){						
 						document.getElementById('cancel_id').click();
-					},3000);
-				}
-				else{
+					},3000);*/
+				} else {
 					var div_name=document.getElementById(get_id+'btn_zayvka2').name;
-					 document.getElementById(div_name).style.background="#6AC0ED";
+					document.getElementById(div_name).style.background="#91CEF1";
 					document.getElementById(get_id+'btn_zayvka2').style.display="none";
 					document.getElementById(get_id+'btn_zayvka').style.display="block";
-					
-				}				
-				
-								
+				}					
 			}
 		});
-		
 	}
 	
 	
@@ -451,7 +427,7 @@
 			var div_elem = document.createElement('div');
 			div_elem.id=i;
 			
-				div_elem.style.background = "#6AC0ED";
+				div_elem.style.background = "#91CEF1";
 				div_elem.style.height = "45px";
 				div_elem.style.margin = "5px 0 5px 0";	
 				div_elem.style.position = "relative";

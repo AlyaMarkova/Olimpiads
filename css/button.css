@@ -7,13 +7,30 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #4EB058;
-  background: linear-gradient(#50C54C, #32AF0E) ;
+  border-color: #0067b1;
+  background: #0067b1;
   transition: 0.2s;
 }
-.knopka_retain:hover { background: linear-gradient(#32AF0E, #3E900E ); } /* при наведении курсора мышки */
-.knopka_retain:active { background:linear-gradient(#3E900E, #32AF0E); } /* при нажатии */
+.knopka_retain:hover { background:#0067b1; } /* при наведении курсора мышки */
+.knopka_retain:active { background:#0067b1; } /* при нажатии */
 .knopka_retain:hover {cursor: pointer}
+
+.knopka_no_retain{            /*кнопка сохранения*/
+	display: inline-block;
+  color: white;
+
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-radius: 3px;
+  border-color: #0096d6;
+  background: #0096d6 ;
+  transition: 0.2s;
+}
+.knopka_no_retain:hover { background: #0086bf; } /* при наведении курсора мышки */
+.knopka_no_retain:active { background:#0074a5; } /* при нажатии */
+.knopka_no_retain:hover {cursor: pointer}
 
 #sex2:hover {cursor: pointer}
 #name_olympiad1{
@@ -48,17 +65,17 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #4EB058;
-  background: linear-gradient(#50C54C, #4DAF56) ;
+  border-color: #000000;
+  background: #000000;
   transition: 0.2s;
   position: relative;
   left: 210px;
-   font-size:13px;
+  font-size:13px;
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 130px;
 }
-#knopka_retain1:hover { background: linear-gradient(#32AF0E, #3E900E ); } /* при наведении курсора мышки */
-#knopka_retain1:active { background:linear-gradient(#3E900E, #32AF0E); } /* при нажатии */
+#knopka_retain1:hover { background: #000000; } /* при наведении курсора мышки */
+#knopka_retain1:active { background: #000000; } /* при нажатии */
 
 
 #knopka_retain{
@@ -84,12 +101,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #E31E24;
-  background: linear-gradient(#DC291B, #9C1A0F) ;
+  border-color: #e31837;
+  background: #e31837 ;
   transition: 0.2s;
 }
-.knopka_cansel:hover { background: linear-gradient(#9C1A0F, #79130F); } /* при наведении курсора мышки */
-.knopka_cansel:active { background:linear-gradient( #79130F, #9C1A0F);  } /* при нажатии */
+.knopka_cansel:hover { background: #e31837; } /* при наведении курсора мышки */
+.knopka_cansel:active { background: #e31837;  } /* при нажатии */
 
 
 

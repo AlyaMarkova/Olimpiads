@@ -44,7 +44,7 @@ session_start();
 		</div>
 		<div id="professor2">
 			<label id="lk_schoolboy">Класс</label>		
-			<SELECT title="Вы не можете изменить класс" class="classik" id="select_class" disabled="disabled" name="select_class" size="1">
+			<SELECT class="classik" id="select_class" name="select_class" size="1">
 			   <option value="0">№
 			   <option value="1">1
 			   <option value="2">2
@@ -68,11 +68,11 @@ session_start();
 	
 
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
-		<div title="Если не хотите менять пароль, оставте поле пустым!" class="tooltip">
+		<div title="Если не хотите менять пароль, оставьте поле пустым!" class="tooltip">
 			<label id="lk_schoolboy" title="213">Новый пароль</label>
 			<input id="password" name="password" type="text" >
-			<input type="button" class="knopka_generation" onclick="generatePass('password')">		
 			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 	
+			<input type="button" class="knopka_generation" onclick="generatePass('password')">		
 			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 
 <script language="Javascript">
@@ -91,11 +91,11 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 		</div>	
 		<div id="admin4">
 			<label id="lk_schoolboy">Мобильный телефон</label>
-			<input id="mob_number" name="mob_number" type="text" >
+			<input id="mob_number" name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" />
 		</div>
 		<div id="admin5">
 			<label id="lk_schoolboy">Адрес эл. почты</label>
-			<input required id="email" name="email" type="text" >
+			<input required id="email" name="email" type="email" >
 		</div>
 		</div>
 		<p id="professor4">
@@ -107,7 +107,7 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 	<div class="button_all">
 		<p>
 			<input class="knopka_retain" type="submit" name="save_lk" value="Сохранить">
-			<input class="knopka_cansel" type="button" name="cancel_lk" onclick="location_cancel()" value="Отмена">
+			<input class="knopka_cansel" type="button" id="cancel" name="cancel_lk" onclick="location_cancel()" value="Отмена">
 		</p>
 	</div>	
 	
@@ -136,7 +136,7 @@ window.onload = function () {
     }
 	set_select("day1", md, 1, "дд");
     set_select("month1", 12, 1, "мм");
-    set_select("year1", 20, day.getFullYear()-19, "гг");/*
+    set_select("year1", 13, day.getFullYear()-19, "гг");/*
 	set_select("day1", md, 1, day.getDate() - 1);
 
     set_select("month1", 12, 1, day.getMonth());
@@ -149,6 +149,11 @@ window.onload = function () {
  
     var year1 = document.getElementById('year1');
     var month1 = document.getElementById("month1");
+ 
+	var non_confirmed = <?php echo $_SESSION['activation'];?>;
+	if (non_confirmed == -2) {
+		document.getElementById('cancel').style.display = "none";
+	}
  
     function check_date() {
         var a = year1.value | 0,
@@ -265,8 +270,12 @@ window.onload = function () {
 	function location_cancel(){		
 		document.location.href="../lk.php";
 	}
-			
 	
+document.getElementById('mob_number').onkeypress=function(event){
+ event= event || window.event;
+ if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+  return false;
+}
 </script>
 
 

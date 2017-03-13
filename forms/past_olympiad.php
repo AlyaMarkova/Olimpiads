@@ -69,7 +69,7 @@ session_start();
 	
 ?>
 
-<table style="margin-top: 17px;" id="table_arhiv">
+<table id="table_arhiv">
     <thead id="table_arhiv_thead">
     <tr >
 		<td class="table_arhiv_date">Дата</td>

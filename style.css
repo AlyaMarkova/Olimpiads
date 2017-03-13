@@ -784,7 +784,7 @@ margin: 20px auto;
 	height:20px;
 }
 
-span:after { 
+spanz:after { 
 color: red; 
 content: " *"; 
 }

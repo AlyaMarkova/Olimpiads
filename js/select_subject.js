@@ -1,5 +1,5 @@
 <script>
-subjecr_string="";
+subject_string="";
 function select_subject_activation(value,id){
 	if (document.getElementById(value)==null  && value !='Список предметов'){		
 		var btn = document.createElement('input')
@@ -35,18 +35,18 @@ function delete_button(id){
 var number_date=0;
 var number_place=0;
 
-function delete_button2(id){
+function delete_button2(id){ //удалеят время этапов
 	if(number_date>1){
-		document.getElementById('knopka_retain1').disabled=false;
+		document.getElementById('knopka_retain1').disabled=false; 
 		
-		document.getElementById('btn1').disabled=false;
+		document.getElementById('btn1').disabled=false; //кнопка доступна
 		document.getElementById('number_date').value=document.getElementById('number_date').value-1;
 		if (document.getElementById(id).type=='button'){
 				document.getElementById('subject_string').value=document.getElementById('subject_string').value.replace(document.getElementById(id).value+" ","");
 		}
 		document.getElementById(id).remove();
 		number_date=number_date-1;
-		var idd = Number(id.substring(6));
+		var idd = Number(id.substring(6));//номер этапа
 		var id_staroe = idd;
 			for(var i = id_staroe; i<number_date+1; i++){
 				var id_novoe = i+1;
@@ -91,27 +91,74 @@ function delete_button2(id){
 			}
 	}
 	else{
-		document.getElementById('btn1').disabled=false;
+		document.getElementById('btn1').disabled=true;
 		document.getElementById('btn1').style.opacity=0.5;
 	}	
 			
 }
 
+function delete_button3(id){ //удаляет место этапов
+	if(number_place>1){
+		document.getElementById('knopka_retain0').disabled=false;
+		document.getElementById('btn_dp1').disabled=false;
+		document.getElementById('number_place').value=document.getElementById('number_place').value-1;
+		if (document.getElementById(id).type=='button'){
+				document.getElementById('subject_string').value=document.getElementById('subject_string').value.replace(document.getElementById(id).value+" ","");
+		}
+		document.getElementById(id).remove();
+		number_place=number_place-1;
+		var iddp = Number(id.substring(6));
+		var idp_staroe = iddp;
+			for(var j = idp_staroe; j<number_place+1; j++){
+				var idp_novoe = j+1;
+				
+					switch (j)
+					{		  
+					  case 1: s="1"; break;
+					  case 2: s="2"; break;
+					  case 3: s="3"; break;
+					  case 4: s="4"; break;
+					  case 5: s="5"; break;
+					  case 6: s="6"; break;
+					  case 7: s="7"; break;
+					}
+				
+				
+				document.getElementById('p1_elem'+idp_novoe).id = 'p1_elem'+j;
+				
+				document.getElementById(idp_novoe+' Этап ').innerHTML = s+' этап ';
+				document.getElementById(idp_novoe+' Этап ').id = j+' Этап ';
+				
+				document.getElementById('btn_dp'+idp_novoe).id = 'btn_dp'+j;
+							
+			}
+			if(number_place==1){
+				document.getElementById('btn_dp1').style.opacity=0.5;
+			}
+	}
+	else{
+		document.getElementById('btn_dp1').disabled=true;
+		document.getElementById('btn_dp1').style.opacity=0.5;
+	}	
+			
+}
+
+/*
 function delete_button3(id){
 	if(number_place>1){
 		document.getElementById('knopka_retain0').disabled=false;
-		
+	
 		document.getElementById('btn_dp').disabled=false;
 		document.getElementById('number_place').value=document.getElementById('number_place').value-1;
-		if (document.getElementById(id).type=='button'){
+		if (document.getElementById(id).type=='button'){ 	alert("gsxhxg");
 				document.getElementById('number_place').value=document.getElementById('number_place').value.replace(document.getElementById(id).value+" ","");
 		}
 		document.getElementById(id).remove();
 		number_place=number_place-1;
-		var idd = Number(id.substring(6));
-		var id_staroe = idd;
-			for(var i = id_staroe; i<number_place+1; i++){
-				var id_novoe = i+1;
+		var iddp = Number(id.substring(6));
+		var idp_staroe = idd;
+			for(var i = idp_staroe; i<number_place+1; i++){
+				var idp_novoe = i+1;
 				
 					switch (i)
 					{		  
@@ -125,28 +172,31 @@ function delete_button3(id){
 					}
 				
 				
-				document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
+				document.getElementById('p_elem'+idp_novoe).id = 'p_elem'+i;
 				
-				document.getElementById(id_novoe+' Этап ').innerHTML = s+' этап ';
-				document.getElementById(id_novoe+' Этап ').id = i+' Этап ';
+				document.getElementById(idp_novoe+' Этап ').innerHTML = s+' этап ';
+				document.getElementById(idp_novoe+' Этап ').id = i+' Этап ';
 				
-				document.getElementById('text_p'+id_novoe).name= 'tetx_p'+i;
-				document.getElementById('text_p'+id_novoe).id = 'text_p'+i;
+				document.getElementById('text_dp'+idp_novoe).name= 'tetx_dp'+i;
+				document.getElementById('text_dp'+idp_novoe).id = 'text_dp'+i;
 				
 				
-				document.getElementById('btn_dp'+id_novoe).id = 'btn_dp'+i;
+				document.getElementById('btn_dp'+idp_novoe).id = 'btn_dp'+i;
 							
 			}
 			if(number_place==1){
+				
 				document.getElementById('btn_dp').style.opacity=0.5;
 			}
 	}
 	else{
+		document.getElementById('knopka_retain0').disabled=true;
 		document.getElementById('btn_dp').disabled=false;
 		document.getElementById('btn_dp').style.opacity=0.5;
 	}	
 			
 }
+*/
 	
 function create_date(i){
 	if(number_date==6){
@@ -269,23 +319,22 @@ function create_date(i){
 
 
 function create_place(i){
-
 	if(number_place==6){ 
 		document.getElementById('knopka_retain0').disabled=true; 
 	}
 	 if(number_place<7){ 
 			number_place=number_place+1;
-			i=number_place;	
-			document.getElementById('number_place').value=i;
+			j=number_place;	
+			document.getElementById('number_place').value=j;
 		
 		var next = document.getElementById('place_olimp');
 		var p1_elem = document.createElement('div');
 		p1_elem.className = 'div_date';
-		p1_elem.id='p_elem'+i;
+		p1_elem.id='p_elem'+j;
 		var label = document.createElement('label');		
-		label.id =i+" Этап ";	 
+		label.id =j+" Этап ";	 
         	
-		switch (i)
+		switch (j)
 		{		  
 		  case 1: s="1"; break;
 		  case 2: s="2"; break;
@@ -302,7 +351,7 @@ function create_place(i){
 		p1_elem.appendChild(label);			
 
 		var inp = document.createElement('input');	
-        inp.id="text_dp"+i;		
+        inp.id="text_dp"+j;		
 		inp.name ="location_olimp";
 		inp.required=true;
 		inp.class="create_text";
@@ -310,21 +359,21 @@ function create_place(i){
 		p1_elem.appendChild(inp);		
 		
 		var btn = document.createElement('input')
-		btn.id ="btn_dp"+i
-		btn.type = 'button'	
-		btn.className = "knopka_cansel1"
-		btn.value = 'Удалить'
+		btn.id ="btn_dp"+j;
+		btn.type = 'button';	
+		btn.className = "knopka_cansel1";
+		btn.value = 'Удалить';
 		btn.onclick = function() {delete_button3(p1_elem.id);};	
 		p1_elem.appendChild(btn);	
 		
 		next.parentNode.appendChild(p1_elem);
-		
-	
-	
+		document.getElementById('btn_dp1').style.opacity=1;
 	}
-	else if(number_place==1){
-		document.getElementById('btn1').style.opacity=0.5;
+	
+	if(number_place==1){
+		document.getElementById('btn_dp1').style.opacity=0.5;
 	}
+	
 }	
 
 

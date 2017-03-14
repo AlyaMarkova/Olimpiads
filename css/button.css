@@ -77,7 +77,25 @@
 }
 #knopka_retain1:hover { background: #000000; } /* при наведении курсора мышки */
 #knopka_retain1:active { background: #000000; } /* при нажатии */
-
+#knopka_retain0{    
+                    /*кнопка добавления этапа*/
+	display: inline-block;
+  color: white;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-radius: 3px;
+  border-color: #000000;
+  background: #000000;
+  transition: 0.2s;
+  position: relative;
+  left: 210px;
+  font-size:13px;
+  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+  width: 130px;
+}
+#knopka_retain0:hover { background: #000000; } /* при наведении курсора мышки */
+#knopka_retain0:active { background: #000000; } /* при нажатии */
 
 #knopka_retain{
 	
@@ -234,6 +252,10 @@ background-image: url(../images/redak_olimp.jpg);
 }
 
 #div_p_date_olimp{
+	float:left;
+	
+}
+#place_olimp{
 	float:left;
 	
 }

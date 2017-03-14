@@ -174,76 +174,30 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 			}					
 		}
 	});	
-
-				/*var val2 = document.getElementById('place'+i).value;
-				arr_place[i]=val2;	*/
-			
-		/*function cancel(){
-			document.location.href="../arhiv.php";
-			
-		}
-
-		function save_rezult(){
-		
-			alert("xnjj [fkjdsn");
-			onclick_blur();
-			//alert(get_id);
-			
-			alert("0");
-			var par3={				
-				"arr_id_user": arr_id_user,
-				"arr_place": arr_place,
-				"arr_rating": arr_rating,
-				"get_id": get_id,
-			}
-			/*var par3={				
-				"arr_id_user": html.schoolboy_users_id[0],
-				"arr_place": document.getElementById('place0').value,
-				"arr_rating": document.getElementById('rating0').value,
-				"get_id": get_id
-			}	
-
-			alert("1");
-			$.ajax({
-				type: "POST",
-				url: "../bd/edit_rezult.php",
-				data: 'jsonData=' + JSON.stringify(par3),  
-				success: function(html){
-					html=JSON.parse(html);
-					alert(html.name);
-				}
-			});	
-			alert("2");
-			cancel();
-		}*/
 	
 	function sort(el) {
-   var col_sort = el.innerHTML;
-   var tr = el.parentNode;
-   var table = tr.parentNode;
-   var td, arrow, col_sort_num;
+	var col_sort = el.innerHTML;
+	var tr = el.parentNode;
+	var table = tr.parentNode;
+	var td, arrow, col_sort_num;
 
-   
     for (var i=0; (td = tr.getElementsByTagName("td").item(i)); i++) {
-    if (td.innerHTML == col_sort) {
-            col_sort_num = i;
-            if (td.prevsort == "y"){
-
-                el.up = Number(!el.up);
-            }else{
-                td.prevsort = "y";
-
-                el.up = 0;
-            }
-
-        }else{
-            if (td.prevsort == "y"){
-                td.prevsort = "n";
-            }
-        }
+		if (td.innerHTML == col_sort) {
+			col_sort_num = i;
+			if (td.prevsort == "y"){
+				el.up = Number(!el.up);
+			} else {
+				td.prevsort = "y";
+				el.up = 0;
+			}
+		} else {
+			if (td.prevsort == "y"){
+				td.prevsort = "n";
+			}
+		}
     }
  
-     var a = new Array();
+    var a = new Array();
  
     for(i=1; i < table.rows.length; i++) {
         a[i-1] = new Array();
@@ -251,15 +205,16 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
         a[i-1][1]=table.rows[i];
      }
 
-     a.sort();
-     if(el.up) a.reverse();
+	a.sort();
+	if(el.up) a.reverse();
 
-     for(i=0; i < a.length; i++)
-     table.appendChild(a[i][1]);
+	for(i=0; i < a.length; i++)
+	table.appendChild(a[i][1]);
 }
-    filterTable( document.getElementById("target"), {
-            /* Фильтр для второго столбца текстовое поле - только точное совпадение: */
-            1: filterTable.Filter(document.getElementById("regexp"),
+    filterTable( 
+		document.getElementById("target"), {
+			/* Фильтр для второго столбца текстовое поле - только точное совпадение: */
+			1: filterTable.Filter(document.getElementById("regexp"),
 			/* Коллбэк ф-ция
 				валидации */
 			function (value, filters, i) {
@@ -276,16 +231,16 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 				валидацию по событию
 				onkeyup фильтра */
 			"onkeyup"
-            ),
+			),
 			
 
-            /* Фильтр для третьего столбца выпадающий список: */
-           2: document.getElementById("digits"),
+			/* Фильтр для третьего столбца выпадающий список: */
+		   2: document.getElementById("digits"),
 
-            /* Фильтр для четвертого столбца радио кнопки: */
-           3: document.getElementById("digits1"),
+			/* Фильтр для четвертого столбца радио кнопки: */
+		   3: document.getElementById("digits1"),
 		   5: document.getElementById("digits3"),
-        }
+		}
     );
 	
 	

@@ -229,6 +229,8 @@ function create_place(i){
 	<div id="place_olimp">
 	<label  id="lk_schoolboy" >Место проведения</label>
 	</div>*/
+	
+	
 	if(number_place==6){ 
 		document.getElementById('knopka_retain0').disabled=true; 
 	}
@@ -255,7 +257,7 @@ function create_place(i){
 		  case 6: s="6"; break;
 		  case 7: s="7"; break;
 		}
-		//alert("бл");
+		//alert("блиать");
 		label.innerHTML = s+" этап ";
 		id_last_elem1=label.id;
 		p1_elem.appendChild(label);	

@@ -44,7 +44,7 @@
 	font-size: 17pt;
 	margin-bottom: 16px;
 	width: 89%;
-    margin: 9px auto;
+    margin: 9px auto auto auto;
 	
 	
 }
@@ -53,8 +53,6 @@
 	margin-bottom: 16px;
 	width: 80%;
 	margin: auto;
-	
-	
 }
 #name_rezalts{
 	margin: 0 0 10px 0;

@@ -139,7 +139,7 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 				'<td class="table_reiting_td"  onclick="onclick_user(id)" id='+html.schoolboy_users_id[i]+'>'+FIO_1(html.array_fio[i])+'</td>'+
 				'<td class="table_reiting_td">'+html.array_school[i]+'</td>'+
 				'<td class="table_reiting_td">'+html.array_classes[i]+'</td>'+
-				'<td id="ol" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true"> <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+
+				'<td id="ol" name="marks" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true"> <label id="rating'+i+'" >'+html.rating_mark[i]+'</label></td>'+
 				'<td class="table_reiting_td" contenteditable="true">'+ '<label style="color:#E4F3FC; font-size:1px;" id =q'+i+'></label>' +'<select style=" color: #0A3C57;  background: none; border-style: none; " id="place'+i+'"><option class = "option" value="0">-</option><option class = "option" value="1">I степень</option><option class = "option" value="2">II степень</option><option class = "option" value="3">III степень</option></select></td>'+
 				'</tr>';	
 				}
@@ -148,7 +148,7 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 				'<td class="table_reiting_td">'+(i+1)+'</td>'+
 				'<td class="table_reiting_td"  onclick="onclick_user(id)" id='+html.schoolboy_users_id[i]+'>'+FIO_1(html.array_fio[i])+'</td>'+
 				'<td class="table_reiting_td">'+html.array_school[i]+'</td>'+'<td class="table_reiting_td">'+html.array_classes[i]+'</td>'+
-				'<td id="ol" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true">  <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+
+				'<td id="ol" name="marks" style=" border-right: 1px solid #0A3C57; padding: 0 5px 0 5px; " contenteditable="true">  <label id="rating'+i+'">'+html.rating_mark[i]+'</label></td>'+
 				'<td class="table_reiting_td" contenteditable="true">'+ '<label style="color:#C3DCE9; font-size:1px;" id =q'+i+'></label>'+'<select style=" color: #0A3C57;  background: none; border-style: none; " id="place'+i+'"><option class = "option" value="0">-</option><option class = "option" value="1">I степень</option><option class = "option" value="2">II степень</option><option class = "option" value="3">III степень</option></select></td>'+
 				'</tr>';
 				}
@@ -246,7 +246,10 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 	
 	function onclick_blur(){	
 		for(var i = 0; i < arr_id_user.length; i++){ //для кажд участника
-			var val = document.getElementById('rating'+i).innerHTML;
+			if (document.getElementById('rating'+i)!=null) 
+				var val = document.getElementById('rating'+i).innerHTML;
+			else 
+				var val = document.getElementsByName('marks')[i].innerHTML;
 			arr_rating[i]=val; //записываем рейтинг
 			 
 			//alert(val);

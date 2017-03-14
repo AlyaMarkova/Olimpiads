@@ -39,14 +39,10 @@
 }
 #name_olymp_rezult{
 	color: #0A3C57;
-	
 	border-bottom:3px solid #0A3C57;
 	font-size: 17pt;
-	margin-bottom: 16px;
 	width: 89%;
-    margin: 9px auto auto auto;
-	
-	
+    margin: 9px auto 16px auto;	
 }
 #name_olymp_rezults{
 	font-size: 17pt;

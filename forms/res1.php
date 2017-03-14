@@ -27,7 +27,6 @@
 ?>
 <div id="name_olymp_rezult">
 	<label><? echo $myrow2['name_olympiad']?></label>
-	<label id="rezalts">Итоги</label>
 </div>
 <div >
 <table id="table_reiting">

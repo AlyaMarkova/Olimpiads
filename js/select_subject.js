@@ -33,10 +33,12 @@ function delete_button(id){
 }
 
 var number_date=0;
+var number_place=0;
 
 function delete_button2(id){
 	if(number_date>1){
 		document.getElementById('knopka_retain1').disabled=false;
+		
 		document.getElementById('btn1').disabled=false;
 		document.getElementById('number_date').value=document.getElementById('number_date').value-1;
 		if (document.getElementById(id).type=='button'){
@@ -44,62 +46,69 @@ function delete_button2(id){
 		}
 		document.getElementById(id).remove();
 		number_date=number_date-1;
-		var idd = Number(id.substring(8));
+		var idd = Number(id.substring(6));
 		var id_staroe = idd;
-		for(var i = id_staroe; i<number_date+1; i++){
-			var id_novoe = i+1;
-			
-			switch (i)
-			{		  
-			  case 1: s="1"; break;
-			  case 2: s="2"; break;
-			  case 3: s="3"; break;
-			  case 4: s="4"; break;
-			  case 5: s="5"; break;
-			  case 6: s="6"; break;
-			  case 7: s="7"; break;
+			for(var i = id_staroe; i<number_date+1; i++){
+				var id_novoe = i+1;
+				
+					switch (i)
+					{		  
+					  case 1: s="1"; break;
+					  case 2: s="2"; break;
+					  case 3: s="3"; break;
+					  case 4: s="4"; break;
+					  case 5: s="5"; break;
+					  case 6: s="6"; break;
+					  case 7: s="7"; break;
+					}
+				
+				
+				document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
+				
+				document.getElementById(id_novoe+' Этап ').innerHTML = s+' этап ';
+				document.getElementById(id_novoe+' Этап ').id = i+' Этап ';
+				
+				document.getElementById('day'+id_novoe).name= 'day'+i;
+				document.getElementById('day'+id_novoe).id = 'day'+i;
+				
+				document.getElementById('month'+id_novoe).name = 'month'+i;
+				document.getElementById('month'+id_novoe).id = 'month'+i;
+				
+				document.getElementById('year'+id_novoe).name = 'year'+i;
+				document.getElementById('year'+id_novoe).id = 'year'+i;
+				
+				document.getElementById('1time'+id_novoe).name = '1tm'+i;
+				document.getElementById('1time'+id_novoe).id = '1time'+i;
+				
+				document.getElementById('2time'+id_novoe).name = '2tm'+i;
+				document.getElementById('2time'+id_novoe).id = '2time'+i;
+				
+				document.getElementById('btn'+id_novoe).id = 'btn'+i;
+							
 			}
-			
-			document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
-			
-			document.getElementById(id_novoe+' Этап ').innerHTML = s+' этап ';
-			document.getElementById(id_novoe+' Этап ').id = i+' Этап ';
-			
-			document.getElementById('day'+id_novoe).name= 'day'+i;
-			document.getElementById('day'+id_novoe).id = 'day'+i;
-			
-			document.getElementById('month'+id_novoe).name = 'month'+i;
-			document.getElementById('month'+id_novoe).id = 'month'+i;
-			
-			document.getElementById('year'+id_novoe).name = 'year'+i;
-			document.getElementById('year'+id_novoe).id = 'year'+i;
-			
-			document.getElementById('1time'+id_novoe).name = '1tm'+i;
-			document.getElementById('1time'+id_novoe).id = '1time'+i;
-			
-			document.getElementById('2time'+id_novoe).name = '2tm'+i;
-			document.getElementById('2time'+id_novoe).id = '2time'+i;
-			
-			document.getElementById('btn'+id_novoe).id = 'btn'+i;		
-		}
-		if(number_date==1){
-			document.getElementById('btn1').style.opacity=0.5;
-		}
+			if(number_date==1){
+				document.getElementById('btn1').style.opacity=0.5;
+			}
 	}
 	else{
 		document.getElementById('btn1').disabled=false;
 		document.getElementById('btn1').style.opacity=0.5;
-	}		
+	}	
+			
 }
+
 	
 function create_date(i){
 	if(number_date==6){
 		document.getElementById('knopka_retain1').disabled=true;
 	}
 	if(number_date<7){
-		number_date=number_date+1;//увеличиваем счётчик этапов
-		i=number_date;	
-		document.getElementById('number_date').value=i; //и записываем его в инпут типа 'hidden' на форме
+		
+	number_date=number_date+1;
+	i=number_date;	
+	document.getElementById('number_date').value=i;
+		
+		
 		
 		var next = document.getElementById('div_p_date_olimp');
 		var p_elem = document.createElement('div');
@@ -108,12 +117,13 @@ function create_date(i){
 		var label = document.createElement('label');		
 		label.id =i+" Этап ";		
 		
-		switch (i){		  
+		switch (i)
+		{		  
 		  case 1: s="1"; break;
 		  case 2: s="2"; break;
 		  case 3: s="3"; break;
-		  case 4: s="4"; break;
-		  case 5: s="5"; break;
+	      case 4: s="4"; break;
+          case 5: s="5"; break;
 		  case 6: s="6"; break;
 		  case 7: s="7"; break;
 		}
@@ -206,6 +216,65 @@ function create_date(i){
 	}
 }	
 	
+
+
+function create_place(i){
+	
+	/*
+	
+	<div class="div_date">
+	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
+	</div>
+	
+	<div id="place_olimp">
+	<label  id="lk_schoolboy" >Место проведения</label>
+	</div>*/
+	if(number_place==6){ 
+		document.getElementById('knopka_retain0').disabled=true; //- так не блочится кнопка
+	}
+	else if(number_place<7){ 
+		number_place=number_place+1;
+		i=number_place;	
+		document.getElementById('number_place').value=i;
+		
+	    var place = document.getElementById('div_date');	
+
+		
+		var p1_elem = document.createElement('div'); 
+		p1_elem.class="div_date";
+		p1_elem.id='p1_elem'+i; 
+		var inp1 =  document.createElement('input');
+		inp1.class="create_text";
+		inp1.name="location_olimp";
+		inp1.type="text";
+		var  abbra=document.createElement('abbr'); 
+		abbra.title="Это поле можно не заполнять";
+		var span1=document.createElement('spant'); 
+		
+		abbra.appendChild(span1);	
+		inp1.appendChild(abbra);	
+		p1_elem.appendChild(inp1);	
+		
+		label1.innerHTML = s+" этап ";
+		id_last_elem1=label1.id;
+		place.parentNode.appendChild(p1_elem);	
+		
+		
+		
+		
+		//place.parentNode.appendChild(p1_elem);
+		//id_last_elem=label.id;
+		//label.id =i+" Этап ";		
+		
+	
+	
+	}
+	else if(number_place==1){
+		document.getElementById('btn1').style.opacity=0.5;
+	}
+}	
+
+
 //а нужна ли эта функция?!!!!!!
 function create_date2(i){
 	number_date=number_date+1;

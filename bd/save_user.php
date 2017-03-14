@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <?php
-if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
-if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
+if (isset($_POST['login'])) { $login = str_replace(" ","",$_POST['login']);  if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
+if (isset($_POST['password'])) { $password = str_replace(" ","",$_POST['password']); if ($password =='') { unset($password);} }
 if (isset($_POST['select_status'])) { $select_status=$_POST['select_status']; if ($select_status =='') { unset($select_status);} }
 if (isset($_POST['surname'])) { $surname=$_POST['surname']; if ($surname =='') { unset($surname);} }
 if (isset($_POST['forename'])) { $forename=$_POST['forename']; if ($forename =='') { unset($forename);} }
@@ -26,34 +26,29 @@ if (empty($login) or empty($password)){ //если пользователь не
 }
 
 //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
-$login = stripslashes($login);
-$login = htmlspecialchars($login);
-
-$password = stripslashes($password);
-$password = htmlspecialchars($password);
-
-//удаляем лишние пробелы
-$login = trim($login);
-$password = trim($password);
-$password = md5($password);
-$bool=true; //правильность почты
-
-// подключаемся к базе
-include ("../bd.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
-
-// проверка на существование пользователя с таким же логином
-$result = mysql_query("SELECT id FROM users WHERE login='$login'",$db);
-$myrow = mysql_fetch_array($result);
-
-if (!empty($myrow['id'])) {
-	?>
-	<script>
-		alert("Извините, введённый вами логин уже зарегистрирован. Введите другой логин");
-		javascript:history.back() 
-	</script>
-	<?
-	/*exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");*/
-} else {
+	$dsn = 'mysql:dbname=olimpiada;host=127.0.0.1;port=3306;charset=utf8';
+	$opt = [
+		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+		PDO::ATTR_EMULATE_PREPARES   => false,
+	];
+	 
+	$pdo = new PDO($dsn, 'root', '', $opt);
+	$sql="SELECT * FROM users WHERE login=?";
+	
+	$stm = $pdo->prepare($sql);
+	$stm->execute([$login]);
+	$res = $stm->fetch();
+	if ($res) {
+		?>
+		<script>
+			alert("Извините, введённый вами логин уже зарегистрирован. Введите другой логин");
+			javascript:history.back() 
+		</script>
+		<?
+		/*exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");*/
+	}
+	else {
 	// если такого нет, то сохраняем данные 
 	$result2 = mysql_query ("INSERT INTO users (login,pass,rights,activation) VALUES('$login','$password','$select_status','-1')");
 	

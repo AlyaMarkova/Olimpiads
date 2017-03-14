@@ -291,11 +291,8 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 	
 	function onclick_blur(){	
 		for(var i = 0; i < arr_id_user.length; i++){ //для кажд участника
-			/*if (document.getElementById('rating'+i) != null){
-				var val = document.getElementById('rating'+i).innerHTML;
-			}*/
-			arr_rating[i]=val; //записываем рейтинг
 			var val = document.getElementById('rating'+i).innerHTML;
+			arr_rating[i]=val; //записываем рейтинг
 			 
 			//alert(val);
 			var val2 = document.getElementById('place'+i).value;

@@ -48,88 +48,122 @@ if (empty($login) or empty($password)){ //если пользователь не
 		<?
 		/*exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");*/
 	}
-	else {
-	// если такого нет, то сохраняем данные 
-	$result2 = mysql_query ("INSERT INTO users (login,pass,rights,activation) VALUES('$login','$password','$select_status','-1')");
-	
-	/******** для школьника **********/
-	If ($select_status=="1"){
-		if($spam_email=="ON"){
-			$spam_email=1;
-		} else {
-			$spam_email=0;
+	else 
+	{
+		// если такого нет, то сохраняем данные 
+		$stmt = $pdo->prepare("INSERT INTO users (login,pass,rights,activation) VALUES (?,?,?,?)");
+		$stmt->bindParam(1, $login);
+		$stmt->bindParam(2, $password);
+		$stmt->bindParam(3, $select_status);
+		$stmt->bindParam(4, -1);
+		$stmt->execute();
+		
+		/******** для школьника **********/
+		If ($select_status=="1"){
+			if($spam_email=="ON"){
+				$spam_email=1;
+			} else {
+				$spam_email=0;
+			}
+			$sql="SELECT id FROM users WHERE login=?";
+			$stm = $pdo->prepare($sql);
+			$stm->execute([$login]);
+			$id_select_user = $stm->fetch();
+			
+			//составляем строки для ФИО и даты рождения
+			$fio = $surname."!".$forename."!".$patronymic."!";
+			$DOB = $_POST['year1']."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT);
+			
+			$sql="SELECT Users_id FROM schoolboy WHERE email=?"); 
+			$stm = $pdo->prepare($sql);
+			$stm->execute([$login]);
+			$myrow_email = $stm->fetch();
+			
+			if ($myrow_email[0] != ""){ //если поле для эл адреса не пустое
+				?>
+				<script>
+					alert("Извините, введённая вами почта уже зарегистрирована. Введите другую почту");
+					javascript:history.back() 
+				</script>
+				<?
+				$bool=false;	
+			} 
+			else 
+			{
+				$sql="INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email,gender, home_adress,delivery) VALUES(?,?,?,?,?,?,?,?,?,?)"); 
+				$stm = $pdo->prepare($sql);
+				$stm->bindParam(0, $id_select_user);
+				$stm->bindParam(1, $fio);
+				$stm->bindParam(2, $school);
+				$stm->bindParam(3, $select_class);
+				$stm->bindParam(4, $DOB);
+				$stm->bindParam(5, $mob_number);
+				$stm->bindParam(6, $email);
+				$stm->bindParam(7, $sex);
+				$stm->bindParam(8, $location);
+				$stm->bindParam(9, $spam_email);
+				$stm->execute();	
+			}
 		}
-		$id_select = mysql_query("SELECT id FROM users WHERE login='$login'");
-		$myrow = mysql_fetch_array($id_select);
-		$id_select_user = $myrow['id'];
 		
-		//составляем строки для ФИО и даты рождения
-		$fio = $surname."!".$forename."!".$patronymic."!";
-		$DOB = $_POST['year1']."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT);
+		/************ для организатора ***********/
+		else 
+		{
 		
-		$result_mail =  mysql_query("SELECT Users_id FROM schoolboy WHERE email='$email'"); 
-		$myrow_email = mysql_fetch_array($result_mail);
+			$sql="SELECT id FROM users WHERE login=?";
+			$stm = $pdo->prepare($sql);
+			$stm->execute([$login]);
+			$id_select_user = $stm->fetch();
+			
+			$fio=$surname."!".$forename."!".$patronymic."!";
+					
+			$sql="SELECT Users_id FROM professor WHERE email=?"); 
+			$stm = $pdo->prepare($sql);
+			$stm->execute([$login]);
+			$myrow_email = $stm->fetch();
+			
+			if ($myrow_email[0] == ""){
+				$sql="INSERT INTO professor (Users_id,Fio_professor, phone, email) VALUES(?,?,?,?)"); 
+				$stm = $pdo->prepare($sql);
+				$stm->bindParam(0, $id_select_user);
+				$stm->bindParam(1, $fio);
+				$stm->bindParam(2, $mob_number);
+				$stm->bindParam(3, $email);
+				$stm->execute();	
+			} else {
+				?>
+				<script>
+					alert("Извините, введённая вами почта уже зарегистрирована. Введите другую почту");
+					javascript:history.back() 
+				</script>
+				<?
+				$bool=false;
+			}
+		}
 		
-		if ($myrow_email[0] != ""){ //если поле для эл адреса не пустое
-			?>
-			<script>
-				alert("Извините, введённая вами почта уже зарегистрирована. Введите другую почту");
-				javascript:history.back() 
-			</script>
-			<?
-			$bool=false;	
-		} else {
-			mysql_query ("INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email,gender, home_adress,delivery) VALUES('$id_select_user','$fio','$school','$select_class','$DOB','$mob_number','$email','$sex','$location','$spam_email')");
+		if ($bool){
+			$activation = md5($id_select_user).md5($login);//код активации аккаунта. Зашифруем    через функцию md5 идентификатор и логин. Такое сочетание пользователь вряд ли    сможет подобрать вручную через адресную строку.
+			$subject = "Подтверждение регистрации";//тема сообщения
+			$message = "Здравствуйте! Спасибо за регистрацию на olimpiada.ru\nВаш логин:    ".$login."\n
+			Перейдите    по ссылке, чтобы активировать ваш    аккаунт:\nhttp://olimp/bd/activation.php?login=".$login."&code=".$activation."\nС    уважением,\n
+			Администрация    olimpiada.ru";//содержание сообщение
+			mail($email,    $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");//отправляем сообщение
+			// Проверяем, есть ли ошибки
+			if ($result2=='TRUE') {	
+				?>
+				<script>
+					alert("Вам на электронную почту было выслано письмо. Подтвердите свой электронный адрес!");
+				</script>
+				<?
+				exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
+			} else {
+				?>
+				<script>
+					alert("Ошибка! Вы не зарегистрированы.");
+					javascript:history.back() 
+				</script>
+				<?
+			}
 		}
 	}
-	
-	/************ для организатора ***********/
-	else {
-		$id_select = mysql_query("SELECT id FROM users WHERE login='$login'");
-		$myrow = mysql_fetch_array($id_select);
-		$id_select_user=$myrow['id'];
-		
-		$fio=$surname."!".$forename."!".$patronymic."!";
-		
-		$result_mail =  mysql_query("SELECT users_id FROM professor WHERE email='$email'");
-		$myrow_email = mysql_fetch_array($result_mail);
-		
-		if ($myrow_email[0] == ""){
-			mysql_query ("INSERT INTO professor (Users_id,Fio_professor, phone, email) VALUES('$id_select_user','$fio','$mob_number','$email')");
-		} else {
-			?>
-			<script>
-				alert("Извините, введённая вами почта уже зарегистрирована. Введите другую почту");
-				javascript:history.back() 
-			</script>
-			<?
-			$bool=false;
-		}
-	}
-	
-	if ($bool){
-		$activation = md5($id_select_user).md5($login);//код активации аккаунта. Зашифруем    через функцию md5 идентификатор и логин. Такое сочетание пользователь вряд ли    сможет подобрать вручную через адресную строку.
-		$subject = "Подтверждение регистрации";//тема сообщения
-		$message = "Здравствуйте! Спасибо за регистрацию на olimpiada.ru\nВаш логин:    ".$login."\n
-		Перейдите    по ссылке, чтобы активировать ваш    аккаунт:\nhttp://olimp/bd/activation.php?login=".$login."&code=".$activation."\nС    уважением,\n
-		Администрация    olimpiada.ru";//содержание сообщение
-		mail($email,    $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");//отправляем сообщение
-		// Проверяем, есть ли ошибки
-		if ($result2=='TRUE') {	
-			?>
-			<script>
-				alert("Вам на электронную почту было выслано письмо. Подтвердите свой электронный адрес!");
-			</script>
-			<?
-			exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
-		} else {
-			?>
-			<script>
-				alert("Ошибка! Вы не зарегистрированы.");
-				javascript:history.back() 
-			</script>
-			<?
-		}
-	}
-}
 ?>

@@ -57,24 +57,26 @@ include ("js/select_subject.js");
 	</div>
 	
 	<div name="none">
-			<div>
-				<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
-			</div>
+		<div>
+			<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
+		</div>
 	</div>
 	
 	
 	
-			<div id="place_olimp">
-			
-				<label  id="lk_schoolboy" >Место проведения</label>
-				<!--<div class="div_date">--> 
-							<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>		
-			</div> 
-			
-			
-			<div name="none">
-				<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>	
-			</div>
+	<div >
+		<div id="place_olimp"> 
+			<label  id="lk_schoolboy" >Место проведения</label>
+			<!--<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>	-->
+		</div>			
+	</div> 
+	
+	
+	<div name="none">
+		<div>
+		<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>	
+		</div>
+	</div>
 			
 	
 	
@@ -124,12 +126,10 @@ include ("js/select_subject.js");
 	<div id="div_none">
 		<input id="number_date" name="number_date" type="text" > <!-- количество этапов -->
  		<input id="subject_string" name="subject_string" type="text" >
+		<input id="number_place" name="number_place" type="text" > <!-- количество этапов -->
 	</div>
 	
-	<div id="div_none">
-		<input id="number_place" name="number_place" type="text" > <!-- количество этапов -->
- 		<input id="subject_string" name="subject_string" type="text" >
-	</div>
+
 	
 	<div style="margin-top: 100px;" class="button_all">
 		<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
@@ -146,6 +146,7 @@ function location_cancel(){
 form = document.getElementById('form'); 
 form.subject_string.value = "";
 form.number_date.value = "";
+form.number_place.value = "";
 document.getElementById('Org_olimp').value=<?echo $_SESSION['id'];?>; //получаем ид организатора олимпиады
 document.getElementById('org_block').style.display="none";
 	
@@ -288,14 +289,14 @@ window.onload = function () {
 	
 	function change(){
 	if(document.getElementById('select_status').value==2){
-		/*document.getElementById('location_olimp').required=false;*/
+		
 		
 		for (var i=0; i<document.getElementsByName('none').length; i++) {
 			document.getElementsByName('none')[i].style.display="none";
 		}
 	}
 	else{
-		/*document.getElementById('location_olimp').required=true;*/
+		
 		
 		for (var i=0; i<document.getElementsByName('none').length; i++) {
 			document.getElementsByName('none')[i].style.display="block";

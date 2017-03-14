@@ -219,33 +219,32 @@ function create_date(i){
 
 
 function create_place(i){
-	
-	/*
-	
-	<div class="div_date">
-	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
-	</div>
-	
-	<div id="place_olimp">
-	<label  id="lk_schoolboy" >Место проведения</label>
-	</div>*/
-	
-	
+
 	if(number_place==6){ 
 		document.getElementById('knopka_retain0').disabled=true; 
 	}
 	 if(number_place<7){ 
+			number_place=number_place+1;
+			i=number_place;	
+			document.getElementById('number_place').value=i;
+		
+		var next = document.getElementById('place_olimp');
+		var p_elem = document.createElement('div');
+		p_elem.className = 'div_date';
+		p_elem.id='p_elem'+i;
+		var label = document.createElement('label');		
+		label.id =i+" Этап ";	
 	 
-		number_place=number_place+1;
+		/*number_place=number_place+1;
 		i=number_place;	
 		document.getElementById('number_place').value=i;
 		
-		var next_place = document.getElementById('div_date');
+		var next_place = document.getElementById('place_olimp');
 		var p1_elem = document.createElement('div'); 
-		p1_elem.className="div_date";
+		p1_elem.className="div_date1";
 		p1_elem.id='p1_elem'+i;
 		var label = document.createElement('label');		
-		label.id =i+" Этап ";	
+		label.id =i+" Этап ";	*/
         	
 		switch (i)
 		{		  
@@ -257,7 +256,7 @@ function create_place(i){
 		  case 6: s="6"; break;
 		  case 7: s="7"; break;
 		}
-		//alert("блиать");
+		/*alert("блиать");
 		label.innerHTML = s+" этап ";
 		id_last_elem1=label.id;
 		p1_elem.appendChild(label);	
@@ -289,7 +288,84 @@ function create_place(i){
 		//place.parentNode.appendChild(p1_elem);
 		//id_last_elem=label.id;
 		//label.id =i+" Этап ";		
+		*/
 		
+			label.innerHTML = s+" этап ";
+		id_last_elem=label.id;
+		p_elem.appendChild(label);			
+		
+
+		
+		var dt = document.createElement('select')
+		dt.id ="month"+i,	
+		dt.className ="month_class",
+		dt.name ="month"+i,
+		dt.required=true;
+		dt.onchange=function(){check(dt.id );};	
+		p_elem.appendChild(dt);	
+		
+		var dt = document.createElement('select')
+		dt.id ="year"+i	,
+		dt.name ="year"+i,
+		dt.required=true;
+		dt.className ="years_class",
+		dt.onchange=function(){check(dt.id );};	
+		p_elem.appendChild(dt);
+		
+		
+		var label = document.createElement('label');
+		label.innerHTML = ' время ';
+		p_elem.appendChild(label);
+			
+		var tm = document.createElement('input');		
+		tm.id ="1time"+i;
+		tm.name ="1tm"+i;
+		tm.className ="time_number";
+		tm.type = 'number'
+		tm.min = 00
+		tm.max = 23
+		tm.required=true;
+		
+		tm.value = 00;
+		p_elem.appendChild(tm);	
+		
+		var label = document.createElement('label');		
+		label.innerHTML = ' : ';
+		label.className ="dvoetochie";
+		//label.style.font-weight=600;
+		//font-weight: 600; 
+		p_elem.appendChild(label);
+
+		var tm = document.createElement('input');		
+		tm.id ="2time"+i;
+		tm.name ="2tm"+i;
+		tm.required=true;
+		tm.className ="time_number";
+		tm.type = 'number'
+		tm.min = 00;
+		
+		tm.max = 59
+		tm.value = 00
+		p_elem.appendChild(tm);		
+		
+		var btn = document.createElement('input')
+		btn.id ="btn"+i
+		btn.type = 'button'	
+		btn.className = "knopka_cansel1"
+		btn.value = 'Удалить'
+		btn.onclick = function() {delete_button2(p_elem.id);};	
+		p_elem.appendChild(btn);	
+		
+		next.parentNode.appendChild(p_elem);
+		
+		var day = new Date,
+        md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
+        $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
+		
+		set_select("day"+i, md, 1, "дд");
+		set_select("month"+i, 12, 1, "мм");
+		set_select("year"+i, 11, day.getFullYear(), "гг");
+		document.getElementById('btn1').style.opacity=1;
 	
 	
 	}
@@ -297,6 +373,7 @@ function create_place(i){
 		document.getElementById('btn1').style.opacity=0.5;
 	}
 }	
+
 
 
 //а нужна ли эта функция?!!!!!!

@@ -44,33 +44,55 @@ include ("js/select_subject.js");
 	
 	<div>			
 		<label class="lk_schoolboy">Тип олимпиады</label>		
-		<SELECT class="status_olimp" id="select_status" onchange = "change()" name="select_status" size="1">
-		   <option value="1">Одноэтапная
-		   <option value="2">Многоэтапная			
+		<SELECT class="status_olimp" id="select_status" onchange = "change()" value="2" name="select_status" size="1">
+		   <option value="2">Одноэтапная
+		   <option value="1">Многоэтапная			
 		</SELECT>
 	</div>
 	
-	<div name="none">
+	<div>
 		<div id="div_p_date_olimp">
 			<label id="lk_schoolboy" >Дата проведения</label>						
 		</div>
 	</div>
 	
-	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
 	<div name="none">
-	<label  id="lk_schoolboy" >Место проведения</label>
-	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr> 
+	<div>
+	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
     </div>
+	</div>
+	
+	<div>
+	<div id="place_olimp">
+	<label  id="lk_schoolboy" >Место проведения</label>
+	</div>
+	<div class="div_date">
+	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
+	</div>
+	
+	<div name="none">
+	<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>	
+    </div>
+	
+	</div>
+	<!--<div>
+	<div id="place_olimp">
+	<label  id="lk_schoolboy" >Место проведения</label> 
+    </div>
+	</div>
+		</div>-->
+	
 	<div id="org_block">
 		<label id="lk_schoolboy" >Организатор</label>
 		<input id="Org_olimp" name="Org_olimp" type="text" >
 	</div>
-	
+	<div>
 	<label id="lk_schoolboy" >Срок подачи заявки</label>
 	<label class="do">до</label>
 	<select name="day0" class="day_class" required id="day0"></select>
 	<select name="month0" class="month_class" required id="month0" onchange="check(id)"  ></select>
 	<select name="year0"  class="years_class" required id="year0" onchange="check(id)"  ></select>
+	</div>
 
 	<p>
 	
@@ -99,12 +121,17 @@ include ("js/select_subject.js");
 	</p>
 	
 	<div>
-		<label id="lk_schoolboy"  >Описание</label>
+		<label id="lk_schoolboy" >Описание</label>
 		<textarea id="description_olimp" required name="description_olimp"></textarea>		
 	</div>
 	
 	<div id="div_none">
 		<input id="number_date" name="number_date" type="text" > <!-- количество этапов -->
+ 		<input id="subject_string" name="subject_string" type="text" >
+	</div>
+	
+	<div id="div_none">
+		<input id="number_place" name="number_place" type="text" > <!-- количество этапов -->
  		<input id="subject_string" name="subject_string" type="text" >
 	</div>
 	
@@ -127,10 +154,12 @@ document.getElementById('Org_olimp').value=<?echo $_SESSION['id'];?>; //полу
 document.getElementById('org_block').style.display="none";
 	
 window.onload = function () {
+	change();
     var day = new Date,
         md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
-        $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
+       $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
 	create_date(number_date);
+	create_place(number_place);
 	
     function set_select(a, c, d, e) {
         var el = document.getElementsByName(a)[0];
@@ -262,14 +291,14 @@ window.onload = function () {
 	
 	function change(){
 	if(document.getElementById('select_status').value==2){
-		document.getElementById('location_olimp').required=false;
+		/*document.getElementById('location_olimp').required=false;*/
 		
 		for (var i=0; i<document.getElementsByName('none').length; i++) {
 			document.getElementsByName('none')[i].style.display="none";
 		}
 	}
 	else{
-		document.getElementById('location_olimp').required=true;
+		/*document.getElementById('location_olimp').required=true;*/
 		
 		for (var i=0; i<document.getElementsByName('none').length; i++) {
 			document.getElementsByName('none')[i].style.display="block";

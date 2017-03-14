@@ -1,10 +1,13 @@
 <?php
 	session_start();
-	 include("comments/config.php");
+	include("comments/config.php");
+	include ("bd.php");
+	$id = $_GET['id'];
+	$myrow = mysql_fetch_array(mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id'"));
 ?>
 <html>
 	<head>
-		<title>Олимпиады ДВФУ</title>
+		<title><?php echo $myrow[0]?> - Информация</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>

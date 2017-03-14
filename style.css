@@ -43,13 +43,25 @@
 	border-bottom:3px solid #0A3C57;
 	font-size: 17pt;
 	margin-bottom: 16px;
+	width: 89%;
+    margin: 9px auto;
+	
+	
+}
+#name_olymp_rezults{
+	font-size: 17pt;
+	margin-bottom: 16px;
 	width: 80%;
 	margin: auto;
 	
 	
 }
+#name_rezalts{
+	margin: 0 0 10px 0;
+}
 #rezalts{
 	float: right;
+	margin: 0 0 10px 0;
 }
 
 .fon_table{

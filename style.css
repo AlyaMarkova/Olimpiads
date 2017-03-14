@@ -524,7 +524,7 @@ background: linear-gradient(#0066b3, #0066b3);
 } 
 .table_reiting_td{ 
 	border-right: 1px solid #0A3C57; 
-	padding: 0 5px 10px 5px; 
+	padding: 10 5px 10px 5px; 
 	max-width: 200px;
 
 	

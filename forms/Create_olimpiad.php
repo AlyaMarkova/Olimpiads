@@ -57,30 +57,26 @@ include ("js/select_subject.js");
 	</div>
 	
 	<div name="none">
-	<div>
-	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
-    </div>
+			<div>
+				<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
+			</div>
 	</div>
 	
-	<div>
-	<div id="place_olimp">
-	<label  id="lk_schoolboy" >Место проведения</label>
-	</div>
-	<div class="div_date">
-	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
-	</div>
 	
-	<div name="none">
-	<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>	
-    </div>
 	
-	</div>
-	<!--<div>
-	<div id="place_olimp">
-	<label  id="lk_schoolboy" >Место проведения</label> 
-    </div>
-	</div>
-		</div>-->
+			<div id="place_olimp">
+			
+				<label  id="lk_schoolboy" >Место проведения</label>
+				<!--<div class="div_date">--> 
+							<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>		
+			</div> 
+			
+			
+			<div name="none">
+				<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>	
+			</div>
+			
+	
 	
 	<div id="org_block">
 		<label id="lk_schoolboy" >Организатор</label>
@@ -159,7 +155,8 @@ window.onload = function () {
         md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
        $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
 	create_date(number_date);
-	create_place(number_place);
+	create_place(number_place);	//может должно быть не тут
+	
 	
     function set_select(a, c, d, e) {
         var el = document.getElementsByName(a)[0];

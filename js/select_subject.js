@@ -230,34 +230,56 @@ function create_place(i){
 	<label  id="lk_schoolboy" >Место проведения</label>
 	</div>*/
 	if(number_place==6){ 
-		document.getElementById('knopka_retain0').disabled=true; //- так не блочится кнопка
+		document.getElementById('knopka_retain0').disabled=true; 
 	}
-	else if(number_place<7){ 
+	 if(number_place<7){ 
+	 
 		number_place=number_place+1;
 		i=number_place;	
 		document.getElementById('number_place').value=i;
 		
-	    var place = document.getElementById('div_date');	
-
-		
+		var next_place = document.getElementById('div_date');
 		var p1_elem = document.createElement('div'); 
-		p1_elem.class="div_date";
-		p1_elem.id='p1_elem'+i; 
+		p1_elem.className="div_date";
+		p1_elem.id='p1_elem'+i;
+		var label = document.createElement('label');		
+		label.id =i+" Этап ";	
+        	
+		switch (i)
+		{		  
+		  case 1: s="1"; break;
+		  case 2: s="2"; break;
+		  case 3: s="3"; break;
+	      case 4: s="4"; break;
+          case 5: s="5"; break;
+		  case 6: s="6"; break;
+		  case 7: s="7"; break;
+		}
+		//alert("бл");
+		label.innerHTML = s+" этап ";
+		id_last_elem1=label.id;
+		p1_elem.appendChild(label);	
+		
+		//abbra.appendChild(span1);	
+		//inp1.appendChild(abbra);	
+		//p1_elem.appendChild(inp1);	
+		
+		//label1.innerHTML = s+" этап ";
+		//id_last_elem1=label1.id;
+		//place.parentNode.appendChild(p1_elem);	
+		
 		var inp1 =  document.createElement('input');
 		inp1.class="create_text";
 		inp1.name="location_olimp";
 		inp1.type="text";
+		p1_elem.appendChild(inp1);
+		
 		var  abbra=document.createElement('abbr'); 
 		abbra.title="Это поле можно не заполнять";
+		inp1.appendChild(abbra);
+		
 		var span1=document.createElement('spant'); 
-		
 		abbra.appendChild(span1);	
-		inp1.appendChild(abbra);	
-		p1_elem.appendChild(inp1);	
-		
-		label1.innerHTML = s+" этап ";
-		id_last_elem1=label1.id;
-		place.parentNode.appendChild(p1_elem);	
 		
 		
 		

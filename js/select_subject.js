@@ -97,6 +97,56 @@ function delete_button2(id){
 			
 }
 
+function delete_button3(id){
+	if(number_place>1){
+		document.getElementById('knopka_retain0').disabled=false;
+		
+		document.getElementById('btn_dp').disabled=false;
+		document.getElementById('number_place').value=document.getElementById('number_place').value-1;
+		if (document.getElementById(id).type=='button'){
+				document.getElementById('number_place').value=document.getElementById('number_place').value.replace(document.getElementById(id).value+" ","");
+		}
+		document.getElementById(id).remove();
+		number_place=number_place-1;
+		var idd = Number(id.substring(6));
+		var id_staroe = idd;
+			for(var i = id_staroe; i<number_place+1; i++){
+				var id_novoe = i+1;
+				
+					switch (i)
+					{		  
+					  case 1: s="1"; break;
+					  case 2: s="2"; break;
+					  case 3: s="3"; break;
+					  case 4: s="4"; break;
+					  case 5: s="5"; break;
+					  case 6: s="6"; break;
+					  case 7: s="7"; break;
+					}
+				
+				
+				document.getElementById('p_elem'+id_novoe).id = 'p_elem'+i;
+				
+				document.getElementById(id_novoe+' Этап ').innerHTML = s+' этап ';
+				document.getElementById(id_novoe+' Этап ').id = i+' Этап ';
+				
+				document.getElementById('text_p'+id_novoe).name= 'tetx_p'+i;
+				document.getElementById('text_p'+id_novoe).id = 'text_p'+i;
+				
+				
+				document.getElementById('btn_dp'+id_novoe).id = 'btn_dp'+i;
+							
+			}
+			if(number_place==1){
+				document.getElementById('btn_dp').style.opacity=0.5;
+			}
+	}
+	else{
+		document.getElementById('btn_dp').disabled=false;
+		document.getElementById('btn_dp').style.opacity=0.5;
+	}	
+			
+}
 	
 function create_date(i){
 	if(number_date==6){
@@ -229,22 +279,11 @@ function create_place(i){
 			document.getElementById('number_place').value=i;
 		
 		var next = document.getElementById('place_olimp');
-		var p_elem = document.createElement('div');
-		p_elem.className = 'div_date';
-		p_elem.id='p_elem'+i;
+		var p1_elem = document.createElement('div');
+		p1_elem.className = 'div_date';
+		p1_elem.id='p_elem'+i;
 		var label = document.createElement('label');		
-		label.id =i+" Этап ";	
-	 
-		/*number_place=number_place+1;
-		i=number_place;	
-		document.getElementById('number_place').value=i;
-		
-		var next_place = document.getElementById('place_olimp');
-		var p1_elem = document.createElement('div'); 
-		p1_elem.className="div_date1";
-		p1_elem.id='p1_elem'+i;
-		var label = document.createElement('label');		
-		label.id =i+" Этап ";	*/
+		label.id =i+" Этап ";	 
         	
 		switch (i)
 		{		  
@@ -256,116 +295,30 @@ function create_place(i){
 		  case 6: s="6"; break;
 		  case 7: s="7"; break;
 		}
-		/*alert("блиать");
-		label.innerHTML = s+" этап ";
-		id_last_elem1=label.id;
-		p1_elem.appendChild(label);	
-		
-		//abbra.appendChild(span1);	
-		//inp1.appendChild(abbra);	
-		//p1_elem.appendChild(inp1);	
-		
-		//label1.innerHTML = s+" этап ";
-		//id_last_elem1=label1.id;
-		//place.parentNode.appendChild(p1_elem);	
-		
-		var inp1 =  document.createElement('input');
-		inp1.class="create_text";
-		inp1.name="location_olimp";
-		inp1.type="text";
-		p1_elem.appendChild(inp1);
-		
-		var  abbra=document.createElement('abbr'); 
-		abbra.title="Это поле можно не заполнять";
-		inp1.appendChild(abbra);
-		
-		var span1=document.createElement('spant'); 
-		abbra.appendChild(span1);	
-		
-		
-		
-		
-		//place.parentNode.appendChild(p1_elem);
-		//id_last_elem=label.id;
-		//label.id =i+" Этап ";		
-		*/
+	
 		
 			label.innerHTML = s+" этап ";
 		id_last_elem=label.id;
-		p_elem.appendChild(label);			
-		
+		p1_elem.appendChild(label);			
 
-		
-		var dt = document.createElement('select')
-		dt.id ="month"+i,	
-		dt.className ="month_class",
-		dt.name ="month"+i,
-		dt.required=true;
-		dt.onchange=function(){check(dt.id );};	
-		p_elem.appendChild(dt);	
-		
-		var dt = document.createElement('select')
-		dt.id ="year"+i	,
-		dt.name ="year"+i,
-		dt.required=true;
-		dt.className ="years_class",
-		dt.onchange=function(){check(dt.id );};	
-		p_elem.appendChild(dt);
-		
-		
-		var label = document.createElement('label');
-		label.innerHTML = ' время ';
-		p_elem.appendChild(label);
-			
-		var tm = document.createElement('input');		
-		tm.id ="1time"+i;
-		tm.name ="1tm"+i;
-		tm.className ="time_number";
-		tm.type = 'number'
-		tm.min = 00
-		tm.max = 23
-		tm.required=true;
-		
-		tm.value = 00;
-		p_elem.appendChild(tm);	
-		
-		var label = document.createElement('label');		
-		label.innerHTML = ' : ';
-		label.className ="dvoetochie";
-		//label.style.font-weight=600;
-		//font-weight: 600; 
-		p_elem.appendChild(label);
-
-		var tm = document.createElement('input');		
-		tm.id ="2time"+i;
-		tm.name ="2tm"+i;
-		tm.required=true;
-		tm.className ="time_number";
-		tm.type = 'number'
-		tm.min = 00;
-		
-		tm.max = 59
-		tm.value = 00
-		p_elem.appendChild(tm);		
+		var inp = document.createElement('input');	
+        inp.id="text_dp"+i;		
+		inp.name ="location_olimp";
+		inp.required=true;
+		inp.class="create_text";
+		inp.type = 'text';
+		p1_elem.appendChild(inp);		
 		
 		var btn = document.createElement('input')
-		btn.id ="btn"+i
+		btn.id ="btn_dp"+i
 		btn.type = 'button'	
 		btn.className = "knopka_cansel1"
 		btn.value = 'Удалить'
-		btn.onclick = function() {delete_button2(p_elem.id);};	
-		p_elem.appendChild(btn);	
+		btn.onclick = function() {delete_button3(p1_elem.id);};	
+		p1_elem.appendChild(btn);	
 		
-		next.parentNode.appendChild(p_elem);
+		next.parentNode.appendChild(p1_elem);
 		
-		var day = new Date,
-        md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
-        $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
-		
-		set_select("day"+i, md, 1, "дд");
-		set_select("month"+i, 12, 1, "мм");
-		set_select("year"+i, 11, day.getFullYear(), "гг");
-		document.getElementById('btn1').style.opacity=1;
 	
 	
 	}
@@ -443,14 +396,14 @@ function create_date2(i){
 	tm.min=00;
 	tm.required=true;
 	tm.className ="time_number";
-	tm.type = 'number'
+	tm.type = 'number';
 	p_elem.appendChild(tm);				
 
 	var btn = document.createElement('input')
-	btn.id ="btn"+i
-	btn.type = 'button'	
-	btn.className = "knopka_cansel1"
-	btn.value = 'Удалить'
+	btn.id ="btn"+i;
+	btn.type = 'button';
+	btn.className = "knopka_cansel1";
+	btn.value = 'Удалить';
 	btn.onclick = function() {delete_button2(p_elem.id);};	
 	p_elem.appendChild(btn);	
 	

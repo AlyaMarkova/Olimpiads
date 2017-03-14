@@ -33,7 +33,6 @@ function delete_button(id){
 }
 
 var number_date=0;
-var number_place=0;
 
 function delete_button2(id){
 	if(number_date>1){
@@ -96,7 +95,6 @@ function delete_button2(id){
 	}	
 			
 }
-
 	
 function create_date(i){
 	if(number_date==6){
@@ -210,71 +208,18 @@ function create_date(i){
 		set_select("month"+i, 12, 1, "мм");
 		set_select("year"+i, 11, day.getFullYear(), "гг");
 		document.getElementById('btn1').style.opacity=1;
+
+
+		
+			
+		
+		
 	}
 	if(number_date==1){
 		document.getElementById('btn1').style.opacity=0.5;
 	}
 }	
 	
-
-
-function create_place(i){
-	
-	/*
-	
-	<div class="div_date">
-	<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>
-	</div>
-	
-	<div id="place_olimp">
-	<label  id="lk_schoolboy" >Место проведения</label>
-	</div>*/
-	if(number_place==6){ 
-		document.getElementById('knopka_retain0').disabled=true; //- так не блочится кнопка
-	}
-	else if(number_place<7){ 
-		number_place=number_place+1;
-		i=number_place;	
-		document.getElementById('number_place').value=i;
-		
-	    var place = document.getElementById('div_date');	
-
-		
-		var p1_elem = document.createElement('div'); 
-		p1_elem.class="div_date";
-		p1_elem.id='p1_elem'+i; 
-		var inp1 =  document.createElement('input');
-		inp1.class="create_text";
-		inp1.name="location_olimp";
-		inp1.type="text";
-		var  abbra=document.createElement('abbr'); 
-		abbra.title="Это поле можно не заполнять";
-		var span1=document.createElement('spant'); 
-		
-		abbra.appendChild(span1);	
-		inp1.appendChild(abbra);	
-		p1_elem.appendChild(inp1);	
-		
-		label1.innerHTML = s+" этап ";
-		id_last_elem1=label1.id;
-		place.parentNode.appendChild(p1_elem);	
-		
-		
-		
-		
-		//place.parentNode.appendChild(p1_elem);
-		//id_last_elem=label.id;
-		//label.id =i+" Этап ";		
-		
-	
-	
-	}
-	else if(number_place==1){
-		document.getElementById('btn1').style.opacity=0.5;
-	}
-}	
-
-
 //а нужна ли эта функция?!!!!!!
 function create_date2(i){
 	number_date=number_date+1;

@@ -73,7 +73,7 @@
   font-size:13px;
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 130px;
-  margin: 10px auto;
+  margin: 0 0 10 0;
 }
 #knopka_retain1:hover { background: #000000; } /* при наведении курсора мышки */
 #knopka_retain1:active { background: #000000; } /* при нажатии */
@@ -93,6 +93,7 @@
   font-size:13px;
   font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 130px;
+  margin: 5 0 10 0;
 }
 #knopka_retain0:hover { background: #000000; } /* при наведении курсора мышки */
 #knopka_retain0:active { background: #000000; } /* при нажатии */
@@ -253,17 +254,26 @@ background-image: url(../images/redak_olimp.jpg);
 
 #div_p_date_olimp{
 	float:left;
+	position: absolute;
 	
 }
 #place_olimp{
 	float:left;
+	position: absolute;
 	
 }
 .div_date{                 /* для выравнивания этапов и цвета текста */
-	  margin-left: 210px;
-	padding-top: 9px;
+	margin-left: 210px;
+	padding-bottom: 9px;
 	color: linear-gradient(#0066b3, #0066b3);
 }
+
+.div_place{                 /* для выравнивания этапов и цвета текста */
+	margin-left: 210px;
+	padding: 5px 0;
+	color: linear-gradient(#0066b3, #0066b3);
+}
+
 #subject_string{
 	display: none;
 }
@@ -277,7 +287,7 @@ background-image: url(../images/redak_olimp.jpg);
 	color:blue;
 }
 p{
-margin:0px auto;
+margin:10px 0 0 0;
 }
 
 #lk_schoolboy{ /**/

@@ -25,12 +25,13 @@
 }
 
 #ach1{
-	width: 330px;
-	margin: 0 auto;
-	background: white;
-	text-align: center;
-	font-size: 18px;
-	color:#0A3C57;
+    width: 285px;
+    margin: 15px auto;
+    padding: 10px;
+    background: white;
+    text-align: center;
+    font-size: 18px;
+    color: #0A3C57;
 }
 #place_in_the_ranking{
 	text-decoration: underline;
@@ -38,17 +39,23 @@
 }
 #name_olymp_rezult{
 	color: #0A3C57;
-	
 	border-bottom:3px solid #0A3C57;
+	font-size: 17pt;
+	width: 89%;
+    margin: 9px auto 16px auto;	
+}
+#name_olymp_rezults{
 	font-size: 17pt;
 	margin-bottom: 16px;
 	width: 80%;
 	margin: auto;
-	
-	
+}
+#name_rezalts{
+	margin: 0 0 10px 0;
 }
 #rezalts{
 	float: right;
+	margin: 0 0 10px 0;
 }
 
 .fon_table{
@@ -281,7 +288,7 @@ body {
 	background-image: url(images/lk.png); 
 	background-size: 105% auto;
 	background-position:center center;
-	border-radius: 50%;   
+	border-radius: 50%;  
 	border: 1px solid #0A3D58;
 	background-repeat: no-repeat;
  	
@@ -415,11 +422,11 @@ body {
 	min-height: 100%;
 }
 .cont{
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 }
 
 #content{
-    width: 720px;
+    width: 739px;
     min-height: 100%;
 	background: white;
 	/*margin: 8px 0 0 20px;*/
@@ -523,7 +530,7 @@ background: linear-gradient(#0066b3, #0066b3);
 } 
 .table_reiting_td{ 
 	border-right: 1px solid #0A3C57; 
-	padding: 0 5px 10px 5px; 
+	padding: 10 5px 10px 5px; 
 	max-width: 200px;
 
 	
@@ -623,7 +630,7 @@ margin: 20px auto;
 }
 
 #bestt{
-	min-width: 290px;
+	min-width: 300px;
 	border-collapse: collapse;
 	border:1px solid #0A3C57;
 	color:#0A3C57;
@@ -655,6 +662,7 @@ margin: 20px auto;
 #time_line{
 	height: 35px;    
 	margin-top: -18px;
+    margin-bottom: 28px;
 	background:#0066b3;
 	padding: 7px 0 0 15px;
 	Color: white;

@@ -31,6 +31,18 @@
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
 		</div>
+		<div id="lk_email">
+			<label id="lk_schoolboy">Срочная рассылка</label>
+			<SELECT  id="select_subject" required  name="select_subject" size="1" 
+			onchange="select_subject_activation(select_subject.value,select_subject.id)">
+				   <option value="">Список олимпиад</option>
+				   <option>Математика</option>
+				   <option>Русский язык</option>
+				   <option>Информатика</option>
+				   <option>Обществознание</option>
+			</SELECT>
+			</label>
+		</div>
 	</div>
 	
 

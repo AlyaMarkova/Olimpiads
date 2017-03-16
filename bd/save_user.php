@@ -24,6 +24,7 @@ if (empty($login) or empty($password)){ //если пользователь не
 	<?
 	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");
 }
+else{
 
 //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
 	$dsn = 'mysql:dbname=olimpiada;host=127.0.0.1;port=3306;charset=utf8';
@@ -50,14 +51,11 @@ if (empty($login) or empty($password)){ //если пользователь не
 	}
 	else 
 	{
+		$act=-1;
 		// если такого нет, то сохраняем данные 
 		$stmt = $pdo->prepare("INSERT INTO users (login,pass,rights,activation) VALUES (?,?,?,?)");
-		$stmt->bindParam(1, $login);
-		$stmt->bindParam(2, $password);
-		$stmt->bindParam(3, $select_status);
-		$stmt->bindParam(4, -1);
-		$stmt->execute();
-		
+		$stmt->execute(Array($login, $password, $select_status, $act));
+		$result2=true;
 		/******** для школьника **********/
 		If ($select_status=="1"){
 			if($spam_email=="ON"){
@@ -74,7 +72,7 @@ if (empty($login) or empty($password)){ //если пользователь не
 			$fio = $surname."!".$forename."!".$patronymic."!";
 			$DOB = $_POST['year1']."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT);
 			
-			$sql="SELECT Users_id FROM schoolboy WHERE email=?"); 
+			$sql="SELECT Users_id FROM schoolboy WHERE email=?"; 
 			$stm = $pdo->prepare($sql);
 			$stm->execute([$login]);
 			$myrow_email = $stm->fetch();
@@ -90,19 +88,9 @@ if (empty($login) or empty($password)){ //если пользователь не
 			} 
 			else 
 			{
-				$sql="INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email,gender, home_adress,delivery) VALUES(?,?,?,?,?,?,?,?,?,?)"); 
+				$sql="INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email,gender, home_adress,delivery) VALUES(?,?,?,?,?,?,?,?,?,?)"; 
 				$stm = $pdo->prepare($sql);
-				$stm->bindParam(0, $id_select_user);
-				$stm->bindParam(1, $fio);
-				$stm->bindParam(2, $school);
-				$stm->bindParam(3, $select_class);
-				$stm->bindParam(4, $DOB);
-				$stm->bindParam(5, $mob_number);
-				$stm->bindParam(6, $email);
-				$stm->bindParam(7, $sex);
-				$stm->bindParam(8, $location);
-				$stm->bindParam(9, $spam_email);
-				$stm->execute();	
+				$stm->execute(array($id_select_user,$fio, $school, $select_class, $DOB, $mob_number, $email, $sex, $location, $spam_email));	
 			}
 		}
 		
@@ -117,19 +105,15 @@ if (empty($login) or empty($password)){ //если пользователь не
 			
 			$fio=$surname."!".$forename."!".$patronymic."!";
 					
-			$sql="SELECT Users_id FROM professor WHERE email=?"); 
+			$sql="SELECT Users_id FROM professor WHERE email=?"; 
 			$stm = $pdo->prepare($sql);
 			$stm->execute([$login]);
 			$myrow_email = $stm->fetch();
 			
 			if ($myrow_email[0] == ""){
-				$sql="INSERT INTO professor (Users_id,Fio_professor, phone, email) VALUES(?,?,?,?)"); 
+				$sql="INSERT INTO professor (Users_id,Fio_professor, phone, email) VALUES(?,?,?,?)"; 
 				$stm = $pdo->prepare($sql);
-				$stm->bindParam(0, $id_select_user);
-				$stm->bindParam(1, $fio);
-				$stm->bindParam(2, $mob_number);
-				$stm->bindParam(3, $email);
-				$stm->execute();	
+				$stm->execute(array($id_select_user, $fio, $mob_number, $email));	
 			} else {
 				?>
 				<script>
@@ -140,7 +124,6 @@ if (empty($login) or empty($password)){ //если пользователь не
 				$bool=false;
 			}
 		}
-		
 		if ($bool){
 			$activation = md5($id_select_user).md5($login);//код активации аккаунта. Зашифруем    через функцию md5 идентификатор и логин. Такое сочетание пользователь вряд ли    сможет подобрать вручную через адресную строку.
 			$subject = "Подтверждение регистрации";//тема сообщения
@@ -166,4 +149,5 @@ if (empty($login) or empty($password)){ //если пользователь не
 			}
 		}
 	}
+}
 ?>

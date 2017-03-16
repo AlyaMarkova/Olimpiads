@@ -358,6 +358,20 @@ margin:0px auto 10px auto;
 	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
+.delivery{ /*кнопка организатор*/ 
+background-image: url(../images/rassylka.png);
+    background-position: center center;
+    width: 25px;
+    height: 25px;
+    background-size: 154% auto;
+    -webkit-appearance: none;
+    border: none;
+    background-repeat: no-repeat;
+    position: inherit;
+    border: 0.5px solid #0066b3;
+    padding: 6px;
+    border-radius: 1px 1px 1px 1px;
+}
 .organizator{ /*кнопка организатор*/ 
 	background-image: url(../images/organizator.jpg); 
 	background-position:center center; 

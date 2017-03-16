@@ -1,6 +1,26 @@
 <?php
 	session_start();
 	include ("js/fio.js");
+	require_once 'bd.php';   
+	$idS = $_SESSION['id'];
+	$rights=$_SESSION['rights'];
+	if ($rights>1)
+	{
+		if ($rights==2)
+		{
+			$result = mysql_query("SELECT id, name_olympiad FROM olympics WHERE professor_users_id = '$idS' ");
+		}
+		else if ($rights==3)
+		{
+			$result = mysql_query("SELECT id, name_olympiad FROM olympics");
+		}
+		$i=0;
+		while($row=mysql_fetch_array($result)){
+			$names[$i]=$row[name_olympiad];
+			$id[$i]=$row[id];
+			$i=$i+1;
+		}
+	}
 ?>
 	<link rel="stylesheet"  type="text/css" href="css/button.css" media="screen" />
 	
@@ -31,23 +51,32 @@
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
 		</div>
-		<div id="lk_email">
+		<div id="lk_delivery">
 			<label id="lk_schoolboy">Срочная рассылка</label>
 			<SELECT  id="select_subject" required  name="select_subject" size="1" 
-			onchange="select_subject_activation(select_subject.value,select_subject.id)">
+			onchange="select_subject(select_subject.value,select_subject.id)">
 				   <option value="">Список олимпиад</option>
-				   <option>Математика</option>
-				   <option>Русский язык</option>
-				   <option>Информатика</option>
-				   <option>Обществознание</option>
+				   <?	
+						for($i=0, $arr_l=count($names); $i<$arr_l; $i++)
+						{
+						?>
+						<option value="<? echo $id[$i]?>"><? echo $names[$i]?></option>
+						<?
+						}
+				   ?>
 			</SELECT>
 			</label>
+			<input type="button" title="Рассылка" class="delivery">
 		</div>
 	</div>
 	
 
 	
 <script>
+
+window.onload = function () {
+	
+}
 	var id=<?php echo $_SESSION['id'];?>;
 	var rights=<?php echo $_SESSION['rights'];?>;
 	if(rights==1){

@@ -53,7 +53,7 @@
 		</div>
 		<div id="lk_delivery">
 			<label id="lk_schoolboy">Срочная рассылка</label>
-			<SELECT  id="select_subject" required  name="select_subject" size="1" 
+			<SELECT class="lk_scoolboy" id="select_subject" required  name="select_subject" size="1" 
 			onchange="select_subject(select_subject.value,select_subject.id)">
 				   <option value="">Список олимпиад</option>
 				   <?	
@@ -68,6 +68,16 @@
 			</label>
 			<input type="button" title="Рассылка" class="delivery">
 		</div>
+			 <form action="handler.php">
+		<div id="lk_delivery_text">
+			<label id="lk_schoolboy">Текст рассылки</label>
+			<textarea id="rassylka" required name="rassylka"></textarea>	
+			  
+	<div style="margin-top: 100px;" class="button_all">
+			  <input class="knopka_retain" type="submit">
+	</div>
+		</div>
+			  </form>
 	</div>
 	
 

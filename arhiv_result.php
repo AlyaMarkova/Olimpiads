@@ -26,7 +26,7 @@ $myrow = mysql_fetch_array(mysql_query("SELECT name_olympiad FROM olympics WHERE
 
 				</div>
 				
-				<div id="right_cont">
+			<div id="right_cont">
 				<div><?php include ("calendar/index.php");?></div>
 				<div id="best"><?php include ("forms/best.php");?></div>
 			</div>

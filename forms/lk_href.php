@@ -34,7 +34,7 @@ session_start();
 						include ("forms/achievements_get.php");
 					
 				?>
-			</div>
+				</div>
 			<div style="clear:both;"></div>
 		</div>
 	</div>

@@ -13,7 +13,7 @@
 	<body>	
 		<?php include ("header.php");?>
 	
-		<div id="main">
+	<div id="main">
 		<div id="inside_main">
 			<div id="name">		
 				<p id="name_p">Редактирование предстоящей олимпиады</p>

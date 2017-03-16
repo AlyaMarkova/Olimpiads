@@ -57,31 +57,6 @@ include ("js/select_subject.js");
 		</div>
 	</div>
 	
-<<<<<<< HEAD
-	<div name="none">
-		<div>
-			<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
-		</div>
-	</div>
-	
-	
-	
-	<div >
-		<div id="place_olimp"> 
-			<label  id="lk_schoolboy" >Место проведения</label>
-			<!--<input class="create_text"  name="location_olimp" type="text"> <abbr title="Это поле можно не заполнять"> <spant></spant></abbr>	-->
-		</div>			
-	</div> 
-	
-	
-	<div name="none">
-		<div>
-		<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>	
-		</div>
-	</div>
-			
-	
-=======
 	<div>
 	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
 	</div>
@@ -98,7 +73,6 @@ include ("js/select_subject.js");
 		<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>
 	</div>
 	</div>
->>>>>>> origin/itried
 	
 	<p>
 	<div id="org_block">
@@ -148,16 +122,9 @@ include ("js/select_subject.js");
 	
 	<div id="div_none">
 		<input id="number_date" name="number_date" type="text" > <!-- количество этапов -->
-<<<<<<< HEAD
- 		<input id="subject_string" name="subject_string" type="text" >
-		<input id="number_place" name="number_place" type="text" > <!-- количество этапов -->
-=======
 		<input id="number_place" name="number_place" type="text" > <!-- количество мест-->
  		<input id="subject_string" name="subject_string" type="text" >
->>>>>>> origin/itried
 	</div>
-	
-
 	
 	<div style="margin-top: 100px;" class="button_all">
 		<input type="submit" class="knopka_retain" name="submit_create" value="Создать">
@@ -170,7 +137,6 @@ include ("js/select_subject.js");
 function location_cancel(){		
 	document.location.href="../index.php";
 }
-
 form = document.getElementById('form'); 
 form.subject_string.value = "";
 form.number_date.value = "";
@@ -184,8 +150,7 @@ window.onload = function () {
         md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
        $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
 	create_date(number_date);
-	create_place(number_place);	//может должно быть не тут
-	
+	create_place(number_place);
 	
     function set_select(a, c, d, e) {
         var el = document.getElementsByName(a)[0];
@@ -241,7 +206,6 @@ window.onload = function () {
 	var day = new Date,
         md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate();
         var month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
-
 	var year1 = document.getElementById('year1');
 	var month1 = document.getElementById("month1");
 	
@@ -316,22 +280,6 @@ window.onload = function () {
 	}
 	
 	function change(){
-<<<<<<< HEAD
-	if(document.getElementById('select_status').value==2){
-		
-		
-		for (var i=0; i<document.getElementsByName('none').length; i++) {
-			document.getElementsByName('none')[i].style.display="none";
-		}
-	}
-	else{
-		
-		
-		for (var i=0; i<document.getElementsByName('none').length; i++) {
-			document.getElementsByName('none')[i].style.display="block";
-		}
-	}
-=======
 		if(document.getElementById('select_status').value==2){
 			document.getElementById('knopka_retain0').style.display="none";
 			document.getElementById('knopka_retain1').style.display="none";
@@ -340,7 +288,5 @@ window.onload = function () {
 			document.getElementById('knopka_retain1').style.display="block";
 		}
 	} 
-
->>>>>>> origin/itried
 	
 </script>

@@ -90,7 +90,7 @@ background: linear-gradient(#0066b3, #0066b3);
 /***************/
 
 .table_arhiv_td1{
-	background: #6AC0ED;
+	background: #91CEF1;
 	height: 50px;
 	padding-left: 5px;
 }
@@ -100,10 +100,10 @@ background: linear-gradient(#0066b3, #0066b3);
 }
 .table_arhiv_td3{
 	text-decoration: underline;
-	background: #6AC0ED;
+	background: #91CEF1;
 	padding-right: 1%;
 }
 .table_arhiv_td4{
 	text-align: left;
-	background: #6AC0ED;
+	background: #91CEF1;
 }

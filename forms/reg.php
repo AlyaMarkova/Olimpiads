@@ -4,20 +4,45 @@ include ("js/Generation_pass.js");
 
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />	
+	<link href="../select/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="../select/dist/js/select2.min.js"></script>
+
 	<form action="../bd/save_user.php" method="post">
 	<!--**** save_user.php - это адрес обработчика. То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей отправятся на страничку save_user.php методом "post" ***** -->
+	
+	
+	
+				
+<script type="text/javascript">
+$(document).ready(function() {
+  $(".js-example-basic-single").select2();
+});
+</script>
+
+<select class="js-example-basic-single">
+  <option value="AL">Alabama</option>
+  <option value="WY">Wyoming</option>
+</select>
+	
+	
+	
+	
+	
 	<div class="lk_schoolboy_blok">
 		<div>
 			<label class="lk_schoolboy">Фамилия</label>
-			<input required name="surname" type="text"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="surname" type="text"style="width:300px;"> 
+			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 		<div>
 			<label class="lk_schoolboy">Имя</label>
-			<input required name="forename" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="forename" type="text" style="width:300px;"> 
+			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div> 
 		<div> 
 			<label class="lk_schoolboy">Отчество</label>
-			<input required name="patronymic" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required name="patronymic" type="text" style="width:300px;">
+			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div> 
 	</div>
 	
@@ -37,13 +62,19 @@ include ("js/Generation_pass.js");
 		</div>
 		<div name="none">
 			<label class="lk_schoolboy">Дата рождения</label>
+			
+
+			
+
+	
 			<select required class="day_class" name="day1" id="day1"></select>
 			<select required class="month_class" name="month1" id="month1"></select>
-			<select required class="years_class" name="year1" id="year1"></select> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<select required class="years_class" name="year1" id="year1"></select> 
+			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div > 
 		<div name="none">
 			<label class="lk_schoolboy">Школа</label>
-			<input required id="school"  name="school" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required id="school" style="width:300px;" name="school" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>
 		<div name="none">
 			<label  class="lk_schoolboy">Класс</label>		
@@ -66,12 +97,12 @@ include ("js/Generation_pass.js");
 	<div class="lk_schoolboy_blok">	
 		<div>
 			<label class="lk_schoolboy">Логин</label>
-			<input required name="login" type="text"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- Собственно у этого поля проверяет наличие в базе данных-->
+			<input required name="login"  style="width:300px;" type="text"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- Собственно у этого поля проверяет наличие в базе данных-->
 		</div>
 	<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->  
 		<div>
 			<label class="lk_schoolboy">Пароль</label>
-			<input required id="password" name="password" type="password" >
+			<input required id="password" name="password" style="width:300px;" type="password" >
 			<input  type="button" class="knopka_seeit" onclick="ShowHidePassword('password')"> 
 			<input  type="button" class="knopka_generation" onclick="generatePass('password')"> 		
 			<abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
@@ -89,15 +120,15 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 	<div class="lk_schoolboy_blok">
 		<div name="none">
 			<label class="lk_schoolboy">Место жительства</label>
-			<input required id="location" name="location" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
+			<input required id="location" name="location" style="width:300px;" type="text" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> 
 		</div>	
 		<div>
 			<label class="lk_schoolboy">Мобильный телефон</label>
-			<input id="mobile" name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" /> 
+			<input id="mobile" name="mob_number" type="text" style="width:300px;" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" /> 
 		</div>
 		<div>
 			<label class="lk_schoolboy">Адрес эл. почты</label> 
-			<input required name="email" type="email" > <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- А еще у этого поля проверяем наличие в базе данных-->
+			<input required name="email" type="email" style="width:300px;"> <abbr title="Это поле обязательно для заполнения"><span></span></abbr> <!-- А еще у этого поля проверяем наличие в базе данных-->
 
 		</div>
 	</div>	

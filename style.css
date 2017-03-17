@@ -1,7 +1,13 @@
 ::-webkit-input-required {margin-left: 200px;}
 	
 
+ input, h1,label,option, td, a,p,select {
+    font-family: 'PFRegal','Georgia',serif, Roboto, Arial, sans-serif;
+   }
+   
 
+   
+   
 #Number_tr{
 	border: 1px solid #0A3C57; 
 	border-collapse: collapse; 
@@ -228,7 +234,7 @@ body {
 	border-collapse: collapse;
    }
 .td1{ color: white;
-	font-size: 11pt;
+	font-size: 10pt;
 	width: 188px;
 	height: 18px;
     text-align: center;
@@ -448,17 +454,17 @@ body {
 	background: #0066b3;
 	margin:0 auto;
 }
-/*
+
 #p_menu1{
-	margin:0 0 0 30px;
+	/*margin:0 0 0 30px;*/
 }
 #p_menu2{
-	margin:0 0 0 55px;
+	/*margin:0 0 0 55px;*/
 }
 #p_menu3{
-	margin:0 0 0 25px;
+	/*margin:0 0 0 25px;*/
 }
-*/
+
 .main-menu {
     margin: 0;
     padding: 10px 15px;
@@ -475,14 +481,22 @@ body {
 .main-menu > li {
     position: relative;
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 .main-menu a {
     color: #0A3C57;
-	font-size: 16pt;
+	font-size: 14pt;
 	font-weight: 700;
 	text-decoration: none;
 }
+
+.main-menu h1 {
+    color: #0A3C57;
+	font-size: 14pt;
+	font-weight: 700;
+	text-decoration: none;
+}
+
 .main-menu .sub-menu {
     position: absolute;
 	display: none;

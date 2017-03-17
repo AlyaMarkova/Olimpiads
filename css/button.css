@@ -2,7 +2,7 @@
 	display: inline-block;
   color: white;
 
-   padding: .5em 2em;
+  padding: .5em 2em;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
@@ -16,10 +16,10 @@
 .knopka_retain:hover {cursor: pointer}
 
 .knopka_retain1{            /*кнопка сохранения*/
-	display: inline-block;
+  display: inline-block;	/*хочу сказать, что СЛОЖНАААА (С) Аля*/
   color: white;
 
-   padding: .5em 1.3em;
+  padding: .5em 1.3em;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
@@ -68,7 +68,7 @@
 }
 
 .lk_schoolboy_blok{ 
-	margin: 15px 0 15px 0; 
+	/*margin: 15px 0 15px 0; */
 	
 }
 #knopka_retain1{    
@@ -84,14 +84,34 @@
   transition: 0.2s;
   position: relative;
   left: 210px;
-  font-size:13px;
   //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
  // width: 30px;
    height:33;
+  margin: 0 0 10 0;
 }
 #knopka_retain1:hover { background: #0067b1; } /* при наведении курсора мышки */
 #knopka_retain1:active { background: #0067b1; } /* при нажатии */
 
+#knopka_retain0{    
+                    /*кнопка добавления этапа*/
+	display: inline-block;
+  color: white;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-radius: 3px;
+  border-color: #000000;
+  background: #000000;
+  transition: 0.2s;
+  position: relative;
+  left: 210px;
+  font-size:13px;
+  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+  width: 130px;
+  margin: 5 0 10 0;
+}
+#knopka_retain0:hover { background: #000000; } /* при наведении курсора мышки */
+#knopka_retain0:active { background: #000000; } /* при нажатии */
 
 #knopka_retain{
 	
@@ -101,7 +121,7 @@
 	display: inline-block;
 	color:#0066b3;
 	font-size:16px;
-   // font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+    font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	padding: 10px 20px 10px 20px;
 }
 .button_all{ /*центрирование кнопок удалить/сохранить*/
@@ -116,12 +136,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #0067b1;
-  background: #0067b1;
+  border-color: #e31837;
+  background: #e31837 ;
   transition: 0.2s;
 }
-.knopka_cansel:hover { background: #0067b1; } /* при наведении курсора мышки */
-.knopka_cansel:active { background: #0067b1;  } /* при нажатии */
+.knopka_cansel:hover { background: #e31837; } /* при наведении курсора мышки */
+.knopka_cansel:active { background: #e31837;  } /* при нажатии */
 
 
 
@@ -136,8 +156,8 @@
   border-color: #F28E91;
   background: linear-gradient(#F28E91, #CF918F ) ;
   transition: 0.2s;
- font-size:12px;
- // font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+  font-size:12px;
+  //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 57px; 
   margin-left:15px;
 }
@@ -208,6 +228,28 @@
 	background-size: 125% auto;
 	border-radius: 2px 2px 2px 2px;
 }
+
+.status_olimp{ /*select статус одноэтапная/многоэтапная */ 
+	background-image: url(../images/predm_list.jpg);
+	background-position:center center;
+	width: 150px; 
+	height: 30px;
+	
+	-webkit-appearance: none; 
+	border-color: #0066b3;
+	background-repeat: no-repeat;
+	text-align-last: center;
+	font-size: 14px;
+	padding-bottom: 6px;
+	
+	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	margin: 0px 1px 0px 1px;
+	vertical-align: 5px; 
+	background-size: 140% auto;
+	border-radius: 2px 2px 2px 2px;
+
+}
+
 .redak_itog{
 background-image: url(../images/redak_olimp.jpg); 
 	background-position:center center; 
@@ -227,13 +269,26 @@ background-image: url(../images/redak_olimp.jpg);
 
 #div_p_date_olimp{
 	float:left;
+	position: absolute;
+	
+}
+#place_olimp{
+	float:left;
+	position: absolute;
 	
 }
 .div_date{                 /* для выравнивания этапов и цвета текста */
-	  margin-left: 210px;
-	padding-top: 9px;
+	margin-left: 210px;
+	padding-bottom: 9px;
 	color: linear-gradient(#0066b3, #0066b3);
 }
+
+.div_place{                 /* для выравнивания этапов и цвета текста */
+	margin-left: 210px;
+	padding: 5px 0;
+	color: linear-gradient(#0066b3, #0066b3);
+}
+
 #subject_string{
 	display: none;
 }
@@ -246,7 +301,9 @@ background-image: url(../images/redak_olimp.jpg);
 {
 	color:blue;
 }
-
+p{
+margin:10px 0 0 0;
+}
 
 #lk_schoolboy{ /**/
 	display: inline-block;
@@ -257,8 +314,8 @@ background-image: url(../images/redak_olimp.jpg);
 	border-radius: 0 4px 4px 0 ;
 	text-align: right;
 	width: 200px;
-	margin-top: 5px;
 	left: 10px;
+margin:0px auto 10px auto;
 }
 .lk_schoolboy{   /*блоки вокруг текста*/
 	display: inline-block;
@@ -269,7 +326,7 @@ background-image: url(../images/redak_olimp.jpg);
 	border-radius: 0 4px 4px 0 ;
 	text-align: right;
 	width: 200px;
-	margin-top: 5px;
+	margin:0px auto 10px auto;
 
 }
 .div_date{
@@ -289,8 +346,11 @@ background-image: url(../images/redak_olimp.jpg);
 }
 
 #lk_fio_div {
-	text-align: left;
-	margin: 10px 0 0 10%;
+    text-align: left;
+    padding: 10px 0 0 15px;
+    margin-bottom: 28px;
+    background: #0066b3;
+    color: #ffffff;
 }
 
 .request_zayvka{ /*кнопка заявки*/ 
@@ -564,7 +624,7 @@ input[type="button"]:disabled {
 	font-size: 14px;
 	padding-bottom: 6px;
 	
-//	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 0px 1px 0px 1px;
 	vertical-align: 5px; 
 	background-size: 125% auto;

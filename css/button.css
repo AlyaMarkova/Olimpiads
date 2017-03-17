@@ -93,25 +93,25 @@
 #knopka_retain1:active { background: #0067b1; } /* при нажатии */
 
 #knopka_retain0{    
-                    /*кнопка добавления этапа*/
+                    /*кнопка добавления места*/
 	display: inline-block;
   color: white;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #000000;
-  background: #000000;
+  border-color: #0067b1;
+  background: #0067b1;
   transition: 0.2s;
   position: relative;
   left: 210px;
-  font-size:13px;
-  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
-  width: 130px;
+  //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+ // width: 30px;
+   height:33;
   margin: 5 0 10 0;
 }
-#knopka_retain0:hover { background: #000000; } /* при наведении курсора мышки */
-#knopka_retain0:active { background: #000000; } /* при нажатии */
+#knopka_retain0:hover { background: #0067b1; } /* при наведении курсора мышки */
+#knopka_retain0:active { background: #0067b1; } /* при нажатии */
 
 #knopka_retain{
 	

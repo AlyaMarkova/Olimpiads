@@ -86,7 +86,6 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 </script>
 
 
-		</div>
 	</div>	
 	<div class="lk_schoolboy_blok">
 		<div name="none">

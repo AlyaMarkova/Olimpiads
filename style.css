@@ -39,17 +39,23 @@
 }
 #name_olymp_rezult{
 	color: #0A3C57;
-	
 	border-bottom:3px solid #0A3C57;
 	font-size: 17pt;
+	width: 89%;
+    margin: 9px auto 16px auto;	
+}
+#name_olymp_rezults{
+	font-size: 17pt;	
 	margin-bottom: 16px;
 	width: 80%;
 	margin: auto;
-	
-	
+}
+#name_rezalts{
+	margin: 0 0 10px 0;
 }
 #rezalts{
 	float: right;
+	margin: 0 0 10px 0;
 }
 
 .fon_table{
@@ -228,12 +234,37 @@ body {
     width: 188px;
 	border-collapse: collapse;
    }
-.td1{ color: white;
-	font-size: 11pt;
-	width: 188px;
-	height: 18px;
+.td1{ 
+    color: white;
+    font-size: 11pt;
+    width: 185px;
+    height: 18px;
+    text-align: left;
+    vertical-align: middle;
+    padding: 11px 4px 0px 4px
+}
+.td2{ 
+    background: white;
+    font-size: 11pt;
+    text-align: left;
+    vertical-align: middle;
+    width: 73%;
+    float: right;
+    margin-right: -4;
+}
+.td3{ 
+    color: white;
+    font-size: 10pt;
+    width: 188px;
+    height: 18px;
+    text-align: left;
+    vertical-align: middle;
+    padding: 7px 10px 8px 10px;
+}
+.td4{ 
+	color: white;
+	font-size: 10pt;
     text-align: center;
-	vertical-align: middle;
 }
 
 #white {
@@ -244,7 +275,7 @@ body {
 	font-size: 12pt;
     color: white;
 	text-align: right;
-	padding-right: 7px;
+	padding-right: 14px;
 }
 
 #stroka1{
@@ -259,8 +290,9 @@ body {
 }
 #stroka3{
    font-size: 14pt;
-   color: #0A3C57;
+   color: #ffffff;
    text-align: center;
+   padding: 7px 10px 8px 10px;
 }
 #knopka1{
    height:14px;
@@ -524,7 +556,7 @@ background: linear-gradient(#0066b3, #0066b3);
 } 
 .table_reiting_td{ 
 	border-right: 1px solid #0A3C57; 
-	padding: 0 5px 10px 5px; 
+	padding: 10 5px 10px 5px; 
 	max-width: 200px;
 
 	

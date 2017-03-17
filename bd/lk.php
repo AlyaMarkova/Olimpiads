@@ -23,11 +23,14 @@
 	if($action==2){
 		$result = mysql_query("SELECT * FROM professor WHERE users_id='$id'");
 		$myrow= mysql_fetch_array($result);	
+		$result = mysql_query("SELECT name_olympiad FROM olympics WHERE professor_users_id='$id'");
+		$name_olympiad= mysql_fetch_array($result);	
 		$jsonn=array(				
 			'id'=>$id,	
 			'FIO'=>$myrow['Fio_professor'],
 			'email'=>$myrow['email'],
-			'phone'=>$myrow['phone'],		
+			'phone'=>$myrow['phone'],	
+			'name_olympiad'=>$name_olympiad,
 			);
 		echo json_encode($jsonn);		
 	}

@@ -136,12 +136,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #e31837;
-  background: #e31837 ;
+  border-color:  #0067b1;
+  background:  #0067b1;
   transition: 0.2s;
 }
-.knopka_cansel:hover { background: #e31837; } /* при наведении курсора мышки */
-.knopka_cansel:active { background: #e31837;  } /* при нажатии */
+.knopka_cansel:hover { background:  #0067b1; } /* при наведении курсора мышки */
+.knopka_cansel:active { background:  #0067b1;  } /* при нажатии */
 
 
 

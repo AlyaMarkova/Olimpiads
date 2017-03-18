@@ -4,8 +4,7 @@ include ("js/Generation_pass.js");
 
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />	
-<link href="../select/dist/css/select2.min.css" rel="stylesheet" />
-<script src="../select/dist/js/select2.min.js"></script>
+
 
 	<form action="../bd/save_user.php" method="post">
 	<!--**** save_user.php - это адрес обработчика. То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей отправятся на страничку save_user.php методом "post" ***** -->

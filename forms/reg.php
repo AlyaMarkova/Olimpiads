@@ -4,23 +4,115 @@ include ("js/Generation_pass.js");
 
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />	
-<link href="../select/dist/css/select2.min.css" rel="stylesheet" />
-<script src="../select/dist/js/select2.min.js"></script>
+
 
 	<form action="../bd/save_user.php" method="post">
 	<!--**** save_user.php - это адрес обработчика. То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей отправятся на страничку save_user.php методом "post" ***** -->
+
 	
+	
+	
+<input type="text" name="team" id="favorite_team" list="team_list">
+<datalist id="team_list">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>...</option>
+</datalist>
+
+
+		<style>
+#dropdown{
+list-style: none;
+position:absolute; 
+background:#ffffaa; 
+cursor: default; 
+margin: -20px 0px 0px 0px; 
+padding: 2px 0px 2px 0px;
+width:155px
+}
+#dropdown li{
+padding: 3px 3px 3px 3px;
+}
+#dropdown li:hover{
+color:#fff;
+padding: 3px 3px 3px 3px;
+background:#0000FF; 
+}
+</style>
 <script type="text/javascript">
-	$(document).ready(function() {
-	  $(".js-example-basic-single").select2();
-	});
+function down()
+{
+  var a = document.getElementById('dropdown');
+  if ( a.style.display == 'none' )
+    a.style.display = 'block'
+  else
+    if ( a.style.display == 'block' )
+    a.style.display = 'none';
+};
+function select_date(val_date){
+	var b = document.getElementById('date_input');
+	b.value=val_date;
+	down();
+}
 </script>
+</head>
+<body>
+		<h3><input id="date_input" type="text" size="20" maxlength="50" name ="delivery_period_time" onclick="down()" ></h3>	
+		<ul id="dropdown" style="display:none;">
+		   <li class="facebook" onclick="select_date('1')">1</li>
+		   <li class="twitter" onclick="select_date('2')">2</li>
+		   <li class="gplus" onclick="select_date('3')">3</li>
+		   <li class="facebook" onclick="select_date('4')">4</li>
+		   <li class="twitter" onclick="select_date('5')">5</li>
+		   <li class="gplus" onclick="select_date('6')">6</li>
+		   <li class="facebook" onclick="select_date('7')">7</li>
+		   <li class="twitter" onclick="select_date('8')">8</li>
+		   <li class="gplus" onclick="select_date('9')">9</li>
+		   <li class="facebook" onclick="select_date('10')">10</li>
+		   <li class="twitter" onclick="select_date('11')">11</li>
+		   <li class="gplus" onclick="select_date('12')">12</li>
+		   <li class="facebook" onclick="select_date('13')">13</li>
+		   <li class="twitter" onclick="select_date('14')">14</li>
+		   <li class="gplus" onclick="select_date('15')">15</li>
+		   <li class="facebook" onclick="select_date('16')">16</li>
+		   <li class="twitter" onclick="select_date('17')">17</li>
+		   <li class="gplus" onclick="select_date('18')">18</li>
+		   <li class="facebook" onclick="select_date('19')">19</li>
+		   <li class="twitter" onclick="select_date('20')">20</li>
+		   <li class="gplus" onclick="select_date('21')">21</li>
+		   <li class="facebook" onclick="select_date('22')">22</li>
+		   <li class="twitter" onclick="select_date('23')">23</li>
+		   <li class="gplus" onclick="select_date('24')">24</li>
+		   <li class="twitter" onclick="select_date('25')">25</li>
+		   <li class="gplus" onclick="select_date('26')">26</li>
+		   <li class="facebook" onclick="select_date('27')">27</li>
+		   <li class="twitter" onclick="select_date('28')">28</li>
+		   <li class="gplus" onclick="select_date('29')">29</li>
+		   <li class="facebook" onclick="select_date('30')">30</li>
+		   <li class="twitter" onclick="select_date('31')">31</li>
+		</ul>
+</body>		
 
-<select class="js-example-basic-single">
-  <option value="AL">Alabama</option>
-  <option value="WY">Wyoming</option>
-</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<div class="lk_schoolboy_blok">
 		<div>

@@ -305,9 +305,10 @@ function create_place(i){ //создание мест
 			
 		var tm = document.createElement('input');		
 		tm.id ="place"+i;
+		tm.name = "place"+i;
 		tm.className = "create_text";
 		tm.type = 'text'
-		tm.size = '47'
+		tm.style = 'width:330px;'
 		p1_elem.appendChild(tm);	
 			
 		

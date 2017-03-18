@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 17 2017 г., 18:03
+-- Время создания: Мар 18 2017 г., 15:43
 -- Версия сервера: 5.5.53
 -- Версия PHP: 5.5.38
 
@@ -25,8 +25,8 @@ SET time_zone = "+00:00";
 --
 -- Структура таблицы `comments`
 --
--- Создание: Мар 17 2017 г., 14:52
--- Последнее обновление: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
+-- Последнее обновление: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `comments` (
@@ -131,7 +131,7 @@ INSERT INTO `comments` (`idd`, `reply`, `user`, `name`, `email`, `comment`, `dat
 --
 -- Структура таблицы `Message`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `Message` (
@@ -145,7 +145,7 @@ CREATE TABLE `Message` (
 --
 -- Структура таблицы `olympics`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `olympics` (
@@ -159,15 +159,15 @@ CREATE TABLE `olympics` (
   `classes` varchar(50) NOT NULL,
   `terms` date NOT NULL,
   `location` varchar(100) NOT NULL,
-  `stages` varchar(50) NOT NULL COMMENT '0 - одноэтапная, !0 - есть этапы',
-  `IsChild` int(11) NOT NULL DEFAULT '0'
+  `nextStage` varchar(50) NOT NULL DEFAULT '0' COMMENT 'n!n+1!n+2! - первый этап многоэтапной; число > 0 - указатель на следующий этап; 0 - либо одноэтапная олимпиада, либо последний этап из многоэтапной  ',
+  `IsChild` int(11) NOT NULL DEFAULT '0' COMMENT '0 - одноэтапная или родитель; 1 - является этапом'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `olympics`
 --
 
-INSERT INTO `olympics` (`id`, `name_olympiad`, `Olympiad_status`, `date`, `description`, `subject`, `professor_users_id`, `classes`, `terms`, `location`, `stages`, `IsChild`) VALUES
+INSERT INTO `olympics` (`id`, `name_olympiad`, `Olympiad_status`, `date`, `description`, `subject`, `professor_users_id`, `classes`, `terms`, `location`, `nextStage`, `IsChild`) VALUES
 (1, 'Всесибирская открытая олимпиада школьников', 1, '2016-12-14 20:25!2016-12-14 20:49!', 'Приходите!', 'Русский язык!Информатика!', 2, '7-11', '2025-12-19', 'г.Владивосток ул.Нерчинская 34а каб.450', '0', 0),
 (2, 'Всесибирская открытая олимпиада школьников. 2', 1, '2016-12-15 22:22!', 'приходите', 'Математика!', 2, '2-4', '2016-12-17', 'г.гУссурийск ул.Нерчинская 32', '0', 0),
 (3, 'оЛИМПИАДА', 1, '2016-12-14 20:59!', '', 'Математика!', 2, '1-3', '2016-12-14', 'г.Арсеньев ул.Ленинская 65', '0', 0),
@@ -183,7 +183,7 @@ INSERT INTO `olympics` (`id`, `name_olympiad`, `Olympiad_status`, `date`, `descr
 --
 -- Структура таблицы `professor`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `professor` (
@@ -212,7 +212,7 @@ INSERT INTO `professor` (`users_id`, `Fio_professor`, `phone`, `email`) VALUES
 --
 -- Структура таблицы `schoolboy`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `schoolboy` (
@@ -256,7 +256,7 @@ INSERT INTO `schoolboy` (`Users_id`, `Fio_schoolboy`, `school`, `class`, `birthd
 --
 -- Структура таблицы `schoolboy_olympics`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `schoolboy_olympics` (
@@ -287,7 +287,7 @@ INSERT INTO `schoolboy_olympics` (`olympics_id`, `schoolboy_users_id`) VALUES
 --
 -- Структура таблицы `schoolboy_past_olympics`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `schoolboy_past_olympics` (
@@ -320,7 +320,7 @@ INSERT INTO `schoolboy_past_olympics` (`olympics_id`, `schoolboy_users_id`, `rat
 --
 -- Структура таблицы `users`
 --
--- Создание: Мар 17 2017 г., 14:52
+-- Создание: Мар 18 2017 г., 12:38
 --
 
 CREATE TABLE `users` (

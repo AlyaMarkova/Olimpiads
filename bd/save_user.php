@@ -1,5 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
 <?php
+$bool=true;
 if (isset($_POST['login'])) { $login = str_replace(" ","",$_POST['login']);  if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
 if (isset($_POST['password'])) { $password = str_replace(" ","",$_POST['password']); if ($password =='') { unset($password);} }
 if (isset($_POST['select_status'])) { $select_status=$_POST['select_status']; if ($select_status =='') { unset($select_status);} }
@@ -67,6 +68,7 @@ else{
 			$stm = $pdo->prepare($sql);
 			$stm->execute([$login]);
 			$id_select_user = $stm->fetch();
+			$id_select_user=$id_select_user['id'];
 			
 			//составляем строки для ФИО и даты рождения
 			$fio = $surname."!".$forename."!".$patronymic."!";
@@ -88,7 +90,7 @@ else{
 			} 
 			else 
 			{
-				$sql="INSERT INTO schoolboy (Users_id,Fio_schoolboy,school,class,birthdate, phone, email,gender, home_adress,delivery) VALUES(?,?,?,?,?,?,?,?,?,?)"; 
+				$sql="INSERT INTO schoolboy (Users_id, Fio_schoolboy, school, class, birthdate, phone, email,gender, home_adress,delivery) VALUES(?,?,?,?,?,?,?,?,?,?)"; 
 				$stm = $pdo->prepare($sql);
 				$stm->execute(array($id_select_user,$fio, $school, $select_class, $DOB, $mob_number, $email, $sex, $location, $spam_email));	
 			}

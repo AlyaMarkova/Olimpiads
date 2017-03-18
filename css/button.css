@@ -15,6 +15,20 @@
 .knopka_retain:active { background:#0067b1; } /* при нажатии */
 .knopka_retain:hover {cursor: pointer}
 
+.knopka_retain1{            /*кнопка сохранения*/
+  display: inline-block;	/*хочу сказать, что СЛОЖНАААА (С) Аля*/
+  color: white;
+
+  padding: .5em 1.3em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-radius: 3px;
+  border-color: #0067b1;
+  background: #0067b1;
+  transition: 0.2s;
+}
+
 .knopka_no_retain{            /*кнопка сохранения*/
 	display: inline-block;
   color: white;
@@ -24,12 +38,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #0096d6;
-  background: #0096d6 ;
+  border-color: #0067b1;
+  background: #0067b1;
   transition: 0.2s;
 }
-.knopka_no_retain:hover { background: #0086bf; } /* при наведении курсора мышки */
-.knopka_no_retain:active { background:#0074a5; } /* при нажатии */
+.knopka_no_retain:hover { background: #0067b1; } /* при наведении курсора мышки */
+.knopka_no_retain:active { background:#0067b1; } /* при нажатии */
 .knopka_no_retain:hover {cursor: pointer}
 
 #sex2:hover {cursor: pointer}
@@ -65,38 +79,39 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #000000;
-  background: #000000;
+  border-color: #0067b1;
+  background: #0067b1;
   transition: 0.2s;
   position: relative;
   left: 210px;
-  font-size:13px;
-  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
-  width: 130px;
+  //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+ // width: 30px;
+   height:33;
   margin: 0 0 10 0;
 }
-#knopka_retain1:hover { background: #000000; } /* при наведении курсора мышки */
-#knopka_retain1:active { background: #000000; } /* при нажатии */
+#knopka_retain1:hover { background: #0067b1; } /* при наведении курсора мышки */
+#knopka_retain1:active { background: #0067b1; } /* при нажатии */
+
 #knopka_retain0{    
-                    /*кнопка добавления этапа*/
+                    /*кнопка добавления места*/
 	display: inline-block;
   color: white;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #000000;
-  background: #000000;
+  border-color: #0067b1;
+  background: #0067b1;
   transition: 0.2s;
   position: relative;
   left: 210px;
-  font-size:13px;
-  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
-  width: 130px;
+  //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+ // width: 30px;
+   height:33;
   margin: 5 0 10 0;
 }
-#knopka_retain0:hover { background: #000000; } /* при наведении курсора мышки */
-#knopka_retain0:active { background: #000000; } /* при нажатии */
+#knopka_retain0:hover { background: #0067b1; } /* при наведении курсора мышки */
+#knopka_retain0:active { background: #0067b1; } /* при нажатии */
 
 #knopka_retain{
 	
@@ -121,12 +136,12 @@
   border-width: 2px 0;
   border-style: solid none;
   border-radius: 3px;
-  border-color: #e31837;
-  background: #e31837 ;
+  border-color:  #0067b1;
+  background:  #0067b1;
   transition: 0.2s;
 }
-.knopka_cansel:hover { background: #e31837; } /* при наведении курсора мышки */
-.knopka_cansel:active { background: #e31837;  } /* при нажатии */
+.knopka_cansel:hover { background:  #0067b1; } /* при наведении курсора мышки */
+.knopka_cansel:active { background:  #0067b1;  } /* при нажатии */
 
 
 
@@ -142,12 +157,12 @@
   background: linear-gradient(#F28E91, #CF918F ) ;
   transition: 0.2s;
   font-size:12px;
-  font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+  //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
   width: 57px; 
   margin-left:15px;
 }
-.knopka_cansel:hover { background: linear-gradient(#9C1A0F, #79130F); } /* при наведении курсора мышки */
-.knopka_cansel:active { background:linear-gradient( #79130F, #9C1A0F);  } /* при нажатии */
+.knopka_cansel:hover { background: #0067b1; } /* при наведении курсора мышки */
+.knopka_cansel:active { background:#0067b1;  } /* при нажатии */
 
 .knopka_generation{ /*кнопка генерации пароля*/ 
 	background-image: url(../images/generation.jpg); 
@@ -189,7 +204,7 @@
 	font-size: 12px;
 	padding-bottom: 6px;
 	
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border-radius: 2px 2px 2px 2px;
 	vertical-align: 5px; 
 	background-size: 125% auto;
@@ -207,7 +222,7 @@
 	font-size: 14px;
 	padding-bottom: 6px;
 	
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 0px 1px 0px 1px;
 	vertical-align: 5px; 
 	background-size: 125% auto;
@@ -432,7 +447,7 @@ input[type="label"]:pointerEvents {
 	text-align:left;
 	border: 0.5px solid white; 
 	font-size: 9px;
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 2px ;
 	vertical-align: 3px;
 	background-size: 100% auto; 
@@ -452,7 +467,7 @@ input[type="label"]:pointerEvents {
 	text-align:left;
 	border: 0.5px solid white; 
 	font-size: 9px;
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 2px ;
 	vertical-align: 3px;
 	background-size: 100% auto; 
@@ -472,7 +487,7 @@ input[type="label"]:pointerEvents {
 	text-align:left;
 	border: 0.5px solid white; 
 	font-size: 9px;
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 2px ;
 	vertical-align: 3px;
 	background-size: 100% auto; 
@@ -492,7 +507,7 @@ input[type="label"]:pointerEvents {
 	text-align:left;
 	border: 0.5px solid white; 
 	font-size: 9px;
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 2px ;
 	vertical-align: 3px;
 	background-size: 100% auto; 
@@ -510,7 +525,7 @@ input[type="label"]:pointerEvents {
 	-webkit-appearance: none;
 	text-align-last: center;
 	font-size: 14px;
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border-radius: 2px 2px 2px 2px;
 	border-color: #0066b3;
 	vertical-align: 3px; 
@@ -590,7 +605,7 @@ input[type="button"]:disabled {
 	font-size: 14px;
 	padding-bottom: 6px;
 	
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border-radius: 2px 0px 0px 2px;
 	vertical-align: 5px; 
 	background-size: 125% auto;
@@ -609,7 +624,7 @@ input[type="button"]:disabled {
 	font-size: 14px;
 	padding-bottom: 6px;
 	
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	margin: 0px 1px 0px 1px;
 	vertical-align: 5px; 
 	background-size: 125% auto;
@@ -628,7 +643,7 @@ input[type="button"]:disabled {
 	font-size: 14px;
 	padding-bottom: 6px;
 	
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border-radius: 0 2px 2px 0 ;
 	vertical-align: 5px; 
 	background-size: 125% auto;
@@ -641,7 +656,7 @@ input[type="button"]:disabled {
 	
 	-webkit-appearance: none; 
 	font-size: 10px;
-	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	//font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
 	border: none;
 	border-bottom: 1px solid black;
 	vertical-align: 5px; 

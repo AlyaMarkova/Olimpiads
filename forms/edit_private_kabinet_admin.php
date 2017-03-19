@@ -14,15 +14,15 @@ session_start();
 		<div class="lk_schoolboy_blok">
 		<div id="admin1">
 			<label id="lk_schoolboy">Фамилия</label>
-			<input name="surname" required id="surname"  type="text" >
+			<input name="surname" required id="surname" style="width: 300px;" type="text" >
 		</div>
 		<div id="admin2">
 			<label id="lk_schoolboy">Имя</label>
-			<input name="forename" required id="forename" type="text" >
+			<input name="forename" required id="forename" style="width: 300px;" type="text" >
 		</div> 
 		<div id="admin3">
 			<label id="lk_schoolboy">Отчество</label>
-			<input name="patronymic" required id="patronymic" type="text" >
+			<input name="patronymic" required id="patronymic" style="width: 300px;" type="text" >
 		</div> 	
 		</div> 	
 		<div class="lk_schoolboy_blok">
@@ -39,7 +39,7 @@ session_start();
 		</div>
 		<div id="professor1">
 			<label id="lk_schoolboy">Школа</label>
-			<input  name="school" required id="school" type="text" >
+			<input  name="school" required id="school"  style="width: 300px;" type="text" >
 		</div>
 		<div id="professor2">
 			<label  id="lk_schoolboy">Класс</label>		
@@ -62,7 +62,7 @@ session_start();
 		
 		<div>
 			<label id="lk_schoolboy">Логин</label>
-			<input id="login" required readonly="true" name="login" type="text" >
+			<input id="login" required readonly="true" style="width: 300px;" name="login" type="text" >
 		</div>
 	
 
@@ -70,15 +70,15 @@ session_start();
 		<div class="lk_schoolboy_blok">
 		<div id="professor3">
 			<label id="lk_schoolboy">Место жительства</label>
-			<input id="location" required name="location" type="text" >
+			<input id="location" required name="location" style="width: 300px;" type="text" >
 		</div>	
 		<div id="admin4">
 			<label id="lk_schoolboy">Мобильный телефон</label>
-			<input id="mob_number"  name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" />
+			<input id="mob_number"  name="mob_number" style="width: 300px;" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" />
 		</div>
 		<div id="admin5">
 			<label id="lk_schoolboy">Адрес эл. почты</label>
-			<input id="email" required name="email" type="email" >
+			<input id="email" required name="email" style="width: 300px;" type="email" >
 		</div>
 		</div>
 		<div id="professor4">

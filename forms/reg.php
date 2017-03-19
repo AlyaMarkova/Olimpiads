@@ -9,6 +9,7 @@ include ("js/Generation_pass.js");
 	<form action="../bd/save_user.php" method="post">
 	<!--**** save_user.php - это адрес обработчика. То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей отправятся на страничку save_user.php методом "post" ***** -->
 	
+<!--
 <script type="text/javascript">
 	$(document).ready(function() {
 	  $(".js-example-basic-single").select2();
@@ -19,6 +20,7 @@ include ("js/Generation_pass.js");
   <option value="AL">Alabama</option>
   <option value="WY">Wyoming</option>
 </select>
+-->
 
 	
 	<div class="lk_schoolboy_blok">

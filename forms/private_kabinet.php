@@ -6,13 +6,20 @@
 	
 	$idS = $_SESSION['id'];
 	$rights=$_SESSION['rights'];
-	$res = mysql_query("SELECT id, name_olympiad FROM olympics WHERE professor_users_id = '$idS'");	
-	$i=0;
-	while($row=mysql_fetch_array($res))
-	{
-		$id_ol[$i]=$row['id'];
-		$name_olympiad[$i]=$row['name_olympiad'];
-		$i=$i+1;
+	if ($rights>1){
+			if ($rights==2){
+			$res = mysql_query("SELECT id, name_olympiad FROM olympics WHERE professor_users_id = '$idS'");	
+			}
+			else if ($rights==3){
+			$res = mysql_query("SELECT id, name_olympiad FROM olympics");	
+			}
+			$i=0;
+			while($row=mysql_fetch_array($res))
+			{
+				$id_ol[$i]=$row['id'];
+				$name_olympiad[$i]=$row['name_olympiad'];
+				$i=$i+1;
+			}
 	}
 ?>
 	
@@ -42,10 +49,11 @@
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
 		</div>
-	<form action="../bd/delivery.php" id="form" method="post"> <!--onsubmit="return validate_form (this );"--> 
+<? if ($rights>1){?>
+	<form id="form" action="../bd/delivery.php" method="post"> <!--onsubmit="return validate_form (this );"--> 
 			<div id="lk_rassylka">
 				<label id="lk_schoolboy">Срочная рассылка</label>
-				<SELECT  id="select__big_subject"  name="select__big_subject" size="1" value="-1">
+				<SELECT  id="select__big_subject"  name="select__big_subject" size="1" >
 					   <option value="-1">Список олимпиад</option>
 					  
 	<?        for($i=0, $arr_l=count($id_ol); $i<$arr_l; $i++){ 
@@ -53,7 +61,7 @@
 						<option value="<?echo $id_ol[$i] ?>"><?echo $name_olympiad[$i] ?></option>
 	<?}?>
 				</SELECT>
-				<input id="rassylka" onclick="rassylka()" name="ras" type="button" title="Создать рассылку" class="rassylka">
+				<input id="rassylka" onclick="rassylka_im_vera()" name="ras" type="button" title="Создать рассылку" class="rassylka">
 			</div>
 			
 			<div id="lk_text_whom">
@@ -61,8 +69,11 @@
 					<label id="lk_schoolboy">Кому</label>
 					<div id="lk_whom">
 						<input type="radio" name="whom" value="0" checked>Участникам олимпиады с рассылкой <br>
-						<input type="radio" name="whom" value="1">Всем участникам олимпиады<br>
-						<input type="radio" name="whom" value="2">Всем
+						<input type="radio" name="whom" value="1">Всем участникам олимпиады
+						<?if ($rights==3){
+						echo '<br><input type="radio" name="whom" value="2">Всем';
+						}?>
+						
 					</div>
 				</div>
 			</div>
@@ -85,14 +96,14 @@
 				</div>
 			</div>
 	</form>
-	
-
+	<?}?>
 	
 <script>
+ 
 window.onload = function () {
-	no_rassylka();
 	var id=<?php echo $_SESSION['id'];?>;
 	var rights=<?php echo $_SESSION['rights'];?>;
+	
 	if(rights==1){
 		var par2={	
 				'action': "1",		
@@ -128,6 +139,8 @@ window.onload = function () {
 		
 	}
 	else if(rights==2||rights==3){
+	
+	no_rassylka();
 		var par2={	
 				'action': "2",
 				'id': id,				
@@ -157,7 +170,7 @@ window.onload = function () {
 	}
 	
 }
-function rassylka(){
+function rassylka_im_vera(){
 	if (document.getElementById('select__big_subject').value!='-1'){
 			document.getElementById('lk_text_rassylka').required=true;
 			document.getElementById('lk_theme').required=true;

@@ -76,8 +76,10 @@ $date_time = $_POST["year1"]."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)
 $location_olimp = $_POST["place1"];
 
 if ($number_date == 1) { //если этап всего один, то добавляем в бд
-	mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id, stages) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp','$stages')",$db);
+	 
+	mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
 	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
+	
 } else {
 	//добавляем первый этап
 	mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);

@@ -37,6 +37,7 @@ include ("js/fio.js");
 						{
 							var color="fon_table2";
 						}
+						//alert(html.array_name_user[i]);
 						document.getElementById('Number_tr').innerHTML=document.getElementById('Number_tr').innerHTML+'<tr class="'+color+'" onclick="onclick_user(id)" id='+html.array_id[i]+'>'+'<td>'+(i+1)+'</td>'+'<td>'+FIO_1(html.array_name_user[i])+'</td>'+'<td>'+html.array_name_rights[i]+'</td>'+'</tr>';
 						//document.getElementById('Number_user').innerHTML=document.getElementById('Number_user').innerHTML+i;
 						

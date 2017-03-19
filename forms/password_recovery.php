@@ -11,17 +11,17 @@
 		</div>
 		<div>
 			<label id="lk_schoolboy">Логин</label>  
-			<input type="text"    name="login"></input>
+			<input type="text" style = "width:300px;"   name="login"></input>
 		</div>
 		<div>
 			<label id="lk_schoolboy">Адрес эл.почты</label>  
-			<input type="text"    name="email"></input>
+			<input type="text"  style = "width:300px;"   name="email"></input>
 		</div>
 		<div>
 			<label id="label_pass">На Ваш электронный адрес придёт сообщение с новым паролем</label>  
 		</div>
 		<div class="button_all">
-			<input type="submit" class="knopka_retain"   name="submit" value="Отправить">
+			<input type="submit" class="knopka_retain1"   name="submit" value="Отправить">
 			<input type="button" class="knopka_cansel"  onclick="onclick_user()"  name="submit" value="Отмена">
 		</div>
     </form>

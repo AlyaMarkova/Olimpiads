@@ -1,6 +1,8 @@
 ::-webkit-input-required {margin-left: 200px;}
 	
-
+ input, h1,label,option, td, a,p,select {
+    font-family: 'PFRegal','Georgia',serif, Roboto, Arial, sans-serif;
+   }
 
 #Number_tr{
 	border: 1px solid #0A3C57; 
@@ -236,7 +238,7 @@ body {
    }
 .td1{ 
     color: white;
-    font-size: 11pt;
+    font-size: 10pt;
     width: 185px;
     height: 18px;
     text-align: left;
@@ -269,6 +271,7 @@ body {
 
 #white {
     color: white;
+	font-size:12.3px
 }
 
 #white2 {
@@ -508,14 +511,23 @@ body {
 .main-menu > li {
     position: relative;
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
 }
+
 .main-menu a {
     color: #0A3C57;
-	font-size: 16pt;
+	font-size: 14pt;
 	font-weight: 700;
 	text-decoration: none;
 }
+
+.main-menu h1 {
+    color: #0A3C57;
+	font-size: 14pt;
+	font-weight: 700;
+	text-decoration: none;
+}
+
 .main-menu .sub-menu {
     position: absolute;
 	display: none;

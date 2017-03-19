@@ -74,7 +74,7 @@ session_start();
 		<td class="table_arhiv_date">Дата</td>
         <td class="table_arhiv_na">Название </td>
 		
-		<td class="table_arhiv_na_search"><input id="regexp1" placeholder="Поиск по названию"></td>
+		<td class="table_arhiv_na_search"><input id="regexp1" style = "width:300px;"  placeholder="Поиск по названию"></td>
 		
         <td class="table_arhiv_subj" >	
             <select  id="digits11">

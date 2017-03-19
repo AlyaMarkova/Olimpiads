@@ -507,7 +507,7 @@
 			//document.write(newstr3);
 			var dat = new Date(newstr2);
 			label_date.value=newstr2;
-				label_date.style.width = "50px";
+				label_date.style.width = "10%";
 				label_date.style.color = "#0A3C57";
 				label_date.style.position = "absolute";
 				label_date.style.top = "5px";
@@ -521,10 +521,11 @@
 			if(name.length>50){
 				name = name.substring(0, 50)+"...";
 			}
+				//label_name.style.width = "200px";
 				label_name.style.color = "#0A3C57";
 				label_name.style.textDecoration = "underline";
 				label_name.style.fontSize = "15pt";
-				label_name.style.padding = "0 0 0 55px";
+				label_name.style.padding = "0 0 0 70px";
 				label_name.style.cursor = "pointer";
 			label_name.innerHTML = name;
 			label_name.onclick= function(){action_olimpiad(label_name.id);};
@@ -645,7 +646,7 @@
 			var label_classes= document.createElement('label');		
 			label_classes.id =i+'classes';
 				label_classes.style.color = "#0A3C57";
-				label_classes.style.margin = "0 15px 0 55px";
+				label_classes.style.margin = "0 15px 0 70px";
 			label_classes.innerHTML = 'Класс '+classes;
 			div_elem.appendChild(label_classes);
 			

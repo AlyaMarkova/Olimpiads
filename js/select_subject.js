@@ -329,7 +329,7 @@ function create_place(i){ //создание мест
 		tm.name = "place"+i;
 		tm.className = "create_text";
 		tm.type = 'text'
-		tm.style = 'width:330px;'
+		tm.style = 'width:302px;'
 		p1_elem.appendChild(tm);	
 			
 		

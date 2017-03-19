@@ -328,7 +328,7 @@ function create_place(i){ //создание мест
 		tm.id ="place"+i;
 		tm.className = "create_text";
 		tm.type = 'text'
-		tm.size = '47'
+		tm.style = 'width:302px;'
 		p1_elem.appendChild(tm);	
 			
 		

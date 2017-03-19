@@ -41,6 +41,7 @@ $fio_sp = implode(" ", $fio_ex);
 				?>
 			</div>
 			
+			<div style="clear:both;"></div>
 		</div>
 			<div style="clear:both;"></div>
 	</div>

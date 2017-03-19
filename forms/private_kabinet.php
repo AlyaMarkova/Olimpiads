@@ -1,6 +1,19 @@
+<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 <?php
 	session_start();
 	include ("js/fio.js");
+ require_once 'bd.php';   
+	
+	$idS = $_SESSION['id'];
+	$rights=$_SESSION['rights'];
+	$res = mysql_query("SELECT id, name_olympiad FROM olympics WHERE professor_users_id = '$idS'");	
+	$i=0;
+	while($row=mysql_fetch_array($res))
+	{
+		$id_ol[$i]=$row['id'];
+		$name_olympiad[$i]=$row['name_olympiad'];
+		$i=$i+1;
+	}
 ?>
 	<link rel="stylesheet"  type="text/css" href="css/button.css" media="screen" />
 	
@@ -30,6 +43,28 @@
 		</div>
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
+		</div>
+		<div id="lk_email">
+			<label id="lk_schoolboy">Срочная рассылка</label>
+			<SELECT  id="select__big_subject" required  name="select__big_subject" size="1" 
+			onchange="select_subject_activation(select__big_subject.value,select__big_subject.id)">
+				   <option value="">Список олимпиад</option>
+				  
+<?        for($i=0, $arr_l=count($id_ol); $i<$arr_l; $i++){ 
+?>
+					<option value="<?echo $id_ol[$i] ?>"><?echo $name_olympiad[$i] ?></option>
+<?}?>
+			</SELECT>
+			<input id="rassylka" type="button" title="Создать рассылку" class="rassylka">
+		</div>
+		
+		<div id="lk_email">
+			<label id="lk_schoolboy">Текст рассылки</label>
+			<textarea id="description_olimp" required="" name="description_olimp"></textarea>
+		</div>
+		<div style="margin-top: 100px;" class="button_all">
+		<input type="submit" class="knopka_retain" name="submit_create" value="Отправить">
+		<input type="button" class="knopka_cansel" onclick="location_cancel()" name="submit_cancel" value="Отмена">
 		</div>
 	</div>
 	

@@ -246,16 +246,16 @@
 							
 						switch (i)
 							{		  
-							  case 1: s="I"; break;
-							  case 2: s="II"; break;
-							  case 3: s="III"; break;
-							  case 4: s="IV"; break;
-							  case 5: s="V"; break;
+							  case 1: s="1"; break;
+							  case 2: s="2"; break;
+							  case 3: s="3"; break;
+							  case 4: s="4"; break;
+							  case 5: s="5"; break;
 							}
 		
 		
 							
-						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап  "+date_dat+" время "+time+'</p>';
+						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап:  "+date_dat+" время "+time+'</p>';
 						
 					} while (str.length>0);
 					

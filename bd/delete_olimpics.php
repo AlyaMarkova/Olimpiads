@@ -6,7 +6,16 @@ $id=$data->id;
 $result3 = mysql_query("SELECT schoolboy_users_id FROM schoolboy_olympics WHERE olympics_id='$id'");
 //$n=mysql_num_rows($result3);
 
-$myrow2 = mysql_fetch_array(mysql_query("SELECT name_olympiad FROM olympics WHERE  id='$id'"));	 
+$myrow2 = mysql_fetch_array(mysql_query("SELECT name_olympiad,nextStage FROM olympics WHERE  id='$id'"));
+
+//удаляем все связанные этапы
+if ($myrow2['nextStage'] != '0') {
+	$id_stages = explode("!", $myrow2['nextStage']);
+	for ($i=0; $i<count($id_stages); $i++) {
+		mysql_query("DELETE FROM olympics WHERE id='$id_stages[$i]'");
+		mysql_query("DELETE FROM schoolboy_olympics WHERE olympics_id='$id_stages[$i]'");
+	}
+}	 
 
 while ($row3 = mysql_fetch_assoc($result3)) {
 	$id_user = $row3['schoolboy_users_id'];

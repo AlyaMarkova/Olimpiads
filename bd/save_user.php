@@ -26,7 +26,8 @@ if (empty($login) or empty($password)){ //если пользователь не
 	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../registr_form.php'></head></html>");
 }
 else{
-
+	
+	$password = md5($password);
 //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
 	$dsn = 'mysql:dbname=olimpiada;host=127.0.0.1;port=3306;charset=utf8';
 	$opt = [

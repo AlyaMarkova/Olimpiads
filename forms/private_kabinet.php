@@ -6,13 +6,20 @@
 	
 	$idS = $_SESSION['id'];
 	$rights=$_SESSION['rights'];
-	$res = mysql_query("SELECT id, name_olympiad FROM olympics WHERE professor_users_id = '$idS'");	
-	$i=0;
-	while($row=mysql_fetch_array($res))
-	{
-		$id_ol[$i]=$row['id'];
-		$name_olympiad[$i]=$row['name_olympiad'];
-		$i=$i+1;
+	if ($rights>1){
+			if ($rights==2){
+			$res = mysql_query("SELECT id, name_olympiad FROM olympics WHERE professor_users_id = '$idS'");	
+			}
+			else if ($rights==3){
+			$res = mysql_query("SELECT id, name_olympiad FROM olympics");	
+			}
+			$i=0;
+			while($row=mysql_fetch_array($res))
+			{
+				$id_ol[$i]=$row['id'];
+				$name_olympiad[$i]=$row['name_olympiad'];
+				$i=$i+1;
+			}
 	}
 ?>
 	
@@ -42,6 +49,7 @@
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
 		</div>
+<? if ($rights>1){?>
 	<form id="form" action="../bd/delivery.php" method="post"> <!--onsubmit="return validate_form (this );"--> 
 			<div id="lk_rassylka">
 				<label id="lk_schoolboy">Срочная рассылка</label>
@@ -61,8 +69,11 @@
 					<label id="lk_schoolboy">Кому</label>
 					<div id="lk_whom">
 						<input type="radio" name="whom" value="0" checked>Участникам олимпиады с рассылкой <br>
-						<input type="radio" name="whom" value="1">Всем участникам олимпиады<br>
-						<input type="radio" name="whom" value="2">Всем
+						<input type="radio" name="whom" value="1">Всем участникам олимпиады
+						<?if ($rights==3){
+						echo '<br><input type="radio" name="whom" value="2">Всем';
+						}?>
+						
 					</div>
 				</div>
 			</div>
@@ -84,16 +95,15 @@
 					<input type="button" class="knopka_cansel" onclick="no_rassylka()" name="submit_cancel" value="Отмена">
 				</div>
 			</div>
-
-	
-
+	</form>
+	<?}?>
 	
 <script>
  
 window.onload = function () {
-	no_rassylka();
 	var id=<?php echo $_SESSION['id'];?>;
 	var rights=<?php echo $_SESSION['rights'];?>;
+	
 	if(rights==1){
 		var par2={	
 				'action': "1",		
@@ -129,6 +139,8 @@ window.onload = function () {
 		
 	}
 	else if(rights==2||rights==3){
+	
+	no_rassylka();
 		var par2={	
 				'action': "2",
 				'id': id,				

@@ -2,9 +2,6 @@
 <div id="registr_form1">
 <table class="table1">
   <tr>
-    <td id="stroka2">Здравствуйте,</td>
-  </tr>
-  <tr>
     <td id="stroka3"><?php echo $_SESSION['login']; ?></td>
   </tr>
    <tr>

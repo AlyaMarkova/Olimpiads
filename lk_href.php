@@ -32,7 +32,7 @@ $fio_sp = implode(" ", $fio_ex);
 			</div>
 			
 			
-				<div id="right_cont">
+			<div id="right_cont">
 				
 				<?php
 					
@@ -43,6 +43,7 @@ $fio_sp = implode(" ", $fio_ex);
 			
 			<div style="clear:both;"></div>
 		</div>
+			<div style="clear:both;"></div>
 	</div>
 		<?php include ("footer.php");?>	
 		

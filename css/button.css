@@ -413,6 +413,23 @@ margin:0px auto 10px auto;
 	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
+.rassylka{ /*кнопка редактирование олимпиады*/ 
+
+    padding: 6px;
+	background-image: url(../images/rassylka.png); 
+	background-position:center center; 
+	width: 25px; 
+	height: 25px; 
+	background-size: 105% auto; 
+	-webkit-appearance: none; 
+	border:none; 
+	background-repeat: no-repeat; 
+	position: inherit; 
+	top:2px; 
+	right:56px; 
+	border: 0.5px solid #0066b3; 
+	border-radius: 1px 1px 1px 1px; 
+}
 input[type="button"]{
 	cursor:  pointer;
 }
@@ -498,6 +515,22 @@ input[type="label"]:pointerEvents {
 	background-size: 100% auto; 
 	-webkit-appearance: none; 
  
+}
+#select__big_subject{                   /* фон select списка предметов */
+	background-image: url(../images/predm_list_big.jpg);  
+	background-position:center center; 
+	height: 30px;	
+	padding-bottom: 6px; 
+	width: 400px;
+	background-repeat: no-repeat; 
+	-webkit-appearance: none;
+	text-align-last: center;
+	font-size: 14px;
+	font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
+	border-radius: 2px 2px 2px 2px;
+	border-color: #0066b3;
+	vertical-align: 3px; 
+	background-size: 140% auto;
 }
 
 #select_subject{                   /* фон select списка предметов */

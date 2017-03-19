@@ -90,7 +90,7 @@
 	
 <script>
 window.onload = function () {
-	//no_rassylka();
+	no_rassylka();
 	var id=<?php echo $_SESSION['id'];?>;
 	var rights=<?php echo $_SESSION['rights'];?>;
 	if(rights==1){
@@ -158,7 +158,6 @@ window.onload = function () {
 	
 }
 function rassylka(){
-alert("sdfdsjs");
 	if (document.getElementById('select__big_subject').value!='-1'){
 			document.getElementById('lk_text_rassylka').required=true;
 			document.getElementById('lk_theme').required=true;

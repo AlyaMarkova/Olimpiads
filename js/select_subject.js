@@ -1,5 +1,26 @@
 <script>
 subjecr_string="";
+function select_subject(value,id){
+	if (document.getElementById(value)==null  && value !='Список олимпиад'){		
+		var btn = document.createElement('input')
+		btn.id = value
+		btn.name = value
+		if(value=="Математика"){btn.className = "subject_math"} 
+		if(value=="Русский язык"){btn.className = "subject_russ"} 
+		if(value=="Информатика"){btn.className = "subject_inf"} 
+		if(value=="Обществознание"){btn.className = "subject_soc"}
+		btn.type = 'button'
+		btn.value = value
+		var next = document.getElementById(id);	
+		next.parentNode.appendChild(btn);
+		document.getElementById(value).onclick = function() {delete_button(value);};		
+		document.getElementById('subject_string').value = document.getElementById('subject_string').value+value+"!";
+		
+		document.getElementById('select_subject').required=false;
+	}
+	document.getElementById('select_subject').value = "";
+}
+
 function select_subject_activation(value,id){
 	if (document.getElementById(value)==null  && value !='Список предметов'){		
 		var btn = document.createElement('input')

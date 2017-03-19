@@ -2,16 +2,18 @@
 <?
  require_once '../bd.php';   
  $id=$_SESSION['id'];
- echo $_POST[select__big_subject];
-/*
-$result = mysql_query("SELECT email FROM schoolboy where delivery=1");
-while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
-	$subject    = $_POST['theme'];//тема сообщения
-	$message    = $_POST['delivery'];
-	
-	//зачем это условие?
-	if($_POST['class_olimp'.$row['class']]=="ON"){
-		mail($row['email'], $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");
+ if ($_POST[whom]==0){
+ $result = mysql_query("SELECT schoolboy.email FROM schoolboy, schoolboy_olympics WHERE schoolboy_olympics.olympics_id=".$_POST[select__big_subject]." AND schoolboy_olympics.schoolboy_users_id=schoolboy.Users_id AND schoolboy.delivery=1");
+ }
+ else if($_POST[whom]==1){
+ $result = mysql_query("SELECT schoolboy.email FROM schoolboy, schoolboy_olympics WHERE schoolboy_olympics.olympics_id=".$_POST[select__big_subject]." AND schoolboy_olympics.schoolboy_users_id=schoolboy.Users_id");
+ }else {
+ $result = mysql_query("SELECT email FROM schoolboy");
+ }
+	while ($row = mysql_fetch_array($result)) {
+		echo $row['email'];
+		$subject    = $_POST['theme'];//тема сообщения
+		$message    = $_POST['delivery'];
+		mail($row['email'],    $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");
 	}
-}*/
 ?>

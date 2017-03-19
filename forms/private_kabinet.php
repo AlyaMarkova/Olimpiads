@@ -15,7 +15,6 @@
 		$i=$i+1;
 	}
 ?>
-	<link rel="stylesheet"  type="text/css" href="css/button.css" media="screen" />
 	
 	<div id="lk_fio_div"> 
 		<label id="lk_fio"></label> 
@@ -61,9 +60,9 @@
 				<div name="none">
 					<label id="lk_schoolboy">Кому</label>
 					<div id="lk_whom">
-						<input type="radio" name="lk_whom" value="0" checked>Участникам олимпиады с рассылкой <br>
-						<input type="radio" name="lk_whom" value="1">Всем участникам олимпиады<br>
-						<input type="radio" name="lk_whom" value="2">Всем
+						<input type="radio" name="whom" value="0" checked>Участникам олимпиады с рассылкой <br>
+						<input type="radio" name="whom" value="1">Всем участникам олимпиады<br>
+						<input type="radio" name="whom" value="2">Всем
 					</div>
 				</div>
 			</div>
@@ -91,7 +90,7 @@
 	
 <script>
 window.onload = function () {
-	no_rassylka();
+	//no_rassylka();
 	var id=<?php echo $_SESSION['id'];?>;
 	var rights=<?php echo $_SESSION['rights'];?>;
 	if(rights==1){

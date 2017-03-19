@@ -16,4 +16,5 @@
 		$message    = $_POST['delivery'];
 		mail($row['email'],    $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");
 	}
+	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
 ?>

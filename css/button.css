@@ -413,6 +413,9 @@ margin:0px auto 10px auto;
 	border: 0.5px solid #0066b3; 
 	border-radius: 1px 1px 1px 1px; 
 }
+#lk_whom{
+display: inline-table;
+}
 .rassylka{ /*кнопка редактирование олимпиады*/ 
 
     padding: 6px;
@@ -457,6 +460,15 @@ input[type="label"]:pointerEvents {
 	border:none;
 }
 
+#lk_text{
+    width: 400px;
+    height: 100px;
+    border: 1px solid #0A3C57;
+    resize: none;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 6px;
+}
 .subject_russ{
 	background-image: url(../images/pp_russ.jpg); /* фон русского */	 
 	background-position:center center; 

@@ -105,6 +105,7 @@ else{
 			$stm = $pdo->prepare($sql);
 			$stm->execute([$login]);
 			$id_select_user = $stm->fetch();
+			$id_select_user=$id_select_user['id'];
 			
 			$fio=$surname."!".$forename."!".$patronymic."!";
 					

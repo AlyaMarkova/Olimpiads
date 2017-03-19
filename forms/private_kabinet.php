@@ -42,10 +42,10 @@
 		<div id="lk_email">
 			<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
 		</div>
-	<form action="../bd/delivery.php" id="form" method="post"> <!--onsubmit="return validate_form (this );"--> 
+	<form id="form" action="../bd/delivery.php" method="post"> <!--onsubmit="return validate_form (this );"--> 
 			<div id="lk_rassylka">
 				<label id="lk_schoolboy">Срочная рассылка</label>
-				<SELECT  id="select__big_subject"  name="select__big_subject" size="1" value="-1">
+				<SELECT  id="select__big_subject"  name="select__big_subject" size="1" >
 					   <option value="-1">Список олимпиад</option>
 					  
 	<?        for($i=0, $arr_l=count($id_ol); $i<$arr_l; $i++){ 
@@ -53,7 +53,7 @@
 						<option value="<?echo $id_ol[$i] ?>"><?echo $name_olympiad[$i] ?></option>
 	<?}?>
 				</SELECT>
-				<input id="rassylka" onclick="rassylka()" name="ras" type="button" title="Создать рассылку" class="rassylka">
+				<input id="rassylka" onclick="rassylka_im_vera()" name="ras" type="button" title="Создать рассылку" class="rassylka">
 			</div>
 			
 			<div id="lk_text_whom">
@@ -84,11 +84,12 @@
 					<input type="button" class="knopka_cansel" onclick="no_rassylka()" name="submit_cancel" value="Отмена">
 				</div>
 			</div>
-	</form>
+
 	
 
 	
 <script>
+ 
 window.onload = function () {
 	no_rassylka();
 	var id=<?php echo $_SESSION['id'];?>;
@@ -157,7 +158,7 @@ window.onload = function () {
 	}
 	
 }
-function rassylka(){
+function rassylka_im_vera(){
 	if (document.getElementById('select__big_subject').value!='-1'){
 			document.getElementById('lk_text_rassylka').required=true;
 			document.getElementById('lk_theme').required=true;

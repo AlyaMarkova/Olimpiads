@@ -138,8 +138,7 @@
 </html>
 <script>
 	
-	var non_confirmed = <?php echo $_SESSION['activation'];?>;
-	
+	var non_confirmed = <?php if ($_SESSION['activation']){echo $_SESSION['activation'];}else{echo -2;}?>;
 	function tax_request_function(){
 		var get_id=<?php echo $_GET['id'];?>;
 		
@@ -214,7 +213,6 @@
 					document.getElementById('name_olympiad_modal').innerHTML=name;
 					document.getElementById('name_olympiad_modal2').innerHTML=name;
 					document.getElementById('classes_olympiad').innerHTML=classes;
-					document.getElementById('location_olympiad').innerHTML=location;
 					document.getElementById('subject_olympiad').innerHTML=FIO_1(subject);				
 					document.getElementById('opisanie').innerHTML=description;				
 					var str = date;				
@@ -236,16 +234,15 @@
 							
 						switch (i)
 							{		  
-							  case 1: s="I"; break;
-							  case 2: s="II"; break;
-							  case 3: s="III"; break;
-							  case 4: s="IV"; break;
-							  case 5: s="V"; break;
+							  case 1: s="1"; break;
+							  case 2: s="2"; break;
+							  case 3: s="3"; break;
+							  case 4: s="4"; break;
+							  case 5: s="5"; break;
 							}
-		
-		
-							
-						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+date_dat+" время "+time+'</p>';
+						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап:  "+date_dat+" время "+time+'</p>';
+						document.getElementById('location_olympiad').innerHTML=document.getElementById('location_olympiad').innerHTML+'<p>'+s+" этап:  "+location[i-1]+'</p>';
+
 						
 					} while (str.length>0);
 					

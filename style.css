@@ -59,7 +59,28 @@
 	float: right;
 	margin: 0 0 10px 0;
 }
-
+label#date_olympiad{
+display: inline-table;
+margin-bottom: 7px;
+}
+input.submitComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;
+}
+div#textComment_toolbargroup {
+    background: #91CEF1;
+}
+td.mceStatusbar.mceFirst.mceLast {
+    background: #91CEF1;
+}
 .fon_table{
 	
 	 background:#E4F3FC;
@@ -116,24 +137,21 @@ body {
 	padding: 0 10px 0 150px;
 	border-radius: 0 4px 4px 0;	 
 }
-#opisanie,#date_olympiad{
+#opisanie,#date_olympiad, #location_olympiad{
 	color:#0A3C57;
-	
-	
 }
 #opisanie{
 	margin-left: 8px;
     display: inline;
 }
-#date_olympiad{
-	display: inline-block;
-	margin-top: -8px;
-
-}
 #opisanie, #subject_olympiad, #location_olympiad, #date_olympiad{
 	color:#0A3C57;
 	font-size: 14pt;
-	
+}
+#date_olympiad, #location_olympiad {
+	display: inline-table;
+	margin-top: -8px;
+	margin-bottom: 5px;
 }
 
 

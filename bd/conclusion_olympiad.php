@@ -22,18 +22,28 @@
 	$result3 = mysql_query("SELECT * FROM schoolboy WHERE Users_id='$id_user'");
 	$myrow3=mysql_fetch_array($result3);
 	
+	$dates = $myrow['date'];
+	$location = array($myrow['location']);
+	if ($myrow['nextStage'] != '0') {
+		$id_stages = explode("!", $myrow['nextStage']);
+		for ($i=0; $i<count($id_stages); $i++) {
+			$row_date = mysql_fetch_array(mysql_query("SELECT date, location FROM olympics WHERE id='$id_stages[$i]'"));
+			$dates .= $row_date['date'];
+			$location[] = $row_date['location'];
+		}
+	}
 	
 	$jsonn=array(				
 		'id'=>$id,	
 		'status'=>$a,
 		'name'=>$myrow['name_olympiad'],
-		'date'=>$myrow['date'],
+		'date'=>$dates,
 		'description'=>$myrow['description'],
 		'professor_users_id'=>$myrow['professor_users_id'],
 		'user_classes'=>$myrow3['class'],
 		'subject'=>$myrow['subject'],
 		'terms'=>$myrow['terms'],
-		'location'=>$myrow['location'],
+		'location'=>$location,
 		'classes'=>$myrow['classes'],
 		'professor_users_id'=>$myrow['professor_users_id'],
 		);

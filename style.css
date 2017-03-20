@@ -59,7 +59,18 @@
 	float: right;
 	margin: 0 0 10px 0;
 }
-
+input.submitComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;
+}
 .fon_table{
 	
 	 background:#E4F3FC;

@@ -52,7 +52,27 @@
 	background:url('comment/btn120.gif') no-repeat 0 0;text-align:center;width:120px;height:24px;}*/
 #rcheComments #messComment {display:none;padding:10px;border:1px dotted #D4A4A9;background:#FFEEEE;text-align:center;color:#000;font:14px tahoma;}
 #rcheComments #RformComment {margin:5px 0 0 0;}
-#rcheComments #RformComment .submitComment {margin:5px 0;}
-#RformComment .inputComment {border:1px solid #eee;width:100px;font:11px tahoma;color:#333;}
+#rcheComments #RformComment .submitComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;}
+#RformComment .inputComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;}
 #RformComment {font:11px tahoma;color:#333;}
 #rcheComments #nameCommentCap, #rcheComments #RnameCommentCap {display:none}

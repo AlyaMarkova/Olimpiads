@@ -3,7 +3,7 @@
 	include ("../bd.php");
 	$id=$_GET['id'];
 	$num=$_POST['numact'];
-	
+	echo $_POST['delivery'];
 	$rights = mysql_fetch_array(mysql_query("SELECT rights FROM users WHERE id='$id'"));
 	
 	if ($rights['rights'] == 1) 
@@ -17,10 +17,10 @@
 		$message = "Здравствуйте, ".$name[1]."!\nВаш аккаунт успешно подтверждён! :)\n\n \nС уважением,\nАдминистрация olimpiada.ru";
 		mail($row_for_mail[0], "Подтверждение аккаунта", $message, "Content-type:text/plane;    Charset=UTF-8\r\n");
 	} else {
-		$message = "Здравствуйте, ".$name[1]."!\nК сожалению, Ваш аккаунт не был подтверждён администрацией сайта :с\n\n \nС уважением,\nАдминистрация olimpiada.ru";
-		mail($row_for_mail[0], "Ваш аккаунт не подтверждён", $message, "Content-type:text/plane;    Charset=UTF-8\r\n");
+		mail($row_for_mail[0], "Ваш аккаунт не подтверждён", $_POST['delivery'], "Content-type:text/plane;    Charset=UTF-8\r\n");
 	}
 	
 	mysql_query ("UPDATE users SET activation='$num' WHERE id='$id'");
+	
 	header('Location: ../confirmation_user.php');
 ?>

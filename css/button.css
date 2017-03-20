@@ -129,6 +129,7 @@
 }
 .button_all{ /*центрирование кнопок удалить/сохранить*/
 	text-align: center;
+    margin: 0px auto 10px auto;
 }
 
 .knopka_cansel{     /*кнопка удаления, отмены*/

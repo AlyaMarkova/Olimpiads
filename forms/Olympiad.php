@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/modal_window.css" media="screen" />
 <html>
-	<div>
+	<div id=label>
 		<div>	
 			<h1 id="name_olympiad"></h1>
 		</div>
@@ -115,36 +115,26 @@
 			
 			
 		</div>
+		</div>	
 	</div>
-	
-		<div id ="sub2">	
-		<label id="description_olympiad"><label>
-	</div>
-	</div>
-	<div class="lk_schoolboy_blok">
-	<div id="Olympiad_description_elements">
-		<label id="lk_schoolboy">Класс</label><label id="classes_olympiad"></label>
-	</div>
-	<div id="Olympiad_description_elements2">
-		<label id="lk_schoolboy" >Предмет</label><div id="sub"><label id="subject_olympiad"></label></div>
-	</div>
-	</div>
-	<div id="Olympiad_description_elements2">
-		<label id="lk_schoolboy">Место проведения</label><div id="sub"><label id="location_olympiad"></label></div>
-	</div>
-	<div id="columns">
-		<div id="Olympiad_description_elements2">
-			<label id="lk_schoolboy">Дата проведения</label>
-			
-		</div>
-		<div id="div_date_olympiad">
-				<label id="date_olympiad"></label>
-		</div>
-	
-	</div>
-	<div id="Olympiad_description_elements">
-		<label id = "Olympiad_description_elements6">Приём заявок на участие длится до</label><label id="terms_olympiad"></label>
-	</div>
+			<div>
+				<label id="lk_schoolboy">Класс</label><label class="do" id="classes_olympiad"></label>
+			</div>
+			<div>
+				<label id="lk_schoolboy" >Предмет</label><label class="do" id="subject_olympiad"></label>
+			</div>
+			<div>
+				<label id="lk_schoolboy">Место проведения</label><label class="do" id="location_olympiad"></label>
+			</div>
+			<div>
+					<label id="lk_schoolboy">Дата проведения</label><label class="do" id="date_olympiad"></label>
+			</div>
+			<div>
+				<label id="lk_schoolboy">Приём заявок до</label><label class="do" id="terms_olympiad"></label>
+			</div>
+			<div>
+				<label id="lk_schoolboy">Описание</label><div id="opisanie" required="" name="opisanie"></div>
+			</div>
 </html>
 <script>
 	
@@ -226,7 +216,7 @@
 					document.getElementById('classes_olympiad').innerHTML=classes;
 					document.getElementById('location_olympiad').innerHTML=location;
 					document.getElementById('subject_olympiad').innerHTML=FIO_1(subject);				
-					document.getElementById('description_olympiad').innerHTML=description;				
+					document.getElementById('opisanie').innerHTML=description;				
 					var str = date;				
 					var newstr = date;
 					var i=0;
@@ -252,10 +242,8 @@
 							  case 4: s="4"; break;
 							  case 5: s="5"; break;
 							}
-		
-		
-							
 						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап:  "+date_dat+" время "+time+'</p>';
+
 						
 					} while (str.length>0);
 					

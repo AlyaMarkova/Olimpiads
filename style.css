@@ -116,20 +116,21 @@ body {
 	padding: 0 10px 0 150px;
 	border-radius: 0 4px 4px 0;	 
 }
-#classes_olympiad,#date_olympiad{
+#opisanie,#date_olympiad{
 	color:#0A3C57;
 	
 	
 }
-#classes_olympiad{
+#opisanie{
 	margin-left: 8px;
+    display: inline;
 }
 #date_olympiad{
 	display: inline-block;
 	margin-top: -8px;
 
 }
-#classes_olympiad, #subject_olympiad, #location_olympiad, #date_olympiad{
+#opisanie, #subject_olympiad, #location_olympiad, #date_olympiad{
 	color:#0A3C57;
 	font-size: 14pt;
 	
@@ -199,11 +200,12 @@ body {
 }
 #name_olympiad{
 	
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 50px;
-	color: #0A3C57;
-	border-bottom:3px solid #0A3C57;
-	font-size: 17pt;
+    text-align: left;
+    padding: 10px 0 0 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+    /*margin: 0 0 28px 0;*/
+    color: #ffffff;
 
 }
 
@@ -361,7 +363,14 @@ body {
 	border: 1px solid #0A3D58;
 	background-repeat: no-repeat;	
 }
-
+.do{
+	padding-left: 12px; 
+}
+#label{
+    background: #0066b3;
+    margin-top: -19px;
+	margin-bottom: 27px
+}
 #organizer{
    height:16px;
    width: 100px;

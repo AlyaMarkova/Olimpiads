@@ -49,7 +49,7 @@
 			// Create toolbar
 			tb = t.toolbar = cf.createToolbar("tools1");
 			tb.add(cf.createButton('bold', {title : 'simple.bold_desc', cmd : 'Bold'}));
-			tb.add(cf.createButton('italic', {title : 'simple.italic_desc', cmd : 'Italic'}));
+			tb.add(cf.createButton('italicitalic', {title : 'simple.italic_desc', cmd : 'Italic'}));
 			tb.add(cf.createButton('underline', {title : 'simple.underline_desc', cmd : 'Underline'}));
 			tb.add(cf.createButton('strikethrough', {title : 'simple.striketrough_desc', cmd : 'Strikethrough'}));
 			tb.add(cf.createSeparator());

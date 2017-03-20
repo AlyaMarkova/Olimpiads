@@ -14,7 +14,7 @@ session_start();
 	<div id="main">
 		<div id="inside_main">
 			<div id="name">
-				<p id="name_p">Олимпиады</p>
+				<p id="name_p">Организатор</p>
 
 			</div>
 			

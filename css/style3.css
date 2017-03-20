@@ -1,7 +1,10 @@
 #inf_org{
-	border-bottom: 2px solid #0A3C57;
-	position: relative;
-	margin-top: 10px;
+    position: relative;
+    margin: -28px 0 39px 0;
+}
+#inf_org1{
+    position: relative;
+    margin: -28px 0 65px 0;
 }
 #name_olympiad1{
 	color: #0A3C57;

@@ -141,8 +141,10 @@ body {
 	color:#0A3C57;
 }
 #opisanie{
-	margin-left: 8px;
-    display: inline;
+    margin-top: -37px;
+    margin-left: 224px;
+    display: -webkit-box;
+    width: 532px;
 }
 #opisanie, #subject_olympiad, #location_olympiad, #date_olympiad{
 	color:#0A3C57;

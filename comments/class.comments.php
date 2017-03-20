@@ -417,7 +417,9 @@ function formComment($replyid=0)
 		<td class="section-one">Текст комментария</td><td><textarea name="textComment" id="textComment" class="textareaComment tinymce"></textarea></td></tr>
 		
 		</table>
-		<input value="Комментировать" name="submit" type="submit" class="submitComment"/>
+		<div style="margin-top: 27px;" class="button_all">
+			<input value="Комментировать" name="submit" type="submit" class="submitComment"/>
+		</div>
 	</form>';
 
 	return $form;

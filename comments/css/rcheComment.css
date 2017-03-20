@@ -11,8 +11,10 @@
 #rcheComments{overflow-x:scroll;}
 #rcheComments #ajaxComment {display:none;text-align:center;}
 #rcheComments {position:relative;width:100%;}
-#rcheComments .titleComment {color:#6A6A6A;font:italic 18px tahoma, arial;border-bottom:1px dotted #ddd;}
-#rcheComments #newComment {color:#6A6A6A;font:16px tahoma, arial;}
+#rcheComments .titleComment {color:#ffffff;font:25px PFRegal, Georgia, serif, Roboto, Arial, sans-serif; background: #0066b3;
+    padding: 10px 0 0 15px;}
+#rcheComments #newComment {color:#ffffff;font:25px PFRegal, Georgia, serif, Roboto, Arial, sans-serif; background: #0066b3;
+    padding: 10px 0 0 15px;}
 #rcheComments #allComment {margin:10px;position:relative;}
 #rcheComments #allComment .itemComment {position:relative;border-left:1px dotted #CCC;background:#FFF;padding:0 10px 10px 60px;margin:10px 0;}
 #rcheComments #allComment .greyBg {background:#EEE;}
@@ -28,10 +30,23 @@
 #rcheComments .footerComment a.editComment:hover,
 #rcheComments .footerComment a.delComment:hover {text-decoration:none;}
 #rcheComments .bodyComment {position:relative;color:#333;font:12px tahoma, arial;}
-#rcheComments #tableComment td.section-one {text-align:right;padding:0 20px 0 0;width:170px;color:#333;font:12px tahoma, arial;}
+#rcheComments #tableComment td.section-one {
+	display: inline-block;
+	background: #0066b3	;
+    color: white; 
+    padding: 0 7px 0 0; 
+	line-height: 30px;
+	border-radius: 0 4px 4px 0 ;
+	text-align: right;
+	width: 200px;
+	left: 10px;
+	margin:0px auto 10px -2px;}
 #rcheComments #tableComment td {vertical-align:top}
 #rcheComments .inputComment {border:1px solid #eee;width:200px;}
-#rcheComments .textareaComment {border:1px solid #eee;width:400px;height:70px;}
+#rcheComments .textareaComment {
+    border: 1px solid #000;
+    width: 527px;
+    height: 163px;}
 #rcheComments #pageComment {width:100%;padding:10px;text-align:center;}
 #rcheComments #pageComment span {margin:0 5px;padding:2px 5px;color:#999;border:1px solid #EEE;}
 #rcheComments #pageComment a {margin:0 5px;padding:2px 5px;color:#333;border:1px solid #DDD;text-decoration:none;}
@@ -40,7 +55,27 @@
 	background:url('comment/btn120.gif') no-repeat 0 0;text-align:center;width:120px;height:24px;}*/
 #rcheComments #messComment {display:none;padding:10px;border:1px dotted #D4A4A9;background:#FFEEEE;text-align:center;color:#000;font:14px tahoma;}
 #rcheComments #RformComment {margin:5px 0 0 0;}
-#rcheComments #RformComment .submitComment {margin:5px 0;}
-#RformComment .inputComment {border:1px solid #eee;width:100px;font:11px tahoma;color:#333;}
+#rcheComments #RformComment .submitComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;}
+#RformComment .inputComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;}
 #RformComment {font:11px tahoma;color:#333;}
 #rcheComments #nameCommentCap, #rcheComments #RnameCommentCap {display:none}

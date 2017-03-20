@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.10
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 20 2016 г., 11:39
--- Версия сервера: 5.5.45
--- Версия PHP: 5.3.29
+-- Время создания: Мар 18 2017 г., 16:44
+-- Версия сервера: 5.5.53
+-- Версия PHP: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- База данных: `olimpiada`
@@ -25,9 +25,12 @@ SET time_zone = "+00:00";
 --
 -- Структура таблицы `comments`
 --
+-- Создание: Мар 18 2017 г., 12:38
+-- Последнее обновление: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `comments` (
-  `idd` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comments` (
+  `idd` int(11) NOT NULL,
   `reply` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -36,10 +39,8 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `date` bigint(20) NOT NULL,
   `url` varchar(255) NOT NULL,
   `pass` varchar(10) NOT NULL,
-  `urlOpen` varchar(255) NOT NULL,
-  PRIMARY KEY (`idd`),
-  KEY `id` (`idd`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=160 ;
+  `urlOpen` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
@@ -130,8 +131,10 @@ INSERT INTO `comments` (`idd`, `reply`, `user`, `name`, `email`, `comment`, `dat
 --
 -- Структура таблицы `Message`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `Message` (
+CREATE TABLE `Message` (
   `Professor_ Users_id` int(11) NOT NULL,
   `schoolboy_ Users_id` int(11) NOT NULL,
   `Message` varchar(100) NOT NULL
@@ -142,9 +145,11 @@ CREATE TABLE IF NOT EXISTS `Message` (
 --
 -- Структура таблицы `olympics`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `olympics` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `olympics` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name_olympiad` varchar(80) NOT NULL,
   `Olympiad_status` tinyint(1) NOT NULL,
   `date` varchar(200) NOT NULL,
@@ -154,35 +159,37 @@ CREATE TABLE IF NOT EXISTS `olympics` (
   `classes` varchar(50) NOT NULL,
   `terms` date NOT NULL,
   `location` varchar(100) NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `nextStage` varchar(50) NOT NULL DEFAULT '0' COMMENT 'n!n+1!n+2! - первый этап многоэтапной; число > 0 - указатель на следующий этап; 0 - либо одноэтапная олимпиада, либо последний этап из многоэтапной  ',
+  `IsChild` int(11) NOT NULL DEFAULT '0' COMMENT '0 - одноэтапная или родитель; 1 - является этапом'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `olympics`
 --
 
-INSERT INTO `olympics` (`id`, `name_olympiad`, `Olympiad_status`, `date`, `description`, `subject`, `professor_users_id`, `classes`, `terms`, `location`, `status`) VALUES
-(1, 'Всесибирская открытая олимпиада школьников', 1, '2016-12-14 20:25!2016-12-14 20:49!', 'Приходите!', 'Русский язык!Информатика!', 2, '7-11', '2025-12-19', 'г.Владивосток ул.Нерчинская 34а каб.450', 0),
-(2, 'Всесибирская открытая олимпиада школьников. 2', 1, '2016-12-15 22:22!', 'приходите', 'Математика!', 2, '2-4', '2016-12-17', 'г.гУссурийск ул.Нерчинская 32', 0),
-(3, 'оЛИМПИАДА', 1, '2016-12-14 20:59!', '', 'Математика!', 2, '1-3', '2016-12-14', 'г.Арсеньев ул.Ленинская 65', 0),
-(4, 'Межрегиональная олимпиада школьников «Евразийская лингвистическая олимпиада»', 1, '2016-12-14 20:59!', '', 'Математика!Русский язык!', 15, '8-11', '2016-12-14', 'г.Владивосток ул.Посташева 23', 0),
-(5, 'Олимпиада школьников «Звезда - Таланты на службе обороны и безопасности»', 1, '2016-10-11 00:00!', 'Среди 5-8 классов', 'Математика!Русский язык!', 2, '5-8', '0000-00-00', '', 0),
-(7, 'Олимпиада школьников по информатике и программированию ', 0, '2017-01-12 10:00!2006-01-16 11:00!', '', 'Математика!Русский язык!', 2, '1-4', '2017-01-10', 'г.Владивосток ул.Нерчинская 34а', 0),
-(8, 'Открытая олимпиада школьников «Информационные технологии»', 0, '2016-12-26 09:00!2016-12-28 10:00!2016-12-29 11:00!', 'Возможны изменения по второму этапу', 'Информатика!', 15, '9-11', '2016-12-25', 'г.Владивосток ул.Русская д.90', 0),
-(9, ' Межрегиональная олимпиада школьников «Высшая проба»', 0, '2017-01-30 12:00!', 'Возможен второй этап', 'Обществознание!Информатика!Русский язык!Математика!', 15, '6-8', '2016-12-15', 'г.Хабаровск ул.Романова д.55', 0),
-(10, 'Открытая олимпиада школьников по математике и информатике', 1, '2016-01-17 12:00!2016-01-01 00:00!2016-01-01 00:00!2016-01-01 00:00!2016-01-01 00:00!', 'пропло', 'Информатика!Русский язык!Математика!', 2, '2,11', '2016-02-12', 'г.Артем ул.Фрунзе 37б', 0);
+INSERT INTO `olympics` (`id`, `name_olympiad`, `Olympiad_status`, `date`, `description`, `subject`, `professor_users_id`, `classes`, `terms`, `location`, `nextStage`, `IsChild`) VALUES
+(1, 'Всесибирская открытая олимпиада школьников', 1, '2016-12-14 20:25!2016-12-14 20:49!', 'Приходите!', 'Русский язык!Информатика!', 2, '7-11', '2025-12-19', 'г.Владивосток ул.Нерчинская 34а каб.450', '0', 0),
+(2, 'Всесибирская открытая олимпиада школьников. 2', 1, '2016-12-15 22:22!', 'приходите', 'Математика!', 2, '2-4', '2016-12-17', 'г.гУссурийск ул.Нерчинская 32', '0', 0),
+(3, 'оЛИМПИАДА', 1, '2016-12-14 20:59!', '', 'Математика!', 2, '1-3', '2016-12-14', 'г.Арсеньев ул.Ленинская 65', '0', 0),
+(4, 'Межрегиональная олимпиада школьников «Евразийская лингвистическая олимпиада»', 1, '2016-12-14 20:59!', '', 'Математика!Русский язык!', 15, '8-11', '2016-12-14', 'г.Владивосток ул.Посташева 23', '0', 0),
+(5, 'Олимпиада школьников «Звезда - Таланты на службе обороны и безопасности»', 1, '2016-10-11 00:00!', 'Среди 5-8 классов', 'Математика!Русский язык!', 2, '5-8', '0000-00-00', '', '0', 0),
+(7, 'Олимпиада школьников по информатике и программированию ', 1, '2017-01-12 10:00!2006-01-16 11:00!', '', 'Математика!Русский язык!', 2, '1-4', '2017-01-10', 'г.Владивосток ул.Нерчинская 34а', '0', 0),
+(8, 'Открытая олимпиада школьников «Информационные технологии»', 1, '2016-12-26 09:00!2016-12-28 10:00!2016-12-29 11:00!', 'Возможны изменения по второму этапу', 'Информатика!', 15, '9-11', '2016-12-25', 'г.Владивосток ул.Русская д.90', '0', 0),
+(9, ' Межрегиональная олимпиада школьников «Высшая проба»', 1, '2017-01-30 12:00!', 'Возможен второй этап', 'Обществознание!Информатика!Русский язык!Математика!', 15, '6-8', '2016-12-15', 'г.Хабаровск ул.Романова д.55', '0', 0),
+(10, 'Открытая олимпиада школьников по математике и информатике', 1, '2016-01-17 12:00!2016-01-01 00:00!2016-01-01 00:00!2016-01-01 00:00!2016-01-01 00:00!', 'пропло', 'Информатика!Русский язык!Математика!', 2, '2,11', '2016-02-12', 'г.Артем ул.Фрунзе 37б', '0', 0);
 
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `professor`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `professor` (
+CREATE TABLE `professor` (
   `users_id` int(11) NOT NULL,
   `Fio_professor` varchar(80) NOT NULL,
-  `phone` varchar(15) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `email` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -196,27 +203,30 @@ INSERT INTO `professor` (`users_id`, `Fio_professor`, `phone`, `email`) VALUES
 (13, 'Иванова!Софья!Романовна!', '+7423 231-82-62', 'ivanova@mail.com'),
 (14, 'Помаскин!Владимир!Владимирович!', '+79361248595', 'pomaskin_vv@mail.ru'),
 (15, 'Хмурович!Анна!Ивановна!', '89513699015', 'hmurovich@bk.ru'),
-(26, 'Ф!С!Ц!', 'укк', '@');
+(26, 'Ф!С!Ц!', 'укк', '@'),
+(27, 'Маркова!Альбина!Владимировна!', '89020687425', 'alya@mail.ru'),
+(29, 'Организаторов!Организатор!Организаторович!', '89020607859', 'org@org');
 
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `schoolboy`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `schoolboy` (
+CREATE TABLE `schoolboy` (
   `Users_id` int(11) NOT NULL,
   `Fio_schoolboy` varchar(80) NOT NULL,
   `school` varchar(200) CHARACTER SET cp1251 NOT NULL,
   `class` int(11) NOT NULL,
   `birthdate` date NOT NULL,
-  `phone` varchar(15) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `email` varchar(40) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `delivery` varchar(300) NOT NULL,
   `home_adress` varchar(200) NOT NULL,
-  `rating` decimal(11,0) NOT NULL,
-  PRIMARY KEY (`Users_id`)
+  `rating` decimal(11,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -236,15 +246,20 @@ INSERT INTO `schoolboy` (`Users_id`, `Fio_schoolboy`, `school`, `class`, `birthd
 (22, 'Клокова!Анастасия!Владимировна!', 'Средняя общеобразовательная школа №68', 10, '2003-04-01', '89243328360', 'klocova_av@mail.ru', 'Женский', '1', 'г.Владивосток Иртышкая 40 кв.72', '0'),
 (23, 'Путов!Александр!Павлович!', 'Средняя общеобразовательная школа №68', 3, '2000-03-03', '89145930820', '89243328360', 'Мужской', '0', 'г.Владивосток Иртышкая 40 кв.72', '0'),
 (24, 'Путов!Олеся!Викторовна!', 'Шен', 3, '1997-01-01', '+79084599123', '89243328360', 'Женский', '1', 'Владивосток', '0'),
-(25, 'Мискарова!Олеся!Викторовна!', 'Гимназия №2', 2, '1997-01-01', '89243328360', 'aleksandr-putov@mail.ru', 'Мужской', '1', 'gvj', '0');
+(25, 'Мискарова!Олеся!Викторовна!', 'Гимназия №2', 2, '1997-01-01', '89243328360', 'aleksandr-putov@mail.ru', 'Мужской', '1', 'gvj', '0'),
+(28, 'Школьников!Школьник!Школьникович!', 'хорошая школа', 5, '2004-06-03', '89144567838', 'school@school', 'Мужской', '1', 'школа - второй дом!', '0'),
+(30, 'Неподтверждённая!Школьница!Школьниковна!', 'неподтверждённая школа', 9, '2000-05-14', '', 'non@non', 'Женский', '0', 'школа', '0'),
+(31, 'Безрассылочный!Школьник!Школьникович!', 'школааа', 8, '2008-09-11', '', 'nospam@nospam', 'Мужской', '0', 'там, где нет рассылок', '0');
 
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `schoolboy_olympics`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `schoolboy_olympics` (
+CREATE TABLE `schoolboy_olympics` (
   `olympics_id` int(11) NOT NULL,
   `schoolboy_users_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -272,8 +287,10 @@ INSERT INTO `schoolboy_olympics` (`olympics_id`, `schoolboy_users_id`) VALUES
 --
 -- Структура таблицы `schoolboy_past_olympics`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `schoolboy_past_olympics` (
+CREATE TABLE `schoolboy_past_olympics` (
   `olympics_id` int(11) NOT NULL,
   `schoolboy_users_id` int(11) NOT NULL,
   `rating_mark` decimal(11,0) NOT NULL,
@@ -290,22 +307,29 @@ INSERT INTO `schoolboy_past_olympics` (`olympics_id`, `schoolboy_users_id`, `rat
 (4, 16, '45', '2'),
 (10, 17, '0', '0'),
 (10, 9, '0', '0'),
-(2, 7, '0', '0');
+(2, 7, '0', '0'),
+(9, 9, '0', '0'),
+(8, 17, '0', '0'),
+(7, 7, '0', '0'),
+(8, 16, '0', '0'),
+(9, 11, '0', '0'),
+(8, 20, '0', '0');
 
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `users`
 --
+-- Создание: Мар 18 2017 г., 12:38
+--
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `login` varchar(50) NOT NULL,
   `pass` varchar(80) NOT NULL,
   `rights` int(2) NOT NULL,
-  `activation` int(2) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+  `activation` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
@@ -316,12 +340,12 @@ INSERT INTO `users` (`id`, `login`, `pass`, `rights`, `activation`) VALUES
 (4, 'cinicina_la', '3f6196e753c02fbc4ad2aa8741a8f2e2', 1, 1),
 (6, 'kuralesikov_af', 'fc1275915f4ff32332d64e821abbcfac', 1, 1),
 (7, 'menshikov_mv', 'a85495a4ad919cfa17b5b5bd4ecc8b51', 1, 1),
-(8, 'fialochkina_la', 'f475c2f3bbc3a972c66005fd9ce53875', 1, 1),
+(8, 'fialochkina_la', 'f475c2f3bbc3a972c66005fd9ce53875', 1, -1),
 (9, 'boevichhh_pa', 'c6e1ab193a17f552b950d19d5ae4362a', 1, 1),
 (11, 'boevich_ea', '4275b158afb179e7078b2cf1723223a4', 1, 1),
 (12, 'nekrasova_vs', 'ee57c1225d3a8aa1e87fc15e07827acb', 2, 1),
-(13, 'ivanova_sr', '6b6a0fb0dff430f701e3594825a51af0', 2, 1),
-(14, 'pomaskin_vv', '8f2f041180c7ac63485fa04f27d4664e', 2, 0),
+(13, 'ivanova_sr', '6b6a0fb0dff430f701e3594825a51af0', 2, -1),
+(14, 'pomaskin_vv', '8f2f041180c7ac63485fa04f27d4664e', 2, -1),
 (15, 'hmurovich_ai', '3ac11a3bb2dc1fbe22cbf39d5c688bba', 2, 1),
 (16, 'murzikov_vp', '7ff9e3ba10be282396be30513e0208bc', 1, 1),
 (17, 'murzikov_rp', '7ff9e3ba10be282396be30513e0208bc', 1, 1),
@@ -330,8 +354,61 @@ INSERT INTO `users` (`id`, `login`, `pass`, `rights`, `activation`) VALUES
 (23, 'putov_ap', '6b11236768919a6511464d98b0790294', 1, 1),
 (24, 'qqq', 'b2ca678b4c936f905fb82f2733f5297f', 1, -1),
 (25, 'www', 'd41d8cd98f00b204e9800998ecf8427e', 1, 1),
-(26, '11', '202cb962ac59075b964b07152d234b70', 2, 1);
+(26, '11', '202cb962ac59075b964b07152d234b70', 2, 1),
+(27, 'alya_mv', '1cbfa9c878ef8692c1ae21e4cfa11000', 3, 1),
+(28, 'shkolnik', 'e47d64f9a6ff4fe0cac2ed5129216651', 1, 1),
+(29, 'organizer', '86099590d2ae57c4f7f4e993d395163d', 2, 1),
+(30, 'schnonconfirm', '2a916583c75aa427a9cfe47a85ddd225', 1, -2),
+(31, 'shkolniknospam', 'cfbc0392d6aee09524fdd01cfc4cae57', 1, 1);
 
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`idd`),
+  ADD KEY `id` (`idd`);
+
+--
+-- Индексы таблицы `olympics`
+--
+ALTER TABLE `olympics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `schoolboy`
+--
+ALTER TABLE `schoolboy`
+  ADD PRIMARY KEY (`Users_id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+--
+-- AUTO_INCREMENT для таблицы `olympics`
+--
+ALTER TABLE `olympics`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

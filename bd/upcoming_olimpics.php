@@ -3,7 +3,7 @@
 	$data = json_decode($_POST['jsonData']);
 	$id_user_session=$data->id_user_session;
 	$action=$data->action;
-	$result = mysql_query("SELECT * FROM olympics WHERE Olympiad_status=0");
+	$result = mysql_query("SELECT * FROM olympics WHERE Olympiad_status=0 AND IsChild=0");
 	$n=mysql_num_rows($result);
 	$array_id = array($n);
 	$array_name_olympiad = array($n);

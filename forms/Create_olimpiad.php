@@ -4,7 +4,7 @@ include ("js/select_subject.js");
 
 <script>
 	function validate_form (form){
-		return twodates()&& manydates();
+		return twodates() && manydates() && datesPlaces();
 	}
 	
 	function manydates(){
@@ -32,6 +32,15 @@ include ("js/select_subject.js");
 			alert("Срок подачи заявки указан неверно!");
             return false;
 		}
+	}
+	
+	function datesPlaces() {
+		var n_dates = document.getElementById("number_date").value;
+		var n_places = document.getElementById("number_place").value;
+		if (n_dates != n_places) {
+			alert("Количество дат не совпадает с количеством мест проведения этапов олимпиады!");
+			return false;
+		} else return true;
 	}
 </script>
 
@@ -178,25 +187,7 @@ window.onload = function () {
  
     var year1 = document.getElementById('year1');
     var month1 = document.getElementById("month1");
- 
-    /*function check_date() {
-        var a = year1.value | 0,
-            c = month1.value | 0;
-			
-        md = (new Date(a, c, 0, 0, 0, 0, 0)).getDate();
-        a = document.getElementById("day1").selectedIndex;
-		
-        set_select("day", md, 1, a);
-    };
 	
-    if (document.addEventListener) {
-        year.addEventListener('change', check_date, false);
-        month.addEventListener('change', check_date, false);
- 
-    } else {
-        year.detachEvent('onchange', check_date);
-        month.detachEvent('onchange', check_date);
-    }*/
 	document.getElementById('day0').value="";
 	document.getElementById('month0').value="";
 	document.getElementById('year0').value="";
@@ -283,18 +274,18 @@ window.onload = function () {
 		if(document.getElementById('number_date').value>1) {
 			while(document.getElementById('number_date').value>1) {
 				delete_button2('p_elem'+document.getElementById('number_date').value);
-				document.getElementById('number_date').value=document.getElementById('number_date').value-1;
-				document.getElementById('number_date').value++;
+				/*document.getElementById('number_date').value=document.getElementById('number_date').value-1;
+				document.getElementById('number_date').value++;*/
 			}	
 		} 	
 	}
 	  
 	function hide_place(){
 		if(document.getElementById('number_place').value>1) {
-				while(document.getElementById('number_place').value>1) {
-					delete_button3('p1_elem'+document.getElementById('number_place').value);
-					document.getElementById('number_place').value=document.getElementById('number_place').value-1;
-					document.getElementById('number_place').value++;
+			while(document.getElementById('number_place').value>1) {
+				delete_button3('p1_elem'+document.getElementById('number_place').value);
+				/*document.getElementById('number_place').value=document.getElementById('number_place').value-1;
+				document.getElementById('number_place').value++;*/
 			}
 		}
 	}

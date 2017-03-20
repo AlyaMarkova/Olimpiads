@@ -14,7 +14,7 @@ $events = get_json($events);
 
 	<div id="eventCalendar" style="height: 220px; width: 300px; margin: 5px auto;"></div>
 	
-	<!--<script src="calendar/js/js-min.js"></script>-->
+	<script src="calendar/js/js-min.js"></script>
 	<script src="calendar/js/moment.js"></script>
 	
 	<script src="calendar/js/jquery.eventCalendar.js"></script>

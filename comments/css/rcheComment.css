@@ -11,8 +11,10 @@
 #rcheComments{overflow-x:scroll;}
 #rcheComments #ajaxComment {display:none;text-align:center;}
 #rcheComments {position:relative;width:100%;}
-#rcheComments .titleComment {color:#6A6A6A;font:italic 18px tahoma, arial;border-bottom:1px dotted #ddd;}
-#rcheComments #newComment {color:#6A6A6A;font:16px tahoma, arial;}
+#rcheComments .titleComment {color:#ffffff;font:25px PFRegal, Georgia, serif, Roboto, Arial, sans-serif; background: #0066b3;
+    padding: 10px 0 0 15px;}
+#rcheComments #newComment {color:#ffffff;font:25px PFRegal, Georgia, serif, Roboto, Arial, sans-serif; background: #0066b3;
+    padding: 10px 0 0 15px;}
 #rcheComments #allComment {margin:10px;position:relative;}
 #rcheComments #allComment .itemComment {position:relative;border-left:1px dotted #CCC;background:#FFF;padding:0 10px 10px 60px;margin:10px 0;}
 #rcheComments #allComment .greyBg {background:#EEE;}
@@ -28,7 +30,17 @@
 #rcheComments .footerComment a.editComment:hover,
 #rcheComments .footerComment a.delComment:hover {text-decoration:none;}
 #rcheComments .bodyComment {position:relative;color:#333;font:12px tahoma, arial;}
-#rcheComments #tableComment td.section-one {text-align:right;padding:0 20px 0 0;width:170px;color:#333;font:12px tahoma, arial;}
+#rcheComments #tableComment td.section-one {
+	display: inline-block;
+	background: #0066b3	;
+    color: white; 
+    padding: 0 7px 0 0; 
+	line-height: 30px;
+	border-radius: 0 4px 4px 0 ;
+	text-align: right;
+	width: 200px;
+	left: 10px;
+	margin:0px auto 10px auto;}
 #rcheComments #tableComment td {vertical-align:top}
 #rcheComments .inputComment {border:1px solid #eee;width:200px;}
 #rcheComments .textareaComment {border:1px solid #eee;width:400px;height:70px;}

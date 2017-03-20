@@ -23,6 +23,7 @@ include ("js/Generation_pass.js");
 -->
 
 	
+	
 	<div class="lk_schoolboy_blok">
 		<div>
 			<label class="lk_schoolboy">Фамилия</label>

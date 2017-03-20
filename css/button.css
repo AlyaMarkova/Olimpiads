@@ -77,6 +77,8 @@
 #knopka_retain1{    
                     /*кнопка добавления этапа*/
 	display: inline-block;
+	  width:160px;
+	height:32px;
   color: white;
   outline: none;
   border-width: 2px 0;
@@ -89,7 +91,6 @@
   left: 210px;
   //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
  // width: 30px;
-   height:33;
   margin: 0 0 10 0;
 }
 #knopka_retain1:hover { background: #0067b1; } /* при наведении курсора мышки */
@@ -97,6 +98,8 @@
 
 #knopka_retain0{    
                     /*кнопка добавления места*/
+	width:160px;
+	height:32px;
 	display: inline-block;
   color: white;
   outline: none;
@@ -110,7 +113,6 @@
   left: 210px;
   //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
  // width: 30px;
-   height:33;
   margin: 5 0 10 0;
 }
 #knopka_retain0:hover { background: #0067b1; } /* при наведении курсора мышки */
@@ -725,7 +727,6 @@ input[type=time]::-webkit-outer-spin-button {-webkit-appearance: none; margin:0;
 	border-radius: 20px 20px 7px 7px; 
 
 }
-
 
 
 .cursorik:hover {cursor: default}

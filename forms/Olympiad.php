@@ -138,8 +138,7 @@
 </html>
 <script>
 	
-	var non_confirmed = <?php echo $_SESSION['activation'];?>;
-	
+	var non_confirmed = <?php if ($_SESSION['activation']){echo $_SESSION['activation'];}else{echo -2;}?>;
 	function tax_request_function(){
 		var get_id=<?php echo $_GET['id'];?>;
 		

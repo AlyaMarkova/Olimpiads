@@ -213,7 +213,6 @@
 					document.getElementById('name_olympiad_modal').innerHTML=name;
 					document.getElementById('name_olympiad_modal2').innerHTML=name;
 					document.getElementById('classes_olympiad').innerHTML=classes;
-					document.getElementById('location_olympiad').innerHTML=location;
 					document.getElementById('subject_olympiad').innerHTML=FIO_1(subject);				
 					document.getElementById('opisanie').innerHTML=description;				
 					var str = date;				
@@ -242,6 +241,7 @@
 							  case 5: s="5"; break;
 							}
 						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап:  "+date_dat+" время "+time+'</p>';
+						document.getElementById('location_olympiad').innerHTML=document.getElementById('location_olympiad').innerHTML+'<p>'+s+" этап:  "+location[i-1]+'</p>';
 
 						
 					} while (str.length>0);

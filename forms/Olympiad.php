@@ -245,7 +245,7 @@
 		
 		
 							
-						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап  "+date_dat+" время "+time+'</p>';
+						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+date_dat+" время "+time+'</p>';
 						
 					} while (str.length>0);
 					

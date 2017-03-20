@@ -1,20 +1,16 @@
 <?php
 if (isset($_POST['name_olimp'])) { $name_olimp = $_POST['name_olimp']; if ($name_olimp == '') { unset($name_olimp);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
-if (isset($_POST['location_olimp'])) { $location_olimp = $_POST['location_olimp']; if ($location_olimp == '') { unset($location_olimp);} }
 if (isset($_POST['date_application'])) { $date_application = $_POST['date_application']; if ($date_application == '') { unset($date_application);} }
 if (isset($_POST['description_olimp'])) { $description_olimp = $_POST['description_olimp']; if ($description_olimp == '') { unset($description_olimp);} }
 if (isset($_POST['Org_olimp'])) { $Org_olimp = $_POST['Org_olimp']; if ($Org_olimp == '') { unset($Org_olimp);} }
 
-include ("../bd.php");
+include ("../bd.php"); //коннект с бд
 
 $result = mysql_query("SELECT email,class FROM schoolboy where delivery=1");
 while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
 	$subject    = "Новая Олимпиада";//тема сообщения
-	$message    = "Здравствуйте!
-	На сайте olimpiada.ru появилась новая олимпиада! Приглашаем вас принять участие в олимпиаде под названием: ".$name_olimp.", которая может Вас заинтересовать. 
-	С    уважением, Администрация    olimpiada.ru";
+	$message    = "Здравствуйте!\nНа сайте olimpiada.ru появилась новая олимпиада:".$name_olimp.".\nПриглашаем Вас принять в ней участие!\n\nС уважением, Администрация olimpiada.ru";
 	
-	//зачем это условие?
 	if($_POST['class_olimp'.$row['class']]=="ON"){
 		mail($row['email'], $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");
 	}
@@ -26,13 +22,9 @@ $class_string="";
 $flag=true;
 $flag2=false;
 
-if($number_date==0){
-	$number_date=1;
-}
-
-for($i=1;$i<12;$i++){ //ваще не вкуриваю, для чего этот цикл
-	if($i==11&&$_POST['class_olimp'.$i]=="ON"){
-		if($flag==true&&$class_string!=""){
+for($i=1;$i<12;$i++){ //ваще не вкуриваю, для чего этот цикл // две недели спустя: ааааа, это он формирует классы, которые принимают участие!
+	if($i==11&&$_POST['class_olimp'.$i]=="ON"){				 // ааааааааааааааааа вот оно чо
+		if($flag==true&&$class_string!=""){					 // (c) Аля
 			$class_string=$class_string."-".($i);	
 			continue;
 		}
@@ -63,26 +55,64 @@ for($i=1;$i<12;$i++){ //ваще не вкуриваю, для чего этот
 	}	
 }
 
-//if (isset($_POST['select_subject'])) { $select_subject = $_POST['select_subject']; if ($select_subject == '') { unset($select_subject);} }
-// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
+//дата окончания приёма заявок
+$date_application = $_POST["year0"]."-".str_pad($_POST["month0"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day0"], 2, '0', STR_PAD_LEFT); 
 
+if($number_date==0){
+	$number_date=1;
+}
 if (isset($_POST['number_date'])) { $number_date = $_POST['number_date']; if ($number_date == '') { unset($number_date);} }
-$id=mysql_insert_id();
 $date_time = '';
+$stages = '';
+$location_olimp = '';
+$st_parent = '';
 
-$date_application = $_POST["year0"]."-".str_pad($_POST["month0"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day0"], 2, '0', STR_PAD_LEFT); //дата окончания приёма заявок
+//формируем дату, время и место первого этапа
+$time = $_POST["tm1"];
+$time1 = $_POST["1tm1"];
+$time2 = $_POST["2tm1"];
+$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
+$date_time = $_POST["year1"]."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT)." ".$time3."!";
+$location_olimp = $_POST["place1"];
 
-//создаём строку с датами этапов
-for($i=1; $i<=$number_date; $i++){	
-	$time = $_POST["tm".$i];
-	$time1 = $_POST["1tm".$i];
-	$time2 = $_POST["2tm".$i];
-	$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
+if ($number_date == 1) { //если этап всего один, то добавляем в бд
+	 
+	mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
+	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
 	
-	$date_time .= $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";	
-}	
-
-mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
-exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
-
+} else {
+	//добавляем первый этап
+	mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
+	$id=mysql_insert_id(); //сохраняем ид родителя 
+	$parent_id = $id;
+	
+	//и формируем все последующие этапы в цикле
+	for($i=2; $i<=$number_date; $i++){
+		$time = $_POST["tm".$i];
+		$time1 = $_POST["1tm".$i];
+		$time2 = $_POST["2tm".$i];
+		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
+		$date_time = $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
+		$location_olimp = $_POST["place".$i];
+		$isChild = 1;
+		
+		if ($i>2){ //ид предыдущего этапа
+			$id_prev=$id_now;
+		} else $id_prev=mysql_insert_id();
+		
+		mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id, IsChild) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp','$isChild')",$db);
+		$id_now=mysql_insert_id(); //ид нынешнего этапа, который только что добавили
+		
+		if ($i>2) { //апдейтим поле nextStage у предыдущего этапа (чтобы он указывал на только что созданный)
+			mysql_query("UPDATE olympics SET nextStage='$id_now' WHERE id='$id_prev'");
+		}
+		
+		$st_parent .= $id_now."!"; //а для родителя формируем строку, где указаны ВСЕ следующие этапы
+	}
+	mysql_query("UPDATE olympics SET nextStage='$st_parent' WHERE id='$parent_id'"); //апдейтим поле nextStage у родителя
+	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
+}
+	/*?>
+	alert(<?php echo $id?>);
+	<?*/
 ?>

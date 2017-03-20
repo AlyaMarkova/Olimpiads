@@ -1,8 +1,9 @@
 .knopka_retain{            /*кнопка сохранения*/
 	display: inline-block;
   color: white;
-
-  padding: .5em 2em;
+  width:160px;
+	height:32px;
+  //padding: .5em 2em;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
@@ -18,8 +19,9 @@
 .knopka_retain1{            /*кнопка сохранения*/
   display: inline-block;	/*хочу сказать, что СЛОЖНАААА (С) Аля*/
   color: white;
-
-  padding: .5em 1.3em;
+  width:160px;
+	height:32px;
+  //padding: .5em 1.3em;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
@@ -32,8 +34,9 @@
 .knopka_no_retain{            /*кнопка сохранения*/
 	display: inline-block;
   color: white;
-
-  padding: .5em 2em;
+  width:160px;
+	height:32px;
+  //padding: .5em 2em;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;
@@ -131,7 +134,9 @@
 .knopka_cansel{     /*кнопка удаления, отмены*/
 	display: inline-block;
   color: white;
-  padding: .5em 2em;
+    width:160px;
+	height:32px;
+  //padding: .5em 2em;
   outline: none;
   border-width: 2px 0;
   border-style: solid none;

@@ -137,7 +137,7 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 		
 	<!--**** В поле для паролей (name="password" type="password") пользователь вводит свой пароль ***** -->  
 		<div class="button_all">
-			<input type="submit" class="knopka_retain" name="submit" value="Зарегистрироваться">
+			<input type="submit" class="knopka_retain" name="submit" value="Регистрация">
 			<input type="button" class="knopka_cansel" onclick="location_cancel()" name="cansel" value="Отмена">
 	<!--**** Кнопочка (type="submit") отправляет данные на страничку save_user.php ***** -->  
 		</div>

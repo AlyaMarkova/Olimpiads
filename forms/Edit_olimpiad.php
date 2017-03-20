@@ -40,18 +40,41 @@ include ("js/select_subject.js");
 		<label id="lk_schoolboy" >Название олимпиады</label>
 		<input id="name_olimp" class="create_text" name="name_olimp" required type="text" >
 	</p>
+	
+	<div>			
+		<label class="lk_schoolboy">Тип олимпиады</label>		
+		<SELECT class="status_olimp" id="select_status" onchange = "change()" value="2" name="select_status" size="1">
+		   <option value="2">Одноэтапная</option>
+		   <option value="1">Многоэтапная</option>			
+		</SELECT>
+	</div>
+	
+	<div>
 	<div>
 		<div id="div_p_date_olimp">
-			<label id="lk_schoolboy" >Дата проведения</label>		
+			<label id="lk_schoolboy" >Дата проведения</label>						
 		</div>
 	</div>
-	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>
 	
-	<div class="lk_schoolboy_blok">
-		<div>
-			<label id="lk_schoolboy">Место проведения</label>
-			<input id="location_olimp" class="create_text" name="location_olimp" required type="text" >
+	<div>
+	<p id="knopka_retain__"> <input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>	
+	</div>
+	</div>
+	
+
+		
+			<div>
+	<div>
+		<div id="place_olimp">
+			<label  id="lk_schoolboy" >Место проведения</label>
 		</div>
+	</div>
+	
+	<div>
+		<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>
+	</div>
+	</div>
+	
 		<div id="org_block">
 			<label id="lk_schoolboy">Организатор</label>
 			<input id="Org_olimp" name="Org_olimp" type="text" >
@@ -63,7 +86,7 @@ include ("js/select_subject.js");
 			<select name="month0" class="month_class" required id="month0" onchange="check(id)"  ></select>
 			<select name="year0"  class="years_class" required id="year0" onchange="check(id)"  ></select>
 		</div>
-	</div>
+	
 	
 	<div class="lk_schoolboy_blok"> 
 		<div>
@@ -98,7 +121,8 @@ include ("js/select_subject.js");
 	</div>
 	
 	<div id="div_none">
-		<input id="number_date" style="display: none;" name="number_date" type="text" >
+		<input id="number_date" name="number_date" type="text" > <!-- количество этапов -->
+		<input id="number_place" name="number_place" type="text" > <!-- количество мест-->
 		<input id="subject_string" style="display: none;" name="subject_string" type="text" >
 	</div>
 	
@@ -290,6 +314,8 @@ include ("js/select_subject.js");
 	form = document.getElementById('form'); 
 	form.subject_string.value = "";
 	form.number_date.value = "";
+	form.number_date.value = "";
+    form.number_place.value = "";
 	document.getElementById('Org_olimp').value=<?echo $_SESSION['id'];?>;
 	document.getElementById('org_block').style.display="none";
 	//document.getElementById('class_olimp11').checked=true;
@@ -403,6 +429,7 @@ include ("js/select_subject.js");
 		set_select("day0", md, 1, "дд");
 		set_select("month0", 12, 1, "мм");
 		set_select("year0", 11, day.getFullYear(), "гг");	
+		
 	function status_chek(){
 		flag=false;
 		for(i=1;i<12;i++){
@@ -418,4 +445,36 @@ include ("js/select_subject.js");
 			document.getElementById('class_olimp1').required=false;
 		}
 	}
+	
+		function hide_date(){
+		if(document.getElementById('number_date').value>1) {
+			while(document.getElementById('number_date').value>1) {
+				delete_button2('p_elem'+document.getElementById('number_date').value);
+				/*document.getElementById('number_date').value=document.getElementById('number_date').value-1;
+				document.getElementById('number_date').value++;*/
+			}	
+		} 	
+	}
+	  
+	function hide_place(){
+		if(document.getElementById('number_place').value>1) {
+			while(document.getElementById('number_place').value>1) {
+				delete_button3('p1_elem'+document.getElementById('number_place').value);
+				/*document.getElementById('number_place').value=document.getElementById('number_place').value-1;
+				document.getElementById('number_place').value++;*/
+			}
+		}
+	}
+	function change(){
+		if(document.getElementById('select_status').value==2){
+			document.getElementById('knopka_retain0').style.display="none";
+			document.getElementById('knopka_retain1').style.display="none"; 
+			hide_date();
+			hide_place();
+		} else {
+			document.getElementById('knopka_retain0').style.display="block";
+			document.getElementById('knopka_retain1').style.display="block";
+		}
+	} 
+	
 </script>

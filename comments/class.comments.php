@@ -374,7 +374,7 @@ function saveComments() {
 function formComment($replyid=0)
 	{
 	global $user;
-	if($_SESSION['login']!=""){
+	if($_SESSION['login']!=""&&$_SESSION['activation']!=-2){
 	if($this->login)
 		{
 		$pass_checked=md5($this->user['password'].$this->key);

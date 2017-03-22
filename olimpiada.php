@@ -45,9 +45,8 @@
 				<div id="content">
 					<?php
 
-						 include ("forms/Olympiad.php");
-			 
-				$comments->outComments(); 
+						include ("forms/Olympiad.php");
+						$comments->outComments(); 
 					?>
 				</div>
 			

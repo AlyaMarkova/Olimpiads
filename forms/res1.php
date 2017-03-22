@@ -42,7 +42,8 @@
             <select id="digits">
             <option class = "option"  value="">Школа</option>    
 				
-<?				
+<?			
+	
 $query = 'SELECT school FROM schoolboy inner join users on Users_id=id where activation = 1 GROUP BY school';
 $result = mysql_query($query);
 
@@ -121,6 +122,8 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 </div>
 <script src="js/filterTable.v1.0.min.js"></script>
 <script>
+
+	alert(<? echo $_SESSION['rights'];?>);
 	function sort(el) {
    var col_sort = el.innerHTML;
    var tr = el.parentNode;

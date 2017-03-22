@@ -3,7 +3,14 @@
  input, h1,label,option, td, a,p,select {
     font-family: 'PFRegal','Georgia',serif, Roboto, Arial, sans-serif;
    }
-
+#etap{
+	margin-top:3px;
+}
+#tab_dat{
+    width: 66px;
+}
+#tab_loc{
+}
 #Number_tr{
 	border: 1px solid #0A3C57; 
 	border-collapse: collapse; 

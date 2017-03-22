@@ -18,7 +18,7 @@
 	$row_date = mysql_fetch_array(mysql_query("SELECT date FROM olympics WHERE id='$id_stages[$i]'")); 
 	$dates = $row_date['date']; 
 	}  
-	} else {$type=0;}
+	} else {$type=2;}
 	
 	$jsonn=array(				
 		'id'=>$myrow['id'],

@@ -43,7 +43,7 @@ include ("js/select_subject.js");
 	
 	<div>			
 		<label class="lk_schoolboy">Тип олимпиады</label>		
-		<SELECT class="status_olimp" id="select_status" onchange = "change()" value="2" name="select_status" size="1">
+		<SELECT class="status_olimp" id="select_status" onchange="change()" name="select_status" size="1">
 		   <option value="2">Одноэтапная</option>
 		   <option value="1">Многоэтапная</option>			
 		</SELECT>
@@ -140,12 +140,9 @@ include ("js/select_subject.js");
 		success: function(html){
 			html=JSON.parse(html);
 			document.getElementById('name_olimp').value=html.name_olympiad; 	<!-- получаем имя олмпиады-->				
-			document.getElementById('location_olimp').value=html.location;		<!-- получаем место проведения олмпиады-->				
-			
-			var tip=html.type; <!-- тип пытаюсь получить тип олимпиады-->
-			//alert(tip);
-			//select_type();
-			//do{change();}
+			document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->	
+			document.getElementById('select_status').value=html.type;					
+			//alert(select_status);
 			
 			var str=html.subject;			<!-- получаем предметы олмпиады-->
 			do {
@@ -397,11 +394,12 @@ include ("js/select_subject.js");
 		}
 	}
 	
-/*function select_type(){
+function select_type(){ //функция меняет положение селекта взависимости от типа олимпиады
+	    alert(tip);
 		if(tip==0){
-			document.getElementById('select_status').value=2;
+			document.getElementById('select_status').value=html.type;
 		} else {
-			document.getElementById('select_status').value=1;
+			document.getElementById('select_status').value=html.type;
 		}
-	} */
+	}
 </script>

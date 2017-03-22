@@ -5,12 +5,9 @@
 	$data = json_decode($_POST['jsonData']);
 	$id=$data->id;	
 	$result = mysql_query("SELECT * FROM olympics WHERE id='$id'");
-	$myrow = mysql_fetch_array($result);	
+	$myrow = mysql_fetch_array($result);
 	
-	//if ($myrow['nextStage'] != '0') { 
-	//else {$type=0}
-	//}
-	
+	$dates = $myrow['date']; 
 	if ($myrow['nextStage'] != '0') { 
 	$type=1;
 	$id_stages = explode("!", $myrow['nextStage']); 

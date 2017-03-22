@@ -196,7 +196,8 @@ include ("js/select_subject.js");
 					
 			} while (str.length>0);
 			
-		
+		    document.getElementById('description_olimp').value=html.description;	<!-- получаем описание олимпиады -->					
+			status_chek();	
 			
 			str=html.terms; <!-- получаем селект срок подачи заявки -->
 			
@@ -213,11 +214,12 @@ include ("js/select_subject.js");
 		document.getElementById('day0').value=Number(str);
 			
 			
-		var ii=0;
+		var i=0;
 		var str=html.date;	
 			
 		   flag=true; <!--берет дату этапа но только первого этапа-->
-			do {
+			//do { 
+				do {
 				
 				var from = str.search('!'); 
 				var to = str.length;
@@ -257,12 +259,14 @@ include ("js/select_subject.js");
 				}
 				
 					
-			} while (str.length>0); 
+				} while (str.length>0); 
+			//} while();
 			
 			
-			document.getElementById('description_olimp').value=html.description;						
-			status_chek();	
+			//document.getElementById('description_olimp').value=html.description;	<!-- получаем описание олимпиады -->					
+			//status_chek();	
 		}	
+		
 	});		
 	
 	form = document.getElementById('form'); 

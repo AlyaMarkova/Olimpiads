@@ -9,12 +9,12 @@
 	
 	$dates = $myrow['date']; 
 	if ($myrow['nextStage'] != '0') { 
-	$type=1;
-	$id_stages = explode("!", $myrow['nextStage']); 
-	for ($i=0; $i<count($id_stages); $i++) { 
-	$row_date = mysql_fetch_array(mysql_query("SELECT date FROM olympics WHERE id='$id_stages[$i]'")); 
-	$dates = $row_date['date']; 
-	}  
+		$type=1;
+		$id_stages = explode("!", $myrow['nextStage']); 
+		for ($i=0; $i<count($id_stages); $i++) { 
+			$row_date = mysql_fetch_array(mysql_query("SELECT date FROM olympics WHERE id='$id_stages[$i]'")); 
+			$dates .= $row_date['date']; 
+		}  
 	} else {$type=2;}
 	
 	$jsonn=array(				

@@ -57,6 +57,7 @@ include ("js/select_subject.js");
 	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>
 	
 	<div class="lk_schoolboy_blok">
+	
 		<div>
 			<label id="lk_schoolboy">Место проведения</label>
 			<input id="location_olimp" class="create_text" name="location_olimp" required type="text" >
@@ -109,7 +110,8 @@ include ("js/select_subject.js");
 	</div>
 	
 	<div id="div_none">
-		<input id="number_date" style="display: none;" name="number_date" type="text" >
+		<input id="number_date" name="number_date" type="text" > <!-- количество этапов -->
+		<input id="number_place" name="number_place" type="text" > <!-- количество мест-->
 		<input id="subject_string" style="display: none;" name="subject_string" type="text" >
 	</div>
 	
@@ -133,6 +135,8 @@ include ("js/select_subject.js");
 	var par2={		
 		"id": <?echo $_GET['id'];?>,		
 	}
+	
+	
 	$.ajax({
 		type: "POST",
 		url: "bd/edit_olymp.php",
@@ -141,7 +145,9 @@ include ("js/select_subject.js");
 			html=JSON.parse(html);
 			document.getElementById('name_olimp').value=html.name_olympiad; 	<!-- получаем имя олмпиады-->				
 			document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->	
-			document.getElementById('select_status').value=html.type;					
+			document.getElementById('select_status').value=html.type;	
+			//alert(html.date);
+			//select_type();
 			//alert(select_status);
 			
 			var str=html.subject;			<!-- получаем предметы олмпиады-->
@@ -216,7 +222,7 @@ include ("js/select_subject.js");
 			
 		var i=0;
 		var str=html.date;	
-			
+		
 		   flag=true; <!--берет дату этапа но только первого этапа-->
 			//do { 
 				do {
@@ -399,11 +405,47 @@ include ("js/select_subject.js");
 	}
 	
 function select_type(){ //функция меняет положение селекта взависимости от типа олимпиады
-	    alert(tip);
-		if(tip==0){
+	    
+		if(html.type==2){
 			document.getElementById('select_status').value=html.type;
+			//document.getElementById('knopka_retain0').style.display="none";
+			//document.getElementById('knopka_retain1').style.display="none"; 
+			//hide_date();
+			//hide_place();
 		} else {
 			document.getElementById('select_status').value=html.type;
+			//document.getElementById('knopka_retain0').style.display="block";
+			//document.getElementById('knopka_retain1').style.display="block";
 		}
 	}
+	
+	function hide_date(){
+		if(document.getElementById('number_date').value>1) {
+			while(document.getElementById('number_date').value>1) {
+				delete_button2('p_elem'+document.getElementById('number_date').value);
+				/*document.getElementById('number_date').value=document.getElementById('number_date').value-1;
+				document.getElementById('number_date').value++;*/
+			}	
+		} 	
+	}
+	  
+	/*function hide_place(){
+		if(document.getElementById('number_place').value>1) {
+			while(document.getElementById('number_place').value>1) {
+				delete_button3('p1_elem'+document.getElementById('number_place').value);
+			}
+		}
+	}*/
+	
+		function change(){
+		if(document.getElementById('select_status').value==2){
+			//document.getElementById('knopka_retain0').style.display="none";
+			document.getElementById('knopka_retain1').style.display="none"; 
+			hide_date();
+			//hide_place();
+		} else {
+			//document.getElementById('knopka_retain0').style.display="block";
+			document.getElementById('knopka_retain1').style.display="block";
+		}
+	} 
 </script>

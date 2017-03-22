@@ -122,8 +122,6 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 </div>
 <script src="js/filterTable.v1.0.min.js"></script>
 <script>
-
-	alert(<? echo $_SESSION['rights'];?>);
 	function sort(el) {
    var col_sort = el.innerHTML;
    var tr = el.parentNode;

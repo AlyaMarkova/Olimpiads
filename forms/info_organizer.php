@@ -3,12 +3,11 @@
 	include ("js/fio.js");
 ?>
 <html>
-	<div id="inf_org">
-		<label id="name_olympiad1"></label>
-		<label id="organizator_info">Организатор</label>
-	</div>
-	<div id="lk_fio1">
+	<div id="lk_fio_div">
 		<label id="lk_fio"></label>
+	</div>
+	<div id="inf_org">
+		<label id="organizator_info"></label>
 	</div>
 	<div id="lk_phone">
 		<label id="lk_schoolboy">Мобильный телефон</label><label id="phone_lk"></label>
@@ -35,7 +34,7 @@
 					var phone =html.phone;
 					var email =html.email;
 					//alert(email);
-					document.getElementById('name_olympiad1').innerHTML=html.name_olympiad;
+					document.getElementById('organizator_info').innerHTML=html.name_olympiad;
 					document.getElementById('lk_fio').innerHTML=FIO_1(FIO);
 					document.getElementById('phone_lk').innerHTML=phone;
 					document.getElementById('email_lk').innerHTML=email;							

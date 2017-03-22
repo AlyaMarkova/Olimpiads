@@ -2,9 +2,9 @@
 	include ("js/fio.js");
 ?>
 <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"> 
-<div id="inf_org"  >
-		<label id="name_olympiad1" style="width: 65%; " class="name_olympiad2"></label>
-		<label id="organizator_info">Список участников</label>
+
+	<div id="lk_fio_div">
+		<label id="lk_fio"></label>
 	</div>
 <div class="cont">
 	
@@ -30,7 +30,7 @@
 				data: 'jsonData=' + JSON.stringify(par2),  
 				success: function(html){
 					html=JSON.parse(html);
-					document.getElementById('name_olympiad1').innerHTML=html.name_olympiad;
+					document.getElementById('lk_fio').innerHTML=html.name_olympiad;
 					
 					var array_id=html.array_id;
 					if(array_id.length==1&&array_id[0]==""){

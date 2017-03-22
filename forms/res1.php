@@ -25,9 +25,10 @@
 	//echo '<pre>' . print_r($row3, true) . '</pre>';
 	
 ?>
-<div id="name_olymp_rezult">
-	<label><? echo $myrow2['name_olympiad']?></label>
-</div>
+
+	<div id="lk_fio_div" style="margin-top: 9px;">
+		<label id="lk_fio"><? echo $myrow2['name_olympiad']?></label>
+	</div>
 <div >
 <table id="table_reiting">
     <thead id="table_reiting_thead">

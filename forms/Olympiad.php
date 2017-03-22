@@ -124,11 +124,11 @@
 				<label id="lk_schoolboy" >Предмет</label><label class="do" id="subject_olympiad"></label>
 			</div>
 			<div>
-				<label id="lk_schoolboy">Место проведения</label><label class="do" id="location_olympiad"></label>
+				<label id="lk_schoolboy" name="place_olimpiad">Дата и место проведения</label><label class="do" id="location_olympiad"></label>
 			</div>
-			<div>
-					<label id="lk_schoolboy">Дата проведения</label><label class="do" id="date_olympiad"></label>
-			</div>
+			<!--<div>
+				<label id="lk_schoolboy" name="date_of_olimpiad">Дата проведения</label><label class="do" id="date_olympiad"></label>
+			</div>-->
 			<div>
 				<label id="lk_schoolboy">Приём заявок до</label><label class="do" id="terms_olympiad"></label>
 			</div>
@@ -240,8 +240,11 @@
 							  case 4: s="4"; break;
 							  case 5: s="5"; break;
 							}
-						document.getElementById('date_olympiad').innerHTML=document.getElementById('date_olympiad').innerHTML+'<p>'+s+" этап:  "+date_dat+" время "+time+'</p>';
-						document.getElementById('location_olympiad').innerHTML=document.getElementById('location_olympiad').innerHTML+'<p>'+s+" этап:  "+location[i-1]+'</p>';
+						//document.getElementById('location_olympiad').innerHTML+='<p>'+s+" этап "+date_dat+" время "+time+s+" "+location[i-1]+'</p>';
+						/*document.getElementById('location_olympiad').innerHTML+='<p id="etap">'+s+" этап "+'</p>';
+						document.getElementById('location_olympiad').innerHTML+='<p id="tab_dat">'+date_dat+" время "+time+'</p>';
+						document.getElementById('location_olympiad').innerHTML+='<p id="etap"></p>';
+						document.getElementById('location_olympiad').innerHTML+='<p id="tab_loc">'+"         "+location[i-1]+'</p>';*/document.getElementById('location_olympiad').innerHTML+='<table><tr><td id="tab_dat">'+s+" этап "+'</td><td>'+date_dat+" время "+time+'</td></tr><tr id="etap"><td id="tab_dat"></td><td>'+"         "+location[i-1]+'</td></tr></table>';
 
 						
 					} while (str.length>0);

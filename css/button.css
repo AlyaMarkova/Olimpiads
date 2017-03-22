@@ -51,15 +51,13 @@
 
 #sex2:hover {cursor: pointer}
 #name_olympiad1{
-	display: inline-block;
-	width: 80%;
-	white-space: nowrap; /* Запрещаем перенос строк */
-    overflow: hidden; /* Обрезаем все, что не помещается в область */
-    text-overflow: ellipsis; /* Добавляем многоточие */
+	color: #0A3C57;
+	font-size: 20pt;
+	position: absolute;
+	right: 0;
 }
 .name_olympiad2{
 	
-	width: 70%;
 	
 }
 

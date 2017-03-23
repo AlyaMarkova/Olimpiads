@@ -8,6 +8,7 @@
 	$myrow = mysql_fetch_array($result);
 	
 	$dates = $myrow['date']; 
+	$locations = $myrow['location'];
 	if ($myrow['nextStage'] != '0') { 
 		$type=1;
 		$id_stages = explode("!", $myrow['nextStage']); 
@@ -28,7 +29,7 @@
 		'professor_users_id'=>$myrow['professor_users_id'],						
 		'classes'=>$myrow['classes'],						
 		'terms'=>$myrow['terms'],						
-		'location'=>$location,						
+		'location'=>$locations,						
 	);
 	echo json_encode($jsonn);	
 ?>

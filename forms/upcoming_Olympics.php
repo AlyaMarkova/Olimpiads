@@ -344,7 +344,7 @@ function  create_div_olimpics(i,id, name, subject, classes, terms, date,id_org,s
 	div_elem.id=i;
 	div_elem.style.background = "#91CEF1";
 	div_elem.style.height = "45px";
-	div_elem.style.margin = "0 0 10px 0px";	
+	div_elem.style.margin = "0 0 5px 0px";	
 	div_elem.style.position = "relative";
 	
 	var label_date = document.createElement('td');		

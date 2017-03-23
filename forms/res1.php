@@ -91,7 +91,11 @@
 		for($l=0, $arr_l1=count($row3[$i]["Fio_schoolboy"])-1; $l<$arr_l1; $l=$l+3){
 			if ($row3[$i]["rating_mark"] <> "" and $row3[$i]["place"] <> "")  {
 				?>
-					<tr class="<? if ($row3[$i]["rating_mark"]>=$myrow2['rangeStage']) { echo "winners"; } else { echo "loosers"; } ?>">
+					<tr class="<? 
+						if ($myrow2['rangeStage'] != NULL)
+							if ($row3[$i]["rating_mark"]>=$myrow2['rangeStage']) { echo "winners"; } else { echo "loosers"; } 
+						else {echo "besttd";}
+						?>">
 					<td class="table_rating_num"> <? $j =$j+1; echo $j; ?></td>
 					<td class="table_reiting_td"> <a id="best_href1" href="../lk_href.php?id=<?echo $row3[$i]["Users_id"]?>"> <? echo $row3[$i]["Fio_schoolboy"][$l] ." ". $row3[$i]["Fio_schoolboy"][$l+1]." ". $row3[$i]["Fio_schoolboy"][$l+2]; ?></a></td>
 					<td class="table_reiting_td"> <?echo $row3[$i]["school"] ?></td>

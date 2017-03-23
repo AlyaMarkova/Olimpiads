@@ -42,7 +42,8 @@
             <select id="digits">
             <option class = "option"  value="">Школа</option>    
 				
-<?				
+<?			
+	
 $query = 'SELECT school FROM schoolboy inner join users on Users_id=id where activation = 1 GROUP BY school';
 $result = mysql_query($query);
 

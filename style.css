@@ -725,6 +725,15 @@ margin: 20px auto;
 .besttd:nth-child(2n){
 	background:#E4F3FC;
 }
+
+.winners{
+	background:#90EE90;
+}
+.loosers{
+	background:#E4F3FC;
+}
+
+
 #best_a{
 	background:#0066b3;
 }

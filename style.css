@@ -629,8 +629,9 @@ text-align: center;
 border-right: 1px solid #0A3C57;
 
 } 
-#table_reiting_td1{
+.table_rating_num{
 	border-right: 1px solid #0A3C57;
+	text-align: center;
 }
 
 #besttd{ 
@@ -727,10 +728,12 @@ margin: 20px auto;
 }
 
 .winners{
-	background:#90EE90;
+	background:rgba(86, 200, 220, 0.51);
+	/*border-bottom: 1px solid #0A3C57; */
 }
 .loosers{
 	background:#E4F3FC;
+	/*border-bottom-color: #0A3C57;*/
 }
 
 

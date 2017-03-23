@@ -95,12 +95,14 @@ if ($number_date == 1) { //если этап всего один, то доба�
 		$date_time = $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
 		$location_olimp = $_POST["place".$i];
 		$isChild = 1;
+		$proc = "stage";
+		$name_st = $name_olimp." - ".$i." этап";
 		
 		if ($i>2){ //ид предыдущего этапа
 			$id_prev=$id_now;
 		} else $id_prev=mysql_insert_id();
 		
-		mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id, IsChild) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp','$isChild')",$db);
+		mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id, IsChild,process) VALUES('$name_st','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp','$isChild','$proc')",$db);
 		$id_now=mysql_insert_id(); //ид нынешнего этапа, который только что добавили
 		
 		if ($i>2) { //апдейтим поле nextStage у предыдущего этапа (чтобы он указывал на только что созданный)

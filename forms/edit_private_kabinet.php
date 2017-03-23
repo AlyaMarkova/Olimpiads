@@ -182,7 +182,7 @@ window.onload = function () {
 		var rights ='<?php echo $_SESSION['rights'];?>';
 		var par2={	
 				'rights':<?php echo $_SESSION['rights'];?>,
-				'id':<?php echo $_SESSION['id'];?>,				
+				'id':<?php echo $_SESSION['id'];?>			
 				}				
 		$.ajax({
 				type: "POST",

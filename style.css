@@ -153,7 +153,7 @@ body {
     display: -webkit-box;
     width: 532px;
 }
-#opisanie, #subject_olympiad, #location_olympiad, #date_olympiad{
+#opisanie, #subject_olympiad, #location_olympiad, #date_olympiad, #nextStage{
 	color:#0A3C57;
 	font-size: 14pt;
 }
@@ -162,7 +162,9 @@ body {
 	margin-top: -8px;
 	margin-bottom: 5px;
 }
-
+#nextStage{
+	margin-left: 75px;
+}
 
 #Olympiad_description_elements2{
 	padding-top: -20px;

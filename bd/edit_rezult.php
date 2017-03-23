@@ -6,6 +6,10 @@
 	$arr_place = $data -> arr_place;
 	$arr_rating = $data -> arr_rating;
 	$get_id = $data -> get_id;
+	
+	$range_stage = $data -> range_stage;
+	mysql_query ("UPDATE olympics SET rangeStage='$range_stage' WHERE id='$get_id'");
+	
 	$array_new_result = array(count($arr_id_user)); //массив по числу участников, куда будут заноситься новые итоги олимпиады????
 	
 	for($i=0;$i<count($arr_id_user);$i++){

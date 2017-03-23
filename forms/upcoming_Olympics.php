@@ -360,9 +360,6 @@ function  create_div_olimpics(i,id, name, subject, classes, terms, date,id_org,s
 		str=str.substring(from+1,to);				
 		var dat = new Date(newstr); //дата первого этапа ???
 		var dat22 = new Date(newstr);
-		/*alert(now);
-		alert(dat);
-		alert(id_stage);*/
 		if(now>dat){ //если текущая дата больше даты рассматриваемого этапа
 			var par2={
 				"id_parent": id,

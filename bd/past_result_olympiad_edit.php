@@ -34,8 +34,11 @@
 		}
 		$result3 = mysql_query("SELECT * FROM olympics WHERE id='$id_olympiad'");
 		$myrow3=mysql_fetch_array($result3);
+		$name_ol = $myrow3['name_olympiad'];
+		if ($myrow3['IsChild']==0 && $myrow3['nextStage'] != '0')
+			$name_ol = $myrow3['name_olympiad']." - 1 этап";
 		$jsonn=array(	
-			'name_olymp_rezult'=>$myrow3['name_olympiad'],
+			'name_olymp_rezult'=>$name_ol,
 			'place'=>$array_place,
 			'schoolboy_users_id'=>$array_id_schoolboy,
 			'array_school'=>$array_school,

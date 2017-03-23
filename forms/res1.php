@@ -10,6 +10,10 @@
 	
 	$result2 = mysql_query("SELECT * FROM olympics WHERE id='$idd'");
 	$myrow2= mysql_fetch_array($result2);	
+	// если этап первый, то чуть-чуть меняем имя
+	$name_ol = $myrow2['name_olympiad'];
+	if ($myrow2['IsChild']==0 && $myrow2['nextStage'] != '0')
+		$name_ol = $myrow2['name_olympiad']." - 1 этап";
 	
 	while($row=mysql_fetch_array($res))
 		
@@ -27,7 +31,7 @@
 ?>
 
 	<div id="lk_fio_div" style="margin-top: 9px;">
-		<label id="lk_fio"><? echo $myrow2['name_olympiad']?></label>
+		<label id="lk_fio"><? echo $name_ol?></label>
 	</div>
 <div >
 <table id="table_reiting">

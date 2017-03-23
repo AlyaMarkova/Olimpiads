@@ -351,7 +351,7 @@ function create_place(i){ //создание мест
 }	
 
 
-//а нужна ли эта функция?!!!!!!
+//а нужна ли эта функция?!!!!!! нужна пре редактировании олимпиады
 function create_date2(i){
 	number_date=number_date+1;
 	i=number_date;	
@@ -433,13 +433,53 @@ function create_date2(i){
 	var day = new Date,
 	md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
 	$month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
-	//set_select("day"+i, md, 1, day.getDate() - 1);
-	//set_select("month"+i, 12, 1, day.getMonth());
-	// set_select("year"+i, 11, day.getFullYear(), 10);
 	set_select("day"+i, md, 1, "дд");
 	set_select("month"+i, 12, 1, "мм");
 	set_select("year"+i, 11, day.getFullYear(), "гг");
-	
-	//document.getElementById(p_elem.id).
+
 }	
+
+function create_place2(i){ //создание мест	Редактирование олимпиады
+	number_place=number_place+1;
+	i=number_place;	
+	document.getElementById('number_place').value=i;
+
+		var next = document.getElementById('place_olimp');
+		var p1_elem = document.createElement('div');
+		p1_elem.className = 'div_place';
+		p1_elem.id='p1_elem'+i;
+		var label = document.createElement('label');		
+		label.id =i+" Место ";		
+		
+		
+		label.innerHTML=label.id;
+		var id_last_elem=label.id;
+		p1_elem.appendChild(label);		
+			
+		var tm = document.createElement('input');		
+		tm.id ="place"+i;
+		tm.name = "place"+i;
+		tm.className = "create_text";
+		tm.type = 'text'
+		tm.style = 'width:302px;'
+		p1_elem.appendChild(tm);	
+			
+		
+		var btn = document.createElement('input')
+		btn.id ="btn_p"+i
+		btn.type = 'button'	
+		btn.className = "knopka_cansel1"
+		btn.value = 'Удалить'
+		btn.onclick = function() {delete_button3(p1_elem.id);};	
+		p1_elem.appendChild(btn);	
+		
+		next.parentNode.appendChild(p1_elem);
+		
+		//document.getElementById('btn_p1').style.opacity=1;
+	}
+	//if(number_place==1){
+		//document.getElementById('btn_p1').style.opacity=0.5;
+	//}
+
+
 </script>

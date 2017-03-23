@@ -144,11 +144,9 @@ include ("js/select_subject.js");
 		success: function(html){
 			html=JSON.parse(html);
 			document.getElementById('name_olimp').value=html.name_olympiad; 	<!-- получаем имя олмпиады-->				
-			document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->	
+			//document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->
 			document.getElementById('select_status').value=html.type;	
-			//alert(html.date);
-			//select_type();
-			//alert(select_status);
+		
 			
 			var str=html.subject;			<!-- получаем предметы олмпиады-->
 			do {
@@ -223,7 +221,7 @@ include ("js/select_subject.js");
 		var i=0;
 		var str=html.date;	
 		
-		   flag=true; <!--берет дату этапа но только первого этапа-->
+		   flag=true; <!--берет строку дату этапа и расчленяет-->
 			//do { 
 				do {
 				
@@ -266,8 +264,23 @@ include ("js/select_subject.js");
 				
 					
 				} while (str.length>0); 
-			//} while();
-			
+				
+				
+						var i=0;
+		
+		var str=html.location;	
+		   flag=true; <!--берет строку места-->
+				do {
+			 alert(str);
+				create_place2(document.getElementById('number_place').value,newstr);		
+				if(flag==true){
+					document.getElementById('btn1').style.opacity=0.5;
+					flag=false;
+				}
+				else{
+					document.getElementById('btn1').style.opacity=1;
+				}
+				} while (str.length>0); 
 			
 			//document.getElementById('description_olimp').value=html.description;	<!-- получаем описание олимпиады -->					
 			//status_chek();	

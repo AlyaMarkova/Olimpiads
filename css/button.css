@@ -321,7 +321,14 @@ margin:10px 0 0 0;
 	text-align: right;
 	width: 200px;
 	left: 10px;
-margin:0px auto 10px auto;
+	margin:0px auto 10px auto;
+}
+label#school_lk{
+
+    margin-top: -37px;
+    margin-left: 214px;
+    display: -webkit-box;
+    width: 532px;
 }
 .lk_schoolboy{   /*блоки вокруг текста*/
 	display: inline-block;

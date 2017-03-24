@@ -4,7 +4,7 @@
 	$action=$data->action;
 	$id_olympiad=$data->id;	
 	if($action=="id_schoolboy"){			
-		$result = mysql_query("SELECT * FROM schoolboy_past_olympics WHERE olympics_id='$id_olympiad'");
+		$result = mysql_query("SELECT * FROM schoolboy_past_olympics WHERE olympics_id='$id_olympiad' ORDER BY rating_mark DESC");
 		$n=mysql_num_rows($result);
 		$array_id_schoolboy= array($n);
 		$array_place = array($n);

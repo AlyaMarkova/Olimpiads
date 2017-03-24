@@ -451,7 +451,6 @@ function create_place2(i){ //создание мест	Редактирован�
 		var label = document.createElement('label');		
 		label.id =i+" Место ";		
 		
-		
 		label.innerHTML=label.id;
 		var id_last_elem=label.id;
 		p1_elem.appendChild(label);		

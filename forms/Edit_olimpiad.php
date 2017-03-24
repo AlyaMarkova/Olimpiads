@@ -57,17 +57,18 @@ include ("js/select_subject.js");
 	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>
 	
 	<div class="lk_schoolboy_blok">
-						<div>
-								<div>
-									<div id="place_olimp">
-										<label  id="lk_schoolboy" >Место проведения</label>
-									</div>
-								</div>
+	
+<div>
+		<div>
+			<div id="place_olimp">
+				<label  id="lk_schoolboy" >Место проведения</label>
+			</div>
+		</div>
 								
-								<div>
-									<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>
-								</div>
-						</div>
+		<div>
+			<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>
+		</div>
+</div>
 		
 		
 		<div id="org_block">
@@ -151,10 +152,9 @@ include ("js/select_subject.js");
 		success: function(html){
 			html=JSON.parse(html);
 			document.getElementById('name_olimp').value=html.name_olympiad; 	<!-- получаем имя олмпиады-->				
-			//document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->
 			document.getElementById('select_status').value=html.type;	
-		
 			
+
 			var str=html.subject;			<!-- получаем предметы олмпиады-->
 			do {
 				var from = str.search('!'); 
@@ -275,19 +275,26 @@ include ("js/select_subject.js");
 				
 						var i=0;
 		
-		/*var str=html.location;	
+		var str=html.location;	
 		   flag=true; <!--берет строку места-->
 				do {
-				create_place2(document.getElementById('number_place').value,str);			
+				var from = str.search('!'); 
+				var to = str.length;
+				newstr = str.substring(0,from);
+				str=str.substring(from+1,to);
+				create_place2(document.getElementById('number_place').value,newstr);			
+				
 				if(flag==true){
+					document.getElementById('number_place').value=newsrtr;
 					document.getElementById('btn1').style.opacity=0.5;
 					flag=false;
 				}
 				else{
 					document.getElementById('btn1').style.opacity=1;
 				}
-				} while (str.length>0); */
+				} while (str.length>0);
 			
+		
 			//document.getElementById('description_olimp').value=html.description;	<!-- получаем описание олимпиады -->					
 			//status_chek();	
 		}	
@@ -297,68 +304,15 @@ include ("js/select_subject.js");
 	form = document.getElementById('form'); 
 	form.subject_string.value = "";
 	form.number_date.value = "";
+	form.number_place.value = "";
 	document.getElementById('Org_olimp').value=<?echo $_SESSION['id'];?>;
 	document.getElementById('org_block').style.display="none";
 	
 	
-	/*
+	
 	window.onload = function () {
-    var day = new Date,
-        md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate(),
-        $month_name = "января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(" ");
-	create_date2(document.getElementById('number_date').value);	
-    function set_select(a, c, d, e) {
-        var el = document.getElementsByName(a)[0];
-        for (var b = el.options.length = 0; b < c; b++) {
-			if(a.search('month') != -1)
-			{
-				el.options[b+1] = new Option(month_name[b],b + d);
-			}
-			else{
-				el.options[b+1] = new Option(a == 'month1' ? $month_name[b] : b + d, b + d);
-			}
-            
-         }
-        el.options[0] = new Option(e);
-    }
-    set_select("day1", md, 1, day.getDate() - 1);
-    set_select("month1", 12, 1, day.getMonth());
-    set_select("year1", 11, day.getFullYear(), 10);
-	
-		set_select("day0", md, 1, "дд");
-		set_select("month0", 12, 1, "мм");
-		set_select("year0", 11, day.getFullYear(), "гг");
- 
-   // document.getElementsByName('hour')[0].value = day.getHours();
-   // document.getElementsByName('minute')[0].value = day.getMinutes();
- 
-    var year1 = document.getElementById('year1');
-    var month1 = document.getElementById("month1");
- 
-    function check_date() {
-        var a = year1.value | 0,
-            c = month1.value | 0;
-			
-        md = (new Date(a, c, 0, 0, 0, 0, 0)).getDate();
-        a = document.getElementById("day1").selectedIndex;
-		
-        set_select("day", md, 1, a);
-    };
-	
+   select_type();}
 
-	
-	
-   // if (document.addEventListener) {
-     //   year.addEventListener('change', check_date, false);
-    //    month.addEventListener('change', check_date, false);
- 
-  //  } else {
-  //      year.detachEvent('onchange', check_date);
-  //      month.detachEvent('onchange', check_date);
-  //  }
-
-}
-*/
 		
 	 var day = new Date,
         md = (new Date(day.getFullYear(), day.getMonth() + 1, 0, 0, 0, 0, 0)).getDate();
@@ -407,6 +361,8 @@ include ("js/select_subject.js");
 		set_select("month0", 12, 1, "мм");
 		set_select("year0", 11, day.getFullYear(), "гг");	
 		
+		
+	
 	function status_chek(){
 		flag=false;
 		for(i=1;i<12;i++){
@@ -425,16 +381,18 @@ include ("js/select_subject.js");
 	
 function select_type(){ //функция меняет положение селекта взависимости от типа олимпиады
 	    
-		if(html.type==2){
+		if(document.getElementById('select_status').value==2){
+			document.getElementById('knopka_retain0').style.display="none";
+			document.getElementById('knopka_retain1').style.display="none"; 
+			hide_date();
+			hide_place();
 			document.getElementById('select_status').value=html.type;
-			//document.getElementById('knopka_retain0').style.display="none";
-			//document.getElementById('knopka_retain1').style.display="none"; 
-			//hide_date();
-			//hide_place();
+			
 		} else {
+			document.getElementById('knopka_retain0').style.display="block";
+			document.getElementById('knopka_retain1').style.display="block";
 			document.getElementById('select_status').value=html.type;
-			//document.getElementById('knopka_retain0').style.display="block";
-			//document.getElementById('knopka_retain1').style.display="block";
+			
 		}
 	}
 	
@@ -442,28 +400,26 @@ function select_type(){ //функция меняет положение сел�
 		if(document.getElementById('number_date').value>1) {
 			while(document.getElementById('number_date').value>1) {
 				delete_button2('p_elem'+document.getElementById('number_date').value);
-				/*document.getElementById('number_date').value=document.getElementById('number_date').value-1;
-				document.getElementById('number_date').value++;*/
 			}	
 		} 	
 	}
 	  
-	/*function hide_place(){
+	function hide_place(){
 		if(document.getElementById('number_place').value>1) {
 			while(document.getElementById('number_place').value>1) {
 				delete_button3('p1_elem'+document.getElementById('number_place').value);
 			}
 		}
-	}*/
+	}
 	
 		function change(){
 		if(document.getElementById('select_status').value==2){
-			//document.getElementById('knopka_retain0').style.display="none";
+			document.getElementById('knopka_retain0').style.display="none";
 			document.getElementById('knopka_retain1').style.display="none"; 
 			hide_date();
-			//hide_place();
+			hide_place();
 		} else {
-			//document.getElementById('knopka_retain0').style.display="block";
+			document.getElementById('knopka_retain0').style.display="block";
 			document.getElementById('knopka_retain1').style.display="block";
 		}
 	} 

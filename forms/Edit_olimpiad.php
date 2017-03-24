@@ -275,6 +275,7 @@ include ("js/select_subject.js");
 		var str=html.date;	
 		
 		   flag=true; <!--берет строку дату этапа и расчленяет-->
+		   if (location.length>2){
 			for(i = 1; i < location.length; i++) {
 				create_place2(document.getElementById('number_place').value);	
 				document.getElementById('place'+i).value=location[i-1];	 
@@ -286,6 +287,20 @@ include ("js/select_subject.js");
 					document.getElementById('btn_p1').style.opacity=1;
 				}
 			}
+		   }
+		   else{
+			for(i = 1; i <= location.length; i++) {
+				create_place2(document.getElementById('number_place').value);	
+				document.getElementById('place'+i).value=location[i-1];	 
+				if(flag==true){
+					document.getElementById('btn_p1').style.opacity=0.5;
+					flag=false;
+				}
+				else{
+					document.getElementById('btn_p1').style.opacity=1;
+				}
+			}
+		   }
 		
 				
 

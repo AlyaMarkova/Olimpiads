@@ -13,7 +13,8 @@
 #digits11{
 	background: none; 
 	border-style: none; 
-	font-family: 'Palatino Linotype'; 
+	/*font-family: 'Palatino Linotype'; */
+	font-size:16px;
 	color: white;
 	/*margin-left: 20px;*/
 }
@@ -70,12 +71,13 @@ background: linear-gradient(#0066b3, #0066b3);
 .table_arhiv_na{
 	width: 10%;
 	height: 35px;
+	padding-left: 5px;
 }
 .table_arhiv_na_search{
 	width: 40%;
 }
 .table_arhiv_subj{
-	width: 10%;
+	width: 4%;
 	padding-left: 5px;
 }
 .table_arhiv_td_shapka{

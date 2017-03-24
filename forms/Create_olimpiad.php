@@ -280,21 +280,21 @@ window.onload = function () {
 		} 	
 	}
 	  
-	/*function hide_place(){
+	function hide_place(){
 		if(document.getElementById('number_place').value>1) {
 			while(document.getElementById('number_place').value>1) {
 				delete_button3('p1_elem'+document.getElementById('number_place').value);
 			}
 		}
-	}*/
+	}
 	function change(){
 		if(document.getElementById('select_status').value==2){
-			//document.getElementById('knopka_retain0').style.display="none";
+			document.getElementById('knopka_retain0').style.display="none";
 			document.getElementById('knopka_retain1').style.display="none"; 
 			hide_date();
-			//hide_place();
+			hide_place();
 		} else {
-			//document.getElementById('knopka_retain0').style.display="block";
+			document.getElementById('knopka_retain0').style.display="block";
 			document.getElementById('knopka_retain1').style.display="block";
 		}
 	} 

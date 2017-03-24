@@ -226,12 +226,15 @@ include ("js/select_subject.js");
 			
 			
 		var i=0;
+		var location=html.location;	
 		var str=html.date;	
 		
 		   flag=true; <!--берет строку дату этапа и расчленяет-->
 			//do { 
 				do {
 				
+				create_place2(document.getElementById('number_place').value);	
+				document.getElementById('place'+document.getElementById('number_place').value).value=location[i];	
 				var from = str.search('!'); 
 				var to = str.length;
 				newstr = str.substring(0,from);
@@ -260,40 +263,21 @@ include ("js/select_subject.js");
 		
 				
 				document.getElementById('1time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(' ')+1, newstr.search(':'));			
-				document.getElementById('2time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(':')+1, newstr.length);		
+				document.getElementById('2time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(':')+1, newstr.length);	
+				i++;				
 				if(flag==true){
+					document.getElementById('btn_p').style.opacity=0.5;
 					document.getElementById('btn1').style.opacity=0.5;
 					flag=false;
 				}
 				else{
+					document.getElementById('btn_p').style.opacity=1;
 					document.getElementById('btn1').style.opacity=1;
 				}
 				
 					
 				} while (str.length>0); 
-				
-				
-						var i=0;
-		
-		var str=html.location;	
-		   flag=true; <!--берет строку места-->
-				do {
-				var from = str.search('!'); 
-				var to = str.length;
-				newstr = str.substring(0,from);
-				str=str.substring(from+1,to);
-				create_place2(document.getElementById('number_place').value,newstr);			
-				
-				if(flag==true){
-					document.getElementById('number_place').value=newsrtr;
-					document.getElementById('btn1').style.opacity=0.5;
-					flag=false;
-				}
-				else{
-					document.getElementById('btn1').style.opacity=1;
-				}
-				} while (str.length>0);
-			
+				var i=0;
 		
 			//document.getElementById('description_olimp').value=html.description;	<!-- получаем описание олимпиады -->					
 			//status_chek();	

@@ -8,14 +8,15 @@
 	$myrow = mysql_fetch_array($result);
 	
 	$dates = $myrow['date']; 
-	$locations = $myrow['location'];
+	$location = array($myrow['location']);
+	
 	if ($myrow['nextStage'] != '0') { 
 		$type=1;
 		$id_stages = explode("!", $myrow['nextStage']); 
 		for ($i=0; $i<count($id_stages); $i++) { 
-			$row_date = mysql_fetch_array(mysql_query("SELECT date,location FROM olympics WHERE id='$id_stages[$i]'")); 
+			$row_date = mysql_fetch_array(mysql_query("SELECT date, location FROM olympics WHERE id='$id_stages[$i]'")); 
 			$dates .= $row_date['date']; 
-			$location .=$row_date['location'];
+			$location[] = $row_date['location'];
 		}  
 	} else {$type=2;}
 	
@@ -29,7 +30,7 @@
 		'professor_users_id'=>$myrow['professor_users_id'],						
 		'classes'=>$myrow['classes'],						
 		'terms'=>$myrow['terms'],						
-		'location'=>$locations,						
+		'location'=>$location,						
 	);
 	echo json_encode($jsonn);	
 ?>

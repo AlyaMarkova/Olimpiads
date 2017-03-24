@@ -328,6 +328,9 @@ body {
    text-align: center;
    padding: 7px 10px 8px 10px;
 }
+#div_none{
+	display: none;
+}
 #knopka1{
    height:14px;
    width: 50px;

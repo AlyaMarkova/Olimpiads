@@ -36,6 +36,7 @@ include ("js/select_subject.js");
 </script>
 
 <form id="form" action="" method="post" onsubmit="return validate_form(this);">
+<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
 	<p>
 		<label id="lk_schoolboy" >Название олимпиады</label>
 		<input id="name_olimp" class="create_text" name="name_olimp" required type="text" >
@@ -226,21 +227,18 @@ include ("js/select_subject.js");
 			
 			
 		var i=0;
-		var location=html.location;	
 		var str=html.date;	
+		var location=html.location;	
 		
 		   flag=true; <!--берет строку дату этапа и расчленяет-->
 			//do { 
 				do {
 				
-				create_place2(document.getElementById('number_place').value);	
-				document.getElementById('place'+document.getElementById('number_place').value).value=location[i];	
 				var from = str.search('!'); 
 				var to = str.length;
 				newstr = str.substring(0,from);
 				str=str.substring(from+1,to);	
-				create_date2(document.getElementById('number_date').value,newstr);	
-				
+				create_date2(document.getElementById('number_date').value);	
 				newstr2=newstr;
 				
 				var from2 = newstr2.search('-'); 
@@ -263,21 +261,34 @@ include ("js/select_subject.js");
 		
 				
 				document.getElementById('1time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(' ')+1, newstr.search(':'));			
-				document.getElementById('2time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(':')+1, newstr.length);	
-				i++;				
+				document.getElementById('2time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(':')+1, newstr.length);		
 				if(flag==true){
-					document.getElementById('btn_p').style.opacity=0.5;
 					document.getElementById('btn1').style.opacity=0.5;
 					flag=false;
 				}
 				else{
-					document.getElementById('btn_p').style.opacity=1;
 					document.getElementById('btn1').style.opacity=1;
 				}
 				
-					
 				} while (str.length>0); 
-				var i=0;
+		var location=html.location;	
+		var str=html.date;	
+		
+		   flag=true; <!--берет строку дату этапа и расчленяет-->
+			for(i = 1; i < location.length; i++) {
+				create_place2(document.getElementById('number_place').value);	
+				document.getElementById('place'+i).value=location[i-1];	 
+				if(flag==true){
+					document.getElementById('btn_p1').style.opacity=0.5;
+					flag=false;
+				}
+				else{
+					document.getElementById('btn_p1').style.opacity=1;
+				}
+			}
+		
+				
+
 		
 			//document.getElementById('description_olimp').value=html.description;	<!-- получаем описание олимпиады -->					
 			//status_chek();	

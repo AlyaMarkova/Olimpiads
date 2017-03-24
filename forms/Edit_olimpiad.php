@@ -57,11 +57,18 @@ include ("js/select_subject.js");
 	<p id="knopka_retain__""><input type="button" id="knopka_retain1" onclick="create_date(number_date)" value="Добавить этап"></p>
 	
 	<div class="lk_schoolboy_blok">
-	
-		<div>
-			<label id="lk_schoolboy">Место проведения</label>
-			<input id="location_olimp" class="create_text" name="location_olimp" required type="text" >
-		</div>
+						<div>
+								<div>
+									<div id="place_olimp">
+										<label  id="lk_schoolboy" >Место проведения</label>
+									</div>
+								</div>
+								
+								<div>
+									<p id="knopka_retain__"> <input type="button" id="knopka_retain0" onclick="create_place(number_place)" value="Добавить место"></p>
+								</div>
+						</div>
+		
 		
 		<div id="org_block">
 			<label id="lk_schoolboy">Организатор</label>
@@ -144,7 +151,7 @@ include ("js/select_subject.js");
 		success: function(html){
 			html=JSON.parse(html);
 			document.getElementById('name_olimp').value=html.name_olympiad; 	<!-- получаем имя олмпиады-->				
-			document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->
+			//document.getElementById('location_olimp').value=html.location; <!-- получаем место проведения олмпиады-->
 			document.getElementById('select_status').value=html.type;	
 		
 			

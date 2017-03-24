@@ -5,7 +5,8 @@
 session_start();
  require_once 'bd.php';   
 	$idS = $_SESSION['id'];
-	$res = mysql_query('SELECT id, date as date1, name_olympiad, subject, professor_users_id FROM olympics WHERE Olympiad_status = 1 order by date desc');	
+	$res = mysql_query('SELECT id, date as date1, name_olympiad, subject, professor_users_id, nextStage, IsChild FROM olympics WHERE Olympiad_status = 1 order by date desc');
+	
 	$result = mysql_query("SELECT rights FROM users WHERE id = '$idS'");
 	$ro=mysql_fetch_array($result);
 	$i=0;
@@ -57,9 +58,11 @@ session_start();
 		//echo $row2[$i][2];
 		$row2[$i] = $row2[$i][0]." ".$row2[$i][1]." ".$row2[$i][2]." ".$row2[$i][3];
 		
-		$row3[$i] = mb_strimwidth($row[name_olympiad], 0, 99, "...");
+		$name_ol = $row['name_olympiad'];
+		if ($row['IsChild']==0 && $row['nextStage'] != '0')
+			$name_ol = $row['name_olympiad']." - 1 этап";
 		
-		
+		$row3[$i] = mb_strimwidth($name_ol, 0, 99, "...");
 		
 		$row4[$i]= array('date1'=>$row1[$i], 'name_olympiad'=>$row3[$i], 'subject'=>$row2[$i], 'professor_users_id'=>$row[professor_users_id], 'id'=>$row[id], 'rights'=>$ro[rights]); 
 		$i=$i+1;

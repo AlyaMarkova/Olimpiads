@@ -33,7 +33,7 @@ require_once('class.comments.php');
 require_once('functions.php');
 require_once('markhtml.php');
 session_start();
-if($_SESSION['login']!=""){
+if($_SESSION['login']!=""&&$_SESSION['activation']!=-2){
 	$DB=new DB_Engine('mysql', $settings['dbHost'], $settings['dbUser'], $settings['dbPass'], $settings['dbName']);
 	$registry = new Registry;
 	$registry->set('DB',$DB);

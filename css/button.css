@@ -51,15 +51,13 @@
 
 #sex2:hover {cursor: pointer}
 #name_olympiad1{
-	display: inline-block;
-	width: 80%;
-	white-space: nowrap; /* Запрещаем перенос строк */
-    overflow: hidden; /* Обрезаем все, что не помещается в область */
-    text-overflow: ellipsis; /* Добавляем многоточие */
+	color: #0A3C57;
+	font-size: 20pt;
+	position: absolute;
+	right: 0;
 }
 .name_olympiad2{
 	
-	width: 70%;
 	
 }
 
@@ -77,6 +75,8 @@
 #knopka_retain1{    
                     /*кнопка добавления этапа*/
 	display: inline-block;
+	  width:160px;
+	height:32px;
   color: white;
   outline: none;
   border-width: 2px 0;
@@ -89,7 +89,6 @@
   left: 210px;
   //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
  // width: 30px;
-   height:33;
   margin: 0 0 10 0;
 }
 #knopka_retain1:hover { background: #0067b1; } /* при наведении курсора мышки */
@@ -97,6 +96,8 @@
 
 #knopka_retain0{    
                     /*кнопка добавления места*/
+	width:160px;
+	height:32px;
 	display: inline-block;
   color: white;
   outline: none;
@@ -110,7 +111,6 @@
   left: 210px;
   //font-family: Palatino Linotype, Verdana, Geneva, sans-serif;
  // width: 30px;
-   height:33;
   margin: 5 0 10 0;
 }
 #knopka_retain0:hover { background: #0067b1; } /* при наведении курсора мышки */
@@ -129,6 +129,7 @@
 }
 .button_all{ /*центрирование кнопок удалить/сохранить*/
 	text-align: center;
+    margin: 0px auto 10px auto;
 }
 
 .knopka_cansel{     /*кнопка удаления, отмены*/
@@ -320,7 +321,14 @@ margin:10px 0 0 0;
 	text-align: right;
 	width: 200px;
 	left: 10px;
-margin:0px auto 10px auto;
+	margin:0px auto 10px auto;
+}
+label#school_lk{
+
+    margin-top: -37px;
+    margin-left: 214px;
+    display: -webkit-box;
+    width: 532px;
 }
 .lk_schoolboy{   /*блоки вокруг текста*/
 	display: inline-block;
@@ -725,7 +733,6 @@ input[type=time]::-webkit-outer-spin-button {-webkit-appearance: none; margin:0;
 	border-radius: 20px 20px 7px 7px; 
 
 }
-
 
 
 .cursorik:hover {cursor: default}

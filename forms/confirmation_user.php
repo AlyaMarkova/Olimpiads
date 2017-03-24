@@ -32,11 +32,23 @@
 				<label id="lk_schoolboy">Адрес эл. почты</label><label class="lk_scoolboy" id="email_lk"></label>
 			</div>
 		</div>
-		<div class="button_all">
-			<input type="submit" class="knopka_retain" name="submit_confirmation" onClick="confirmation(1)" value="Подтвердить">
-			<input type="submit" class="knopka_no_retain" name="submit_no_confirmation" onClick="confirmation(-2)" value="Не подтвердить">
+		<div class="button_all" id="but">
+			<input type="submit" class="knopka_retain" name="submit_confirmation" onClick="confirmation(1)" value="Подтверждение">
+			<input type="submit" class="knopka_no_retain" name="submit_no_confirmation" onClick="rassylka_im_vera()" value="Отказ">
 			<input type="button" class="knopka_cansel" onclick="location_cancel()" name="cansel" value="Отмена">
 		</div>
+			<div id="lk_text_rassylka">
+				<div name="none">
+					<label id="lk_schoolboy">Текст рассылки</label>
+					<textarea id="lk_text" required name="delivery"></textarea>
+				</div>
+			</div>
+			<div id="button" style="margin-top: 100px;" class="button_all">
+				<div  name="none">
+					<input type="submit" class="knopka_retain" onclick="confirmation(-2)" name="submit_create" value="Отправить">
+					<input type="button" class="knopka_cansel" onclick="no_rassylka()" name="submit_cancel" value="Отмена">
+				</div>
+			</div>
 		<!-- для передачи номера подтверждения через POST
 		я тупая и не смогла по-другому написать (с) Аля-->
 		<input type="hidden" id="numa" name="numact" />
@@ -45,7 +57,6 @@
 
 <script>
 	var id=<?php echo $_GET['id'];?>;
-	
 	function confirmation(num_activation){
 		document.getElementById('numa').value = num_activation;
 		document.getElementById('activation_admin').action="bd/activation_admin.php?id="+id;
@@ -154,4 +165,19 @@
 			}
 		}
 	});	
+	no_rassylka();
+function rassylka_im_vera(){
+	document.getElementById('lk_text_rassylka').required=true;
+	for (var i=0; i<document.getElementsByName('none').length; i++) {
+		document.getElementsByName('none')[i].style.display="block";
+	}
+	document.getElementById('but').style.display="none";
+}
+function no_rassylka(){
+	document.getElementById('lk_text_rassylka').required=false;
+	for (var i=0; i<document.getElementsByName('none').length; i++) {
+		document.getElementsByName('none')[i].style.display="none";
+	}
+	document.getElementById('but').style.display="block";
+}
 </script>

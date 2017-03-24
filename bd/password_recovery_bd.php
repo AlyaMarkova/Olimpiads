@@ -66,7 +66,16 @@
 
 			$new_password_sh =    strrev(md5($new_password))."b3p6f";//зашифровали 
 			$new_password55=md5($new_password);
-			mysql_query("UPDATE users SET    pass='$new_password55' WHERE login='$login'");// обновили в базе 
+			
+			$allowed = array("pass");
+			$_POST['pass'] = MD5($_POST['login'].$_POST['password']);
+			$sql = "UPDATE users SET ".pdoSet($allowed,$values)." WHERE login = :login";
+			$stm = $pdo->prepare($sql);
+			$values["pass"] = $new_password55;
+			$values["login"] = $login;
+			$stm->execute($values);
+
+			//mysql_query("UPDATE users SET pass='$new_password55' WHERE login='$login'");// обновили в базе 
 
 			//формируем сообщение
 
@@ -89,5 +98,18 @@
 		</script>
 		<?
 		exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
+	}
+	
+	function pdoSet($allowed, &$values, $source = array()) {
+	  $set = '';
+	  $values = array();
+	  if (!$source) $source = &$_POST;
+	  foreach ($allowed as $field) {
+		if (isset($source[$field])) {
+		  $set.="`".str_replace("`","``",$field)."`". "=:$field, ";
+		  $values[$field] = $source[$field];
+		}
+	  }
+	  return substr($set, 0, -2); 
 	}
 ?>

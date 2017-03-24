@@ -35,6 +35,7 @@
 		$array_classes[$i]=$myrow['classes'];
 		$array_terms[$i]=$myrow['terms'];
 		$array_date[$i]=$qq ."!";
+		$array_type[$i]=$myrow['IsChild'];
 		$id_org[$i]=$myrow['professor_users_id'];
 		if(!empty($id_user_session)){
 			$result2 = mysql_query("SELECT * FROM schoolboy_olympics WHERE schoolboy_users_id='$id_user_session' AND olympics_id='$array_id[$i]'");
@@ -59,7 +60,8 @@
 		'array_subject'=>$array_subject,
 		'array_classes'=>$array_classes,
 		'array_terms'=>$array_terms,
-		'array_date'=>$array_date,			
+		'array_date'=>$array_date,	
+		'array_type'=>$array_type,
 		'status_display'=>$status_display,	
 		'class_schollboy'=>$myrow2['class'],
 		);

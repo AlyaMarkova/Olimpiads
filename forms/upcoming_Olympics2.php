@@ -129,7 +129,7 @@
 						if((count_record==1)&&(array_id[0]=="")){
 							array_id.length=0;						}
 							for(var i=0;i<array_id.length;i++){
-								create_div_olimpics(i,html.array_id[i],html.array_name_olympiad[i],html.array_subject[i],html.array_classes[i],html.array_terms[i],html.array_date[i],html.id_org[i],html.status_display[i]);
+								create_div_olimpics(i,html.array_id[i],html.array_type[i],html.array_name_olympiad[i],html.array_subject[i],html.array_classes[i],html.array_terms[i],html.array_date[i],html.id_org[i],html.status_display[i]);
 								
 								if($('#'+i)[0]){
 
@@ -163,6 +163,10 @@
 		
 								}
 								if((rights_user==1)&&(classes(html.array_classes[i],html.class_schollboy)==false)){
+									document.getElementById(html.array_id[i]+'btn_zayvka2').disabled=true;
+									document.getElementById(html.array_id[i]+'btn_zayvka').disabled=true;
+								}
+								if (html.array_type[i]>0) {
 									document.getElementById(html.array_id[i]+'btn_zayvka2').disabled=true;
 									document.getElementById(html.array_id[i]+'btn_zayvka').disabled=true;
 								}
@@ -315,9 +319,9 @@
 					//document.getElementById('tax_request3').click();
 					var div_name=document.getElementById(get_id+'btn_zayvka2').name;
 					document.getElementById(div_name).style.background="#53c84b";
-					setTimeout(function(){						
+					/*setTimeout(function(){						
 						document.getElementById('cancel_id').click();
-					},3000);
+					},3000);*/
 				}
 				else{
 					var div_name=document.getElementById(get_id+'btn_zayvka2').name;
@@ -336,12 +340,12 @@
 	
 	
 	function action_olimpiad(id){
-		var str=id;
+		/*var str=id;
 		var from = str.search('name'); 
 		var to = str.length;
-		var newstr = str.substring(0,from);
+		var newstr = str.substring(0,from);*/
 		//alert(newstr);			
-		document.location.href='../olimpiada.php?'+'id='+newstr;			
+		document.location.href='../olimpiada.php?'+'id='+id;			
 		
 		
 		
@@ -376,7 +380,7 @@
 	function list_user(id){		
 		document.location.href='../list_user.php?'+'id='+id;			
 	}
-	function  create_div_olimpics(i,id, name, subject, classes, terms, date,id_org,status){
+	function  create_div_olimpics(i,id, type, name, subject, classes, terms, date,id_org,status){
 			var div_elem = document.createElement('div');
 			div_elem.id=i;
 			
@@ -459,7 +463,11 @@
 				label_name.style.fontSize = "15pt";
 				label_name.style.padding = "0 0 0 55px";
 			label_name.innerHTML = name;
-			label_name.onclick= function(){action_olimpiad(label_name.id);};
+			
+			if (type>0) {label_name.onclick= function(){action_olimpiad(type);};}
+			else {label_name.onclick= function(){action_olimpiad(id);};}
+			
+			//label_name.onclick= function(){action_olimpiad(label_name.id);};
 			div_elem.appendChild(label_name);
 			
 			var btn_edit= document.createElement('input');		

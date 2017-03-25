@@ -97,6 +97,10 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 
 </div>
 
+<div id="next_st" style="display:none">
+<p><label id="nextStage">Итоговый балл для перехода на следующий этап: </label><input id="range_stage" type="number" min="0" value="<?php echo $myrow2['rangeStage']?>"></p>
+</div>
+
 <div style="margin-top:30px;" class="button_all">
 	<input id="save_btn" type="button" class="knopka_retain" onclick="save_rezult()" value="Сохранить">
 	<input id="cancel_btn" type="button" onclick="cancel()" class="knopka_cansel" value="Отменить">
@@ -104,10 +108,16 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 <script src="js/filterTable.v1.0.min.js"></script>
 <script>
 	var get_id=<?php echo $_GET['id'];?>;
-	//alert(get_id);
+	
+	var next_exists = "<?php echo $myrow2['nextStage']?>";
+	if (next_exists != '0'){
+		document.getElementById('next_st').style.display="block";
+	}
+	
 	var arr_id_user = []; //массив ид участников?
 	var arr_place = []; //массив дипломов
 	var arr_rating = []; //массив баллов итоговых
+	
 	var par2={	
 		"id": get_id,
 		"action": "id_schoolboy",
@@ -270,6 +280,7 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 			"arr_place": arr_place,
 			"arr_rating": arr_rating,
 			"get_id": get_id,
+			"range_stage": document.getElementById('range_stage').value, //балл для перехда на сл этап
 		}	
 		$.ajax({
 			type: "POST",
@@ -280,5 +291,11 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 			}
 		});	
 		document.location.href="../arhiv.php";
+	}
+	
+	document.getElementById('range_stage').onkeypress=function(event){
+	event = event || window.event;
+	if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+		return false;
 	}
 </script>

@@ -5,64 +5,66 @@
 session_start();
  require_once 'bd.php';   
 	$idS = $_SESSION['id'];
-	$res = mysql_query('SELECT id, date as date1, name_olympiad, subject, professor_users_id FROM olympics WHERE Olympiad_status = 1 order by date desc');	
+	$res = mysql_query('SELECT id, date as date1, name_olympiad, subject, professor_users_id, nextStage, IsChild FROM olympics WHERE Olympiad_status = 1 order by date desc');
+	
 	$result = mysql_query("SELECT rights FROM users WHERE id = '$idS'");
 	$ro=mysql_fetch_array($result);
 	$i=0;
 	while($row=mysql_fetch_array($res))
-		
 	{	
 		$row1[$i] = explode("!", $row[date1]);
 		$row1[$i] = mb_strimwidth($row1[$i][0],0,10);
 		$row1[$i] = explode("-", $row1[$i]);
 		switch ($row1[$i][1]) {
-    case 01:
-        $row1[$i][1] = "янв";
-        break;
-    case 02:
-        $row1[$i][1] = "фев";
-        break;
-    case 03:
-        $row1[$i][1] = "мар";
-        break;
-	case 04:
-        $row1[$i][1] = "апр";
-        break;
-	case 05:
-        $row1[$i][1] = "май";
-        break;
-	case 06:
-        $row1[$i][1] = "июн";
-        break;
-	case 07:
-        $row1[$i][1] = "июл";
-        break;
-	case 08:
-        $row1[$i][1] = "авг";
-        break;
-	case 09:
-        $row1[$i][1] = "сен";
-        break;
-	case 10:
-        $row1[$i][1] = "окт";
-        break;
-	case 11:
-        $row1[$i][1] = "ноя";
-        break;
-	case 12:
-        $row1[$i][1] = "дек";
-        break;
-	}
-	$row1[$i] = $row1[$i][2]." ".$row1[$i][1]." ".$row1[$i][0];
-	$row2[$i] = explode("!", $row[subject]);
-	//echo $row2[$i][2];
-	$row2[$i] = $row2[$i][0]." ".$row2[$i][1]." ".$row2[$i][2]." ".$row2[$i][3];
-	
-	$row3[$i] = mb_strimwidth($row[name_olympiad], 0, 99, "...");
-	
-	
-	
-	$row4[$i]= array('date1'=>$row1[$i], 'name_olympiad'=>$row3[$i], 'subject'=>$row2[$i], 'professor_users_id'=>$row[professor_users_id], 'id'=>$row[id], 'rights'=>$ro[rights]); 
+		case 01:
+			$row1[$i][1] = "янв";
+			break;
+		case 02:
+			$row1[$i][1] = "фев";
+			break;
+		case 03:
+			$row1[$i][1] = "мар";
+			break;
+		case 04:
+			$row1[$i][1] = "апр";
+			break;
+		case 05:
+			$row1[$i][1] = "май";
+			break;
+		case 06:
+			$row1[$i][1] = "июн";
+			break;
+		case 07:
+			$row1[$i][1] = "июл";
+			break;
+		case 08:
+			$row1[$i][1] = "авг";
+			break;
+		case 09:
+			$row1[$i][1] = "сен";
+			break;
+		case 10:
+			$row1[$i][1] = "окт";
+			break;
+		case 11:
+			$row1[$i][1] = "ноя";
+			break;
+		case 12:
+			$row1[$i][1] = "дек";
+			break;
+		}
+		$row1[$i] = $row1[$i][2]." ".$row1[$i][1]." ".$row1[$i][0];
+		$row2[$i] = explode("!", $row[subject]);
+		//echo $row2[$i][2];
+		$row2[$i] = $row2[$i][0]." ".$row2[$i][1]." ".$row2[$i][2]." ".$row2[$i][3];
+		
+		$name_ol = $row['name_olympiad'];
+		if ($row['IsChild']==0 && $row['nextStage'] != '0')
+			$name_ol = $row['name_olympiad']." - 1 этап";
+		
+		$row3[$i] = mb_strimwidth($name_ol, 0, 99, "...");
+		
+		$row4[$i]= array('date1'=>$row1[$i], 'name_olympiad'=>$row3[$i], 'subject'=>$row2[$i], 'professor_users_id'=>$row[professor_users_id], 'id'=>$row[id], 'rights'=>$ro[rights]); 
 		$i=$i+1;
 	}
 	//echo '<pre>' . print_r($row4, true) . '</pre>';
@@ -75,7 +77,7 @@ session_start();
 		<td class="table_arhiv_date">Дата</td>
         <td class="table_arhiv_na">Название </td>
 		
-		<td class="table_arhiv_na_search"><input id="regexp1" placeholder="Поиск по названию"></td>
+		<td class="table_arhiv_na_search"><input id="regexp1" style = "width:300px;"  placeholder="Поиск по названию"></td>
 		
         <td class="table_arhiv_subj" >	
             <select  id="digits11">

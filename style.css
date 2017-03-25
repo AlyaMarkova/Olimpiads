@@ -1,7 +1,16 @@
 ::-webkit-input-required {margin-left: 200px;}
 	
-
-
+ input, h1,label,option, td, a,p,select {
+    font-family: 'PFRegal','Georgia',serif, Roboto, Arial, sans-serif;
+   }
+#etap{
+	margin-top:3px;
+}
+#tab_dat{
+    width: 66px;
+}
+#tab_loc{
+}
 #Number_tr{
 	border: 1px solid #0A3C57; 
 	border-collapse: collapse; 
@@ -57,7 +66,28 @@
 	float: right;
 	margin: 0 0 10px 0;
 }
-
+label#date_olympiad{
+display: inline-table;
+margin-bottom: 7px;
+}
+input.submitComment {
+    display: inline-block;
+    color: white;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-radius: 3px;
+    border-color: #0067b1;
+    background: #0067b1;
+    transition: 0.2s;
+}
+div#textComment_toolbargroup {
+    background: #91CEF1;
+}
+td.mceStatusbar.mceFirst.mceLast {
+    background: #91CEF1;
+}
 .fon_table{
 	
 	 background:#E4F3FC;
@@ -114,25 +144,27 @@ body {
 	padding: 0 10px 0 150px;
 	border-radius: 0 4px 4px 0;	 
 }
-#classes_olympiad,#date_olympiad{
+#opisanie,#date_olympiad, #location_olympiad{
 	color:#0A3C57;
-	
-	
 }
-#classes_olympiad{
-	margin-left: 8px;
+#opisanie{
+    margin-top: -37px;
+    margin-left: 220px;
+    display: -webkit-box;
+    width: 532px;
 }
-#date_olympiad{
-	display: inline-block;
-	margin-top: -8px;
-
-}
-#classes_olympiad, #subject_olympiad, #location_olympiad, #date_olympiad{
+#opisanie, #subject_olympiad, #location_olympiad, #date_olympiad, #nextStage{
 	color:#0A3C57;
 	font-size: 14pt;
-	
 }
-
+#date_olympiad, #location_olympiad {
+	display: inline-table;
+	margin-top: -8px;
+	margin-bottom: 5px;
+}
+#nextStage{
+	margin-left: 75px;
+}
 
 #Olympiad_description_elements2{
 	padding-top: -20px;
@@ -197,11 +229,12 @@ body {
 }
 #name_olympiad{
 	
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 50px;
-	color: #0A3C57;
-	border-bottom:3px solid #0A3C57;
-	font-size: 17pt;
+    text-align: left;
+    padding: 10px 0 0 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+    /*margin: 0 0 28px 0;*/
+    color: #ffffff;
 
 }
 
@@ -236,7 +269,7 @@ body {
    }
 .td1{ 
     color: white;
-    font-size: 11pt;
+    font-size: 10pt;
     width: 185px;
     height: 18px;
     text-align: left;
@@ -269,6 +302,7 @@ body {
 
 #white {
     color: white;
+	font-size:12.3px
 }
 
 #white2 {
@@ -358,7 +392,14 @@ body {
 	border: 1px solid #0A3D58;
 	background-repeat: no-repeat;	
 }
-
+.do{
+	padding-left: 12px; 
+}
+#label{
+    background: #0066b3;
+    margin-top: -19px;
+	margin-bottom: 27px
+}
 #organizer{
    height:16px;
    width: 100px;
@@ -440,7 +481,7 @@ body {
 #right_cont{
 	margin-top: 28px;
     width: 377.633px;
-	height: 500px;
+	min-height: 500px;
 	background: #91CEF1;
 	float: right;
 }
@@ -508,14 +549,23 @@ body {
 .main-menu > li {
     position: relative;
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
 }
+
 .main-menu a {
     color: #0A3C57;
-	font-size: 16pt;
+	font-size: 14pt;
 	font-weight: 700;
 	text-decoration: none;
 }
+
+.main-menu h1 {
+    color: #0A3C57;
+	font-size: 14pt;
+	font-weight: 700;
+	text-decoration: none;
+}
+
 .main-menu .sub-menu {
     position: absolute;
 	display: none;
@@ -579,8 +629,9 @@ text-align: center;
 border-right: 1px solid #0A3C57;
 
 } 
-#table_reiting_td1{
+.table_rating_num{
 	border-right: 1px solid #0A3C57;
+	text-align: center;
 }
 
 #besttd{ 
@@ -675,6 +726,17 @@ margin: 20px auto;
 .besttd:nth-child(2n){
 	background:#E4F3FC;
 }
+
+.winners{
+	background:rgba(86, 200, 220, 0.51);
+	/*border-bottom: 1px solid #0A3C57; */
+}
+.loosers{
+	background:#E4F3FC;
+	/*border-bottom-color: #0A3C57;*/
+}
+
+
 #best_a{
 	background:#0066b3;
 }
@@ -688,7 +750,7 @@ margin: 20px auto;
 #time_line{
 	height: 35px;    
 	margin-top: -18px;
-    margin-bottom: 28px;
+    margin-bottom: 5px;
 	background:#0066b3;
 	padding: 7px 0 0 15px;
 	Color: white;

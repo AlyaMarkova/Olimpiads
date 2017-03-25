@@ -4,7 +4,7 @@
 	$action=$data->action;
 	$id_olympiad=$data->id;	
 	if($action=="id_schoolboy"){			
-		$result = mysql_query("SELECT * FROM schoolboy_past_olympics WHERE olympics_id='$id_olympiad'");
+		$result = mysql_query("SELECT * FROM schoolboy_past_olympics WHERE olympics_id='$id_olympiad' ORDER BY rating_mark DESC");
 		$n=mysql_num_rows($result);
 		$array_id_schoolboy= array($n);
 		$array_place = array($n);
@@ -34,8 +34,11 @@
 		}
 		$result3 = mysql_query("SELECT * FROM olympics WHERE id='$id_olympiad'");
 		$myrow3=mysql_fetch_array($result3);
+		$name_ol = $myrow3['name_olympiad'];
+		if ($myrow3['IsChild']==0 && $myrow3['nextStage'] != '0')
+			$name_ol = $myrow3['name_olympiad']." - 1 этап";
 		$jsonn=array(	
-			'name_olymp_rezult'=>$myrow3['name_olympiad'],
+			'name_olymp_rezult'=>$name_ol,
 			'place'=>$array_place,
 			'schoolboy_users_id'=>$array_id_schoolboy,
 			'array_school'=>$array_school,

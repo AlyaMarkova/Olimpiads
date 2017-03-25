@@ -14,15 +14,15 @@ session_start();
 		<div class="lk_schoolboy_blok">
 		<div id="admin1">
 			<label id="lk_schoolboy">Фамилия</label>
-			<input required name="surname" id="surname" type="text" >
+			<input required name="surname" id="surname" style="width: 300px;" type="text" >
 		</div>
 		<div id="admin2">
 			<label id="lk_schoolboy">Имя</label>
-			<input required name="forename" id="forename" type="text" >
+			<input required name="forename" id="forename" style="width: 300px;" type="text" >
 		</div> 
 		<div id="admin3">
 			<label id="lk_schoolboy">Отчество</label>
-			<input required name="patronymic" id="patronymic" type="text" >
+			<input required name="patronymic" id="patronymic" style="width: 300px;" type="text" >
 		</div> 	  
 		</div> 	
 		<div class="lk_schoolboy_blok">		
@@ -40,7 +40,7 @@ session_start();
 		</div>
 		<div id="professor1">
 			<label id="lk_schoolboy">Школа</label>
-			<input  name="school" id="school" type="text" >
+			<input  name="school" id="school" style="width: 300px;" type="text" >
 		</div>
 		<div id="professor2">
 			<label id="lk_schoolboy">Класс</label>		
@@ -63,7 +63,7 @@ session_start();
 		<div class="lk_schoolboy_blok">
 		<div>
 			<label id="lk_schoolboy">Логин</label>
-			<input title="Вы не можете изменить логин"id="login" readonly="true" name="login" type="text" >
+			<input title="Вы не можете изменить логин"id="login" style="width: 300px;" readonly="true" name="login" type="text" >
 		</div>
 	
 
@@ -87,15 +87,15 @@ element.replaceWith(element.clone().attr('type',(element.attr('type') == 'passwo
 		<div class="lk_schoolboy_blok">
 		<div id="professor3">
 			<label id="lk_schoolboy">Место жительства</label>
-			<input id="location" name="location" type="text" >
+			<input id="location" name="location" style="width: 300px;" type="text" >
 		</div>	
 		<div id="admin4">
 			<label id="lk_schoolboy">Мобильный телефон</label>
-			<input id="mob_number" name="mob_number" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" />
+			<input id="mob_number" name="mob_number" style="width: 300px;" type="text" pattern="[0-9]{0}|[0-9]{5,11}" oninvalid="this.setCustomValidity('Введите корректный номер (5-11 цифр)')" oninput="setCustomValidity('')" />
 		</div>
 		<div id="admin5">
 			<label id="lk_schoolboy">Адрес эл. почты</label>
-			<input required id="email" name="email" type="email" >
+			<input required id="email" name="email" style="width: 300px;" type="email" >
 		</div>
 		</div>
 		<p id="professor4">
@@ -182,7 +182,7 @@ window.onload = function () {
 		var rights ='<?php echo $_SESSION['rights'];?>';
 		var par2={	
 				'rights':<?php echo $_SESSION['rights'];?>,
-				'id':<?php echo $_SESSION['id'];?>,				
+				'id':<?php echo $_SESSION['id'];?>			
 				}				
 		$.ajax({
 				type: "POST",

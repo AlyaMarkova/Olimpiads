@@ -25,10 +25,10 @@
 	</head>
 	<body>	
 		<?php include ("header.php");?>
-	<div id="main">
+	<div id=main">	
 		<div id="inside_main">
 			<div id="name">
-				<p id="name_p">Олимпиады</p>
+				<p id="name_p">Олимпиада</p>
 			</div>
 			
 			<div id="right_cont">
@@ -45,9 +45,8 @@
 				<div id="content">
 					<?php
 
-						 include ("forms/Olympiad.php");
-			 
-				$comments->outComments(); 
+						include ("forms/Olympiad.php");
+						$comments->outComments(); 
 					?>
 				</div>
 			

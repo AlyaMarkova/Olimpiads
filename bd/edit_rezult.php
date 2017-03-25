@@ -6,6 +6,31 @@
 	$arr_place = $data -> arr_place;
 	$arr_rating = $data -> arr_rating;
 	$get_id = $data -> get_id;
+	
+	$range_stage = $data -> range_stage;
+	mysql_query ("UPDATE olympics SET rangeStage='$range_stage' WHERE id='$get_id'");
+	
+	if ($range_stage != NULL) { //если есть проходной балл на сл этап (а значит, есть и сл этапы)
+		$row_olimp = mysql_fetch_array(mysql_query("SELECT nextStage, IsChild FROM olympics WHERE id='$get_id'"));
+		if ($row_olimp['IsChild'] == 0) { //если это был первый этап
+			$id_stages = explode("!", $row_olimp['nextStage']); //расчленяем строку сл этапов
+			$id_next = $id_stages[0]; // получаем сл этап
+		} else $id_next = $row_olimp['nextStage']; // если это был не 1 этап, тогда просто берём значение поля nextStage
+		
+		for($i=0;$i<count($arr_id_user);$i++){
+			$res = mysql_query("SELECT * FROM schoolboy_olympics WHERE olympics_id='$id_next' AND schoolboy_users_id='$arr_id_user[$i]'");
+			$n=mysql_num_rows($res); //записан ли ученик на сл этап
+			if ($arr_rating[$i] >= $range_stage){ // если он проходит порог
+				if ($n == 0) // если записей с ним ещё нет, тогда создаём запись
+					mysql_query("INSERT INTO schoolboy_olympics (olympics_id, schoolboy_users_id) VALUES ('$id_next','$arr_id_user[$i]')");
+			} else { // если он не проходит порог
+				if ($n != 0) // но запись с ним есть, тогда удаляем запись
+					mysql_query("DELETE FROM schoolboy_olympics WHERE olympics_id='$id_next' AND schoolboy_users_id='$arr_id_user[$i]'");
+			}
+		}
+	}
+	
+	
 	$array_new_result = array(count($arr_id_user)); //массив по числу участников, куда будут заноситься новые итоги олимпиады????
 	
 	for($i=0;$i<count($arr_id_user);$i++){

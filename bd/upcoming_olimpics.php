@@ -3,7 +3,7 @@
 	$data = json_decode($_POST['jsonData']);
 	$id_user_session=$data->id_user_session;
 	$action=$data->action;
-	$result = mysql_query("SELECT * FROM olympics WHERE Olympiad_status=0");
+	$result = mysql_query("SELECT * FROM olympics WHERE process='in process'");
 	$n=mysql_num_rows($result);
 	$array_id = array($n);
 	$array_name_olympiad = array($n);
@@ -22,7 +22,16 @@
 		$array_subject[$i]=$myrow['subject'];
 		$array_classes[$i]=$myrow['classes'];
 		$array_terms[$i]=$myrow['terms'];
-		$array_date[$i]=$myrow['date'];
+		
+		$dates = $myrow['date'];
+		if ($myrow['nextStage'] != '0') {
+			$id_stages = explode("!", $myrow['nextStage']);
+			for ($j=0; $j<count($id_stages); $j++) {
+				$row_date = mysql_fetch_array(mysql_query("SELECT date FROM olympics WHERE id='$id_stages[$j]'"));
+				$dates .= $row_date['date'];
+			}
+		}
+		$array_date[$i]=$dates;
 		$id_org[$i]=$myrow['professor_users_id'];
 		if(!empty($id_user_session)){
 			$result2 = mysql_query("SELECT * FROM schoolboy_olympics WHERE schoolboy_users_id='$id_user_session' AND olympics_id='$array_id[$i]'");

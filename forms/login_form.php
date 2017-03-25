@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>-->
 
 <div id="registr_form1">
 	<form action="bd/testreg.php" method="post">

@@ -8,11 +8,14 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/modal_window.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/button.css" media="screen" />
-		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
+		<link href="dist/css/select2.min.css" rel="stylesheet" />
+		<script src="dist/js/select2.min.js"></script>
 	</head>
 	<body>	
 		<?php include ("header.php");?>
 	<div id="main">
+	
 		<div id="inside_main">
 			<div id="name">		
 				<p id="name_p">Регистрация пользователя</p>

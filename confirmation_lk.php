@@ -12,7 +12,7 @@ session_start();
 	<body>	
 		<?php include ("header.php");?>
 
-		<div id="main">
+	<div id="main">
 		<div id="inside_main">
 			<div id="name">		
 				<p id="name_p">Подтверждение пользователя</p>

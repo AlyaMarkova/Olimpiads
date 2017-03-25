@@ -98,22 +98,60 @@ if($number_date==0){
 	$number_date=1;
 }
 
-if ($kol == 1) {
+if($number_date==1) { //всего один этап
+//этот один этап
 $date_time = '';
 $stages = '';
 $location_olimp = '';
 $st_parent = '';
-	//формируем дату, время и место первого этапа
+
+//формируем дату, время и место первого этапа
 $time = $_POST["tm1"];
 $time1 = $_POST["1tm1"];
 $time2 = $_POST["2tm1"];
 $time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 $date_time = $_POST["year1"]."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT)." ".$time3."!";
 $location_olimp = $_POST["place1"];
-} else
+//mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')WHERE id='$id_o'");
+} 
+
+else { //БОЛЬШЕ одного этапа
+
+	
+if($kol==$number_date){ //если колво старых этапов и новых СОВПАДАЕТ
+//первый этап	
+mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp') WHERE id='$id_o'");
+//$id=$id_o;//айди этой олимпиады, тк этапы не добавляются ставляем $id_o=$_GET['id'];
+	//формируем все последующие этапы в цикле
+	for($i=2; $i<=$number_date; $i++){
+		$time = $_POST["tm".$i];
+		$time1 = $_POST["1tm".$i];
+		$time2 = $_POST["2tm".$i];
+		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
+		$date_time = $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
+		$location_olimp = $_POST["place".$i];
+		$isChild = $parent_id;
+		$proc = "stage";
+		$name_st = $name_olimp." - ".$i." этап";
+}
+
+}
+
+if($kol<$number_date){ //этапов стало БОЛЬШЕ
+$id=mysql_insert_id(); //сохраняем ид родителя 
+$parent_id = $id;
+mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
+
+
+}
+
+if($kol>$number_date){ //этапов стало МЕНЬШЕ
 
 
 
+}
+
+}
 
 /*for($i=1; $i<=$number_date; $i++){	
 	$time = $_POST["tm".$i];

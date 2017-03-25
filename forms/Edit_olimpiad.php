@@ -4,8 +4,8 @@ include ("js/select_subject.js");
 ?>
 
 <script>
-	function validate_form (form){
-		return twodates()&& manydates();
+		function validate_form (form){
+		return twodates() && manydates() && datesPlaces();
 	}
 	
 	function manydates(){
@@ -26,12 +26,22 @@ include ("js/select_subject.js");
 	function twodates(){
 		var date0 = new Date(document.getElementById("year0").value, document.getElementById("month0").value-1, document.getElementById("day0").value); //дата окончания срока подачи заявок
 		var date1 = new Date(document.getElementById("year1").value, document.getElementById("month1").value-1, document.getElementById("day1").value); //дата первого этапа
-        if (date0 < date1)
+        if (date0 < date1){
             return true;
+        }
 		else {
 			alert("Срок подачи заявки указан неверно!");
             return false;
 		}
+	}
+	
+	function datesPlaces() {
+		var n_dates = document.getElementById("number_date").value;
+		var n_places = document.getElementById("number_place").value;
+		if (n_dates != n_places) {
+			alert("Количество дат не совпадает с количеством мест проведения этапов олимпиады!");
+			return false;
+		} else return true;
 	}
 </script>
 

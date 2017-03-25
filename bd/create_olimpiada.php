@@ -94,7 +94,7 @@ if ($number_date == 1) { //если этап всего один, то доба�
 		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 		$date_time = $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
 		$location_olimp = $_POST["place".$i];
-		$isChild = 1;
+		$isChild = $parent_id;
 		$proc = "stage";
 		$name_st = $name_olimp." - ".$i." этап";
 		

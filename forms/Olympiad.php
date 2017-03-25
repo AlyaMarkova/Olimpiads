@@ -285,6 +285,8 @@
 
 						 document.getElementById('tax_request2').style.pointerEvents = "none";
 						 document.getElementById('tax_request').style.pointerEvents = "none";
+						 document.getElementById('tax_request2').style.opacity = 0.5;
+						 document.getElementById('tax_request').style.opacity = 0.5;
 						 
 					}	
 					var now3 = new Date();								

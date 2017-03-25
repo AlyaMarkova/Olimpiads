@@ -134,10 +134,10 @@
 								if($('#'+i)[0]){
 
 
-								
+								var non_confirmed = <?php if ($_SESSION['activation']){echo $_SESSION['activation'];}else{echo -2;}?>;
 								var rights_user=<?php if (empty($_SESSION['id'])){echo 0;}else{echo $_SESSION['rights'];}?>;
 								var prof_user=<?php if (!empty($_SESSION['id'])){echo $_SESSION['id'];}else{ echo -1;}?>;
-								if(rights_user==0){
+								if(rights_user==0 || non_confirmed == -2){
 									document.getElementById(i+'btn_edit').style.display="none";
 									document.getElementById(i+'btn_delete').style.display="none";
 									document.getElementById(html.array_id[i]+'btn_zayvka2').style.display="none";
@@ -169,6 +169,8 @@
 								if (html.array_type[i]>0) {
 									document.getElementById(html.array_id[i]+'btn_zayvka2').disabled=true;
 									document.getElementById(html.array_id[i]+'btn_zayvka').disabled=true;
+									document.getElementById(i+'btn_edit').style.display="none";
+									document.getElementById(i+'btn_delete').style.display="none";
 								}
 								
 								}

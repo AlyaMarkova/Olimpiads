@@ -11,9 +11,20 @@ $id_o=$_GET['id'];
 //$result2 = mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'"); 
 //$result = mysql_query("SELECT email FROM schoolboy where delivery=1"); //адреса тех, кто подписан на рассылку
 //$result = mysql_query("SELECT email FROM schoolboy"); //просто все адреса
+$result=mysql_query("SELECT name_olympiad, nextStage FROM olympics WHERE id='$id_o'");//получаем имя редактируемой олимпиады 
 
-$row_name = mysql_fetch_array(mysql_query("SELECT name_olympiad FROM olympics WHERE id='$id_o'")); //получаем имя редактируемой олимпиады 
+while ($row = mysql_fetch_array($result)) {
+	$row_name = $row['name_olympiad'];
+	$stage=$row['nextStage'];
+	$kol=0;
+	if ($stage!=0){
+		$nextStage=explode("!", $stage);
+		$kol=$nextStage.length;
+	}
+	$kol++;//количество было
+}
 
+$result = mysql_query("SELECT schoolboy_users_id FROM schoolboy_olympics WHERE olympics_id='$id_o'"); //получаем ид участников этой олимпиады
 $result = mysql_query("SELECT schoolboy_users_id FROM schoolboy_olympics WHERE olympics_id='$id_o'"); //получаем ид участников этой олимпиады
 
 while ($row = mysql_fetch_array($result)) {
@@ -87,16 +98,31 @@ if($number_date==0){
 	$number_date=1;
 }
 
+if ($kol == 1) {
 $date_time = '';
+$stages = '';
+$location_olimp = '';
+$st_parent = '';
+	//формируем дату, время и место первого этапа
+$time = $_POST["tm1"];
+$time1 = $_POST["1tm1"];
+$time2 = $_POST["2tm1"];
+$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
+$date_time = $_POST["year1"]."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT)." ".$time3."!";
+$location_olimp = $_POST["place1"];
+} else
 
-for($i=1; $i<=$number_date; $i++){	
+
+
+
+/*for($i=1; $i<=$number_date; $i++){	
 	$time = $_POST["tm".$i];
 	$time1 = $_POST["1tm".$i];
 	$time2 = $_POST["2tm".$i];
 	$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 	
 	$date_time .= $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
-}
+}*/
 mysql_query("UPDATE olympics SET name_olympiad='$name_olimp',date='$date_time',location='$location_olimp',classes='$class_string',terms='$date_application',description='$description_olimp',subject='$subject',professor_users_id='$Org_olimp' WHERE id='$id_o'");
 exit("<html><head><meta http-equiv='Refresh' content='0; URL=../index.php'></head></html>");
 ?>

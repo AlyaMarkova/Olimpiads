@@ -98,7 +98,7 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 </div>
 
 <div id="next_st" style="display:none">
-<p><label id="nextStage">Итоговый балл для перехода на следующий этап: </label><input id="range_stage" type="number" value="<?php echo $myrow2['rangeStage']?>"></p>
+<p><label id="nextStage">Итоговый балл для перехода на следующий этап: </label><input id="range_stage" type="number" min="0" value="<?php echo $myrow2['rangeStage']?>"></p>
 </div>
 
 <div style="margin-top:30px;" class="button_all">
@@ -291,5 +291,11 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 			}
 		});	
 		document.location.href="../arhiv.php";
+	}
+	
+	document.getElementById('range_stage').onkeypress=function(event){
+	event = event || window.event;
+	if (event.charCode && (event.charCode < 48 || event.charCode > 57))
+		return false;
 	}
 </script>

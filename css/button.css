@@ -1,4 +1,4 @@
-.knopka_retain{            /*кнопка сохранения*/
+x.knopka_retain{            /*кнопка сохранения*/
 	display: inline-block;
   color: white;
   width:160px;
@@ -327,7 +327,7 @@ label#school_lk{
 
     margin-top: -37px;
     margin-left: 214px;
-    display: -webkit-box;
+    display: inline-table;
     width: 532px;
 }
 .lk_schoolboy{   /*блоки вокруг текста*/

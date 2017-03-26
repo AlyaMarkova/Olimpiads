@@ -484,8 +484,11 @@ body {
 #right_cont{
 	margin-top: 28px;
     width: 377.633px;
+<<<<<<< HEAD
 	height: 582px;
+=======
 	min-height: 500px;
+>>>>>>> origin/master
 	background: #91CEF1;
 	float: right;
 }

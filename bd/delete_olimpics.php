@@ -14,7 +14,6 @@ if ($myrow2['nextStage'] != '0') {
 	for ($i=0; $i<count($id_stages); $i++) {
 		mysql_query("DELETE FROM olympics WHERE id='$id_stages[$i]'");
 		mysql_query("DELETE FROM schoolboy_olympics WHERE olympics_id='$id_stages[$i]'");
-		mysql_query("DELETE FROM schoolboy_past_olympics WHERE olympics_id='$id_stages[$i]'");
 	}
 }	 
 
@@ -34,6 +33,5 @@ while ($row3 = mysql_fetch_assoc($result3)) {
 	mail($row['email'], $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");					
 }
 mysql_query("DELETE FROM olympics WHERE  id='$id'");
-mysql_query("DELETE FROM schoolboy_olympics WHERE  olympics_id='$id'");
-mysql_query("DELETE FROM schoolboy_past_olympics WHERE olympics_id='$id'");	
+mysql_query("DELETE FROM schoolboy_olympics WHERE  olympics_id='$id'");	
 ?>

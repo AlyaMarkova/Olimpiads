@@ -40,15 +40,6 @@ include ("js/select_subject.js");
 		<label id="lk_schoolboy" >Название олимпиады</label>
 		<input id="name_olimp" class="create_text" name="name_olimp" required type="text" >
 	</p>
-	
-	<div>			
-		<label class="lk_schoolboy">Тип олимпиады</label>		
-		<SELECT class="status_olimp" id="select_status" onchange = "change()" value="2" name="select_status" size="1">
-		   <option value="2">Одноэтапная</option>
-		   <option value="1">Многоэтапная</option>			
-		</SELECT>
-	</div>
-	
 	<div>
 		<div id="div_p_date_olimp">
 			<label id="lk_schoolboy" >Дата проведения</label>		
@@ -61,12 +52,10 @@ include ("js/select_subject.js");
 			<label id="lk_schoolboy">Место проведения</label>
 			<input id="location_olimp" class="create_text" name="location_olimp" required type="text" >
 		</div>
-		
 		<div id="org_block">
 			<label id="lk_schoolboy">Организатор</label>
 			<input id="Org_olimp" name="Org_olimp" type="text" >
 		</div>
-		
 		<div>
 			<label id="lk_schoolboy">Срок подачи заявки</label>
 			<label class="do" >до</label>
@@ -88,8 +77,8 @@ include ("js/select_subject.js");
 			<input type="checkbox" onclick="status_chek()" name="class_olimp7" id="class_olimp7"  value="ON"> <label>7</label>
 			<input type="checkbox" onclick="status_chek()" name="class_olimp8" id="class_olimp8"  value="ON"> <label>8</label>
 			<input type="checkbox" onclick="status_chek()" name="class_olimp9" id="class_olimp9"  value="ON"> <label>9</label>
-			<input type="checkbox" onclick="status_chek()" name="class_olimp10" id="class_olimp10" value="ON"> <label>10</label>
-			<input type="checkbox" onclick="status_chek()" name="class_olimp11" id="class_olimp11" value="ON"> <label>11</label>
+			<input type="checkbox" onclick="status_chek()" name="class_olimp10" id="class_olimp10"  value="ON"> <label>10</label>
+			<input type="checkbox" onclick="status_chek()" name="class_olimp11" id="class_olimp11"    value="ON"> <label>11</label>
 		</div>
 		<div>
 			<label id="lk_schoolboy">Предмет</label>		
@@ -123,11 +112,9 @@ include ("js/select_subject.js");
 </html>
 
 <script>
-
 	function location_cancel(){		
 		document.location.href="../index.php";
 	}
-	
 	document.getElementById('form').action='bd/edit_olimpiada.php?'+'id='+<?echo $_GET['id'];?>;	
 	var stroka="";
 	var par2={		
@@ -139,15 +126,9 @@ include ("js/select_subject.js");
 		data: 'jsonData=' + JSON.stringify(par2),  
 		success: function(html){
 			html=JSON.parse(html);
-			document.getElementById('name_olimp').value=html.name_olympiad; 	<!-- получаем имя олмпиады-->				
-			document.getElementById('location_olimp').value=html.location;		<!-- получаем место проведения олмпиады-->				
-			
-			var tip=html.type; <!-- тип пытаюсь получить тип олимпиады-->
-			//alert(tip);
-			//select_type();
-			//do{change();}
-			
-			var str=html.subject;			<!-- получаем предметы олмпиады-->
+			document.getElementById('name_olimp').value=html.name_olympiad;						
+			document.getElementById('location_olimp').value=html.location;						
+			var str=html.subject;			
 			do {
 				var from = str.search('!'); 
 				var to = str.length;
@@ -157,7 +138,7 @@ include ("js/select_subject.js");
 			} while (str.length>0);
 			
 		
-			var str=html.classes;		<!-- получаем классы олмпиады-->	
+			var str=html.classes;			
 			do {
 				var from = str.search(','); 
 				if(from!=-1){
@@ -167,7 +148,7 @@ include ("js/select_subject.js");
 						var ii=str2.substring(0,from2);
 						var i2=str2.substring(from2+1,str2.length);
 					
-					for(var i=Number(ii);i<= Number(i2);i++){ 
+						for(var i=Number(ii);i<= Number(i2);i++){
 							document.getElementById('class_olimp'+i).checked=true;
 					
 						}
@@ -201,7 +182,7 @@ include ("js/select_subject.js");
 			
 		
 			
-			str=html.terms; <!-- получаем селект срок подачи заявки -->
+			str=html.terms;
 			
 		var from = str.search('-'); 
 		var to = str.length;
@@ -219,35 +200,73 @@ include ("js/select_subject.js");
 		var ii=0;
 		var str=html.date;	
 			
-		   flag=true; <!--берет дату этапа но только первого этапа-->
+			/*var from = str.search('!'); 
+			var to = str.length;
+			newstr = str.substring(0,from);
+			str=str.substring(from+1,to);				
+			//document.getElementById('dt1').value=newstr.substring(0, newstr.search(' '));	
+
+				newstr2=newstr;				
+				var from2 = newstr2.search('-'); 
+				var to2 = newstr2.length;
+				//alert(newstr2.substring(0, from2));
+				document.getElementById('year'+1).value=newstr2.substring(0, from2);
+				newstr2=newstr2.substring(from2+1, newstr2.length);
+				
+				
+				create_date2(document.getElementById('number_date').value,newstr);	
+				var from2 = newstr2.search('-'); 
+				var to2 = newstr2.length;
+				document.getElementById('month'+1).value=Number(newstr2.substring(0, from2));
+				
+				newstr2=newstr2.substring(from2+1, newstr2.length);
+				
+				var from2 = newstr2.search(' '); 
+				var to2 = newstr2.length;
+				document.getElementById('day'+1).value=Number(newstr2.substring(0, from2));
+				newstr2=newstr2.substring(from2+1, newstr2.length);
+
+			
+			document.getElementById('1time1').value=newstr.substring(newstr.search(' ')+1, newstr.search(':'));			
+			document.getElementById('2time1').value=newstr.substring(newstr.search(':')+1, newstr.length);			
+			*/
+			flag=true;
 			do {
 				
 				var from = str.search('!'); 
 				var to = str.length;
 				newstr = str.substring(0,from);
 				str=str.substring(from+1,to);	
+				//alert(newstr);
+				//select_subject_activation(newstr,"select_subject")	
 				create_date2(document.getElementById('number_date').value,newstr);	
 				
+			//	document.getElementById('dt'+document.getElementById('number_date').value).value=newstr.substring(0, newstr.search(' '));
+				
 				newstr2=newstr;
+				//str2=newstr.substring(0, newstr.search(' '));
 				
 				var from2 = newstr2.search('-'); 
 				var to2 = newstr2.length;
-			
+				//document.getElementById('day'+document.getElementById('number_date').value).value=10;
+				//alert(from2);
 				document.getElementById('year'+document.getElementById('number_date').value).value=newstr2.substring(0, from2);
 				newstr2=newstr2.substring(from2+1, newstr2.length);
 				
 				var from2 = newstr2.search('-'); 
 				var to2 = newstr2.length;
-			
+				//document.getElementById('day'+document.getElementById('number_date').value).value=10;
+				//alert(from2);
 				document.getElementById('month'+document.getElementById('number_date').value).value=Number(newstr2.substring(0, from2));
 				newstr2=newstr2.substring(from2+1, newstr2.length);
 				
 				var from2 = newstr2.search(' '); 
 				var to2 = newstr2.length;
-			
+				//document.getElementById('day'+document.getElementById('number_date').value).value=10;
+				//alert(newstr2.substring(0, from2));
 				document.getElementById('day'+document.getElementById('number_date').value).value=Number(newstr2.substring(0, from2));
 				newstr2=newstr2.substring(from2+1, newstr2.length);
-		
+				//alert(newstr2);
 				
 				document.getElementById('1time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(' ')+1, newstr.search(':'));			
 				document.getElementById('2time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(':')+1, newstr.length);		
@@ -259,8 +278,8 @@ include ("js/select_subject.js");
 					document.getElementById('btn1').style.opacity=1;
 				}
 				
-					
-			} while (str.length>0); 
+				//document.getElementById('time'+document.getElementById('number_date').value).value=newstr.substring(newstr.search(' ')+1, newstr.length);		
+			} while (str.length>0);
 			
 			
 			document.getElementById('description_olimp').value=html.description;						
@@ -273,6 +292,7 @@ include ("js/select_subject.js");
 	form.number_date.value = "";
 	document.getElementById('Org_olimp').value=<?echo $_SESSION['id'];?>;
 	document.getElementById('org_block').style.display="none";
+	//document.getElementById('class_olimp11').checked=true;
 	
 	
 	/*
@@ -373,14 +393,16 @@ include ("js/select_subject.js");
             el.options[b] = new Option(a == ('month'+id) ? month_name[b] : b + d, b + d);
         }
         el.options[e] && (el.options[e].selected = !0)
-		
+		/*if(a.search('day') != -1){el.options[0] = new Option("дд");}
+		if(a.search('month') != -1){el.options[0] = new Option("мм");}
+		if(a.search('year') != -1){el.options[0] = new Option("гг");}*/
+		//alert(document.getElementById('dt1').value);
 	  
     }
 			
 		set_select("day0", md, 1, "дд");
 		set_select("month0", 12, 1, "мм");
 		set_select("year0", 11, day.getFullYear(), "гг");	
-		
 	function status_chek(){
 		flag=false;
 		for(i=1;i<12;i++){
@@ -396,12 +418,4 @@ include ("js/select_subject.js");
 			document.getElementById('class_olimp1').required=false;
 		}
 	}
-	
-/*function select_type(){
-		if(tip==0){
-			document.getElementById('select_status').value=2;
-		} else {
-			document.getElementById('select_status').value=1;
-		}
-	} */
 </script>

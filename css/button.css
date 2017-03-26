@@ -1,4 +1,4 @@
-x.knopka_retain{            /*кнопка сохранения*/
+.knopka_retain{            /*кнопка сохранения*/
 	display: inline-block;
   color: white;
   width:160px;

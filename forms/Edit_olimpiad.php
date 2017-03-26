@@ -406,12 +406,12 @@ function select_type(){ //функция меняет положение сел�
 			document.getElementById('knopka_retain1').style.display="none"; 
 			hide_date();
 			hide_place();
-			//document.getElementById('select_status').value=html.type;
+			document.getElementById('select_status').value=html.type;
 			
 		} else {
 			document.getElementById('knopka_retain0').style.display="block";
 			document.getElementById('knopka_retain1').style.display="block";
-			//document.getElementById('select_status').value=html.type;
+			document.getElementById('select_status').value=html.type;
 			
 		}
 	}

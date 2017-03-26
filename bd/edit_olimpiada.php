@@ -90,13 +90,15 @@ $date_application=$_POST["year0"]."-".str_pad($_POST["month0"], 2, '0', STR_PAD_
 //if (isset($_POST['select_subject'])) { $select_subject = $_POST['select_subject']; if ($select_subject == '') { unset($select_subject);} }
 // файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
 //mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$dt1','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')",$db);
-if($number_date==0){
-	$number_date=1;
-}
 
 if (isset($_POST['number_date'])) { $number_date = $_POST['number_date']; if ($number_date == '') { unset($number_date);} }
 $id=$id_o;
 
+if($number_date==0){
+	$number_date=1;
+}
+
+if($number_date==1) { //всего один этап
 //этот один этап
 $date_time = '';
 $stages = '';
@@ -110,8 +112,7 @@ $time2 = $_POST["2tm1"];
 $time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
 $date_time = $_POST["year1"]."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT)." ".$time3."!";
 $location_olimp = $_POST["place1"];
-if($number_date==1) { //всего один этап
-mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')WHERE id='$id_o'");
+//mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp')WHERE id='$id_o'");
 } 
 
 else { //БОЛЬШЕ одного этапа
@@ -119,54 +120,49 @@ else { //БОЛЬШЕ одного этапа
 	
 if($kol==$number_date){ //если колво старых этапов и новых СОВПАДАЕТ
 //первый этап	
+$time = $_POST["tm1"];
+$time1 = $_POST["1tm1"];
+$time2 = $_POST["2tm1"];
+$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
+$date_time = $_POST["year1"]."-".str_pad($_POST["month1"], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day1"], 2, '0', STR_PAD_LEFT)." ".$time3."!";
+$location_olimp = $_POST["place1"];
 mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp') WHERE id='$id_o'");
-
-for($i=0; $i<=$number_date; $i++){ //number_date тут же по сути это кол-во стэйджей, начинаем с нуля 
-		$j=$i+2;
-		$time = $_POST["tm".$j];
-		$time1 = $_POST["1tm".$j];
-		$time2 = $_POST["2tm".$j];
+	//формируем все последующие этапы в цикле
+	for($i=2; $i<=$number_date; $i++){
+		$time = $_POST["tm".$i];
+		$time1 = $_POST["1tm".$i];
+		$time2 = $_POST["2tm".$i];
 		$time3 = str_pad($time1, 2, '0', STR_PAD_LEFT).":".str_pad($time2, 2, '0', STR_PAD_LEFT);
-		$date_time = $_POST["year".$j]."-".str_pad($_POST["month".$j], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$j], 2, '0', STR_PAD_LEFT)." ".$time3."!";
-		$location_olimp = $_POST["place".$j];
-		//$isChild = $parent_id;
-		//$proc = "stage";
-		//$name_st = $name_olimp." - ".$j." этап";
+		$date_time = $_POST["year".$i]."-".str_pad($_POST["month".$i], 2, '0', STR_PAD_LEFT)."-".str_pad($_POST["day".$i], 2, '0', STR_PAD_LEFT)." ".$time3."!";
+		$location_olimp = $_POST["place".$i];
+		$isChild = $parent_id;
+		$proc = "stage";
+		$name_st = $name_olimp." - ".$i." этап";
+		if ($i>2){ //ид предыдущего этапа
+			$id_prev=$id_now;
+		} else $id_prev=mysql_insert_id();
 		
-		mysql_query("UPDATE olympics (name_olympiad, date, location, classes, terms, description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp') WHERE id='$nextStage[$i]'");
-	}
-	
-
-
-
-
-
-
-
+		mysql_query ("INSERT INTO olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id, IsChild,process) VALUES('$name_st','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp','$isChild','$proc')",$db);
+		$id_now=mysql_insert_id(); //ид нынешнего этапа, который только что добавили
+		
+		if ($i>2) { //апдейтим поле nextStage у предыдущего этапа (чтобы он указывал на только что созданный)
+			mysql_query("UPDATE olympics SET nextStage='$id_now' WHERE id='$id_prev'");
+		}
+		
+		$st_parent .= $id_now."!"; //а для родителя формируем строку, где указаны ВСЕ следующие этапы
+}
+mysql_query("UPDATE olympics SET nextStage='$st_parent' WHERE id='$parent_id'"); //апдейтим поле nextStage у родителя
 }
 
 if($kol<$number_date){ //этапов стало БОЛЬШЕ
-//первый этап	
-mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp') WHERE id='$id_o'");
-
-
-
-
-
-
+$id=mysql_insert_id(); //сохраняем ид родителя 
+$parent_id = $id;
+mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp') WHERE id='$id_prev'");
 
 
 }
 
 if($kol>$number_date){ //этапов стало МЕНЬШЕ
-//первый этап	
-mysql_query ("UPDATE olympics (name_olympiad, date, location,classes, terms,description, subject,professor_users_id) VALUES('$name_olimp','$date_time','$location_olimp','$class_string', '$date_application','$description_olimp','$subject','$Org_olimp') WHERE id='$id_o'");
-
-
-
-
-
-
 
 
 

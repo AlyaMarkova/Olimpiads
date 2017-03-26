@@ -328,6 +328,9 @@ body {
    text-align: center;
    padding: 7px 10px 8px 10px;
 }
+#div_none{
+	display: none;
+}
 #knopka1{
    height:14px;
    width: 50px;
@@ -481,6 +484,7 @@ body {
 #right_cont{
 	margin-top: 28px;
     width: 377.633px;
+	height: 582px;
 	min-height: 500px;
 	background: #91CEF1;
 	float: right;

@@ -284,8 +284,6 @@ window.onload = function () {
 		if(document.getElementById('number_place').value>1) {
 			while(document.getElementById('number_place').value>1) {
 				delete_button3('p1_elem'+document.getElementById('number_place').value);
-				/*document.getElementById('number_place').value=document.getElementById('number_place').value-1;
-				document.getElementById('number_place').value++;*/
 			}
 		}
 	}

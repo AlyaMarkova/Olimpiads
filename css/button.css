@@ -327,7 +327,7 @@ label#school_lk{
 
     margin-top: -37px;
     margin-left: 214px;
-    display: -webkit-box;
+    display: inline-table;
     width: 532px;
 }
 .lk_schoolboy{   /*блоки вокруг текста*/

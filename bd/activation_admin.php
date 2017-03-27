@@ -3,7 +3,7 @@
 	include ("../bd.php");
 	$id=$_GET['id'];
 	$num=$_POST['numact'];
-	echo $_POST['delivery'];
+	//echo $_POST['delivery'];
 	$rights = mysql_fetch_array(mysql_query("SELECT rights FROM users WHERE id='$id'"));
 	
 	if ($rights['rights'] == 1) 
@@ -22,5 +22,5 @@
 	
 	mysql_query ("UPDATE users SET activation='$num' WHERE id='$id'");
 	
-	header('Location: ../confirmation_user.php');
+	exit("<html><head><meta http-equiv='Refresh' content='0; URL=../confirmation_user.php'></head></html>");
 ?>

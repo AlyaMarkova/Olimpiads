@@ -20,7 +20,6 @@ session_start();
 			<div id="left_cont">
 				<div id="content">
 					<?php
-
 						include ("forms/confirmation_user_form.php");
 					?>
 				</div>

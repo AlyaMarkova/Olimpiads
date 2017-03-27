@@ -131,9 +131,7 @@ else{
 		if ($bool){
 			$activation = md5($id_select_user).md5($login);//код активации аккаунта. Зашифруем    через функцию md5 идентификатор и логин. Такое сочетание пользователь вряд ли    сможет подобрать вручную через адресную строку.
 			$subject = "Подтверждение регистрации";//тема сообщения
-			$message = "Здравствуйте! Спасибо за регистрацию на olimpiada.ru\nВаш логин:    ".$login."\n
-			Перейдите    по ссылке, чтобы активировать ваш    аккаунт:\nhttp://olimp/bd/activation.php?login=".$login."&code=".$activation."\nС    уважением,\n
-			Администрация    olimpiada.ru";//содержание сообщение
+			$message = "Здравствуйте!\nСпасибо за регистрацию на olimpiada.ru\nВаш логин: ".$login."\nПерейдите по ссылке, чтобы активировать ваш аккаунт:\nhttp://olimp/bd/activation.php?login=".$login."&code=".$activation."\nС уважением,\nАдминистрация olimpiada.ru";//содержание сообщение
 			mail($email,    $subject, $message, "Content-type:text/plane;    Charset=windows-1251\r\n");//отправляем сообщение
 			// Проверяем, есть ли ошибки
 			if ($result2=='TRUE') {	

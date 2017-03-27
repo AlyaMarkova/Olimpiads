@@ -31,7 +31,9 @@
 			for($i=0;$i<$n;$i++){
 				$myrow=mysql_fetch_array($result);
 				$user_id=$myrow['schoolboy_users_id'];
-				mysql_query("INSERT INTO schoolboy_past_olympics VALUES('$id_stages[$id_stage]','$user_id',0,0)");
+				$n_past=mysql_num_rows(mysql_query("SELECT * FROM  schoolboy_past_olympics WHERE olympics_id='$id_stages[$id_stage]' AND schoolboy_users_id='$user_id'"));
+				if ($n_past = 0) 
+					mysql_query("INSERT INTO schoolboy_past_olympics VALUES('$id_stages[$id_stage]','$user_id',0,0)");
 			}
 		}
 	}

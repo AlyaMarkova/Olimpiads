@@ -98,7 +98,7 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 </div>
 
 <div id="next_st" style="display:none">
-<p><label id="nextStage">Итоговый балл для перехода на следующий этап: </label><input id="range_stage" type="number" min="0" value="<?php echo $myrow2['rangeStage']?>"></p>
+<p><label id="nextStage">Пороговый балл: </label><input id="range_stage" type="number" min="0" value="<?php echo $myrow2['rangeStage']?>"></p>
 </div>
 
 <div style="margin-top:30px;" class="button_all">

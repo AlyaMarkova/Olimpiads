@@ -15,7 +15,19 @@
 .knopka_retain:hover { background:#0067b1; } /* при наведении курсора мышки */
 .knopka_retain:active { background:#0067b1; } /* при нажатии */
 .knopka_retain:hover {cursor: pointer}
-
+.lk_div_top {
+    width: 724px;
+    text-align: left;
+    padding: 10px 0 0 15px;
+    margin-bottom: 28px;
+    background: #0066b3;
+    color: #ffffff;
+    display: inline-block;
+    color: linear-gradient(#0066b3, #0066b3);
+    font-size: 25px;
+    text-align: center;
+	margin-top: -18px;
+}
 .knopka_retain1{            /*кнопка сохранения*/
   display: inline-block;	/*хочу сказать, что СЛОЖНАААА (С) Аля*/
   color: white;

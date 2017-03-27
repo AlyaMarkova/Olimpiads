@@ -27,8 +27,7 @@
 <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
 
 <div class="cont">
-	<div id="name_olymp_rezult">
-		<label id="name_olymp_rezult"></label>
+	<div class="lk_div_top" id="name_olymp_rezult_1">
 	</div>
     <table id="table_reiting">
 		<thead id="table_reiting_thead">
@@ -133,7 +132,7 @@ for($c=0, $arr_l=count($row3); $c<=$arr_l; $c++){
 			arr_rating=html.rating_mark;
 			arr_place=html.place;
 			
-			document.getElementById('name_olymp_rezult').innerHTML=html.name_olymp_rezult;
+			document.getElementById('name_olymp_rezult_1').innerHTML=html.name_olymp_rezult;
 			
 			var schoolboy_users_id =html.schoolboy_users_id;
 			var rating_mark =html.rating_mark;	
